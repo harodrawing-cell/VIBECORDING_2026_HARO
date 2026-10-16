@@ -151,3 +151,35 @@ desktopLayout.addEventListener('change', () => {
     setMegaMenuOpen(false);
     setMobileMenuOpen(false);
 });
+
+/* --- 세계의 패션쇼 Swiper --- */
+const fashionWeeksSlider = document.querySelector('.fashion-weeks-slider');
+
+if (fashionWeeksSlider) {
+    new Swiper(fashionWeeksSlider, {
+        loop: true,
+        loopAdditionalSlides: 7,
+        slidesPerView: 1.2,
+        spaceBetween: 20,
+        grabCursor: true,
+        speed: 600,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: true,
+            pauseOnMouseEnter: true
+        },
+        navigation: {
+            nextEl: '.fashion-weeks-next',
+            prevEl: '.fashion-weeks-prev'
+        },
+        pagination: {
+            el: '.fashion-weeks-pagination',
+            clickable: true
+        },
+        breakpoints: {
+            480: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1200: { slidesPerView: 4 }
+        }
+    });
+}

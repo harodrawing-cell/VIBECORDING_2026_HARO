@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Fashion 404 | Designer Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,24 +35,28 @@
         <nav class="mega-menu" id="mega-menu" aria-label="Submenu navigation">
             <div class="mega-menu-inner">
                 <ul class="mega-menu-column">
+                    <li class="mega-menu-title"><a href="#home">Home</a></li>
                     <li><a href="#home">New Arrivals</a></li>
                     <li><a href="#home">Brand Story</a></li>
                     <li><a href="#home">Season Highlights</a></li>
                     <li><a href="#home">Designer Notes</a></li>
                 </ul>
                 <ul class="mega-menu-column">
+                    <li class="mega-menu-title"><a href="#show">Show</a></li>
                     <li><a href="#show">Runway Shows</a></li>
                     <li><a href="#show">2026 Collection</a></li>
                     <li><a href="#show">Fashion Week</a></li>
                     <li><a href="#show">Behind the Scenes</a></li>
                 </ul>
                 <ul class="mega-menu-column">
+                    <li class="mega-menu-title"><a href="#gallery">Gallery</a></li>
                     <li><a href="#gallery">Editorials</a></li>
                     <li><a href="#gallery">Lookbook</a></li>
                     <li><a href="#gallery">Street Style</a></li>
                     <li><a href="#gallery">Archive</a></li>
                 </ul>
                 <ul class="mega-menu-column">
+                    <li class="mega-menu-title"><a href="#community">Community</a></li>
                     <li><a href="#community">News &amp; Stories</a></li>
                     <li><a href="#community">Events</a></li>
                     <li><a href="#community">Collaborations</a></li>
@@ -133,6 +138,75 @@
                 </article>
             </div>
         </section>
+
+        <section class="fashion-weeks-section" aria-labelledby="fashion-weeks-title">
+            <div class="fashion-weeks-container">
+                <div class="fashion-show-heading">
+                    <div>
+                        <h2 id="fashion-weeks-title">WORLD FASHION SHOWS</h2>
+                        <p>도시마다 다른 감각으로 펼쳐지는 세계 패션의 무대</p>
+                    </div>
+                    <div class="fashion-weeks-navigation" aria-label="슬라이드 이동">
+                        <button class="fashion-weeks-prev" type="button" aria-label="이전 패션쇼"></button>
+                        <button class="fashion-weeks-next" type="button" aria-label="다음 패션쇼"></button>
+                    </div>
+                </div>
+                <div class="swiper fashion-weeks-slider">
+                    <div class="swiper-wrapper">
+                        <article class="swiper-slide fashion-week-card">
+                            <img src="https://picsum.photos/seed/fashion1/600/800" alt="파리 패션위크 런웨이" loading="lazy">
+                            <div class="fashion-week-info">
+                                <h3>파리 패션위크</h3>
+                                <p>파리 <span>·</span> 2월 / 9월</p>
+                            </div>
+                        </article>
+                        <article class="swiper-slide fashion-week-card">
+                            <img src="https://picsum.photos/seed/fashion2/600/800" alt="밀라노 패션위크 런웨이" loading="lazy">
+                            <div class="fashion-week-info">
+                                <h3>밀라노 패션위크</h3>
+                                <p>밀라노 <span>·</span> 2월 / 9월</p>
+                            </div>
+                        </article>
+                        <article class="swiper-slide fashion-week-card">
+                            <img src="https://picsum.photos/seed/fashion3/600/800" alt="뉴욕 패션위크 런웨이" loading="lazy">
+                            <div class="fashion-week-info">
+                                <h3>뉴욕 패션위크</h3>
+                                <p>뉴욕 <span>·</span> 2월 / 9월</p>
+                            </div>
+                        </article>
+                        <article class="swiper-slide fashion-week-card">
+                            <img src="https://picsum.photos/seed/fashion4/600/800" alt="런던 패션위크 런웨이" loading="lazy">
+                            <div class="fashion-week-info">
+                                <h3>런던 패션위크</h3>
+                                <p>런던 <span>·</span> 2월 / 9월</p>
+                            </div>
+                        </article>
+                        <article class="swiper-slide fashion-week-card">
+                            <img src="https://picsum.photos/seed/fashion5/600/800" alt="서울 패션위크 런웨이" loading="lazy">
+                            <div class="fashion-week-info">
+                                <h3>서울 패션위크</h3>
+                                <p>서울 <span>·</span> 3월 / 9월</p>
+                            </div>
+                        </article>
+                        <article class="swiper-slide fashion-week-card">
+                            <img src="https://picsum.photos/seed/fashion6/600/800" alt="도쿄 패션위크 런웨이" loading="lazy">
+                            <div class="fashion-week-info">
+                                <h3>도쿄 패션위크</h3>
+                                <p>도쿄 <span>·</span> 3월 / 8월</p>
+                            </div>
+                        </article>
+                        <article class="swiper-slide fashion-week-card">
+                            <img src="https://picsum.photos/seed/fashion7/600/800" alt="상하이 패션위크 런웨이" loading="lazy">
+                            <div class="fashion-week-info">
+                                <h3>상하이 패션위크</h3>
+                                <p>상하이 <span>·</span> 3월 / 10월</p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="fashion-weeks-pagination" aria-label="패션쇼 슬라이드 페이지"></div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -152,6 +226,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
