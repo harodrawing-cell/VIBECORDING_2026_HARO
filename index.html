@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark"> <!-- 기본 테마 dark 설정 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Fashion 404 | Designer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo"><a href="#">FASHION <span class="accent-pink">404</span></a></h1>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#show">Show</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#community">Community</a></li>
+                </ul>
+                <!-- 테마 토글 버튼 -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 배너 슬라이더 파트 -->
+        <section class="banner-slider" id="mainSlider">
+            <div class="slider-wrapper">
+                <div class="slide active" style="background-image: linear-gradient(var(--overlay), var(--overlay)), url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80');">
+                    <div class="banner-content">
+                        <span class="sub-txt">2024 NEW COLLECTION</span>
+                        <h2>BEYOND THE <span class="accent-pink">LIMIT</span></h2>
+                        <p>경계를 허무는 패션의 새로운 패러다임</p>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: linear-gradient(var(--overlay), var(--overlay)), url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1600&q=80');">
+                    <div class="banner-content">
+                        <span class="sub-txt">STREET CYBERPUNK</span>
+                        <h2>URBAN <span class="accent-blue">GLITCH</span></h2>
+                        <p>도시의 소음과 빛을 담아낸 감각적인 스트릿 웨어</p>
+                    </div>
+                </div>
+                <div class="slide" style="background-image: linear-gradient(var(--overlay), var(--overlay)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80');">
+                    <div class="banner-content">
+                        <span class="sub-txt">MINIMALIST ART</span>
+                        <h2>PURE <span class="accent-pink">SILHOUETTE</span></h2>
+                        <p>절제된 선과 면이 만들어내는 압도적인 우아함</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+
+        <!-- 이벤트 카드 영역 -->
+        <section class="event-section container">
+            <h3 class="section-title">UPCOMING <span class="accent-pink">EVENTS</span></h3>
+            <div class="card-grid">
+                <article class="card">
+                    <div class="card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Runway">
+                        <div class="tag pink-bg">NEW SHOW</div>
+                    </div>
+                    <div class="card-body">
+                        <h4>2024 F/W Runway</h4>
+                        <p>패션위크에서 공개되는 404의 정체성을 담은 런웨이 컬렉션.</p>
+                        <a href="#" class="view-btn">LEARN MORE</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=800&q=80" alt="Store">
+                        <div class="tag blue-bg">POP-UP</div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Archive Concept Store</h4>
+                        <p>성수동 아카이브 빌딩에서 진행되는 한정판 아이템 팝업 스토어.</p>
+                        <a href="#" class="view-btn">LEARN MORE</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80" alt="Atelier">
+                        <div class="tag pink-bg">COMMUNITY</div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Designer's Atelier</h4>
+                        <p>디자이너와 함께하는 드로잉 세션 및 소재 개발 비하인드 토크.</p>
+                        <a href="#" class="view-btn">LEARN MORE</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-wrap">
+                <div class="footer-logo">FASHION <span class="accent-pink">404</span></div>
+                <div class="footer-info">
+                    <address>
+                        <p><strong>Fashion 404 Studio</strong></p>
+                        <p>대표: 김디자이너 | 사업자번호: 404-12-34567</p>
+                        <p>서울특별시 강남구 논현로 404 빌딩 4F</p>
+                        <p>Email: info@fashion404.com | SNS: @fashion404</p>
+                    </address>
+                    <p class="copy">&copy; 2024 Fashion 404. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
