@@ -88,3 +88,66 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e =
         htmlEl.setAttribute('data-theme', newSystemTheme);
     }
 });
+
+/* --- 메가 메뉴 및 모바일 내비게이션 --- */
+const siteHeader = document.querySelector('.site-header');
+const primaryNav = document.querySelector('.primary-nav');
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelectorAll('.nav-menu a');
+const desktopLayout = window.matchMedia('(min-width: 769px)');
+
+function setMegaMenuOpen(isOpen) {
+    siteHeader.classList.toggle('is-mega-menu-open', isOpen);
+    navLinks.forEach(link => link.setAttribute('aria-expanded', String(isOpen)));
+}
+
+function setMobileMenuOpen(isOpen) {
+    siteHeader.classList.toggle('mobile-nav-open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+}
+
+primaryNav.querySelector('.nav-menu').addEventListener('pointerenter', () => {
+    if (desktopLayout.matches) setMegaMenuOpen(true);
+});
+
+siteHeader.addEventListener('focusin', event => {
+    if (desktopLayout.matches && event.target.closest('.nav-menu a, .mega-menu a')) {
+        setMegaMenuOpen(true);
+    }
+});
+
+siteHeader.addEventListener('pointerleave', () => {
+    if (!siteHeader.contains(document.activeElement)) setMegaMenuOpen(false);
+    setMobileMenuOpen(false);
+});
+
+siteHeader.addEventListener('focusout', event => {
+    if (!siteHeader.contains(event.relatedTarget)) {
+        setMegaMenuOpen(false);
+        setMobileMenuOpen(false);
+    }
+});
+
+menuToggle.addEventListener('click', () => {
+    setMobileMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
+});
+
+primaryNav.querySelector('.nav-menu').addEventListener('click', event => {
+    if (event.target.closest('a') && !desktopLayout.matches) setMobileMenuOpen(false);
+});
+
+document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+
+    setMegaMenuOpen(false);
+    if (siteHeader.classList.contains('mobile-nav-open')) {
+        setMobileMenuOpen(false);
+        menuToggle.focus();
+    }
+});
+
+desktopLayout.addEventListener('change', () => {
+    setMegaMenuOpen(false);
+    setMobileMenuOpen(false);
+});
