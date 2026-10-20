@@ -1,14 +1,195 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
+    <title>산리오코리아 홍홍</title>
     <meta charset="UTF-8">
+    <!-- 인터널스타일시트(internal style sheet) -->
+    <!-- 상단영역 스타일 (Top Area Styles) -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>산리오코리아</title>
+
     <style>
+        /* 웹포트 로딩하기(CDN방식)
+        CDN은 Content Delivery Network 즉, 네크워크 망으로
+        컨텐트를 배달시켜 쓰는 방식 */
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic&display=swap');
+
+        @import url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.css');
+
+        /* 전체 루트 설정 */
+
+        html {
+            /* rem단위를 위한 Root 글자크기설정 */
+            font-size: 10px;
+            /* 왜 10px인가? rem단위에 계산이 용이함!*/
+        }
+
+        html,
+        body {
+            /* 웹포트체 지정 (콤마는 우선순위) */
+            font-family: Montserrat, NanumBarunGothic, Dotum, sans-serif;
+        }
+
+        /* 공통요소 초기화 */
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+
+
+        .top-inner {
+            max-width: 1440px;
+            /* 최대 너비 지정 */
+            margin: 0 auto;
+            /* 가운데 정렬 */
+            display: flex;
+            /* 가로 레이아웃을 위한 flex 사용 */
+            align-items: center;
+            /* 세로 중앙 정렬 */
+            justify-content: space-between;
+            /* 양끝 정렬 */
+            height: 90px;
+            /* 높이 지정 */
+        }
+
+        .logo-box {
+            flex: 0 0 auto;
+            /* 크기가 고정된 flex 아이템 */
+        }
+
+        .logo-box img {
+            height: 56px;
+            /* 로고 이미지 높이 고정 */
+        }
+
+        .menu-list {
+            flex: 0 0 auto;
+            /* 크기 고정 */
+            display: flex;
+            /* 가로로 나열 */
+            gap: 48px;
+            /* 메뉴 아이템 간 간격 */
+            list-style: none;
+            /* 기본 리스트 마커 제거 */
+            padding: 0;
+            /* 패딩 제거 */
+            margin: 0;
+            /* 마진 제거 */
+            font-size: 1.6rem;
+            /* 폰트 크기 */
+
+        }
+
+        .menu-list li a {
+            color: inherit;
+            /* 글자색 상속 */
+            text-decoration: none;
+            /* 밑줄 제거 */
+            text-transform: uppercase;
+            /* 대문자 변환 */
+        }
+
+
+
+
+
         /* .site-box > * > * { max-width: 1440px; margin: 0 auto; } */
         .header-area,
-        .footer-area { background: #f1f1f1; padding: 20px; }
-        .main-area { padding: 20px; }
+        .footer-area {
+            background: #f1f1f1;
+            padding: 20px;
+        }
+
+        .main-area {
+            padding: 20px;
+        }
+
         .banner-area,
         .character-area,
         .company-area,
@@ -19,46 +200,172 @@
             padding: 16px;
             border: 1px dashed #ccc;
         }
-        .header-area .logo-box img { height: 48px; }
-        .header-area > div {
+
+        .header-area .logo-box img {
+            height: 48px;
+        }
+
+        .header-area>div {
             max-width: 1440px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
+
         .header-menu-nav ul {
             display: flex;
             gap: 32px;
             list-style: none;
             margin: 0;
             padding: 0;
-            font-size: 18px;
+            font-size: 16px;
         }
+
         .header-menu-nav a {
             text-decoration: none;
             color: inherit;
         }
+
+
+
+
+
+
         /* 배너 영역 스타일 */
         .banner-area {
+            position: relative;
             background: url('./image/main_visual_bg.jpg') repeat 0 0/50px;
             padding: 80px;
+            padding-bottom: 160px;
 
         }
+
+        /* 배경스타일 사용법:
+                  background: 색 이 반 고 윙/크
+                  background: 배경색 이미지 반복 고정 위치/크기 */
+
         .banner-area .banner-content {
+            text-align: center;
+            /* display: flex; */
+            /* justify-content: center; */
+            /* align-items: center; */
             max-width: 1440px;
             margin: 0 auto;
         }
+
+
+
+
+
+
+
         .banner-area .banner-img-wrapper {
             display: inline-block;
         }
+
+
+
+
+
+
+        /* 메인 비주얼 이미지 스타일 */
         .banner-area .banner-img-wrapper img {
             /* display: block; */
             width: 984px;
             max-width: 100%;
         }
+
+
+        /* SNS 이동버튼 박스 스타일 */
+        .sns {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 50px;
+            right: 50px;
+        }
+
+        .logo-box {
+            margin: 0;
+        }
+
+        /* 스크롤 유도 박스 */
+        .scroll_btn {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            translate: -50%;
+            width: 79px;
+            height: 70px;
+
+            /* outline: 2px solid blue; */
+        }
+
+        /* 마우스 글자박스 */
+        .scroll_btn p {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 1rem;
+            /* outline: 1px solid red; */
+        }
+
+        /* 움직일 대상 마우스 */
+
+        .scroll_btn .mouse {
+            position: absolute;
+            left: 50%;
+            translate: -50%;
+            top: 0px;
+            display: block;
+            width: 26px;
+            height: 36px;
+            border: 1px solid #222;
+            border-radius: 15px;
+
+             /* 애니메이션 호출 : (이시이지반방마)
+        이름 시간 이징 지연시간 반복 방향 마지막상태 */
+
+        animation: mouse-ani 0.9s ease-in-out infinite alternate;
+
+        }
+
+       
+        /* 마우스 애니메이션 키프레임 */
+
+        @keyframes mouse-ani {
+            form {
+                top: 0;
+            }
+
+            to {
+                top: 15px;
+            }
+        }
+
+        .scroll_btn .mouse span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            width: 5px;
+            height: 5px;
+            background-color: #222;
+            border-radius: 50%;
+        }
     </style>
+
+
+
+
+
+
+
 </head>
+
 <body>
     <main class="site-box">
         <!-- Header -->
@@ -78,15 +385,17 @@
             </div>
         </header>
 
+        <!-- 2. 메인영역 -->
         <!-- Main Content -->
         <div class="main-area">
+
+            <!-- 2-1. 배너영역 -->
             <!-- Banner Section -->
             <style>
-                .banner-content {
-                    display: flex;
-                    justify-content: center;
-                    padding: 80px;
-                }
+                /* 배너 내용 영역 */
+
+
+                /* SNS 이동버튼 박스 스타일 */
                 .sns {
                     display: flex;
                     flex-direction: column;
@@ -94,26 +403,44 @@
                     top: 50px;
                     right: 50px;
                 }
-                .logo-box {
-                    margin: 0;
+
+                .scroll_btn {
+                    position: absolute;
+                    bottom: 50px;
+                    left: 50%;
+                    translate: -50%;
+
+                    width: 79px;
+                    height: 70px;
+                    /* outline: 2px solid blue; */
                 }
             </style>
-     
+
             <section class="banner-area">
                 <div class="banner-content" style="display: flex; justify-content: center; padding: 80px;">
                     <div class="banner-img-wrapper">
                         <img src="./image/main_visual_pc_v1.png" alt="산리오코리아 메인 비주얼">
                     </div>
- 
-                
+
+
                 </div>
+
+
+
                 <!--SNS 이동버튼박스 -->
 
-                <div class="sns"style="display: flex;flex-direction: column;position: absolute;top:50px;right:50px;">
-                 <a href="https://www.instagram.com/sanrio_kr/" target="_blank"><img src="./image/i_ins_pc_v3.png" alt="instargram"></a>
-                 <a href="https://www.youtube.com/c/sanriokorea/featured" target="_blank"><img src="./image/i_you_pc_v3.png" alt="youtube"></a>
+                <div class="sns" style="display: flex;flex-direction: column;position: absolute;top:50px;right:50px;">
+                    <a href="https://www.instagram.com/sanrio_kr/" target="_blank"><img src="./image/i_ins_pc_v3.png"
+                            alt="instargram"></a>
+                    <a href="https://www.youtube.com/c/sanriokorea/featured" target="_blank"><img
+                            src="./image/i_you_pc_v3.png" alt="youtube"></a>
                 </div>
 
+                <!-- 스크롤 유도 애니박스 -->
+                <div class="scroll_btn">
+                    <span class="mouse"><span></span></span>
+                    <p>scroll down</p>
+                </div>
 
             </section>
             <!-- Character Section -->
@@ -148,4 +475,5 @@
         </footer>
     </main>
 </body>
+
 </html>
