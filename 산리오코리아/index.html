@@ -220,6 +220,8 @@
             margin: 0;
             padding: 0;
             font-size: 16px;
+            text-transform: uppercase;
+
         }
 
         .header-menu-nav a {
@@ -323,17 +325,18 @@
             display: block;
             width: 26px;
             height: 36px;
+            background-color: #fff;
             border: 1px solid #222;
             border-radius: 15px;
 
-             /* 애니메이션 호출 : (이시이지반방마)
+            /* 애니메이션 호출 : (이시이지반방마)
         이름 시간 이징 지연시간 반복 방향 마지막상태 */
 
-        animation: mouse-ani 0.9s ease-in-out infinite alternate;
+            animation: mouse-ani 0.9s ease-in-out infinite alternate;
 
         }
 
-       
+
         /* 마우스 애니메이션 키프레임 */
 
         @keyframes mouse-ani {
@@ -348,18 +351,48 @@
 
         .scroll_btn .mouse span {
             position: absolute;
-            top: 50%;
+            top: 27%;
             left: 50%;
             translate: -50% -50%;
             width: 5px;
             height: 5px;
             background-color: #222;
             border-radius: 50%;
+            opacity: 0;
+
+            /* span 애니메이션: opacity와 top 값 변화 */
+
+            animation: mouse-span-ani 1.5s linear infinite;
+        }
+
+
+        @keyframes mouse-span-ani {
+            0% {
+                opacity: 0;
+                top: 27%;
+            }
+
+            10% {
+                opacity: 1;
+                top: 27%;
+            }
+
+            60% {
+                opacity: 1;
+                top: 50%;
+            }
+
+            70% {
+                opacity: 0;
+                top: 50%;
+            }
+
+            100% {
+                opacity: 0;
+                top: 50%;
+            }
         }
     </style>
-
-
-
 
 
 
@@ -428,6 +461,13 @@
 
 
                 <!--SNS 이동버튼박스 -->
+                <style>
+                    .sns img {
+                        width: 40px;
+                        height: 40px;
+                    }
+                </style>
+
 
                 <div class="sns" style="display: flex;flex-direction: column;position: absolute;top:50px;right:50px;">
                     <a href="https://www.instagram.com/sanrio_kr/" target="_blank"><img src="./image/i_ins_pc_v3.png"
@@ -442,10 +482,19 @@
                     <p>scroll down</p>
                 </div>
 
+
             </section>
-            <!-- Character Section -->
+
+            <!-- 2-2. 캐릭터영역 -->
             <section class="character-area">
-                <!-- 캐릭터영역 내용은 여기에 -->
+                <!-- 캐릭터영역 내용 -->
+                <div class="tit-box">
+                    <h2 class="part-tit"></h2>
+                    <div class="btn-box">
+                      <a href="#" class="btn-view"></a>
+                    </div>
+                  </div>
+
             </section>
 
             <!-- Company Section -->
