@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion 404</title>
+    <style>
+        /* --- Global Styling & Theme Setup --- */
+        :root {
+            --color-black: #121212;
+            --color-hotpink: #FF69B4; /* Hot Pink */
+            --color-darkblue: #000080; /* Dark Blue */
+            --color-text: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif; /* Placeholder for a more stylish font */
+            background-color: var(--color-black);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-text);
+        }
+
+        a:hover {
+            color: var(--color-hotpink);
+        }
+
+        /* --- 1. Header Area --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: var(--color-black);
+            border-bottom: 1px solid rgba(255, 105, 180, 0.2); /* Subtle pink accent */
+        }
+
+        .logo h1 {
+            font-size: 2.5em;
+            letter-spacing: 5px;
+            color: var(--color-hotpink);
+            text-transform: uppercase;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu ul li {
+            margin-left: 30px;
+        }
+
+        .menu ul li a {
+            font-size: 1.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .menu ul li a:hover {
+            color: var(--color-darkblue); /* Dark blue on hover for contrast */
+        }
+
+        /* --- 2. Main Body Area (3-Column Cards) --- */
+        .main-content {
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .event-title {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--color-hotpink);
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--color-darkblue);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .card {
+            flex: 1; /* Ensures equal width distribution */
+            background-color: #1e1e1e; /* Slightly lighter black for card depth */
+            border: 1px solid rgba(255, 105, 180, 0.3);
+            padding: 25px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.5); /* Hotpink glow effect */
+        }
+
+        .card h3 {
+            color: var(--color-hotpink);
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .card-image-placeholder {
+            height: 200px; /* Placeholder height */
+            background-color: var(--color-darkblue);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: white;
+        }
+
+        /* --- 3. Footer Area --- */
+        footer {
+            background-color: #0a0a0a;
+            padding: 30px 5%;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 128, 0.3);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo h2 {
+            font-size: 1.8em;
+            color: var(--color-darkblue);
+            text-transform: uppercase;
+        }
+
+        .footer-info p {
+            font-size: 0.9em;
+            color: #888;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. 상단영역 (로고, 메뉴리스트) -->
+    <header>
+        <div class="logo">
+            <h1>Fashion 404</h1>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#show">Show</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#community">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. 메인영역 (이벤트 카드 3단 구성) -->
+    <main class="main-content">
+        <h2 class="event-title">Featured Events</h2>
+        
+        <div class="card-container">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-image-placeholder">Event Image Placeholder</div>
+                <h3>Spring/Summer Collection Launch</h3>
+                <p>Check out the latest avant-garde collection from our designer. A blend of dark elegance and vibrant accents.</p>
+                <a href="#" style="color: var(--color-hotpink); margin-top: 10px; display: inline-block;">View Details &rarr;</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-image-placeholder">Event Image Placeholder</div>
+                <h3>Fashion Show Night</h3>
+                <p>An exclusive runway event featuring the designer's newest silhouettes. Tickets available now.</p>
+                <a href="#" style="color: var(--color-hotpink); margin-top: 10px; display: inline-block;">RSVP Now &rarr;</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-image-placeholder">Event Image Placeholder</div>
+                <h3>Design Workshop Series</h3>
+                <p>Learn the secrets of bespoke tailoring from the creator herself. Limited spots available!</p>
+                <a href="#" style="color: var(--color-hotpink); margin-top: 10px; display: inline-block;">Register Here &rarr;</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 3. 하단영역 (하단로고, 회사정보) -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Fashion 404</h2>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2024 Fashion 404. All rights reserved.</p>
+                <p>Designer Portfolio | Contact: designer@fashion404.com</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
