@@ -118,7 +118,7 @@
         }
 
         .main-area {
-            padding: 20px;
+            /* padding: 20px; */
         }
 
         .banner-area,
@@ -328,7 +328,8 @@
 
         /* 캐리턱영역 박스 */
         .character-area {
-            height: 100vh;
+          /* 카드 4행이 잘리지 않도록 높이 자동 */
+          min-height: 100vh;
         }
 
         /* 공통타이틀박스 */
@@ -383,10 +384,10 @@
             padding-left: 20px;
         }
 
-        /* 버튼오버시 가상 클래스 : hover를 사용함 */
+        /* 버튼 오버시 가상 클래스 :hover를 사용함 */
         a.btn-view:hover {
-            color: black;
-            background: #222;
+            color: #fff;
+            background:#222; 
             /* 트랜지션 양방향은 원본에 설정함 */
             /* :hover에 설정하면 오버시에만 애니됨 */
             /* transition: all .5s; */
@@ -397,7 +398,7 @@
             content: url(./images/ico_more2.png);
         }
 
-        /* 캐릭터카드 리스트: flex + 줄바꿈 (4열) */
+        /* 캐릭터카드 박스 - 4열 줄바꿈 */
         .character-list {
             max-width: 1200px;
             margin: 0 auto;
@@ -412,10 +413,12 @@
             width: calc(25% - 15px);
             /* calc(계산식)
             +,-는 기호 앞뒤를 반드시 띄어 써야 함!
-            *,/ 곱하기 나누기는 붙여써도 됨 */
+            *,/ 곱하기 나누기는 붙여써도 됨 
+            */
             box-sizing: border-box;
             /* height: 285px; */
-            /* 높이값이 없으면 기본값 auto임. 의미는 내용물만큼 높이값이 생성됨. */
+            /* 높이값이 없으면 기본값 auto임. 
+            의미는 내용물만큼 높이값이 생성됨. */
             border: 1px solid #ddd;
             border-radius: 16px;
             /* 박스그림자
@@ -434,17 +437,20 @@
             position: relative;
             /* height: 204px; */
             /* 내용물만큼 높이값이 주면 안됨. */
+            /* 플렉스 모두 블필요!
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            justify-content: center */
             background: #f7f7f7;
             border-bottom: 1px solid #eee;
         }
-
         /* 첫번째 이미지셋팅 - 비율크기 유지역할 */
         .character-card .card-imgs img:first-child {
             width: 100%;
+            /* 싸고 있는 부모박스 기준 채우기 */
         }
-
-        /* 싸고 있는 부모박스 기준 채우기 */
-
         /* 두번째 이미지만 앱솔루트주기 */
         .character-card .card-imgs img:last-child {
             position: absolute;
@@ -452,16 +458,15 @@
             top: 0;
             left: 0;
             width: 100%;
+            /* 처음엔 투명, 오버시 보이게 */
             opacity: 0;
-            /* 트랜지션: 속시이지 */
+                 /* 트랜지션 : 속시이지(속성 시간 이징 지연) */
             transition: opacity 0.5s;
         }
-
-        /* 카드 오버시 두번째 이미지 보이기 */
+        /* 카드 마우스 오버시 두번째 이미지 보이기 */
         .character-card:hover .card-imgs img:last-child {
-            opacity: 1;
+          opacity: 1;
         }
-
         /* 카드 내부하단 설명박스 */
         .character-card .card-desc {
             /* height: 81px;*/
@@ -476,30 +481,31 @@
             align-items: center;
             gap: 5px;
         }
-            /* 한글타이틀 */
+        /* 한글타이틀 */
         .character-card .card-desc h3 {
-            font-size: 2.4rem;
-            color: #444;
+          font-size: 2.4rem;
+          color: #444;
          
         }
-           /* 영문타이틀 */ 
+        /* 영어타이틀 */ 
         .character-card .card-desc h4 {
-            font-size: 1.2rem;
-            color: #ccc;
-            
+          font-size: 1.2rem;
+          color: #ccc;  
         }
     </style>
 </head>
 
 <body>
-
+    <!-- 1. 상단영역 -->
     <main class="site-box">
-        <!-- Header -->
+         <!-- 상단영역 내용 -->
         <header class="header-area">
             <div>
+                <!-- 로고이미지박스 (왼쪽 끝) -->
                 <figure class="logo-box" style="margin:0;">
                     <img src="./images/logo_2023.png" alt="산리오코리아 로고">
                 </figure>
+                <!-- 메뉴리스트 (오른쪽 끝 -->
                 <nav class="header-menu-nav">
                     <ul>
                         <li><a href="#company">company</a></li>
@@ -510,7 +516,6 @@
                 </nav>
             </div>
         </header>
-
         <!-- 2. 메인영역 -->
         <!-- Main Content -->
         <div class="main-area">
@@ -756,6 +761,7 @@
 
         <!-- 2-3. 컴퍼니영역 -->
         <section class="company-area">
+            <!-- 컴퍼니영역 내용 -->
             <!-- 타이틀박스 -->
             <div class="tit-box">
                 <h2 class="part-tit">company</h2>
@@ -766,6 +772,7 @@
         </section>
         <!-- 2-4. 리쿠르트영역 -->
         <section class="recruit-area">
+            <!-- 리쿠르트영역 내용 -->
             <!-- 타이틀박스 -->
             <div class="tit-box ">
                 <h2 class="part-tit">recruit</h2>
@@ -776,6 +783,7 @@
         </section>
         <!-- 2-5. 플레이스영역 -->
         <section class="place-area">
+            <!-- 플레이스영역 내용 -->
             <!-- 타이틀박스 -->
             <div class="tit-box">
                 <h2 class="part-tit">place</h2>
@@ -786,6 +794,7 @@
         </section>
         <!-- 2-6. 컨텍어스영역 -->
         <section class="contactus-area">
+            <!-- 컨텍어스영역 내용 -->
             <!-- 타이틀박스 -->
             <div class="tit-box">
                 <h2 class="part-tit">contact us</h2>
@@ -794,7 +803,6 @@
                 </div>
             </div>
         </section>
-        </div>
     </main>
     <!-- 3. 하단영역 -->
     <footer class="bottom-area">
