@@ -4,6 +4,13 @@
 <head>
     <title>산리오코리아 홍홍</title>
     <meta charset="UTF-8">
+
+    <!-- 미디어쿼리를 위한 뷰포트 필수!!!
+     줄임말 meta:vp -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <!-- 인터널스타일시트(internal style sheet) -->
     <!-- 상단영역 스타일 (Top Area Styles) -->
     <style>
@@ -60,15 +67,23 @@
         height: 90px; /* 높이 지정 */
         }
 
-        .logo-box {
-            flex: 0 0 auto;
-            /* 크기가 고정된 flex 아이템 */
-        }
+         /* 상단로고박스 */
+      h1.logo-box {
+        width: 10%;
+      }
+      h1.logo-box img {
+        max-width: 100%;
+      }
 
-        .logo-box img {
-            height: 56px;
-            /* 로고 이미지 높이 고정 */
+      /* 1024px 이하 미디어쿼리 시작 */
+      @media screen and (max-width: 1024px) {
+        /* 기존선택자와 동일하게 사용함! */
+        /* 상단로고박스 */
+        h1.logo-box {
+          width: 30%;
         }
+      }
+      /* 1024px 이하 미디어쿼리 종료 */
 
         .menu-list {
             flex: 0 0 auto;
@@ -117,11 +132,11 @@
         .company-area,
         .recruit-area,
         .place-area,
-        .contactus-area {
-            margin-bottom: 24px;
-            padding: 16px;
-            border: 1px dashed #ccc;
-        }
+        /* .contactus-area {
+            /* margin-bottom: 24px; */
+            /* padding: 16px; */
+            /* border: 1px dashed #ccc; */
+         */
 
         .header-area .logo-box img {
             height: 48px;
@@ -212,7 +227,7 @@
             right: 50px;
         }
 
-        .logo-box {
+        h1.logo-box {
             margin: 0;
         }
 
@@ -709,8 +724,22 @@
         margin-bottom: 0;
       }
 
+      /* 800px 이하 미디어쿼리 시작 */
+      /* 반드시 PC 기본 CSS보다 아래(맨 끝)에 있어야 덮어쓰기가 됨! */
+      @media screen and (max-width: 800px) {
+        html {
+          /* 타이틀 5rem = 32px 이 되도록 조정 (32 ÷ 5 = 6.4px)
+          rem단위를 쓴 나머지 요소는 자동으로 같은 비율로 축소됨 */
+          font-size: 6.4px;
+        }
 
-
+        /* 캐릭터카드 4열 -> 2열
+        (gap 20px의 절반인 10px을 빼서 한 줄에 2개) */
+        .character-list .character-card {
+          width: calc(50% - 10px);
+        }
+      }
+      /* 800px 이하 미디어쿼리 종료 */
 
     </style>
 </head>
