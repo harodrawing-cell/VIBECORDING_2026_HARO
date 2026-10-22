@@ -30,88 +30,8 @@
         }
 
         /* 공통요소 초기화 */
-        /* prettier-ignore */
-        html,
-        body,
-        div,
-        span,
-        applet,
-        object,
-        iframe,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p,
-        blockquote,
-        pre,
-        a,
-        abbr,
-        acronym,
-        address,
-        big,
-        cite,
-        code,
-        del,
-        dfn,
-        em,
-        img,
-        ins,
-        kbd,
-        q,
-        s,
-        samp,
-        small,
-        strike,
-        strong,
-        sub,
-        sup,
-        tt,
-        var,
-        b,
-        u,
-        i,
-        center,
-        dl,
-        dt,
-        dd,
-        ol,
-        ul,
-        li,
-        fieldset,
-        form,
-        label,
-        legend,
-        table,
-        caption,
-        tbody,
-        tfoot,
-        thead,
-        tr,
-        th,
-        td,
-        article,
-        aside,
-        canvas,
-        details,
-        embed,
-        figure,
-        figcaption,
-        footer,
-        header,
-        hgroup,
-        menu,
-        nav,
-        output,
-        ruby,
-        section,
-        summary,
-        time,
-        mark,
-        audio,
-        video {
+        /* prettier-ignore */ 
+        html,   body,   div,   span,   applet,   object,   iframe,   h1,   h2,   h3,   h4,   h5,   h6,   p,   blockquote,   pre,   a,   abbr,   acronym,   address,   big,   cite,   code,   del,   dfn,   em,   img,   ins,   kbd,   q,   s,   samp,   small,   strike,   strong,   sub,   sup,   tt,   var,   b,   u,   i,   center,   dl,   dt,   dd,   ol,   ul,   li,   fieldset,   form,   label,   legend,   table,   caption,   tbody,   tfoot,   thead,   tr,   th,   td,   article,   aside,   canvas,   details,   embed,   figure,   figcaption,   footer,   header,   hgroup,   menu,   nav,   output,   ruby,   section,   summary,   time,   mark,   audio,   video {
 
             margin: 0;
             padding: 0;
@@ -125,25 +45,19 @@
         section +  section 은 앞에  section태그가 있는  section태그를
         모두 선택하라! 즉, 첫번째  section을 제외한 모든  section선택
         */
-        .main-area>section+section {
-            padding: 85px 0;
-            ;
-        }
+        .main-area > section + section {
+        padding: 85px 0;
+      }
+
 
         /* 상단영역 내부박스 */
         .top-inner {
-            max-width: 1440px;
-            /* 최대 너비 지정 */
-            margin: 0 auto;
-            /* 가운데 정렬 */
-            display: flex;
-            /* 가로 레이아웃을 위한 flex 사용 */
-            align-items: center;
-            /* 세로 중앙 정렬 */
-            justify-content: space-between;
-            /* 양끝 정렬 */
-            height: 90px;
-            /* 높이 지정 */
+        max-width: 1440px; /* 최대 너비 지정 */
+        margin: 0 auto; /* 가운데 정렬 */
+        display: flex; /* 가로 레이아웃을 위한 flex 사용 */
+        align-items: center; /* 세로 중앙 정렬 */
+        justify-content: space-between; /* 양끝 정렬 */
+        height: 90px; /* 높이 지정 */
         }
 
         .logo-box {
@@ -632,7 +546,7 @@
         /* 플레이스 영역 */
         .place-area {
             /* 배경:색이반고윙/크 */
-            background: url(./images/tbg_shop.jpg) no-repeat center 70px;
+            background: url(./images/bg_shop.jpg) no-repeat center 70px;
 
             height: 30vh;
 
