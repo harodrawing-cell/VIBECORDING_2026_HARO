@@ -597,24 +597,25 @@
             font-size: 2.5rem;
         }
 
-        /* 카드설명span */
-        .card-desc span {
-            /* 인라인인 span을 블록으로 변경 */
-            display: block;
-            font-size: 1.8rem;
-        }
+      /* 카드설명 span */
+      .card-desc span {
+        /* 인라인인 span을 블록으로 변경 */
+        display: block;
+        font-size: 1.8rem;
+      }
 
-        /* 컨텍어스 지도 + 회사정보 박스 */
-        .contact-box {
+      /* 컨택트 박스 (지도 + 회사정보) */
+      .contact-box {
         display: flex;
-        width: 1200px;
+        max-width: 1200px;
         height: 350px;
         margin: 0 auto;
-        /* 모서리 20px 둥글게 (키티 이미지가 박스 밖으로 보이도록 overflow:hidden 제거) */
+        /* 모서리 20px 둥글게 */
         border-radius: 20px;
+        /* overflow:hidden을 쓰면 자식(키티자동차)이 박스 밖에서 잘리므로
+        사용하지 않고, 대신 좌우 자식박스에 각각 둥근 모서리를 줌 */
         background: #fff;
-        }
-
+      }
         /* 왼쪽 지도 (반) - 왼쪽 모서리만 둥글게 */
         .contact-box .map-box,
       .contact-box .info-box {
@@ -679,7 +680,38 @@
         font-size: 1.6rem;
         line-height: 1.8;
       }
-     
+
+      /* 하단영역 */
+      .bottom-area{
+        background-color: #222;
+        padding: 50px;
+      }
+      /* 하단속박스 */
+      .bottom-inner{
+        /* 플렉스박스 */
+        display: flex;
+        /* 진행방향정렬:사이간격 일정하게 */
+        justify-content: space-between;
+        /* 진행방향의 수직정렬: 중간 */
+        align-items: center;
+      }
+      /* 하단속박스 카피라이트 이미지 */
+      .bottom-inner img{
+        height: 13px;
+      }
+      /* 하단속박스 버튼 */
+      .bottom-inner .btn-view {
+        background-color: transparent;
+        color: #fff;
+        border-color: #fff;
+      }
+      .bottom-inner .btn-box{
+        margin-bottom: 0;
+      }
+
+
+
+
     </style>
 </head>
 
@@ -1118,6 +1150,14 @@
     <!-- 3. 하단영역 -->
     <footer class="bottom-area">
         <!-- 하단영역 내용 -->
+         <div class="bottom-inner">
+           <!-- 카피라잇 이미지 -->
+         <img src="./images/copyright_2023_02_v2.png" alt="산리오카피라이트">
+         <!-- 개인정보버튼 -->
+         <div class="btn-box simple">
+          <a href="#" class="btn-view">개인정보처리방침</a>
+        </div>
+         </div>
     </footer>
 </body>
 
