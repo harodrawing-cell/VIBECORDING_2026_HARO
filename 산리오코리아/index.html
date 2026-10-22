@@ -75,16 +75,6 @@
         max-width: 100%;
       }
 
-      /* 1024px 이하 미디어쿼리 시작 */
-      @media screen and (max-width: 1024px) {
-        /* 기존선택자와 동일하게 사용함! */
-        /* 상단로고박스 */
-        h1.logo-box {
-          width: 30%;
-        }
-      }
-      /* 1024px 이하 미디어쿼리 종료 */
-
         .menu-list {
             flex: 0 0 auto;
             /* 크기 고정 */
@@ -183,7 +173,7 @@
              background: 배경색 이미지 반복 고정 위치/크기 */
 
         }
-        .banner-area .banner-content {
+        .banner-area .center-banner {
             text-align: center;
             /* display: flex; */
             /* justify-content: center; */
@@ -192,15 +182,16 @@
         }
 
         /* 메인 비주얼 이미지 스타일 */
-        .banner-area .banner-img-wrapper img {
+        .banner-area .main-visual-img {
             /* display: block; */
             width: 984px;
             max-width: 100%;
         }
 
 
-        /* SNS 이동버튼 박스 스타일 */
+         /* SNS 버튼 박스 스타일 */
         .sns {
+          /* flex박스 세로정렬 */
             display: flex;
             flex-direction: column;
             /* 배너영역 상대위치 기준, 절대위치 배치 */
@@ -214,7 +205,7 @@
         height: 40px;
       }
 
-        /* 스크롤 유도 박스 */
+       /* 스크롤 유도 애니 버튼박스 */
         .scroll_btn {
             position: absolute;
             bottom: 50px;
@@ -436,6 +427,7 @@
             spread - 그림자크기(확장분만씀) color - 그림자색
             */
             box-shadow: 4px 4px 10px #00000026;
+
             /* overflow: hidden;
             display: inline-block; */
             background: #fff;
@@ -483,7 +475,7 @@
             /* 비율유지 설정하기 (높이값 불필요!) */
             aspect-ratio: 1 / 0.3;
             padding: 16px 12px 12px 12px;
-            text-align: center;
+            /* text-align: center; */
             /* 플렉스 박스 */
             display: flex;
             flex-direction: column;
@@ -1081,7 +1073,6 @@
       /* 736px 이하 미디어쿼리 종료 */
     </style>
 </head>
-
 <body>
     <!-- 1. 상단영역 -->
     <main class="site-box">
@@ -1089,9 +1080,9 @@
         <header class="header-area">
             <div>
                 <!-- 로고이미지박스 (왼쪽 끝) -->
-                <figure class="logo-box" style="margin:0;">
-                    <img src="./images/logo_2023.png" alt="산리오코리아 로고">
-                </figure>
+                <h1 class="logo-box">
+                    <img src="./images/logo_2023.png" alt="산리오코리아 로고" />
+                  </h1>
                 <!-- 메뉴리스트 (오른쪽 끝 -->
                 <nav class="header-menu-nav">
                     <ul>
@@ -1101,76 +1092,43 @@
                         <li><a href="#recruit">recruit</a></li>
                     </ul>
                 </nav>
-                
-            </div>
-        </header>
-        <!-- 2. 메인영역 -->
-        <!-- Main Content -->
-        <div class="main-area">
-
-            <!-- 2-1. 배너영역 -->
-            <!-- Banner Section -->
-            <style>
-                /* 배너 내용 영역 */
-
-
-                /* SNS 이동버튼 박스 스타일 */
-                .sns {
-                    display: flex;
-                    flex-direction: column;
-                    position: absolute;
-                    top: 50px;
-                    right: 50px;
-                }
-
-                .scroll_btn {
-                    position: absolute;
-                    bottom: 50px;
-                    left: 50%;
-                    translate: -50%;
-
-                    width: 79px;
-                    height: 70px;
-                    /* outline: 2px solid blue; */
-                }
-            </style>
-
-            <section class="banner-area">
-                <div class="banner-content" style="display: flex; justify-content: center; padding: 80px;">
-                    <div class="banner-img-wrapper">
-                        <img src="./images/main_visual_pc_v1.png" alt="산리오코리아 메인 비주얼">
-                    </div>
-
-
+                 <!-- 햄버거 버튼 (1199px 이하에서만 표시) -->
+                 <button
+                   type="button"
+                   class="menu-btn"
+                   aria-label="메뉴 열기"
+                   aria-expanded="false"
+                 >
+                   <span></span><span></span><span></span>
+                 </button>
                 </div>
-
-
-
-                <!--SNS 이동버튼박스 -->
-                <style>
-                    .sns img {
-                        width: 40px;
-                        height: 40px;
-                    }
-                </style>
-
-
+           </header>
+      <!-- 2. 메인영역 -->
+      <main class="main-area">
+        <!-- 2-1. 배너영역 -->
+        <section class="banner-area">
+          <!-- 배너영역 내용 -->
+          <div class="center-banner">
+            <img
+              src="./images/main_visual_pc_v1.png"
+              alt="메인 비주얼"
+              class="main-visual-img"
+            />
+          </div>
+  
+                <!-- SNS이동버튼박스 -->
                 <div class="sns" style="display: flex;flex-direction: column;position: absolute;top:50px;right:50px;">
                     <a href="https://www.instagram.com/sanrio_kr/" target="_blank"><img src="./images/i_ins_pc_v3.png"
                             alt="instargram"></a>
                     <a href="https://www.youtube.com/c/sanriokorea/featured" target="_blank"><img
                             src="./images/i_you_pc_v3.png" alt="youtube"></a>
                 </div>
-
                 <!-- 스크롤 유도 애니박스 -->
                 <div class="scroll_btn">
                     <span class="mouse"><span></span></span>
                     <p>scroll down</p>
                 </div>
-
-
             </section>
-
             <!-- 2-2. 캐릭터영역 -->
             <section id="character-section">
                 <!-- 캐릭터영역 내용 -->
@@ -1344,14 +1302,9 @@
                         </div>
                     </div>
                 </div>
-
             </section>
-
             <!-- 2-3. 컴퍼니영역 -->
             <section class="company-area">
-
-
-
                 <!-- 컴퍼니영역 내용 -->
                 <!-- 타이틀박스 -->
                 <div class="tit-box">
@@ -1360,7 +1313,7 @@
                         <a href="#" class="btn-view">view more</a>
                     </div>
                 </div>
-                <!-- 카드섹션파트 (flex 가로배치, 최대 1200px) -->
+                <!-- 카드섹션파트 묶음 -->
                 <div class="com-card-box">
                     <figure class="card-part">
                         <!-- 이미지박스 -->
@@ -1379,7 +1332,6 @@
                             <a href="#" class="btn-view">more</a>
                         </div>
                     </figure>
-
                     <!-- 카드 2 -->
                     <figure class="card-part">
                         <div class="img-box">
@@ -1394,7 +1346,6 @@
                             <a href="#" class="btn-view">more</a>
                         </div>
                     </figure>
-
                     <!-- 카드 3 -->
                     <figure class="card-part">
                         <div class="img-box">
@@ -1410,7 +1361,6 @@
                         </div>
                     </figure>
                 </div>
-
             </section>
             <!-- 2-4. 리쿠르트영역 -->
             <section class="recruit-area">
@@ -1423,7 +1373,6 @@
                     </div>
                 </div>
                 <!-- 카드섹션파트 묶음 -->
-                <!-- 카드섹션파트 (flex 가로배치, 최대 1200px) -->
                 <div class="com-card-box">
                     <!-- 카드 1 -->
                     <figure class="card-part">
@@ -1503,7 +1452,7 @@
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="info-box">
-                        <h3>서울시 강남구 테헤란로 509, 4층<br>(삼성동, 엔씨타워1)</h3>
+                        <h3>서울시 강남구 테헤란로 509, 4층 (삼성동, 엔씨타워1)</h3>
                         <h4>509, Teheranro, Gangnam-gu, Seoul</h4>
                         <h4>(4th floor, Samsung-dong, NC Tower 1)</h4>
                         <h5><em>M</em> : webmaster@sanriokorea.co.kr</h5>
@@ -1549,5 +1498,4 @@
         });
       </script>
 </body>
-
 </html>
