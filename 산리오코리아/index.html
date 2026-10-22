@@ -11,9 +11,9 @@
         CDN은 Content Delivery Network 즉, 네크워크 망으로
         컨텐트를 배달시켜 쓰는 방식 */
 
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic&display=swap');
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic&display=swap");
 
-        @import url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.css');
+        @import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@1.0/nanumbarungothicsubset.css");
 
         /* 전체 루트 설정 */
 
@@ -31,8 +31,88 @@
 
         /* 공통요소 초기화 */
         /* prettier-ignore */
-        html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
-           
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+
             margin: 0;
             padding: 0;
             font-weight: normal;
@@ -45,8 +125,9 @@
         section +  section 은 앞에  section태그가 있는  section태그를
         모두 선택하라! 즉, 첫번째  section을 제외한 모든  section선택
         */
-        .main-area > section + section {
-            padding: 85px 0;;
+        .main-area>section+section {
+            padding: 85px 0;
+            ;
         }
 
         /* 상단영역 내부박스 */
@@ -324,8 +405,8 @@
 
         /* 캐리턱영역 박스 */
         .character-area {
-          /* 카드 4행이 잘리지 않도록 높이 자동 */
-          min-height: 100vh;
+            /* 카드 4행이 잘리지 않도록 높이 자동 */
+            min-height: 100vh;
         }
 
         /* 공통타이틀박스 */
@@ -337,25 +418,62 @@
             text-transform: uppercase;
         }
 
-        /* 타이틀파트 */
-        .tit-box .part-tit {
-            text-align: center;
-            /* padding: 40px 0; */
-            margin-bottom: 30px;
-            font-size: 5rem;
-            font-weight: normal;
+   /* 타이틀파트 */
+   .tit-box .part-tit {
+        text-align: center;
+        /* padding: 40px 0; */
+        margin-bottom: 30px;
+        font-size: 5rem;
+        font-weight: normal;
+      }
+
+      /* 타이틀박스 하위 버튼박스 */
+      .btn-box {
+        text-align: center;
+        /* padding: 20px 0; */
+        margin-bottom: 50px;
+        /* 버튼이 사라지면 하단 마진도 사라짐! */
+      }
+      /* 버튼출력안함 클래스 */
+      .btn-box.off {
+        display: none;
+      }
+
+           /* 타이틀 흰색테마 클래스 */
+           .tit-box.white .part-tit {
+        color: #fff;
+      }
+      /* 타이틀박스의 로고 컨트롤 */
+      .tit-box.white .logo-box{
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      /* 버튼 흰색테마 클래스 */
+      .tit-box.white .btn-view {
+        color: #fff;
+        border: 1px solid #fff;
+      }
+      .tit-box.white .btn-view::after {
+        content: url(./images/ico_more2.png);
+      }
+      .tit-box.white .btn-view:hover {
+        color: #222;
+        background: #fff;
+      }
+      .tit-box.white .btn-view:hover::after {
+        content: url(./images/ico_more1.png);
+      }
+
+        /* 화살표 출력안함 클래스
+      -> 부모박스에 simple클래스를 주면
+      자식 버튼에 가상요소 화살표가 출력안됨 */
+        .btn-box.simple .btn-view::after {
+            display: none;
         }
 
-        /* 타이틀박스 하위 버튼박스 */
-        .btn-box {
-            text-align: center;
-            /* padding: 20px 0; */
-            margin-bottom: 50px;
-            /* 버튼이 사라지면 하단 마진도 사라짐! */
-        }
-        /* 버튼출력안함 클래스 */
-        .btn-box.off {
-            display: none;
+        /* simple클래스 버튼 디자인변경 */
+        .btn-box.simple .btn-view {
+            padding: 11px 22px;
         }
 
         /* 타이틀 아래 버튼 */
@@ -363,13 +481,15 @@
             text-decoration: none;
             color: #222;
             font-size: 1.2rem;
+            /* 대문자출력 */
+            text-transform: uppercase;
             display: inline-block;
             margin: 0 auto;
             border: 1px solid #222;
             border-radius: 24px;
             padding: 16px 32px;
             /* 트랜지션 : 속시이지(속성 시간 이징 지연) */
-            transition: all .5s;
+            transition: all 0.5s;
         }
 
         /* 버튼가상요소로 이미지 넣기 */
@@ -383,7 +503,7 @@
         /* 버튼 오버시 가상 클래스 :hover를 사용함 */
         a.btn-view:hover {
             color: #fff;
-            background:#222; 
+            background: #222;
             /* 트랜지션 양방향은 원본에 설정함 */
             /* :hover에 설정하면 오버시에만 애니됨 */
             /* transition: all .5s; */
@@ -404,6 +524,7 @@
             (값을 두개쓰면 가로, 세로) */
             gap: 20px;
         }
+
         /* 캐릭터카드 */
         .character-card {
             width: calc(25% - 15px);
@@ -427,6 +548,7 @@
             overflow: hidden;
             background: #fff;
         }
+
         /* 카드 내부상단 이미지박스 */
         .character-card .card-imgs {
             /* 포지션을 준 이유: 자식요소중 앱솔루트 기준 */
@@ -442,11 +564,13 @@
             background: #f7f7f7;
             border-bottom: 1px solid #eee;
         }
+
         /* 첫번째 이미지셋팅 - 비율크기 유지역할 */
         .character-card .card-imgs img:first-child {
             width: 100%;
             /* 싸고 있는 부모박스 기준 채우기 */
         }
+
         /* 두번째 이미지만 앱솔루트주기 */
         .character-card .card-imgs img:last-child {
             position: absolute;
@@ -456,13 +580,15 @@
             width: 100%;
             /* 처음엔 투명, 오버시 보이게 */
             opacity: 0;
-                 /* 트랜지션 : 속시이지(속성 시간 이징 지연) */
+            /* 트랜지션 : 속시이지(속성 시간 이징 지연) */
             transition: opacity 0.5s;
         }
+
         /* 카드 마우스 오버시 두번째 이미지 보이기 */
         .character-card:hover .card-imgs img:last-child {
-          opacity: 1;
+            opacity: 1;
         }
+
         /* 카드 내부하단 설명박스 */
         .character-card .card-desc {
             /* height: 81px;*/
@@ -470,23 +596,98 @@
             aspect-ratio: 1 / 0.3;
             padding: 16px 12px 12px 12px;
             text-align: center;
-             /* 플렉스 박스 */
+            /* 플렉스 박스 */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             gap: 5px;
         }
+
         /* 한글타이틀 */
         .character-card .card-desc h3 {
-          font-size: 2.4rem;
-          color: #444;
-         
+            font-size: 2.4rem;
+            color: #444;
+
         }
-        /* 영어타이틀 */ 
+
+        /* 영어타이틀 */
         .character-card .card-desc h4 {
-          font-size: 1.2rem;
-          color: #ccc;  
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        /* 컴퍼니 영역 */
+        .company-area {
+            background-color: #f5f5f5;
+
+        }
+
+        /* 리쿠르트 영역 */
+        .recruit-area {
+            /* 배경:색이반고윙/크 */
+            background: url(./images/tbg_recruit.png) no-repeat center 70px;
+        }
+
+        /* 플레이스 영역 */
+        .place-area {
+            /* 배경:색이반고윙/크 */
+            background: url(./images/tbg_shop.jpg) no-repeat center 70px;
+
+            height: 30vh;
+
+        }
+
+        /* 컨텍어스영역  */
+
+        .contactus-area {
+            background-color: #4a679e
+        }
+
+
+        /* 카드파트는 공통모듈임(컴퍼니&리쿠르트) */
+        /* 카드파트 묶음박스 - 가로 flex, 최대 1200px */
+        .com-card-box {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            /* 가로방향 일정간격 */
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+
+        /* 개별카드박스 */
+        .card-part {
+            /* 플렉스박스 */
+            display: flex;
+            /* 플렉스 방향(수직) */
+            flex-direction: column;
+            /* 진행방향의 직각방향 정렬 */
+            align-items: center;
+            /* 사이간격 */
+            gap: 20px;
+            flex: 1;
+            margin: 0;
+        }
+
+        /* .img-box {
+      } */
+
+        /* .img-box {
+      } */
+
+
+        /* 카드타이틀 */
+        .card-title {
+            font-size: 2.5rem;
+        }
+
+        /* 카드설명span */
+        .card-desc span {
+            /* 인라인인 span을 블록으로 변경 */
+            display: block;
+            font-size: 1.8rem;
         }
     </style>
 </head>
@@ -494,7 +695,7 @@
 <body>
     <!-- 1. 상단영역 -->
     <main class="site-box">
-         <!-- 상단영역 내용 -->
+        <!-- 상단영역 내용 -->
         <header class="header-area">
             <div>
                 <!-- 로고이미지박스 (왼쪽 끝) -->
@@ -755,50 +956,154 @@
 
             </section>
 
-        <!-- 2-3. 컴퍼니영역 -->
-        <section class="company-area">
-            <!-- 컴퍼니영역 내용 -->
-            <!-- 타이틀박스 -->
-            <div class="tit-box">
-                <h2 class="part-tit">company</h2>
-                <div class="btn-box off">
-                    <a href="#" class="btn-view">view more</a>
+            <!-- 2-3. 컴퍼니영역 -->
+            <section class="company-area">
+
+
+
+                <!-- 컴퍼니영역 내용 -->
+                <!-- 타이틀박스 -->
+                <div class="tit-box">
+                    <h2 class="part-tit">company</h2>
+                    <div class="btn-box off">
+                        <a href="#" class="btn-view">view more</a>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <!-- 2-4. 리쿠르트영역 -->
-        <section class="recruit-area">
-            <!-- 리쿠르트영역 내용 -->
-            <!-- 타이틀박스 -->
-            <div class="tit-box ">
-                <h2 class="part-tit">recruit</h2>
-                <div class="btn-box off">
-                    <a href="#" class="btn-view">view more</a>
+                <!-- 카드섹션파트 (flex 가로배치, 최대 1200px) -->
+                <div class="com-card-box">
+                    <figure class="card-part">
+                        <!-- 이미지박스 -->
+                        <div class="img-box">
+                            <img src="./images/ico_company1.png" alt="회사아이콘" />
+                        </div>
+                        <!-- 타이틀 -->
+                        <h3 class="card-title">회사소개</h3>
+                        <!-- 내용 -->
+                        <p class="card-desc">
+                            <span>맑고 깨끗한 강가에</span>
+                            <span>문화를 쌓아 올리자.</span>
+                        </p>
+                        <!-- 버튼박스 -->
+                        <div class="btn-box simple">
+                            <a href="#" class="btn-view">more</a>
+                        </div>
+                    </figure>
+
+                    <!-- 카드 2 -->
+                    <figure class="card-part">
+                        <div class="img-box">
+                            <img src="./images/ico_company3.png" alt="회사연혁" />
+                        </div>
+                        <h3 class="card-title">회사연혁</h3>
+                        <p class="card-desc">
+                            <span>산리오의 히스토리를</span>
+                            <span>확인하세요.</span>
+                        </p>
+                        <div class="btn-box simple">
+                            <a href="#" class="btn-view">more</a>
+                        </div>
+                    </figure>
+
+                    <!-- 카드 3 -->
+                    <figure class="card-part">
+                        <div class="img-box">
+                            <img src="./images/ico_company4.png" alt="사업영역" />
+                        </div>
+                        <h3 class="card-title">사업영역</h3>
+                        <p class="card-desc">
+                            <span>소셜 커뮤니케이션을</span>
+                            <span>산리오가 시작합니다.</span>
+                        </p>
+                        <div class="btn-box simple">
+                            <a href="#" class="btn-view">more</a>
+                        </div>
+                    </figure>
                 </div>
-            </div>
-        </section>
-        <!-- 2-5. 플레이스영역 -->
-        <section class="place-area">
-            <!-- 플레이스영역 내용 -->
-            <!-- 타이틀박스 -->
-            <div class="tit-box">
-                <h2 class="part-tit">place</h2>
-                <div class="btn-box">
-                    <a href="#" class="btn-view">view more</a>
+
+            </section>
+            <!-- 2-4. 리쿠르트영역 -->
+            <section class="recruit-area">
+                <!-- 리쿠르트영역 내용 -->
+                <!-- 타이틀박스 -->
+                <div class="tit-box ">
+                    <h2 class="part-tit">recruit</h2>
+                    <div class="btn-box off">
+                        <a href="#" class="btn-view">view more</a>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <!-- 2-6. 컨텍어스영역 -->
-        <section class="contactus-area">
-            <!-- 컨텍어스영역 내용 -->
-            <!-- 타이틀박스 -->
-            <div class="tit-box">
-                <h2 class="part-tit">contact us</h2>
-                <div class="btn-box">
-                    <a href="#" class="btn-view">view more</a>
+                <!-- 카드섹션파트 묶음 -->
+                <!-- 카드섹션파트 (flex 가로배치, 최대 1200px) -->
+                <div class="com-card-box">
+                    <!-- 카드 1 -->
+                    <figure class="card-part">
+                        <div class="img-box">
+                            <img src="./images/ico_recruit1.png" alt="채용공고" />
+                        </div>
+                        <h3 class="card-title">채용공고</h3>
+                        <p class="card-desc">
+                            <span>산리오코리아에서</span>
+                            <span>인재를 찾습니다</span>
+                        </p>
+                        <div class="btn-box simple">
+                            <a href="#" class="btn-view">more</a>
+                        </div>
+                    </figure>
+
+                    <!-- 카드 2 -->
+                    <figure class="card-part">
+                        <div class="img-box">
+                            <img src="./images/ico_recruit2.png" alt="직무소개" />
+                        </div>
+                        <h3 class="card-title">직무소개</h3>
+                        <p class="card-desc">
+                            <span>산리오코리아에서는</span>
+                            <span>어떤 일을 할까요?</span>
+                        </p>
+                        <div class="btn-box simple">
+                            <a href="#" class="btn-view">more</a>
+                        </div>
+                    </figure>
+
+                    <!-- 카드 3 -->
+                    <figure class="card-part">
+                        <div class="img-box">
+                            <img src="./images/ico_recruit3.png" alt="복리후생" />
+                        </div>
+                        <h3 class="card-title">복리후생</h3>
+                        <p class="card-desc">
+                            <span>산리오코리아에서</span>
+                            <span>누릴 수 있는것!</span>
+                        </p>
+                        <div class="btn-box simple">
+                            <a href="#" class="btn-view">more</a>
+                        </div>
+                    </figure>
                 </div>
-            </div>
-        </section>
+            </section>
+            <!-- 2-5. 플레이스영역 -->
+            <section class="place-area">
+                <!-- 플레이스영역 내용 -->
+                <!-- 타이틀박스 -->
+                <div class="tit-box">
+                    <h2 class="part-tit">place</h2>
+                    <div class="btn-box">
+                        <a href="#" class="btn-view">view more</a>
+                    </div>
+                </div>
+            </section>
+            <!-- 2-6. 컨텍어스영역 -->
+            <section class="contactus-area">
+                <!-- 컨텍어스영역 내용 -->
+                <!-- 타이틀박스 -->
+                <div class="tit-box white">
+                    <div class="logo-box"><img src="./images/logo_w.png" alt="화이트로고">
+                    </div>
+                    <h2 class="part-tit">contact us</h2>
+                    <div class="btn-box">
+                        <a href="#" class="btn-view">view more</a>
+                    </div>
+                </div>
+            </section>
     </main>
     <!-- 3. 하단영역 -->
     <footer class="bottom-area">
