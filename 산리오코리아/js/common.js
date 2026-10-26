@@ -1,4 +1,5 @@
 // common.js — 모든 페이지 공통 기능 (햄버거 메뉴 열기/닫기)
+(()=>{
 
 console.log('안뇽!');
 
@@ -51,3 +52,7 @@ console.log('안뇽!');
         // window.addEventListener("resize", () => {
         //   if (window.innerWidth > 1199) setMenu(false);
         // });
+
+
+
+})();

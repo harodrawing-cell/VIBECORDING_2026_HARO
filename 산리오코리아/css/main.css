@@ -1,5 +1,14 @@
 /* main.css — 메인 페이지 전용 영역(배너·캐릭터·컴퍼니·리쿠르트·플레이스·컨택트) 스타일 */
 
+
+/* 공통css가져오기 @import */
+@import url(./reset.css);
+@import url(./common.css);
+/* @import의 장점은 한파일에서 모두 모아서 가져오므로
+html파일에서 li */
+
+
+
         /* 배너 영역 스타일 */
         .banner-area {
           position: relative;
@@ -28,7 +37,7 @@
           /* 로딩 애니메이션: 처음엔 투명 + 위로 20% 올라가 있다가
              1초 후 원래 위치로 내려오며 나타남
              animation: 이름 시간 이징 지연시간 반복 방향 마지막상태 */
-          animation: visual-down 1s ease-out 5s 1 normal both;
+             animation: visual-down 1s ease-out .5s both;
           /* both = 지연시간(1초) 동안에도 시작값(투명, 위쪽)을 유지 */
       }
 
@@ -101,7 +110,7 @@
           border-radius: 15px;
           /* 애니메이션 호출 : (이시이지반방마)
       이름 시간 이징 지연시간 반복 방향 마지막상태 */
-          animation: mouse-ani 0.9s ease-in-out infinite alternate;
+      animation: mouse-ani 0.5s ease-in-out infinite alternate;
       }
       /* 마우스 애니메이션 키프레임 */
       @keyframes mouse-ani {
@@ -266,9 +275,81 @@
 
       /* 플레이스 영역 */
       .place-area {
-          /* 배경:색이반고윙/크 */
-          background: url(../images/bg_shop.jpg) no-repeat center;
-          height: 30vh;
+        /* 배경이미지는 제거 → 내부 .place-slider 의 슬라이드 박스 3개가 담당 */
+        /* 슬라이더(absolute)의 기준박스 */
+        position: relative;
+        /* 슬라이드가 박스 밖으로 보이지 않게 */
+        overflow: hidden;
+        /* height: 30vh; */
+        /* aspect-ratio 속성 비율은 가로/세로 
+        -> 높이값 없이 비율로 유지
+        비율값은 이미지 가로,세로 값을 써도 된다. 
+        단, 단위는 없음! */
+        aspect-ratio: 1920 / 500;
+        /* box-sizing 속성은 기본값으로 'content-box'이다.
+        즉, 박스의 크기외에 패딩과 보더값이 있으면 커진다!
+        크기가 지정될때 더 커지고 기본값인 width:auto인 경우
+        패딩과 보더는 포함된다.
+        이때 높이값 설정이 있으면 패딩과 보더를 포함하는
+        속성값인 'border-box'로 설정해야함! */
+        box-sizing: border-box;
+        /* 더 강한 패딩설정이 덮어쓰므로 !important로 가장 강하게 우선순위를 높여줌(주의: !important남발은 하지말것!) */
+        padding: 3vw !important;
+        /* vw단위는 뷰포트 단위로 보이는 화면 가로크기기준 %크기임. */
+      }
+
+       /* 플레이스 슬라이드 : 현재 박스와 정확히 같은 크기의 이미지박스 3개 */
+      .place-area .place-slider {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+      }
+      /* 트랙 : 슬라이드 3개를 가로 flex 배치 (JS가 translateX로 이동) */
+      .place-area .place-track {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        will-change: transform;
+      }
+      /* 슬라이드박스 : 현재 박스와 같은 크기(100% x 100%) */
+      .place-area .place-slide {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      .place-area .slide1 { background-image: url(../images/bg_shop.jpg); }
+      .place-area .slide2 { background-image: url(../images/bg_shop2.jpg); }
+      .place-area .slide3 { background-image: url(../images/bg_shop3.jpg); }
+
+      /* 가독성 : 이미지 위에 어두운 그라데이션 막 (타이틀 쪽이 가장 진함) */
+      /* 가독성: 어두운 오버레이 (슬라이드 위, 글자 아래) */
+      .place-area::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.25) 45%, rgba(0, 0, 0, 0) 100%);
+        pointer-events: none;
+      }
+
+      /* 타이틀박스·버튼은 슬라이더보다 위층 */
+      .place-area .tit-box {
+        position: relative;
+        z-index: 2;
+      }
+      /* 어떤 배경이미지에서도 보이도록 흰 글씨 + 그림자 */
+      .place-area .part-tit {
+        color: #fff;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+      }
+      .place-area .btn-view {
+        color: #fff;
+        border-color: #fff;
+        background: rgba(0, 0, 0, 0.35);
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
       }
 
       /* 컨텍어스영역  */
@@ -535,11 +616,7 @@
         margin-bottom: 0;
       }
 
-      /* 10. place: 모바일용 배경(cover) */
-      .place-area {
-        background-size: cover;
-        /* background-image: url(../images/bg_shop_mobile.jpg); */
-      }
+      /* 10. place: 슬라이드 이미지는 기본값이 cover 라서 별도 설정 불필요 */
 
       /* 11. contact us: 지도 상단 + 정보 하단 세로 배치, 지도 280px, 위쪽 모서리 20px */
       .contact-box {

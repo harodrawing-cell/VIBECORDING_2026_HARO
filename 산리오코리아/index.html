@@ -9,13 +9,28 @@
      줄임말 meta:vp -->
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
+      <!-- 외부 스타일시트(external style sheet)
+     적용 순서가 중요함! reset → common → main (순서 바꾸지 말 것) -->
 
     <!-- 외부 스타일시트(external style sheet)
          적용 순서가 중요함! reset → common → main -->
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/main.css">
+        <!-- 외부 스타일시트(external style sheet)
+     적용 순서가 중요함! reset → common → main (순서 바꾸지 말 것) -->
+    <!-- <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/common.css" /> -->
+    <link rel="stylesheet" href="./css/main.css" />
+
+  <!-- 외부 자바스크립트 : common.js(공통) → main.js(메인 전용) 순서 -->
+ <script src="./js/common.js">defer</script>
+ <script src="./js/main.js">defer</script>
+ <!-- (((중요!))) 
+  defer 속성을 써서 html이 모두 로딩 후 실행함!
+  이것을 안할경우 JS파일내에 'DOMContentLoaded' 
+  이벤트 구역을 설정하여 html로딩후 실행을 할 수 있다
+  -->
+
+
 </head>
 <body>
     <!-- 1. 상단영역 -->
@@ -382,6 +397,15 @@
                         <a href="#" class="btn-view">view more</a>
                     </div>
                 </div>
+                <!-- 배경 슬라이드 : 3개의 박스를 하나의 박스(슬라이더)에 담음 (타이틀·버튼보다 아래층) -->
+                <div class="place-slider" aria-hidden="true">
+                    <!-- 트랙 : 3개의 슬라이드박스를 flex로 가로 배치 -->
+                    <div class="place-track">
+                        <div class="place-slide slide1"></div>
+                        <div class="place-slide slide2"></div>
+                        <div class="place-slide slide3"></div>
+                    </div>
+                </div>
             </section>
             <!-- 2-6. 컨텍어스영역 -->
             <section class="contactus-area">
@@ -427,8 +451,9 @@
           <a href="#" class="btn-view">개인정보처리방침</a>
         </div>
          </div>
+        </div><!-- /.site-box -->
     </footer>
-    </div><!-- /.site-box -->
+   
     <!-- 공통 스크립트 먼저, 메인 전용 스크립트는 그 다음 -->
     <script src="./js/common.js"></script>
     <script src="./js/main.js"></script>
