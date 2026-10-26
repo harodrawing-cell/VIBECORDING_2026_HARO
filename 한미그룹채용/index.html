@@ -58,12 +58,13 @@
     display: flex;
     align-items: center;
     height: 100%;
-    font-size: 19px;
+    font-size: 19.1px;
     line-height: 20px;
     font-weight: 600;
     letter-spacing: -0.4px;
     color: var(--black);
   }
+  .gnb-list li:first-child a { font-size: 19.4px; }
   .gnb-list a:hover, .gnb-list a:focus-visible { color: var(--red); }
   .gnb-cta { padding-left: 40px; }
 
@@ -79,13 +80,15 @@
     color: var(--white);
     font-weight: 600;
     letter-spacing: -0.4px;
+    background-origin: border-box;
+    white-space: nowrap;
     overflow: hidden;
     isolation: isolate;
     transition: color var(--ease), border-color var(--ease), background-color var(--ease);
   }
-  .btn svg { transition: stroke var(--ease); }
-  .btn-sm { width: 119px; height: 48px; padding: 0 20px; font-size: 17.4px; line-height: 18px; background: var(--red); }
-  .btn-lg { width: 303px; height: 72px; padding: 0 64px; font-size: 22.7px; line-height: 34px; background: var(--gradient-cta); }
+  .btn .ico-chevron { flex: none; overflow: visible; }
+  .btn-sm { width: 119px; height: 48px; padding: 0 20px; font-size: 17.4px; line-height: 18px; letter-spacing: -0.36px; background: var(--red); }
+  .btn-lg { width: 303px; height: 72px; padding: 0 64px; font-size: 22.7px; line-height: 34px; letter-spacing: -0.48px; background: var(--gradient-cta); }
   /* 흰색 오버레이로 hover 반전 구현 (그라데이션은 transition 불가) */
   .btn::before {
     content: "";
@@ -143,14 +146,14 @@
     font-size: 45.8px; line-height: 72px; font-weight: 800; letter-spacing: -1.12px;
   }
   .mv-period {
-    font-size: 19.2px; line-height: 28px; font-weight: 500; letter-spacing: -0.4px;
+    font-size: 19.2px; line-height: 28px; font-weight: 500; letter-spacing: -0.4px; white-space: nowrap;
   }
 
   /* 캐릭터 스테이지 (겹침 구성을 위해 스테이지 내부만 absolute) */
   .mv-stage {
     position: relative;
     flex: none;
-    width: 764px;
+    width: 663px;
     height: 663px;
     margin-left: 40px;
     z-index: 1;
@@ -172,16 +175,16 @@
     border-radius: 500px;
   }
   .mv-stage img { position: absolute; height: auto; }
-  .mv-micro { left: 162.4px; top: 6.08px; width: 289.52px; }
-  .mv-char1 { left: 211.68px; top: 149.52px; width: 253.44px; }
-  .mv-char2 { left: 433.44px; top: 147.76px; width: 181.28px; }
-  .mv-char3 { left: 136px;    top: 323.76px; width: 216.48px; }
-  .mv-char4 { left: 492.4px;  top: 344.88px; width: 292.16px; }
-  .mv-star1 { left: 318.16px; top: 91.44px;  width: 17.6px; }
-  .mv-star2 { left: 136.88px; top: 323.76px; width: 22.88px; }
-  .mv-star3 { left: 711.52px; top: 329.04px; width: 21.12px; }
-  .mv-star4 { left: 557.52px; top: 103.76px; width: 23.76px; }
-  .mv-star5 { left: 729.12px; top: 286.8px;  width: 34.32px; }
+  .mv-micro { left: 65.8px;   top: 33.7px;  width: 289.52px; }
+  .mv-char1 { left: 115.1px;  top: 177.1px; width: 253.44px; }
+  .mv-char2 { left: 336.8px;  top: 175.4px; width: 181.28px; }
+  .mv-char3 { left: 39.4px;   top: 351.4px; width: 216.48px; }
+  .mv-char4 { left: 395.8px;  top: 372.5px; width: 292.16px; }
+  .mv-star1 { left: 221.6px;  top: 119px;   width: 17.6px; }
+  .mv-star2 { left: 40.3px;   top: 351.4px; width: 22.88px; }
+  .mv-star3 { left: 614.9px;  top: 356.6px; width: 21.12px; }
+  .mv-star4 { left: 460.9px;  top: 131.4px; width: 23.76px; }
+  .mv-star5 { left: 632.5px;  top: 314.4px; width: 34.32px; }
 
   /* 스크롤 버튼 */
   .scroll-wrap {
@@ -213,10 +216,6 @@
   .btn-scroll:hover { background: rgba(255,255,255,0.45); transform: translateY(2px); }
 
   /* ---------- Responsive ---------- */
-  @media (max-width: 1440px) {
-    .mv-text { margin-left: 60px; }
-    .mv-stage { margin-left: 0; transform: scale(.85); transform-origin: left center; }
-  }
   @media (max-width: 1100px) {
     .header-inner { padding: 0 24px; }
     .gnb-list { display: none; }
@@ -225,7 +224,7 @@
     .mv-inner { flex-direction: column; gap: 40px; }
     .mv-text { width: 100%; margin: 0; padding: 0 24px; gap: 40px; }
     .mv-copy { width: 100%; }
-    .mv-stage { margin: 0; transform: scale(.6); transform-origin: top center; height: 400px; width: 764px; }
+    .mv-stage { margin: 0 auto -240px; transform: scale(.6); transform-origin: top center; }
     .btn-lg { width: 100%; max-width: 303px; }
   }
 </style>
@@ -246,7 +245,7 @@
       <div class="gnb-cta">
         <a class="btn btn-sm" href="#apply">
           <span>지원하기</span>
-          <svg width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1 1l5 5-5 5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="ico-chevron" width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1.2 1.2L5.8 6l-4.6 4.8" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
     </nav>
@@ -288,7 +287,7 @@
 
     <div class="scroll-wrap">
       <button class="btn-scroll" type="button" id="scrollDown" aria-label="아래로 스크롤">
-        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M13 17l7 7 7-7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M11 16l9 9 9-9" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
   </section>
@@ -300,6 +299,17 @@
     var hero = document.getElementById('main-visual');
     window.scrollTo({ top: hero.offsetHeight, behavior: 'smooth' });
   });
+
+  // 1440px 디자인 기준을 유지한 채 좁은 데스크톱 화면에서는 비율 축소
+  (function () {
+    var inner = document.querySelector('.mv-inner');
+    function fit() {
+      var w = window.innerWidth;
+      inner.style.zoom = (w > 1100 && w < 1440) ? (w / 1440) : 1;
+    }
+    fit();
+    window.addEventListener('resize', fit);
+  })();
 </script>
 </body>
 </html>
