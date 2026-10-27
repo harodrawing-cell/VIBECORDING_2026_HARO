@@ -447,91 +447,423 @@
     .mirae-cloud-blur-right { width: 40%; right: 5%; top: 63%; }
   }
 
-  /* ---------- Main > Section : 한미그룹 연혁 (revised) ---------- */
-  .history { position:relative; overflow:hidden; background:#fff; isolation:isolate; }
-  .history-inner { position:relative; width:min(100%, 1440px); margin:auto; padding:125px 64px 0; }
-  .history-heading { text-align:center; font-size:clamp(24px,2.25vw,36px); line-height:1.4; font-weight:800; letter-spacing:-.055em; }
-  .history-content { position:relative; overflow:hidden; transition:height .75s cubic-bezier(.22,1,.36,1); }
-  .history-content::after { content:""; position:absolute; left:0; right:0; bottom:0; height:240px; background:linear-gradient(to bottom,transparent,#fff 95%); z-index:8; pointer-events:none; transition:opacity .35s; }
-  .history.is-expanded .history-content::after { opacity:0; }
-  .history-timeline { position:relative; padding-top:72px; padding-bottom:30px; }
-  /* The timeline spine is anchored at the true center of the 53 / 100 milestones. */
-  .history-timeline::before { content:""; position:absolute; z-index:0; top:calc(72px + clamp(120px,12.4vw,180px) * .87); bottom:235px; left:50%; width:10px; transform:translateX(-50%); background:#ff5d32; }
-  .history-milestone { position:relative; z-index:2; display:flex; align-items:baseline; justify-content:center; width:max-content; margin-inline:auto; color:#ff5d32; font-family:Inter,sans-serif; font-weight:800; line-height:.94; letter-spacing:-.075em; }
-  .history-milestone strong { font-size:clamp(120px,12.4vw,180px); }
-  .history-milestone span { font-size:clamp(42px,4.6vw,68px); letter-spacing:-.05em; }
-  .history-milestone--end { margin-top:40px; }
-  .history-row { position:relative; z-index:2; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:0 90px; align-items:start; min-height:390px; margin-top:25px; }
-  .history-row--first { margin-top:35px; min-height:410px; }
-  .history-details { min-width:0; position:relative; }
-  .history-details--left { grid-column:1; text-align:right; }
-  .history-details--right { grid-column:2; text-align:left; }
-  .history-period { font-size:clamp(22px,2.05vw,30px); font-weight:800; color:#ff5d32; letter-spacing:-.04em; margin-bottom:22px; }
-  .history-lead { font-size:clamp(15px,1.2vw,19px); font-weight:800; line-height:1.5; margin-bottom:18px; }
-  .history-events { display:grid; gap:16px; list-style:none; }
-  .history-events li { display:flex; align-items:baseline; gap:16px; font-size:clamp(11px,.93vw,14px); line-height:1.55; }
-  .history-details--left .history-events li { flex-direction:row-reverse; }
-  .history-events time { flex:none; font-weight:800; font-size:1.06em; }
-  .history-events p { flex:1; }
-  .history-dots { display:block; margin-top:13px; font-size:24px; line-height:.43; color:#ff5d32; }
-  .history-art { position:relative; z-index:2; display:block; width:min(100%,390px); height:auto; object-fit:contain; }
-  .history-art--left { grid-column:1; justify-self:end; }
-  .history-art--right { grid-column:2; justify-self:start; }
-  .history-row--first .history-art { margin-top:4px; }
-  .history-row--last { min-height:415px; }
-  .history-outro { position:relative; z-index:2; max-width:900px; margin:65px auto 0; text-align:center; }
-  .history-outro p { font-size:14px; line-height:1.8; margin-bottom:15px; }
-  .history-outro strong { display:block; font-size:clamp(19px,2vw,28px); line-height:1.5; letter-spacing:-.04em; }
-  .history-decor { position:absolute; z-index:1; height:auto; pointer-events:none; }
-  .history-decor--stars { width:115px; top:270px; right:13%; }
-  .history-decor--beaker { width:110px; top:600px; left:1%; }
-  .history-decor--micro { width:125px; top:1200px; right:1%; }
-  .history-decor--molecule { width:140px; bottom:560px; right:-35px; }
-  .history-decor--blur { width:170px; top:1750px; left:-55px; opacity:.45; }
-  .history-decor--cloud { width:165px; top:1000px; right:0; opacity:.3; }
-  .history-decor--char { width:135px; bottom:300px; left:4%; }
-  .history-control { position:relative; z-index:9; display:flex; justify-content:center; padding:15px 0 90px; background:#fff; }
-  .history-toggle { display:inline-flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; min-width:76px; min-height:60px; padding:8px; background:transparent; font-size:13px; font-weight:600; }
-  .history-toggle svg { width:22px; height:22px; transition:transform .3s; }
-  .history.is-expanded .history-toggle svg { transform:rotate(180deg); }
-  .history-toggle:focus-visible { outline:2px solid #ff5d32; outline-offset:4px; }
-  @media (max-width:1024px) {
-    .history-inner { padding:100px 35px 0; }
-    .history-row { gap:0 60px; min-height:340px; }
-    .history-row--first { min-height:360px; }
-    .history-row--last { min-height:360px; }
-    .history-timeline::before { width:8px; }
-    .history-art { width:min(100%,315px); }
-    .history-events { gap:13px; }
-    .history-decor--beaker,.history-decor--micro { width:90px; }
-  }
-  @media (max-width:600px) {
-    .history-inner { padding:65px 14px 0; }
-    .history-heading { font-size:clamp(18px,5.15vw,23px); }
-    .history-timeline { padding-top:24px; }
-    .history-timeline::before { display:none; }
-    .history-milestone strong { font-size:clamp(78px,24vw,108px); }
-    .history-milestone span { font-size:clamp(30px,8vw,42px); }
-    .history-row,.history-row--first,.history-row--last { display:flex; flex-direction:column; gap:24px; min-height:0; margin-top:45px; }
-    .history-row--first { margin-top:34px; }
-    .history-details,.history-details--left,.history-details--right { width:100%; text-align:right; }
-    .history-period { font-size:18px; margin-bottom:13px; }
-    .history-lead { font-size:12px; margin-bottom:14px; }
-    .history-events { gap:12px; }
-    .history-events li { flex-direction:row-reverse; gap:10px; font-size:10px; }
-    .history-details--left .history-events li { flex-direction:row-reverse; }
-    .history-row:nth-of-type(odd) .history-details { text-align:left; }
-    .history-row:nth-of-type(odd) .history-events li { flex-direction:row; }
-    .history-art,.history-art--left,.history-art--right { align-self:center; width:min(100%,320px); margin:0; }
-    .history-milestone--end { margin-top:55px; }
-    .history-outro { margin-top:35px; }
-    .history-outro p { font-size:10px; }
-    .history-outro strong { font-size:15px; }
-    .history-decor { display:none; }
-    .history-content::after { height:170px; }
-    .history-control { padding-bottom:60px; }
-  }
-  @media (prefers-reduced-motion:reduce) { .history-content,.history-content::after,.history-toggle svg { transition:none; } }
+      /* ---------- History (53th → 100th) ---------- */
+      /* 데스크탑(1025px~)은 1440 기준 px 값을 --scale 로 축소(기존 히어로와 동일 방식),
+         태블릿/모바일은 아래 미디어쿼리에서 변수만 clamp(vw) 값으로 교체한다. */
+      .history {
+        --u: calc(1px * var(--scale));
+        --his-orange: var(--orange);
+        --his-pad-top: calc(150 * var(--u));
+        --his-pad-x: calc(60 * var(--u));
+        --his-title: calc(48 * var(--u));
+        --his-title-gap: calc(74 * var(--u));
+        --his-count: calc(340 * var(--u));
+        --his-head-gap: calc(122 * var(--u));
+        --his-axis: calc(98 * var(--u));
+        --his-line: calc(24 * var(--u));
+        --his-period: calc(40 * var(--u));
+        --his-lead: calc(28 * var(--u));
+        --his-text: calc(16 * var(--u));
+        --his-year: calc(24 * var(--u));
+        --his-item-gap: calc(34 * var(--u));
+        --his-row-gap: calc(32 * var(--u));
+        --his-block-gap: calc(184 * var(--u));
+        --his-end-gap: calc(220 * var(--u));
+        --his-end-sub: calc(16 * var(--u));
+        --his-end-main: calc(30 * var(--u));
+        --his-dot: calc(8 * var(--u));
+        --his-ease: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        width: 100%;
+        background: var(--white);
+      }
+      .history-body {
+        position: relative;
+        overflow: hidden;
+        transition: max-height var(--his-ease);
+      }
+      /* 접힘 상태: 하단 페이드아웃 (투명 → #fff). rgba(255,255,255,0)은 사파리의 회색 번짐 방지용 */
+      .history-body::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: clamp(180px, 22vw, 320px);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 85%);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1;
+        transition: opacity 0.4s ease;
+      }
+      .history.is-collapsed .history-body::after { opacity: 1; }
+
+      .history-flow {
+        position: relative;
+        max-width: var(--container-width);
+        margin: 0 auto;
+        padding: var(--his-pad-top) var(--his-pad-x) calc(60 * var(--u));
+      }
+      .history-deco { position: absolute; height: auto; max-width: none; pointer-events: none; z-index: -1; }
+
+      /* 헤드: 타이틀 + 53th */
+      .history-head { position: relative; isolation: isolate; text-align: center; margin-bottom: var(--his-head-gap); }
+      .history-title {
+        margin: 0 0 var(--his-title-gap);
+        font-size: var(--his-title);
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: -0.03em;
+      }
+      .history-count {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        margin: 0;
+        font-family: "Inter", var(--font);
+        font-size: var(--his-count);
+        font-weight: 800;
+        line-height: 0.727; /* 숫자 캡 높이 = 박스 높이 → 타임라인 선이 숫자 하단/상단에 정확히 맞물림 */
+        letter-spacing: -0.07em;
+        color: var(--his-orange);
+      }
+      .history-count-unit { margin-left: 0.07em; font-size: 0.4em; letter-spacing: -0.03em; }
+
+      /* 타임라인 중앙선: 53th 하단 → 100th 상단 */
+      .history-timeline { position: relative; display: flex; flex-direction: column; gap: var(--his-block-gap); }
+      .history-timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: calc(-1 * var(--his-head-gap));
+        bottom: calc(-1 * var(--his-end-gap));
+        width: var(--his-line);
+        background: var(--his-orange);
+      }
+
+      /* 블록: 텍스트열/미디어열 지그재그 (DOM 순서 고정, 배치는 grid-template-areas 로만 제어) */
+      .history-block {
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: calc(var(--his-axis) * 2);
+        row-gap: var(--his-row-gap);
+        align-items: start;
+      }
+      .history-block--text-left {
+        grid-template-areas: "lead period" "list figure";
+        grid-template-rows: auto 1fr;
+      }
+      .history-block--text-right {
+        grid-template-areas: "period list" "figure list";
+        grid-template-rows: auto 1fr;
+      }
+      .history-period { grid-area: period; margin: 0; font-size: var(--his-period); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; color: var(--his-orange); white-space: nowrap; }
+      .history-lead { grid-area: lead; margin: 0; font-size: var(--his-lead); font-weight: 700; line-height: 1.4; letter-spacing: -0.03em; }
+      .history-list { grid-area: list; display: flex; flex-direction: column; gap: var(--his-item-gap); margin: 0; padding: 0; list-style: none; }
+      .history-list li { display: flex; align-items: center; gap: calc(var(--his-year) * 1.2); }
+      .history-year { flex: none; width: calc(var(--his-year) * 2.4); font-size: var(--his-year); font-weight: 700; line-height: 1.4; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+      .history-text { font-size: var(--his-text); font-weight: 500; line-height: 1.5; letter-spacing: -0.03em; }
+
+      /* 텍스트가 왼쪽: 축 쪽(오른쪽)으로 우측 정렬, 연도가 축에 가장 가깝게 */
+      .history-block--text-left .history-lead { justify-self: end; text-align: right; }
+      .history-block--text-left .history-list { justify-self: end; align-items: flex-end; }
+      .history-block--text-left .history-list li { flex-direction: row-reverse; text-align: right; }
+      .history-block--text-left .history-period,
+      .history-block--text-left .history-figure { justify-self: start; }
+      /* 텍스트가 오른쪽: 미디어는 축 쪽(왼쪽 열의 오른쪽 끝)으로 정렬 */
+      .history-block--text-right .history-period,
+      .history-block--text-right .history-figure { justify-self: end; }
+      .history-block--text-right .history-list { justify-self: start; align-items: flex-start; }
+      .history-block--text-right .history-period { text-align: right; }
+
+      /* 점 3개(more): 마지막 연도 중앙 아래 */
+      .history-list::after {
+        content: "";
+        width: var(--his-dot);
+        height: var(--his-dot);
+        margin-top: calc(var(--his-item-gap) * 0.4);
+        margin-bottom: calc(var(--his-dot) * 4.5);
+        border-radius: 50%;
+        background: var(--his-orange);
+        box-shadow: 0 calc(var(--his-dot) * 2.25) 0 rgba(255, 93, 50, 0.55), 0 calc(var(--his-dot) * 4.5) 0 rgba(255, 93, 50, 0.25);
+      }
+      .history-block--text-left .history-list::after { margin-right: calc(var(--his-year) * 1.2 - var(--his-dot) / 2); }
+      .history-block--text-right .history-list::after { margin-left: calc(var(--his-year) * 1.2 - var(--his-dot) / 2); }
+
+      .history-figure { grid-area: figure; width: var(--w-d, 80%); margin: 0; }
+      .history-figure img { width: 100%; height: auto; max-width: 100%; }
+      .history-figure--1 { --w-d: 72%; --w-t: 100%; --w-m: 64%; }
+      .history-figure--2 { --w-d: 80%; --w-t: 100%; --w-m: 69%; }
+      .history-figure--3 { --w-d: 94%; --w-t: 100%; --w-m: 85%; }
+      .history-figure--4 { --w-d: 87%; --w-t: 100%; --w-m: 76%; }
+      .history-figure--5 { --w-d: 74%; --w-t: 100%; --w-m: 63%; }
+
+      /* 데코 (데스크탑 전용, 좌표는 1440 기준) */
+      .history-deco--star { right: calc(107 * var(--u)); top: calc(162 * var(--u)); width: calc(180 * var(--u)); z-index: 0; }
+      .history-deco--beaker { left: calc(68 * var(--u)); top: calc(208 * var(--u)); width: calc(171 * var(--u)); z-index: 3; }
+      .history-deco--microscope { left: calc(1115 * var(--u)); top: calc(300 * var(--u)); width: calc(202 * var(--u)); }
+      .history-deco--mol-blur1 { left: calc(1090 * var(--u)); top: calc(66 * var(--u)); width: calc(392 * var(--u)); }
+      .history-deco--mol-blur2 { left: calc(-150 * var(--u)); top: calc(-150 * var(--u)); width: calc(240 * var(--u)); }
+      .history-deco--mol-big { left: auto; right: calc(-95 * var(--u)); top: calc(260 * var(--u)); width: calc(245 * var(--u)); z-index: 2; opacity: 0.8; }
+
+      /* 엔딩: 100th + 마무리 카피 */
+      .history-end { position: relative; isolation: isolate; margin-top: var(--his-end-gap); text-align: center; }
+      .history-count--end { position: relative; left: 8%; }
+      .history-end-copy { position: relative; margin-top: calc(75 * var(--u)); padding-bottom: calc(40 * var(--u)); }
+      .history-end-copy::before {
+        content: "";
+        position: absolute;
+        inset: calc(-170 * var(--u)) -2% 0;
+        background: radial-gradient(ellipse at 50% 50%, rgba(255, 93, 50, 0.08) 0%, rgba(255, 93, 50, 0) 70%);
+        z-index: -1;
+      }
+      .history-end-sub { margin: 0 0 calc(24 * var(--u)); font-size: var(--his-end-sub); font-weight: 500; line-height: 1.6; letter-spacing: -0.03em; }
+      .history-end-main { margin: 0; font-size: var(--his-end-main); font-weight: 800; line-height: 1.95; letter-spacing: -0.04em; }
+      .history-deco--char { left: calc(15 * var(--u)); top: calc(-135 * var(--u)); width: calc(175 * var(--u)); z-index: 0; }
+      .history-deco--cloud { left: calc(-10 * var(--u)); top: calc(105 * var(--u)); width: calc(220 * var(--u)); z-index: -1; }
+
+      /* 펼치기/접기 */
+      .history-foot {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        padding: calc(24 * var(--u)) 0 calc(120 * var(--u));
+        transition: margin-top var(--his-ease);
+      }
+      .history.is-collapsed .history-foot { margin-top: -110px; padding-top: 0; padding-bottom: 60px; }
+      .history-toggle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        min-width: 64px;
+        min-height: 64px;
+        padding: 8px 16px;
+        background: transparent;
+        color: #444;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        transition: color var(--transition);
+      }
+      .history-toggle svg { width: 24px; height: 24px; transition: transform var(--his-ease); }
+      .history-toggle[aria-expanded="false"] svg { transform: rotate(180deg); }
+      .history-toggle:hover { color: var(--black); }
+
+      @media (prefers-reduced-motion: reduce) {
+        .history-body, .history-body::after, .history-foot, .history-toggle svg { transition: none; }
+      }
+
+      /* ---------- Tablet : 1024px 이하 (선 유지, 데코 제거, 2열 지그재그 유지) ---------- */
+      @media (max-width: 1024px) {
+        .history {
+          --u: 1px;
+          --his-pad-top: clamp(80px, 12vw, 130px);
+          --his-pad-x: clamp(20px, 5.7vw, 56px);
+          --his-title: clamp(26px, 4.2vw, 42px);
+          --his-title-gap: clamp(40px, 8.1vw, 80px);
+          --his-count: clamp(150px, 28.8vw, 295px);
+          --his-head-gap: clamp(60px, 10.7vw, 110px);
+          --his-axis: clamp(30px, 8.6vw, 76px);
+          --his-line: clamp(12px, 2.1vw, 22px);
+          --his-period: clamp(22px, 3.3vw, 34px);
+          --his-lead: clamp(17px, 2.45vw, 25px);
+          --his-text: clamp(12px, 1.45vw, 15px);
+          --his-year: clamp(16px, 2vw, 21px);
+          --his-item-gap: clamp(16px, 2.8vw, 30px);
+          --his-row-gap: clamp(20px, 3.4vw, 32px);
+          --his-block-gap: clamp(80px, 16vw, 160px);
+          --his-end-gap: clamp(100px, 20vw, 200px);
+          --his-end-sub: clamp(13px, 1.9vw, 17px);
+          --his-end-main: clamp(20px, 3.3vw, 32px);
+          --his-dot: clamp(6px, 0.9vw, 8px);
+        }
+        .history-deco { display: none; } /* 장식 이미지는 데스크탑 전용 */
+        .history-figure { width: var(--w-t); }
+        .history-end-copy { margin-top: clamp(40px, 8vw, 75px); }
+        .history-end-copy::before { inset: -120px -2% 0; }
+        .history-foot { padding: 24px 0 clamp(60px, 12vw, 120px); }
+      }
+
+      /* ---------- Mobile : 568px 이하 (선 제거, 1열, 홀/짝 블록 좌우 교차 정렬) ---------- */
+      @media (max-width: 568px) {
+        .history {
+          --his-pad-top: clamp(24px, 6vw, 36px);
+          --his-pad-x: 20px;
+          --his-title: clamp(17px, 3.85vw, 22px);
+          --his-title-gap: clamp(20px, 5.3vw, 30px);
+          --his-count: clamp(80px, 22.6vw, 128px);
+          --his-head-gap: clamp(36px, 10vw, 56px);
+          --his-period: clamp(17px, 3.4vw, 20px);
+          --his-lead: clamp(14px, 2.6vw, 15px);
+          --his-text: clamp(12px, 2.2vw, 13px);
+          --his-year: clamp(15px, 2.8vw, 16px);
+          --his-item-gap: clamp(18px, 4.7vw, 28px);
+          --his-row-gap: clamp(18px, 4.6vw, 26px);
+          --his-block-gap: clamp(64px, 17vw, 96px);
+          --his-end-gap: clamp(56px, 14vw, 80px);
+          --his-end-sub: clamp(11px, 2.5vw, 13px);
+          --his-end-main: clamp(17px, 3.7vw, 20px);
+        }
+        .history-timeline::before { content: none; }
+        .history-block { grid-template-columns: 1fr; grid-template-rows: none; }
+        .history-block--text-left { grid-template-areas: "period" "lead" "list" "figure"; justify-items: end; }
+        .history-block--text-right { grid-template-areas: "period" "list" "figure"; justify-items: start; }
+        .history-block .history-period,
+        .history-block .history-lead,
+        .history-block .history-list,
+        .history-block .history-figure { justify-self: auto; }
+        .history-block--text-right .history-period { text-align: left; }
+        .history-block--text-left .history-period { text-align: right; }
+        .history-figure { width: var(--w-m); }
+        .history-count--end { left: 2.7%; }
+        .history-end-copy { margin-top: 20px; }
+        .history-end-copy::before { inset: -60px -20px 0; }
+        .history-end-main { line-height: 1.75; }
+        .history-toggle { font-size: 14px; }
+      }
+
+      /* ===== Final history responsive corrections (isolated to section 3) ===== */
+      .history {
+        --his-pad-top: 92px; --his-pad-x: 48px;
+        --his-title: 34px; --his-title-gap: 55px;
+        --his-count: 190px; --his-head-gap: 66px;
+        --his-axis: 70px; --his-line: 10px;
+        --his-period: 27px; --his-lead: 19px;
+        --his-text: 13px; --his-year: 16px;
+        --his-item-gap: 20px; --his-row-gap: 23px;
+        --his-block-gap: 105px; --his-end-gap: 135px;
+        --his-end-sub: 15px; --his-end-main: 27px;
+        --his-dot: 5px;
+      }
+      .history-head { margin-bottom: var(--his-head-gap); }
+      .history-count { line-height: .92; letter-spacing: -.075em; }
+      .history-count-unit { font-size: .34em; }
+      .history-timeline::before {
+        left: 50%; transform: translateX(-50%);
+        top: calc(-0.5 * var(--his-head-gap) - 78px);
+        bottom: calc(-1.5 * var(--his-end-gap));
+        width: var(--his-line);
+        /* background: linear-gradient(to bottom,#ff5d32 0%,#ff5d32 84%,rgba(255,93,50,0) 100%); */
+        z-index: 0; pointer-events:none;
+      }
+      .history-block { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+      .history-block--text-left { grid-template-areas: 'lead period' 'list figure'; }
+      .history-block--text-right { grid-template-areas: 'period list' 'figure list'; }
+      .history-list li { min-width:0; }
+      .history-text { overflow-wrap:anywhere; }
+      .history-figure { max-width:100%; }
+      .history-figure--1 { --w-d: 74%; }
+      .history-deco--star { width:105px; right:14%; top:120px; }
+      .history-deco--beaker { width:105px; left:6%; top:340px; }
+      .history-count--end { left:0; }
+      .history-body { will-change:max-height; }
+      .history.is-collapsed .history-foot {
+        margin-top:-72px; padding-top:0; padding-bottom:62px;
+      }
+      .history-body::after { height:clamp(150px,20vw,260px); }
+      @media (max-width:1024px) {
+        .history {
+          --his-pad-top:clamp(65px,9vw,95px);
+          --his-pad-x:clamp(22px,4vw,42px);
+          --his-title:clamp(24px,3.5vw,34px);
+          --his-title-gap:clamp(35px,5vw,55px);
+          --his-count:clamp(120px,19vw,190px);
+          --his-head-gap:clamp(42px,6.5vw,66px);
+          --his-axis:clamp(26px,5vw,60px);
+          --his-line:8px;
+          --his-period:clamp(18px,2.7vw,26px);
+          --his-lead:clamp(14px,1.9vw,19px);
+          --his-text:clamp(10px,1.3vw,13px);
+          --his-year:clamp(12px,1.6vw,16px);
+          --his-item-gap:clamp(14px,2vw,20px);
+          --his-row-gap:20px;
+          --his-block-gap:clamp(75px,10vw,110px);
+          --his-end-gap:clamp(85px,13vw,135px);
+          --his-end-sub:clamp(12px,1.5vw,15px);
+          --his-end-main:clamp(19px,2.6vw,27px);
+        }
+        .history-figure--1 { --w-t:82%; }
+        .history-figure--2 { --w-t:85%; }
+        .history-list li { gap:10px; }
+      }
+      @media (max-width:568px) {
+        .history {
+          --his-pad-top:48px; --his-pad-x:18px;
+          --his-title:clamp(18px,5vw,22px);
+          --his-title-gap:30px;
+          --his-count:clamp(88px,25vw,110px);
+          --his-head-gap:32px;
+          --his-period:clamp(17px,4.6vw,20px);
+          --his-lead:13px; --his-text:clamp(10px,2.7vw,12px);
+          --his-year:clamp(12px,3.3vw,15px);
+          --his-item-gap:16px; --his-row-gap:17px;
+          --his-block-gap:65px; --his-end-gap:70px;
+          --his-end-sub:11px; --his-end-main:18px;
+        }
+        .history-timeline::before { display:none; }
+        .history-block { display:grid; grid-template-columns:minmax(0,1fr); }
+        .history-block--text-left { grid-template-areas:'period' 'lead' 'list' 'figure'; justify-items:end; }
+        .history-block--text-right { grid-template-areas:'period' 'list' 'figure'; justify-items:start; }
+        .history-block--text-left .history-list { align-items:flex-end; }
+        .history-block--text-left .history-list li { flex-direction:row-reverse; text-align:right; }
+        .history-block--text-right .history-list li { flex-direction:row; text-align:left; }
+        .history-block--text-right .history-period { text-align:left; }
+        .history-block--text-left .history-period { text-align:right; }
+        .history-figure--1 { --w-m:76%; }
+        .history-figure { max-width:100%; }
+        .history-body::after { height:150px; }
+        .history.is-collapsed .history-foot { margin-top:-52px; padding-bottom:45px; }
+        .history-title { line-height:1.5; }
+        .history-count--end { left:0; }
+      }
+
+      /* ---------- Final desktop proportion correction (reference: collapsed 1440px) ---------- */
+      @media (min-width: 1025px) {
+        .site-header { height: 80px; }
+        .header-inner { height: 80px; padding-inline: 40px; }
+        .brand, .brand img { width: 140px; height: auto; }
+        .gnb-list { gap: 30px; }
+        .gnb-list a, .gnb-list li:first-child a { height: 80px; font-size: 15px; line-height: 1.4; letter-spacing: -0.035em; }
+        .gnb-cta { padding-left: 30px; }
+        .gnb-cta .btn-apply { width: 100px; height: 40px; font-size: 14px; }
+
+        .history {
+          --his-pad-top: 92px;
+          --his-pad-x: 54px;
+          --his-title: 36px;
+          --his-title-gap: 55px;
+          --his-count: 265px;
+          --his-head-gap: 83px;
+          --his-axis: 66px;
+          --his-line: 12px;
+          --his-period: 30px;
+          --his-lead: 21px;
+          --his-text: 13px;
+          --his-year: 18px;
+          --his-item-gap: 22px;
+          --his-row-gap: 22px;
+          --his-block-gap: 130px;
+          --his-end-gap: 170px;
+          --his-dot: 5px;
+        }
+        .history-title { line-height: 1.45; }
+        .history-count { line-height: .82; letter-spacing: -.065em; }
+        .history-count-unit { font-size: .36em; }
+        .history-figure--1 { --w-d: 78%; }
+        .history-figure--2 { --w-d: 82%; }
+        .history-deco--star { width: 115px; top: 125px; right: 110px; }
+        .history-deco--beaker { width: 160px; top: 125px; left: 0; z-index: 5; }
+        .history.is-collapsed .history-body::after { height: 240px; }
+        .history.is-collapsed .history-foot { margin-top: -70px; padding-bottom: 55px; }
+      }
+      /* Put the orange stem directly beneath the 53's visual center, not the full 53th text. */
+      @media (min-width: 569px) {
+        .history-timeline::before { left: calc(50% - var(--his-line) / 2); }
+      }
 
 </style>
 </head>
@@ -628,46 +960,119 @@
   </section>
 
   <!-- 2-3. 한미그룹 연혁 section -->
-  <section class="history" id="history" aria-labelledby="history-heading">
-    <div class="history-inner">
-      <h2 class="history-heading" id="history-heading">한미의 도전은 작은 가능성에서<br>시작되었습니다.</h2>
-      <img class="history-decor history-decor--stars" src="images/obj_star_big.png" alt="장식용 노란 별 세 개" loading="lazy">
-      <img class="history-decor history-decor--beaker" src="images/obj_beaker.png" alt="분홍색 실험 비커" loading="lazy">
-      <img class="history-decor history-decor--micro" src="images/obj_microscope.png" alt="파란색 현미경" loading="lazy">
-      <img class="history-decor history-decor--molecule" src="images/obj_mol_big.png" alt="분자 모형 장식" loading="lazy">
-      <img class="history-decor history-decor--blur" src="images/obj_mol_blur1.png" alt="흐릿한 분자 모형" loading="lazy">
-      <img class="history-decor history-decor--cloud" src="images/cloud_blur_medium.png" alt="흐릿한 구름 장식" loading="lazy">
-      <img class="history-decor history-decor--char" src="images/con2_char.png" alt="한미그룹 파란 캐릭터" loading="lazy">
-      <div class="history-content" id="historyContent" role="region" aria-label="한미그룹 연혁 상세">
-        <div class="history-timeline" id="historyTimeline">
-          <div class="history-milestone history-milestone--start" aria-label="53주년"><strong>53</strong><span>th</span></div>
-          <div class="history-row history-row--first">
-            <div class="history-details history-details--left"><h3 class="history-period">1973~2001</h3><p class="history-lead">한계를 하나씩 넘을 때마다,</p><ol class="history-events"><li><time datetime="1973">1973</time><p>한미약품공업주식회사 설립</p></li><li><time datetime="1984">1984</time><p>합단 GMP 공장 신축</p></li><li><time datetime="1989">1989</time><p>세프트리악손 제조방법 Roche사 기술 수출</p></li><li><time datetime="1997">1997</time><p>마이크로에멀젼 제제기술 Novartis사 기술 수출</p></li></ol><span class="history-dots" aria-hidden="true">·<br>·<br>·</span></div>
-            <img class="history-art history-art--right" src="images/his1.png" alt="1973~2001 한미그룹 연혁 관련 이미지" loading="lazy">
+      <section class="history is-expanded" id="history" aria-labelledby="history-title">
+        <div class="history-body" id="history-body">
+          <div class="history-flow">
+            <header class="history-head">
+              <h2 class="history-title" id="history-title">한미의 도전은 작은 가능성에서<br />시작되었습니다.</h2>
+              <p class="history-count" role="img" aria-label="한미 창립 53주년"><span class="history-count-num">53</span><span class="history-count-unit">th</span></p>
+              <img class="history-deco history-deco--star" src="./images/obj_star_big.png" alt="반짝이는 노란 별 세 개" />
+            </header>
+
+            <div class="history-timeline">
+              <!-- 1973~2001 -->
+              <div class="history-block history-block--text-left">
+                <h3 class="history-period">1973~2001</h3>
+                <p class="history-lead">한계를 하나씩 넘을 때마다,</p>
+                <ul class="history-list">
+                  <li><span class="history-year">1973</span><span class="history-text">한미약품공업주식회사 설립</span></li>
+                  <li><span class="history-year">1984</span><span class="history-text">팔탄 GMP 공장 신축</span></li>
+                  <li><span class="history-year">1989</span><span class="history-text">세프트리악손 제조방법 Roche사 기술 수출</span></li>
+                  <li><span class="history-year">1997</span><span class="history-text">마이크로에멀전 제제기술 Novartis사 기술 수출</span></li>
+                </ul>
+                <figure class="history-figure history-figure--1">
+                  <img src="./images/his1.png" alt="한미약품 초기 대표 제품 텐텐 어린이 영양제와 쎄쎄 비타민C 캐러멜" />
+                </figure>
+                <img class="history-deco history-deco--beaker" src="./images/obj_beaker.png" alt="분홍색 액체가 담긴 실험용 비커" />
+              </div>
+
+              <!-- 2002~2010 -->
+              <div class="history-block history-block--text-right">
+                <h3 class="history-period">2002~2010</h3>
+                <ul class="history-list">
+                  <li><span class="history-year">2004</span><span class="history-text">국내 최초 고혈압치료제 ‘아모디핀’ 미국특허 획득</span></li>
+                  <li><span class="history-year">2006</span><span class="history-text">세계 최초 유소아 해열 시럽제 개량신약 ‘맥시부펜’ 개발 성공</span></li>
+                  <li><span class="history-year">2008</span><span class="history-text">국내 최초 주사용항생제 세프트리악손 美 FDA 승인</span></li>
+                  <li><span class="history-year">2009</span><span class="history-text">세계최초 암로디핀+로살탄 복합제 ‘아모잘탄’ 발매</span></li>
+                </ul>
+                <figure class="history-figure history-figure--2">
+                  <img src="./images/his2.png" alt="석양을 배경으로 손을 잡고 함께 뛰어오르는 다섯 사람의 실루엣" />
+                </figure>
+                <img class="history-deco history-deco--mol-blur1" src="./images/obj_mol_blur1.png" alt="흐릿하게 번진 푸른 분자 구조" />
+                <img class="history-deco history-deco--microscope" src="./images/obj_microscope.png" alt="파란색 현미경" />
+              </div>
+
+              <!-- 2011~2015 -->
+              <div class="history-block history-block--text-left">
+                <h3 class="history-period">2011~2015</h3>
+                <p class="history-lead">새로운 가능성이 현실이 되었어요.</p>
+                <ul class="history-list">
+                  <li><span class="history-year">2011</span><span class="history-text">MSD와 ‘아모잘탄’ 50여개국 수출 계약 체결</span></li>
+                  <li><span class="history-year">2012</span><span class="history-text">‘LAPS-GCSF’ 美 스펙트럼사와 공동개발 및 상업화 계약</span></li>
+                  <li><span class="history-year">2013</span><span class="history-text">국내 개량신약 최초 미국 FDA 승인 및 미국 출시 ‘에소메졸’</span></li>
+                  <li><span class="history-year">2014</span><span class="history-text">‘트리악손’ 국내 최초 유럽 4개국 시판 허가</span></li>
+                  <li><span class="history-year">2015</span><span class="history-text">한국 사상 최대규모 릴레이 기술수출</span></li>
+                </ul>
+                <figure class="history-figure history-figure--3">
+                  <img src="./images/his3.png" alt="스펙트럼 파마슈티컬스 로고와 인체 모형, 에소메졸 제품 용기" />
+                </figure>
+              </div>
+
+              <!-- 2016~2020 -->
+              <div class="history-block history-block--text-right">
+                <h3 class="history-period">2016~2020</h3>
+                <ul class="history-list">
+                  <li><span class="history-year">2016</span><span class="history-text">차세대 RAF 저해제, Roche 제넨텍 기술수출</span></li>
+                  <li><span class="history-year">2017</span><span class="history-text">‘에소메졸’ 국내 제약회사 최초 미국약전(USP) 등재</span></li>
+                  <li><span class="history-year">2018</span><span class="history-text">‘Glucagon Analog’, ‘오락솔’ 차세대 AML 치료제 美 희귀의약품 지정</span></li>
+                  <li><span class="history-year">2019</span><span class="history-text">최근 10년간 처방실적 최다 4조 4,176억원</span></li>
+                </ul>
+                <figure class="history-figure history-figure--4">
+                  <img src="./images/his4.png" alt="미국임상종양학회 ASCO와 미국약전 USP 로고, 로수젯 제품 패키지" />
+                </figure>
+                <img class="history-deco history-deco--mol-blur2" src="./images/obj_mol_blur2.png" alt="흐릿하게 번진 분홍빛 분자 구조" />
+              </div>
+
+              <!-- 2021~2026 -->
+              <div class="history-block history-block--text-left">
+                <h3 class="history-period">2021~2026</h3>
+                <p class="history-lead">하지만 아직, 가야 할 길이 더 남아 있습니다.</p>
+                <ul class="history-list">
+                  <li><span class="history-year">2021</span><span class="history-text">‘로수젯’, 국내사 개발 처방의약품 매출 1위 달성</span></li>
+                  <li><span class="history-year">2022</span><span class="history-text">‘롤론티스’ 한국 최초 FDA 허가 받은 바이오신약 등재<br />‘로수젯 RACING 연구’ 세계 최고 권위 의학저널 ‘LANCET’ 등재</span></li>
+                  <li><span class="history-year">2023</span><span class="history-text">비만 프로젝트 ‘H.O.P’ 프로젝트 가동</span></li>
+                  <li><span class="history-year">2024</span><span class="history-text">근손실 한계 뛰어넘은 신개념 비만 신약 ‘HM17321’ 발표</span></li>
+                  <li><span class="history-year">2025</span><span class="history-text">‘로수젯’ 한국 전문의약품 시장 1위 품목 등록<br />한미약품 8년 연속 원외처방 1위<br />미국암연구학회(AACR)서 국내 최다 11개 연구 성과 발표<br />한미사이언스 약국화장품 ‘EGF크림’ 27만개 완판</span></li>
+                  <li><span class="history-year">2026</span><span class="history-text">희귀질환치료제 ‘LAPS-GLP2’ 릴리 기술수출<br />한미 ‘완전두유·케어미’ 국제 우수 미각상 수상</span></li>
+                </ul>
+                <figure class="history-figure history-figure--5">
+                  <img src="./images/his5.png" alt="THE LANCET 창간 200주년 표지와 롤론티스 작용 원리, 롤론티스 제품 패키지" />
+                </figure>
+                <img class="history-deco history-deco--mol-big" src="./images/obj_mol_big.png" alt="유리 질감의 큰 분자 구조 모형" />
+              </div>
+            </div>
+
+            <footer class="history-end">
+              <p class="history-count history-count--end" role="img" aria-label="한미 창립 100주년"><span class="history-count-num">100</span><span class="history-count-unit">th</span></p>
+              <div class="history-end-copy">
+                <p class="history-end-sub">한계를 넘을 때마다, 건강한 미래는 가까워졌습니다. 한계를 넘는 일, 우리에게는 꽤 익숙하니까.</p>
+                <p class="history-end-main">수많은 도전이 오늘의 한미를 만들었습니다.<br />이제 또 다른 가능성을 향해 당신과 함께 나아갑니다.</p>
+              </div>
+              <img class="history-deco history-deco--cloud" src="./images/cloud_blur_medium.png" alt="캐릭터 아래에 깔린 흐릿한 구름 그림자" />
+              <img class="history-deco history-deco--char" src="./images/con2_char.png" alt="사원증을 목에 걸고 달려가는 파란색 알약 캐릭터" />
+            </footer>
           </div>
-          <div class="history-row ">
-            <div class="history-details history-details--right"><h3 class="history-period">2002~2010</h3><ol class="history-events"><li><time datetime="2004">2004</time><p>국내 최초 개량신약 개발</p></li><li><time datetime="2006">2006</time><p>세계 최초 유소아용 제제 개발</p></li><li><time datetime="2008">2008</time><p>국내 최초 주사용 항생제 미국 FDA 승인</p></li><li><time datetime="2009">2009</time><p>세계 최초 복합제 연구 개발</p></li></ol><span class="history-dots" aria-hidden="true">·<br>·<br>·</span></div>
-            <img class="history-art history-art--left" src="images/his2.png" alt="2002~2010 한미그룹 연혁 관련 이미지" loading="lazy">
-          </div>
-          <div class="history-row ">
-            <div class="history-details history-details--left"><h3 class="history-period">2011~2015</h3><p class="history-lead">새로운 가능성이 현실이 되었어요.</p><ol class="history-events"><li><time datetime="2011">2011</time><p>연구개발 성과 확대</p></li><li><time datetime="2012">2012</time><p>글로벌 협력 강화</p></li><li><time datetime="2013">2013</time><p>혁신 신약 개발 도전</p></li><li><time datetime="2014">2014</time><p>연구 성과와 사업 확장</p></li><li><time datetime="2015">2015</time><p>글로벌 파트너십 확대</p></li></ol><span class="history-dots" aria-hidden="true">·<br>·<br>·</span></div>
-            <img class="history-art history-art--right" src="images/his3.png" alt="2011~2015 한미그룹 연혁 관련 이미지" loading="lazy">
-          </div>
-          <div class="history-row ">
-            <div class="history-details history-details--right"><h3 class="history-period">2016~2020</h3><ol class="history-events"><li><time datetime="2016">2016</time><p>연구개발 및 글로벌 협력</p></li><li><time datetime="2017">2017</time><p>해외 시장 진출 확대</p></li><li><time datetime="2018">2018</time><p>신약 연구 성과</p></li><li><time datetime="2019">2019</time><p>새로운 성장의 기반 마련</p></li></ol><span class="history-dots" aria-hidden="true">·<br>·<br>·</span></div>
-            <img class="history-art history-art--left" src="images/his4.png" alt="2016~2020 한미그룹 연혁 관련 이미지" loading="lazy">
-          </div>
-          <div class="history-row history-row--last">
-            <div class="history-details history-details--left"><h3 class="history-period">2021~2026</h3><p class="history-lead">하지만 아직, 가야 할 길이 더 남아 있습니다.</p><ol class="history-events"><li><time datetime="2021">2021</time><p>혁신을 향한 도전</p></li><li><time datetime="2022">2022</time><p>글로벌 연구개발 협력</p></li><li><time datetime="2023">2023</time><p>새로운 치료 가능성 탐색</p></li><li><time datetime="2024">2024</time><p>연구 성과 확대</p></li><li><time datetime="2025">2025</time><p>신약 개발과 미래 성장</p></li><li><time datetime="2026">2026</time><p>새로운 도전을 이어갑니다</p></li></ol><span class="history-dots" aria-hidden="true">·<br>·<br>·</span></div>
-            <img class="history-art history-art--right" src="images/his5.png" alt="2021~2026 한미그룹 연혁 관련 이미지" loading="lazy">
-          </div>
-          <div class="history-milestone history-milestone--end" aria-label="100주년을 향해"><strong>100</strong><span>th</span></div>
-          <div class="history-outro"><p>한계를 넘을 때마다, 건강한 미래는 가까워졌습니다. 이제는 더 큰 꿈, 우리에게는 새로운 약속입니다.</p><strong>수많은 도전이 오늘의 한미를 만들었습니다.<br>이제 또 다른 가능성을 향해 당신과 함께 나아갑니다.</strong></div>
         </div>
-      </div>
-    </div>
-    <div class="history-control"><button class="history-toggle" id="historyToggle" type="button" aria-expanded="false" aria-controls="historyContent"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 9 5 5 5-5 M7 14l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>펼치기</span></button></div>
-  </section>
+
+        <div class="history-foot">
+          <button class="history-toggle" type="button" aria-expanded="true" aria-controls="history-body">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 11l7-7 7 7M5 19l7-7 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="history-toggle-label">접기</span>
+          </button>
+        </div>
+      </section>
 
 
 </main>
@@ -728,40 +1133,90 @@
     });
   })();
 </script>
+
 <script>
-  /* History: show first milestone and a glimpse of the next period when collapsed. */
-  (function () {
-    const section = document.getElementById('history');
-    const content = document.getElementById('historyContent');
-    const timeline = document.getElementById('historyTimeline');
-    const button = document.getElementById('historyToggle');
-    const label = button.querySelector('span');
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let expanded = false;
-    function updateHeight() {
-      const full = timeline.scrollHeight;
-      const rows = timeline.querySelectorAll('.history-row');
-      const second = rows[1];
-      const first = rows[0];
-      // Desktop/tablet: second period just starts to fade; mobile: first product fades.
-      const collapsed = window.innerWidth <= 600
-        ? first.offsetTop + first.offsetHeight - Math.min(100, first.offsetHeight * .2)
-        : second.offsetTop + Math.min(second.offsetHeight * .55, 170);
-      content.style.height = Math.ceil(expanded ? full : Math.min(full, collapsed)) + 'px';
-    }
-    button.addEventListener('click', function () {
-      expanded = !expanded;
-      section.classList.toggle('is-expanded', expanded);
-      button.setAttribute('aria-expanded', String(expanded));
-      label.textContent = expanded ? '접기' : '펼치기';
-      updateHeight();
-      if (!expanded) section.scrollIntoView({ behavior: reduced.matches ? 'auto' : 'smooth', block:'start' });
-    });
-    if ('ResizeObserver' in window) new ResizeObserver(updateHeight).observe(timeline);
-    window.addEventListener('load', updateHeight);
-    window.addEventListener('resize', updateHeight);
-    updateHeight();
-  })();
+      // 히스토리: 전체 높이 비율이 아닌 실제 요소 위치를 기준으로 접힘 높이를 계산
+      (function () {
+        var section = document.getElementById('history');
+        if (!section) return;
+        var body = document.getElementById('history-body');
+        var flow = section.querySelector('.history-flow');
+        var blocks = section.querySelectorAll('.history-block');
+        var button = section.querySelector('.history-toggle');
+        var label = button.querySelector('.history-toggle-label');
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+        var collapsed = true;
+        var resizeFrame = 0;
+        function topInFlow(el) {
+          return el.getBoundingClientRect().top - flow.getBoundingClientRect().top;
+        }
+        function fullHeight() { return Math.ceil(flow.offsetHeight); }
+        function collapsedHeight() {
+          var mobile = window.matchMedia('(max-width:568px)').matches;
+          var first = blocks[0];
+          var second = blocks[1];
+          var point;
+          if (mobile) {
+            var figure = first.querySelector('.history-figure');
+            // 첫 제품 이미지 하단을 살짝 흐리게 가리는 위치
+            point = topInFlow(figure) + figure.getBoundingClientRect().height * .88;
+          } else {
+            // 데스크탑/태블릿: 첫 연혁의 하단을 흐리게 처리 (피그마 접힘 화면)
+            var firstFigure = first.querySelector('.history-figure');
+            point = topInFlow(firstFigure) + firstFigure.getBoundingClientRect().height * .94;
+          }
+          return Math.max(1, Math.min(fullHeight(), Math.round(point)));
+        }
+        function syncState() {
+          section.classList.toggle('is-collapsed', collapsed);
+          section.classList.toggle('is-expanded', !collapsed);
+          button.setAttribute('aria-expanded', String(!collapsed));
+          label.textContent = collapsed ? '펼치기' : '접기';
+        }
+        function resize() {
+          if (collapsed) body.style.maxHeight = collapsedHeight() + 'px';
+          else if (body.style.maxHeight !== 'none') body.style.maxHeight = fullHeight() + 'px';
+        }
+        function onResize() {
+          if (resizeFrame) cancelAnimationFrame(resizeFrame);
+          resizeFrame = requestAnimationFrame(function () {
+            resizeFrame = 0;
+            body.style.transition = 'none';
+            resize();
+            void body.offsetHeight;
+            body.style.transition = '';
+          });
+        }
+        button.addEventListener('click', function () {
+          if (collapsed) {
+            collapsed = false;
+            body.style.maxHeight = fullHeight() + 'px';
+          } else {
+            collapsed = true;
+            body.style.maxHeight = fullHeight() + 'px';
+            void body.offsetHeight;
+            body.style.maxHeight = collapsedHeight() + 'px';
+          }
+          syncState();
+          if (collapsed && section.getBoundingClientRect().top < 0) {
+            section.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'start'});
+          }
+        });
+        body.addEventListener('transitionend', function (e) {
+          if (e.target === body && e.propertyName === 'max-height' && !collapsed) {
+            body.style.maxHeight = 'none';
+          }
+        });
+        body.style.transition = 'none';
+        syncState();
+        resize();
+        void body.offsetHeight;
+        body.style.transition = '';
+        if (window.ResizeObserver) new ResizeObserver(onResize).observe(flow);
+        window.addEventListener('resize', onResize);
+        window.addEventListener('load', onResize);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(onResize);
+      })();
 </script>
 </body>
 </html>
