@@ -27,7 +27,11 @@
     --white-50: rgba(255, 255, 255, 0.5);
     --gradient-cta: linear-gradient(90deg, #E60012 0%, #FF5D32 100%);
     --font: 'Inter', 'Noto Sans KR', 'Pretendard', sans-serif;
-    --ease: 0.2s ease;
+    --transition: 0.2s ease;
+    --page-width: 1920px;
+    --container-width: 1440px;
+    --hero-height: 900px;
+    --scale: 1; /* JS가 1440px 미만에서 갱신 */
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -167,14 +171,15 @@
     position: relative;
     flex: none;
     width: 663px;
-    height: 663px;
+    aspect-ratio: 1 / 1;
+    height: auto;
     margin-left: 40px;
     z-index: 1;
   }
   .mv-stage .ring-glow {
     position: absolute;
     left: 0; top: 0;
-    width: 663px; height: 663px;
+    width: 100.00000%; height: 100.00000%;
     border: 5px solid var(--white);
     border-radius: 500px;
     background: radial-gradient(70.71% 70.71% at 50% 50%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
@@ -182,22 +187,22 @@
   }
   .mv-stage .ring-line {
     position: absolute;
-    left: 55px; top: 55px;
-    width: 553px; height: 553px;
+    left: 8.29563%; top: 8.29563%;
+    width: 83.40875%; height: 83.40875%;
     border: 1px solid rgba(255,255,255,0.5);
     border-radius: 500px;
   }
   .mv-stage img { position: absolute; height: auto; }
-  .mv-micro { left: 65.8px;   top: 33.7px;  width: 289.52px; }
-  .mv-char1 { left: 115.1px;  top: 177.1px; width: 253.44px; }
-  .mv-char2 { left: 336.8px;  top: 175.4px; width: 181.28px; }
-  .mv-char3 { left: 39.4px;   top: 351.4px; width: 216.48px; }
-  .mv-char4 { left: 395.8px;  top: 372.5px; width: 292.16px; }
-  .mv-star1 { left: 221.6px;  top: 119px;   width: 17.6px; }
-  .mv-star2 { left: 40.3px;   top: 351.4px; width: 22.88px; }
-  .mv-star3 { left: 614.9px;  top: 356.6px; width: 21.12px; }
-  .mv-star4 { left: 460.9px;  top: 131.4px; width: 23.76px; }
-  .mv-star5 { left: 632.5px;  top: 314.4px; width: 34.32px; }
+  .mv-micro { left: 9.92459%;   top: 5.08296%;  width: 43.66817%; }
+  .mv-char1 { left: 17.36048%;  top: 26.71192%; width: 38.22624%; }
+  .mv-char2 { left: 50.79940%;  top: 26.45551%; width: 27.34238%; }
+  .mv-char3 { left: 5.94268%;   top: 53.00151%; width: 32.65158%; }
+  .mv-char4 { left: 59.69834%;  top: 56.18401%; width: 44.06637%; }
+  .mv-star1 { left: 33.42383%;  top: 17.94872%;   width: 2.65460%; }
+  .mv-star2 { left: 6.07843%;   top: 53.00151%; width: 3.45098%; }
+  .mv-star3 { left: 92.74510%;  top: 53.78582%; width: 3.18552%; }
+  .mv-star4 { left: 69.51735%;  top: 19.81900%; width: 3.58371%; }
+  .mv-star5 { left: 95.39970%;  top: 47.42081%; width: 5.17647%; }
 
   /* 스크롤 버튼 */
   .scroll-wrap {
@@ -290,7 +295,7 @@
     .btn-lg { width: 303px; max-width: 100%; height: 64px; padding: 0 24px; font-size: 20px; line-height: 30px; }
 
     /* 캐릭터 스테이지: 내부 absolute 좌표는 유지하고 zoom 으로 비율 축소 (레이아웃 영역도 함께 줄어듦) */
-    .mv-stage { margin: 0 auto; zoom: 0.71; }
+    .mv-stage { margin: 0 auto; width: min(71vw, 470.73px); }
 
     .btn-scroll { width: 70px; height: 70px; }
     .btn-scroll svg { width: 35px; height: 35px; }
@@ -372,12 +377,162 @@
     .mv-sub { font-size: 20px; line-height: 28px; letter-spacing: -0.4px; }
     .mv-period { font-size: 13px; line-height: 20px; letter-spacing: -0.3px; }
     .btn-lg { width: 200px; height: 48px; padding: 0 16px; font-size: 15px; line-height: 22px; }
-    .mv-stage { zoom: 0.53; }
+    .mv-stage { width: min(90vw, 351.39px); }
 
     .scroll-wrap { bottom: 24px; }
     .btn-scroll { width: 40px; height: 40px; }
     .btn-scroll svg { width: 20px; height: 20px; }
   }
+
+  /* ---------- Main > Section : 새로운 미래 (피그마 재대조 2026-10-27) ---------- */
+  .mirae {
+    position: relative;
+    width: 100%;
+    height: clamp(700px, 57.3vw, 825px);
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(180deg, #fff 0%, #fffaf8 25%, #ffe7df 100%);
+  }
+  /* 수정: 구름 기준을 1440px 내부 박스가 아닌 실제 화면 전체로 변경 */
+  .mirae-inner { position: relative; width: 100%; height: 100%; margin: 0 auto; }
+  /* 수정: 제목은 캐릭터와 독립적으로 시안 상단 약 23% 지점에 고정 */
+  .mirae-title {
+    position: absolute; z-index: 4; top: 22.5%; left: 0; width: 100%;
+    text-align: center; white-space: nowrap;
+    font-size: clamp(32px, 3.5vw, 62px); line-height: 1.3;
+    font-weight: 800; letter-spacing: -0.065em;
+  }
+  .mirae-title-red { color: #ed161d; }
+  .mirae-title-black { color: #000; }
+  .mirae-cloud { position: absolute; z-index: 1; display: block; height: auto; max-width: none; pointer-events: none; }
+  /* 수정: 왼쪽 구름의 잘린 면은 섹션 밖에 숨기고, 오른쪽도 화면 가장자리에서 크롭 */
+  .mirae-cloud-left { width: 29%; left: -14.5%; top: 53%; }
+  .mirae-cloud-right { width: 49%; right: -24.5%; top: 29%; }
+  .mirae-cloud-blur-left { width: 29%; left: 5%; top: 30%; }
+  .mirae-cloud-blur-right { width: 18%; right: 14%; top: 63%; }
+
+  /* 수정: 캐릭터+별은 동일한 이미지 좌표계. 이미지 투명 여백까지 고려해 배치 */
+  .mirae-character-stage {
+    position: absolute; z-index: 2; left: 50%; bottom: 0;
+    width: min(76%, 1100px); aspect-ratio: 2048 / 1258;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+  .mirae-character-stage > img { position: absolute; display: block; height: auto; max-width: none; }
+  .mirae-walking { left: 0; top: 0; width: 100%; }
+  .mirae-star { z-index: 3; }
+  /* 별 좌표는 전체 섹션이 아닌 캐릭터 이미지의 투명 캔버스 기준 */
+  .mirae-star-top { width: 3%; left: 59%; top: 18%; }
+  .mirae-star-bottom { width: 3.6%; left: 38.5%; top: 66%; }
+
+  /* 태블릿 : 1024px 이하 */
+  @media (max-width: 1024px) {
+    .mirae { height: clamp(680px, 75vw, 790px); }
+    .mirae-title { top: 21%; font-size: clamp(30px, 4.4vw, 46px); }
+    .mirae-character-stage { width: 64%; }
+    .mirae-cloud-left { width: 32%; left: -16%; top: 55%; }
+    .mirae-cloud-right { width: 50%; right: -25%; top: 43%; }
+    .mirae-cloud-blur-left { width: 32%; left: 14%; top: 42%; }
+    .mirae-cloud-blur-right { width: 20%; right: 20%; top: 72%; }
+  }
+
+  /* 모바일 : 390px 이하 */
+  @media (max-width: 390px) {
+    .mirae { height: 805px; }
+    .mirae-title { top: 15%; font-size: clamp(20px, 5.65vw, 23px); letter-spacing: -0.065em; }
+    .mirae-character-stage { width: 102%; bottom: 0; }
+    .mirae-cloud-left { width: 55%; left: -27.5%; top: 52%; }
+    .mirae-cloud-right { width: 93%; right: -46.5%; top: 31%; }
+    .mirae-cloud-blur-left { width: 65%; left: 8%; top: 33%; }
+    .mirae-cloud-blur-right { width: 40%; right: 5%; top: 63%; }
+  }
+
+  /* ---------- Main > Section : 한미그룹 연혁 (revised) ---------- */
+  .history { position:relative; overflow:hidden; background:#fff; isolation:isolate; }
+  .history-inner { position:relative; width:min(100%, 1440px); margin:auto; padding:125px 64px 0; }
+  .history-heading { text-align:center; font-size:clamp(24px,2.25vw,36px); line-height:1.4; font-weight:800; letter-spacing:-.055em; }
+  .history-content { position:relative; overflow:hidden; transition:height .75s cubic-bezier(.22,1,.36,1); }
+  .history-content::after { content:""; position:absolute; left:0; right:0; bottom:0; height:240px; background:linear-gradient(to bottom,transparent,#fff 95%); z-index:8; pointer-events:none; transition:opacity .35s; }
+  .history.is-expanded .history-content::after { opacity:0; }
+  .history-timeline { position:relative; padding-top:72px; padding-bottom:30px; }
+  /* The timeline spine is anchored at the true center of the 53 / 100 milestones. */
+  .history-timeline::before { content:""; position:absolute; z-index:0; top:calc(72px + clamp(120px,12.4vw,180px) * .87); bottom:235px; left:50%; width:10px; transform:translateX(-50%); background:#ff5d32; }
+  .history-milestone { position:relative; z-index:2; display:flex; align-items:baseline; justify-content:center; width:max-content; margin-inline:auto; color:#ff5d32; font-family:Inter,sans-serif; font-weight:800; line-height:.94; letter-spacing:-.075em; }
+  .history-milestone strong { font-size:clamp(120px,12.4vw,180px); }
+  .history-milestone span { font-size:clamp(42px,4.6vw,68px); letter-spacing:-.05em; }
+  .history-milestone--end { margin-top:40px; }
+  .history-row { position:relative; z-index:2; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:0 90px; align-items:start; min-height:390px; margin-top:25px; }
+  .history-row--first { margin-top:35px; min-height:410px; }
+  .history-details { min-width:0; position:relative; }
+  .history-details--left { grid-column:1; text-align:right; }
+  .history-details--right { grid-column:2; text-align:left; }
+  .history-period { font-size:clamp(22px,2.05vw,30px); font-weight:800; color:#ff5d32; letter-spacing:-.04em; margin-bottom:22px; }
+  .history-lead { font-size:clamp(15px,1.2vw,19px); font-weight:800; line-height:1.5; margin-bottom:18px; }
+  .history-events { display:grid; gap:16px; list-style:none; }
+  .history-events li { display:flex; align-items:baseline; gap:16px; font-size:clamp(11px,.93vw,14px); line-height:1.55; }
+  .history-details--left .history-events li { flex-direction:row-reverse; }
+  .history-events time { flex:none; font-weight:800; font-size:1.06em; }
+  .history-events p { flex:1; }
+  .history-dots { display:block; margin-top:13px; font-size:24px; line-height:.43; color:#ff5d32; }
+  .history-art { position:relative; z-index:2; display:block; width:min(100%,390px); height:auto; object-fit:contain; }
+  .history-art--left { grid-column:1; justify-self:end; }
+  .history-art--right { grid-column:2; justify-self:start; }
+  .history-row--first .history-art { margin-top:4px; }
+  .history-row--last { min-height:415px; }
+  .history-outro { position:relative; z-index:2; max-width:900px; margin:65px auto 0; text-align:center; }
+  .history-outro p { font-size:14px; line-height:1.8; margin-bottom:15px; }
+  .history-outro strong { display:block; font-size:clamp(19px,2vw,28px); line-height:1.5; letter-spacing:-.04em; }
+  .history-decor { position:absolute; z-index:1; height:auto; pointer-events:none; }
+  .history-decor--stars { width:115px; top:270px; right:13%; }
+  .history-decor--beaker { width:110px; top:600px; left:1%; }
+  .history-decor--micro { width:125px; top:1200px; right:1%; }
+  .history-decor--molecule { width:140px; bottom:560px; right:-35px; }
+  .history-decor--blur { width:170px; top:1750px; left:-55px; opacity:.45; }
+  .history-decor--cloud { width:165px; top:1000px; right:0; opacity:.3; }
+  .history-decor--char { width:135px; bottom:300px; left:4%; }
+  .history-control { position:relative; z-index:9; display:flex; justify-content:center; padding:15px 0 90px; background:#fff; }
+  .history-toggle { display:inline-flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; min-width:76px; min-height:60px; padding:8px; background:transparent; font-size:13px; font-weight:600; }
+  .history-toggle svg { width:22px; height:22px; transition:transform .3s; }
+  .history.is-expanded .history-toggle svg { transform:rotate(180deg); }
+  .history-toggle:focus-visible { outline:2px solid #ff5d32; outline-offset:4px; }
+  @media (max-width:1024px) {
+    .history-inner { padding:100px 35px 0; }
+    .history-row { gap:0 60px; min-height:340px; }
+    .history-row--first { min-height:360px; }
+    .history-row--last { min-height:360px; }
+    .history-timeline::before { width:8px; }
+    .history-art { width:min(100%,315px); }
+    .history-events { gap:13px; }
+    .history-decor--beaker,.history-decor--micro { width:90px; }
+  }
+  @media (max-width:600px) {
+    .history-inner { padding:65px 14px 0; }
+    .history-heading { font-size:clamp(18px,5.15vw,23px); }
+    .history-timeline { padding-top:24px; }
+    .history-timeline::before { display:none; }
+    .history-milestone strong { font-size:clamp(78px,24vw,108px); }
+    .history-milestone span { font-size:clamp(30px,8vw,42px); }
+    .history-row,.history-row--first,.history-row--last { display:flex; flex-direction:column; gap:24px; min-height:0; margin-top:45px; }
+    .history-row--first { margin-top:34px; }
+    .history-details,.history-details--left,.history-details--right { width:100%; text-align:right; }
+    .history-period { font-size:18px; margin-bottom:13px; }
+    .history-lead { font-size:12px; margin-bottom:14px; }
+    .history-events { gap:12px; }
+    .history-events li { flex-direction:row-reverse; gap:10px; font-size:10px; }
+    .history-details--left .history-events li { flex-direction:row-reverse; }
+    .history-row:nth-of-type(odd) .history-details { text-align:left; }
+    .history-row:nth-of-type(odd) .history-events li { flex-direction:row; }
+    .history-art,.history-art--left,.history-art--right { align-self:center; width:min(100%,320px); margin:0; }
+    .history-milestone--end { margin-top:55px; }
+    .history-outro { margin-top:35px; }
+    .history-outro p { font-size:10px; }
+    .history-outro strong { font-size:15px; }
+    .history-decor { display:none; }
+    .history-content::after { height:170px; }
+    .history-control { padding-bottom:60px; }
+  }
+  @media (prefers-reduced-motion:reduce) { .history-content,.history-content::after,.history-toggle svg { transition:none; } }
+
 </style>
 </head>
 <body>
@@ -454,7 +609,66 @@
     </div>
   </section>
 
-  <!-- 2-2. 이후 컨텐츠 section 추가 위치 (직무소개 #job / 지원자격 #qualification / 채용설명회 #schedule 등) -->
+  <!-- 2-2. 새로운 미래 소개 section : 신규 추가 -->
+  <section class="mirae" id="mirae" aria-labelledby="mirae-title">
+    <div class="mirae-inner">
+      <h2 class="mirae-title" id="mirae-title">
+        <span class="mirae-title-red">새로운 미래</span><span class="mirae-title-black">를 향해 나아갑니다</span>
+      </h2>
+      <img class="mirae-cloud mirae-cloud-left" src="images/mirae_cloud3.png" alt="왼쪽 아래에 떠 있는 하얀 입체 구름">
+      <img class="mirae-cloud mirae-cloud-right" src="images/mirae_cloud4.png" alt="오른쪽에 떠 있는 커다란 하얀 입체 구름">
+      <img class="mirae-cloud mirae-cloud-blur-left" src="images/mirae_cloud1.png" alt="왼쪽 멀리 흐릿하게 떠 있는 구름">
+      <img class="mirae-cloud mirae-cloud-blur-right" src="images/mirae_cloud2.png" alt="오른쪽 아래 멀리 흐릿하게 떠 있는 작은 구름">
+      <div class="mirae-character-stage">
+        <img class="mirae-walking" src="images/mirae_walking.png" alt="초록 행성 위에서 미래를 향해 걸어가는 파란색 캐릭터">
+        <img class="mirae-star mirae-star-top" src="images/mirae_star1.png" alt="캐릭터 머리 오른쪽 위에 반짝이는 노란 별">
+        <img class="mirae-star mirae-star-bottom" src="images/mirae_star2.png" alt="캐릭터 몸통 왼쪽 아래에 반짝이는 노란 별">
+      </div>
+    </div>
+  </section>
+
+  <!-- 2-3. 한미그룹 연혁 section -->
+  <section class="history" id="history" aria-labelledby="history-heading">
+    <div class="history-inner">
+      <h2 class="history-heading" id="history-heading">한미의 도전은 작은 가능성에서<br>시작되었습니다.</h2>
+      <img class="history-decor history-decor--stars" src="images/obj_star_big.png" alt="장식용 노란 별 세 개" loading="lazy">
+      <img class="history-decor history-decor--beaker" src="images/obj_beaker.png" alt="분홍색 실험 비커" loading="lazy">
+      <img class="history-decor history-decor--micro" src="images/obj_microscope.png" alt="파란색 현미경" loading="lazy">
+      <img class="history-decor history-decor--molecule" src="images/obj_mol_big.png" alt="분자 모형 장식" loading="lazy">
+      <img class="history-decor history-decor--blur" src="images/obj_mol_blur1.png" alt="흐릿한 분자 모형" loading="lazy">
+      <img class="history-decor history-decor--cloud" src="images/cloud_blur_medium.png" alt="흐릿한 구름 장식" loading="lazy">
+      <img class="history-decor history-decor--char" src="images/con2_char.png" alt="한미그룹 파란 캐릭터" loading="lazy">
+      <div class="history-content" id="historyContent" role="region" aria-label="한미그룹 연혁 상세">
+        <div class="history-timeline" id="historyTimeline">
+          <div class="history-milestone history-milestone--start" aria-label="53주년"><strong>53</strong><span>th</span></div>
+          <div class="history-row history-row--first">
+            <div class="history-details history-details--left"><h3 class="history-period">1973~2001</h3><p class="history-lead">한계를 하나씩 넘을 때마다,</p><ol class="history-events"><li><time datetime="1973">1973</time><p>한미약품공업주식회사 설립</p></li><li><time datetime="1984">1984</time><p>합단 GMP 공장 신축</p></li><li><time datetime="1989">1989</time><p>세프트리악손 제조방법 Roche사 기술 수출</p></li><li><time datetime="1997">1997</time><p>마이크로에멀젼 제제기술 Novartis사 기술 수출</p></li></ol><span class="history-dots" aria-hidden="true">·<br>·<br>·</span></div>
+            <img class="history-art history-art--right" src="images/his1.png" alt="1973~2001 한미그룹 연혁 관련 이미지" loading="lazy">
+          </div>
+          <div class="history-row ">
+            <div class="history-details history-details--right"><h3 class="history-period">2002~2010</h3><ol class="history-events"><li><time datetime="2004">2004</time><p>국내 최초 개량신약 개발</p></li><li><time datetime="2006">2006</time><p>세계 최초 유소아용 제제 개발</p></li><li><time datetime="2008">2008</time><p>국내 최초 주사용 항생제 미국 FDA 승인</p></li><li><time datetime="2009">2009</time><p>세계 최초 복합제 연구 개발</p></li></ol><span class="history-dots" aria-hidden="true">·<br>·<br>·</span></div>
+            <img class="history-art history-art--left" src="images/his2.png" alt="2002~2010 한미그룹 연혁 관련 이미지" loading="lazy">
+          </div>
+          <div class="history-row ">
+            <div class="history-details history-details--left"><h3 class="history-period">2011~2015</h3><p class="history-lead">새로운 가능성이 현실이 되었어요.</p><ol class="history-events"><li><time datetime="2011">2011</time><p>연구개발 성과 확대</p></li><li><time datetime="2012">2012</time><p>글로벌 협력 강화</p></li><li><time datetime="2013">2013</time><p>혁신 신약 개발 도전</p></li><li><time datetime="2014">2014</time><p>연구 성과와 사업 확장</p></li><li><time datetime="2015">2015</time><p>글로벌 파트너십 확대</p></li></ol><span class="history-dots" aria-hidden="true">·<br>·<br>·</span></div>
+            <img class="history-art history-art--right" src="images/his3.png" alt="2011~2015 한미그룹 연혁 관련 이미지" loading="lazy">
+          </div>
+          <div class="history-row ">
+            <div class="history-details history-details--right"><h3 class="history-period">2016~2020</h3><ol class="history-events"><li><time datetime="2016">2016</time><p>연구개발 및 글로벌 협력</p></li><li><time datetime="2017">2017</time><p>해외 시장 진출 확대</p></li><li><time datetime="2018">2018</time><p>신약 연구 성과</p></li><li><time datetime="2019">2019</time><p>새로운 성장의 기반 마련</p></li></ol><span class="history-dots" aria-hidden="true">·<br>·<br>·</span></div>
+            <img class="history-art history-art--left" src="images/his4.png" alt="2016~2020 한미그룹 연혁 관련 이미지" loading="lazy">
+          </div>
+          <div class="history-row history-row--last">
+            <div class="history-details history-details--left"><h3 class="history-period">2021~2026</h3><p class="history-lead">하지만 아직, 가야 할 길이 더 남아 있습니다.</p><ol class="history-events"><li><time datetime="2021">2021</time><p>혁신을 향한 도전</p></li><li><time datetime="2022">2022</time><p>글로벌 연구개발 협력</p></li><li><time datetime="2023">2023</time><p>새로운 치료 가능성 탐색</p></li><li><time datetime="2024">2024</time><p>연구 성과 확대</p></li><li><time datetime="2025">2025</time><p>신약 개발과 미래 성장</p></li><li><time datetime="2026">2026</time><p>새로운 도전을 이어갑니다</p></li></ol><span class="history-dots" aria-hidden="true">·<br>·<br>·</span></div>
+            <img class="history-art history-art--right" src="images/his5.png" alt="2021~2026 한미그룹 연혁 관련 이미지" loading="lazy">
+          </div>
+          <div class="history-milestone history-milestone--end" aria-label="100주년을 향해"><strong>100</strong><span>th</span></div>
+          <div class="history-outro"><p>한계를 넘을 때마다, 건강한 미래는 가까워졌습니다. 이제는 더 큰 꿈, 우리에게는 새로운 약속입니다.</p><strong>수많은 도전이 오늘의 한미를 만들었습니다.<br>이제 또 다른 가능성을 향해 당신과 함께 나아갑니다.</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="history-control"><button class="history-toggle" id="historyToggle" type="button" aria-expanded="false" aria-controls="historyContent"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 9 5 5 5-5 M7 14l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>펼치기</span></button></div>
+  </section>
+
 
 </main>
 
@@ -469,10 +683,8 @@
   (function () {
     var root = document.documentElement;
     var inner = document.querySelector('.mv-inner');
-    var stage = document.querySelector('.mv-stage');
     var gnb = document.getElementById('gnb');
     var menuBtn = document.getElementById('menuToggle');
-    var STAGE_W = 663;
 
     // 모바일 전체 메뉴 열기/닫기 (슬라이드는 CSS transform/transition, 스크롤 잠금은 html.is-menu-open)
     function setMenu(open) {
@@ -491,17 +703,19 @@
       if (e.key === 'Escape') setMenu(false);
     });
 
-    // 1025~1439px: 컨테이너 전체를 비율 축소 / 1024px 이하: 캐릭터 스테이지가 화면보다 넓어지지 않도록 제한
+    // 1025~1439px: 1440px 원본 레이아웃 전체를 화면 너비에 맞춰 축소. 1024px 이하는 CSS 반응형 처리
     function fit() {
       var w = window.innerWidth;
-      inner.style.zoom = (w > 1024 && w < 1440) ? (w / 1440) : 1;
-
-      stage.style.zoom = '';
-      if (w <= 1024) {
-        var base = w <= 390 ? 0.53 : 0.71;   // CSS 에 지정된 기본 비율
-        var limit = w / STAGE_W;
-        if (limit < base) stage.style.zoom = limit;
+      if (w > 1024 && w < 1440) {
+        inner.style.width = '1440px';
+        inner.style.maxWidth = 'none';
+        inner.style.zoom = w / 1440;
+      } else {
+        inner.style.width = '';
+        inner.style.maxWidth = '';
+        inner.style.zoom = '';
       }
+
       if (w > 390) setMenu(false);           // 모바일을 벗어나면 메뉴 상태 초기화
     }
     fit();
@@ -512,6 +726,41 @@
       var hero = document.getElementById('main-visual');
       window.scrollTo({ top: hero.offsetHeight, behavior: 'smooth' });
     });
+  })();
+</script>
+<script>
+  /* History: show first milestone and a glimpse of the next period when collapsed. */
+  (function () {
+    const section = document.getElementById('history');
+    const content = document.getElementById('historyContent');
+    const timeline = document.getElementById('historyTimeline');
+    const button = document.getElementById('historyToggle');
+    const label = button.querySelector('span');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let expanded = false;
+    function updateHeight() {
+      const full = timeline.scrollHeight;
+      const rows = timeline.querySelectorAll('.history-row');
+      const second = rows[1];
+      const first = rows[0];
+      // Desktop/tablet: second period just starts to fade; mobile: first product fades.
+      const collapsed = window.innerWidth <= 600
+        ? first.offsetTop + first.offsetHeight - Math.min(100, first.offsetHeight * .2)
+        : second.offsetTop + Math.min(second.offsetHeight * .55, 170);
+      content.style.height = Math.ceil(expanded ? full : Math.min(full, collapsed)) + 'px';
+    }
+    button.addEventListener('click', function () {
+      expanded = !expanded;
+      section.classList.toggle('is-expanded', expanded);
+      button.setAttribute('aria-expanded', String(expanded));
+      label.textContent = expanded ? '접기' : '펼치기';
+      updateHeight();
+      if (!expanded) section.scrollIntoView({ behavior: reduced.matches ? 'auto' : 'smooth', block:'start' });
+    });
+    if ('ResizeObserver' in window) new ResizeObserver(updateHeight).observe(timeline);
+    window.addEventListener('load', updateHeight);
+    window.addEventListener('resize', updateHeight);
+    updateHeight();
   })();
 </script>
 </body>
