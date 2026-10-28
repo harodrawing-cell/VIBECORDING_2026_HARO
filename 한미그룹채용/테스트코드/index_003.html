@@ -2295,58 +2295,6 @@
         font-size: 13px;
       }
     }
-
-    /* ---------- Section 5: Innovation (독립형 CSS) ---------- */
-    .innovation { position:relative; overflow:hidden; isolation:isolate; background:#fff9f6; padding:75px 0 108px; }
-    .innovation::before,.innovation::after { content:""; position:absolute; aspect-ratio:1; border-radius:50%; pointer-events:none; z-index:-1; background:radial-gradient(circle,var(--red) 0%,transparent 70%); }
-    .innovation::before { width:33vw; right:-12vw; top:-8vw; opacity:.1; }
-    .innovation::after { width:28vw; left:-9vw; bottom:-9vw; opacity:.2; }
-    .innovation-inner { position:relative; width:min(100% - 80px,1200px); margin:0 auto; }
-    .innovation-header { text-align:center; margin:0 auto 45px; }
-    .innovation-header h2 { font-size:clamp(27px,3.3vw,43px); font-weight:800; line-height:1.38; letter-spacing:-.055em; }
-    .innovation-header p { font-size:clamp(12px,1.25vw,16px); font-weight:500; margin-top:18px; line-height:1.65; }
-    .innovation-stage { position:relative; border:1px solid rgba(255,255,255,.8); border-radius:18px; padding:32px 32px 30px; background:rgba(255,255,255,.37); box-shadow:0 7px 15px rgba(117,65,43,.10); }
-    .innovation-news { display:flex; flex-direction:column; gap:22px; position:relative; z-index:2; }
-    .innovation-item { display:flex; min-width:0; }
-    .innovation-item--left { justify-content:flex-start; }
-    .innovation-item--right { justify-content:flex-end; }
-    .innovation-bubble { position:relative; display:block; width:max-content; max-width:54%; padding:13px 16px; border-radius:10px; background:var(--orange); color:#fff; box-shadow:0 5px 12px rgba(104,53,34,.09); font-size:clamp(11px,1.1vw,15px); line-height:1.5; font-weight:700; overflow-wrap:break-word; transition:transform .2s ease,box-shadow .2s ease; }
-    .innovation-bubble:hover,.innovation-bubble:focus-visible { transform:translateY(-2px); box-shadow:0 8px 16px rgba(104,53,34,.17); }
-    .innovation-item--right .innovation-bubble { background:#fff; color:var(--orange); }
-    .innovation-tail { position:absolute; bottom:-1px; left:-10px; width:18px; height:13px; color:var(--orange); }
-    .innovation-item--right .innovation-tail { left:auto; right:-10px; transform:scaleX(-1); color:#fff; }
-    .innovation-atom { position:absolute; width:clamp(90px,11vw,155px); right:-15px; top:-58px; z-index:3; pointer-events:none; }
-    .innovation-chemical { position:absolute; width:clamp(160px,24vw,320px); right:-100px; top:-28px; opacity:.65; pointer-events:none; }
-    .innovation-molecule { position:absolute; width:clamp(75px,11vw,130px); left:0; bottom:-115px; pointer-events:none; }
-    .innovation-hint { display:flex; justify-content:flex-end; gap:5px; margin:25px 0 0; font-size:11px; color:#777; }
-    .innovation-hint span { color:var(--orange); }
-    @media (max-width:1024px) {
-      .innovation { padding:60px 0 90px; }
-      .innovation-inner { width:calc(100% - 68px); }
-      .innovation-header { margin-bottom:50px; }
-      .innovation-header h2 { font-size:clamp(23px,3.1vw,32px); }
-      .innovation-stage { padding:34px 34px 28px; }
-      .innovation-news { gap:22px; }
-      .innovation-bubble { max-width:68%; font-size:clamp(11px,1.55vw,14px); }
-      .innovation-atom { width:110px; top:-43px; right:-9px; }
-      .innovation-molecule { width:90px; bottom:-88px; }
-    }
-    @media (max-width:568px) {
-      .innovation { padding:10px 0 85px; }
-      .innovation-inner { width:calc(100% - 34px); }
-      .innovation-header { margin-bottom:37px; }
-      .innovation-header h2 { font-size:clamp(22px,5.7vw,29px); line-height:1.35; }
-      .innovation-header p { font-size:clamp(12px,3.3vw,15px); margin-top:16px; }
-      .innovation-stage { padding:17px 25px 20px; border-radius:18px; }
-      .innovation-news { gap:11px; }
-      .innovation-item--left,.innovation-item--right { justify-content:stretch; }
-      .innovation-bubble { width:100%; max-width:100%; font-size:clamp(12px,3.25vw,14px); padding:12px 13px; line-height:1.48; }
-      .innovation-atom { width:75px; top:-42px; right:12px; }
-      .innovation-chemical { width:140px; top:-40px; right:-10px; }
-      .innovation-molecule { width:70px; left:4px; bottom:-76px; }
-      .innovation-hint { margin-top:18px; font-size:10px; }
-    }
-
   </style>
 </head>
 
@@ -2633,65 +2581,6 @@
         </ul>
         <img class="jobs-bottle" src="./images/con3_bottle.png" alt="" aria-hidden="true">
         <div class="jobs-cta-wrap"><a class="jobs-cta" href="#jobs">모든 현직자 알아가기!</a></div>
-      </div>
-    </section>
-    <!-- Section 5: 성장 및 혁신 소식 -->
-    <section class="innovation" id="innovation" aria-labelledby="innovation-title">
-      <div class="innovation-inner">
-        <header class="innovation-header">
-          <h2 id="innovation-title">당신의 가능성,<br>한미그룹에서 더 크게 성장합니다</h2>
-          <p>연구와 혁신으로 성장하며 글로벌 제약/바이오 기업을 향해 나아갑니다.</p>
-        </header>
-        <div class="innovation-stage">
-          <img class="innovation-chemical" src="./images/inno_chemical.png" alt="" aria-hidden="true">
-          <img class="innovation-atom" src="./images/inno_molecule1.png" alt="" aria-hidden="true">
-          <ul class="innovation-news">
-          <li class="innovation-item innovation-item--left">
-            <a class="innovation-bubble" href="#innovation" aria-label="기사 확인: 한미약품, 상반기 누적 매출 8,602억원...2분기 영업이익 117% 증가">
-              <svg class="innovation-tail" viewBox="0 0 18 13" preserveAspectRatio="none" aria-hidden="true"><path d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z" fill="currentColor"/></svg>
-              <span>한미약품, 상반기 누적 매출 8,602억원...2분기 영업이익 117% 증가</span>
-            </a>
-          </li>
-          <li class="innovation-item innovation-item--right">
-            <a class="innovation-bubble" href="#innovation" aria-label="기사 확인: “사형형 지주사 경쟁력 입증”...한미사이언스, 2분기 영업이익 71%↑ 2분기 매출 3,679억원...상반기 누적 매출 7,216억원 돌파">
-              <svg class="innovation-tail" viewBox="0 0 18 13" preserveAspectRatio="none" aria-hidden="true"><path d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z" fill="currentColor"/></svg>
-              <span>“사형형 지주사 경쟁력 입증”...한미사이언스, 2분기 영업이익 71%↑ 2분기 매출 3,679억원...상반기 누적 매출 7,216억원 돌파</span>
-            </a>
-          </li>
-          <li class="innovation-item innovation-item--left">
-            <a class="innovation-bubble" href="#innovation" aria-label="기사 확인: 한미약품, 로수 제네릭에 비만신약 기술수출...최대 3조 2,000억 규모">
-              <svg class="innovation-tail" viewBox="0 0 18 13" preserveAspectRatio="none" aria-hidden="true"><path d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z" fill="currentColor"/></svg>
-              <span>한미약품, 로수 제네릭에 비만신약 기술수출...최대 3조 2,000억 규모</span>
-            </a>
-          </li>
-          <li class="innovation-item innovation-item--right">
-            <a class="innovation-bubble" href="#innovation" aria-label="기사 확인: “UCN2 이어 또...” 한미약품, 두 번째 근육 증가 비만신약 공개">
-              <svg class="innovation-tail" viewBox="0 0 18 13" preserveAspectRatio="none" aria-hidden="true"><path d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z" fill="currentColor"/></svg>
-              <span>“UCN2 이어 또...” 한미약품, 두 번째 근육 증가 비만신약 공개</span>
-            </a>
-          </li>
-          <li class="innovation-item innovation-item--left">
-            <a class="innovation-bubble" href="#innovation" aria-label="기사 확인: 명품 반열 오른 한미 ‘로수젯’...압도적 데이터 경쟁력으로 시장 석권 2년 연속 국내사 개발 전문의약품 시장 ‘1위’...올해 상반기 누적 처방액도 선두">
-              <svg class="innovation-tail" viewBox="0 0 18 13" preserveAspectRatio="none" aria-hidden="true"><path d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z" fill="currentColor"/></svg>
-              <span>명품 반열 오른 한미 ‘로수젯’...압도적 데이터 경쟁력으로 시장 석권 2년 연속 국내사 개발 전문의약품 시장 ‘1위’...올해 상반기 누적 처방액도 선두</span>
-            </a>
-          </li>
-          <li class="innovation-item innovation-item--right">
-            <a class="innovation-bubble" href="#innovation" aria-label="기사 확인: “비만 넘어 항암으로 혁신 확장”...한미, AACR서 차세대 신약 대거 공개">
-              <svg class="innovation-tail" viewBox="0 0 18 13" preserveAspectRatio="none" aria-hidden="true"><path d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z" fill="currentColor"/></svg>
-              <span>“비만 넘어 항암으로 혁신 확장”...한미, AACR서 차세대 신약 대거 공개</span>
-            </a>
-          </li>
-          <li class="innovation-item innovation-item--left">
-            <a class="innovation-bubble" href="#innovation" aria-label="기사 확인: 한미 완전두유·케어미, 영양에 ‘맛’까지 인정...국제 우수 미각상 수상">
-              <svg class="innovation-tail" viewBox="0 0 18 13" preserveAspectRatio="none" aria-hidden="true"><path d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z" fill="currentColor"/></svg>
-              <span>한미 완전두유·케어미, 영양에 ‘맛’까지 인정...국제 우수 미각상 수상</span>
-            </a>
-          </li>
-          </ul>
-          <p class="innovation-hint"><span aria-hidden="true">•</span> 말풍선을 클릭해서 기사를 확인해 보세요.</p>
-        </div>
-        <img class="innovation-molecule" src="./images/inno_molecule2.png" alt="" aria-hidden="true">
       </div>
     </section>
   </main>
