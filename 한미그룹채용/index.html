@@ -1937,6 +1937,363 @@
         left: 50%;
       }
     }
+
+    /* ---------- Section 4 : 직원 직무소개 ---------- */
+    .jobs {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: #fff8f6;
+      padding: clamp(88px, 10vw, 145px) 24px 84px;
+    }
+
+    .jobs-inner {
+      position: relative;
+      max-width: 1320px;
+      margin: auto;
+    }
+
+    .jobs-header {
+      position: relative;
+      text-align: center;
+      margin-bottom: 54px;
+      z-index: 1;
+    }
+
+    .jobs-logo {
+      display: block;
+      width: 67px;
+      height: auto;
+      margin: 0 auto -3px;
+      transform: translateX(-240px);
+    }
+
+    .jobs-title {
+      font-size: clamp(28px, 3.2vw, 42px);
+      font-weight: 800;
+      line-height: 1.35;
+      letter-spacing: -.06em;
+    }
+
+    .jobs-subtitle {
+      margin-top: 20px;
+      font-size: clamp(13px, 1.3vw, 17px);
+      line-height: 1.6;
+      letter-spacing: -.035em;
+    }
+
+    .jobs-character {
+      position: absolute;
+      right: 0;
+      top: -35px;
+      width: clamp(135px, 17vw, 190px);
+      height: auto;
+      pointer-events: none;
+    }
+
+    .jobs-list {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 40px;
+      list-style: none;
+      max-width: 1320px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .jobs-card {
+      height: 100%;
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(1px);
+      /* 간유리 느낌 */
+      border: 1px solid #fff;
+      border-radius: 24px;
+      padding: 28px 28px 30px;
+      box-shadow: 0 8px 24px rgba(45, 25, 20, .07);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 마우스 오버시 카드 배경색 투명도없애기 */
+    .jobs-card:hover {
+      background: rgba(255, 255, 255, .72);
+    }
+
+
+    .jobs-photo {
+      width: 100%;
+      aspect-ratio: 1.55;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .jobs-description {
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -.05em;
+      margin: 20px 0 18px;
+      min-height: 3em;
+    }
+
+    .jobs-card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .jobs-meta {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.5;
+      letter-spacing: -.03em;
+    }
+
+    .jobs-meta-divider {
+      padding: 0 10px;
+      color: #aaa;
+    }
+
+    .jobs-arrow {
+      flex: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ef856a, #e7b2a4);
+      color: #fff;
+      transition: transform .2s ease;
+    }
+
+    .jobs-arrow:hover,
+    .jobs-arrow:focus-visible {
+      transform: translateX(3px);
+    }
+
+    .jobs-arrow svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .jobs-cta-wrap {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      margin-top: 58px;
+    }
+
+    .jobs-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 250px;
+      min-height: 52px;
+      padding: 10px 28px;
+      border-radius: 100px;
+      background: linear-gradient(90deg, #f52d43, #ff7555);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      transition: filter .2s ease;
+    }
+
+    .jobs-cta:hover,
+    .jobs-cta:focus-visible {
+      filter: brightness(.92);
+    }
+
+    .jobs-bottle {
+      position: absolute;
+      z-index: 0;
+      width: 150px;
+      left: -62px;
+      bottom: 38px;
+      pointer-events: none;
+    }
+
+    @media (max-width:1024px) {
+      .jobs {
+        padding: 95px 40px 78px;
+      }
+
+      .jobs-header {
+        margin-bottom: 34px;
+      }
+
+      .jobs-logo {
+        width: 55px;
+        transform: translateX(-170px);
+      }
+
+      .jobs-title {
+        font-size: clamp(26px, 3.6vw, 36px);
+      }
+
+      .jobs-subtitle {
+        margin-top: 16px;
+        font-size: clamp(12px, 1.7vw, 16px);
+      }
+
+      .jobs-character {
+        right: 0;
+        top: -52px;
+        width: clamp(120px, 16vw, 160px);
+      }
+
+      .jobs-list {
+        gap: 16px;
+      }
+
+      .jobs-card {
+        padding: 20px;
+        border-radius: 22px;
+      }
+
+      .jobs-photo {
+        border-radius: 15px;
+      }
+
+      .jobs-description {
+        font-size: clamp(12px, 1.5vw, 16px);
+        margin: 17px 0 15px;
+      }
+
+      .jobs-meta {
+        font-size: clamp(10px, 1.25vw, 12px);
+      }
+
+      .jobs-cta-wrap {
+        margin-top: 32px;
+      }
+
+      .jobs-bottle {
+        width: 115px;
+        left: 24px;
+        bottom: 2px;
+      }
+    }
+
+    @media (max-width:600px) {
+      .jobs {
+        padding: 90px 20px 64px;
+      }
+
+      .jobs-list {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .jobs-header {
+        margin-bottom: 24px;
+      }
+
+      .jobs-character {
+        width: 110px;
+        right: 0;
+        top: -65px;
+      }
+
+      .jobs-logo {
+        transform: none;
+        margin: 0 0 5px;
+      }
+
+      .jobs-title {
+        font-size: clamp(21px, 5.3vw, 29px);
+      }
+
+      .jobs-subtitle {
+        font-size: 12px;
+      }
+
+      .jobs-bottle {
+        display: none;
+      }
+    }
+
+    @media (max-width:390px) {
+      .jobs {
+        padding: 96px 20px 62px;
+      }
+
+      .jobs-header {
+        margin-bottom: 23px;
+      }
+
+      .jobs-logo {
+        width: 53px;
+        margin: 0 0 4px;
+      }
+
+      .jobs-title {
+        font-size: 21px;
+        letter-spacing: -.065em;
+        white-space: nowrap;
+      }
+
+      .jobs-subtitle {
+        font-size: 11px;
+        line-height: 1.6;
+        margin-top: 14px;
+      }
+
+      .jobs-character {
+        width: 95px;
+        top: -76px;
+        right: 0;
+      }
+
+      .jobs-card {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .jobs-photo {
+        aspect-ratio: 1.55;
+        border-radius: 15px;
+      }
+
+      .jobs-description {
+        font-size: 12px;
+        line-height: 1.5;
+        margin: 15px 0 14px;
+      }
+
+      .jobs-meta {
+        font-size: 10px;
+      }
+
+      .jobs-meta-divider {
+        padding: 0 5px;
+      }
+
+      .jobs-arrow {
+        width: 25px;
+        height: 25px;
+      }
+
+      .jobs-arrow svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      .jobs-cta-wrap {
+        margin-top: 23px;
+      }
+
+      .jobs-cta {
+        min-width: 192px;
+        min-height: 43px;
+        font-size: 13px;
+      }
+    }
   </style>
 </head>
 
@@ -2181,6 +2538,50 @@
     </section>
 
 
+
+    <!-- Section 4 : 한미 직원 직무소개 -->
+    <section class="jobs" id="jobs" aria-labelledby="jobs-title">
+      <div class="jobs-inner">
+        <header class="jobs-header">
+          <img class="jobs-logo" src="./images/con3_logo.png" alt="Hanmi 로고">
+          <h2 class="jobs-title" id="jobs-title">한미에서는 어떤 일을 할까요?</h2>
+          <p class="jobs-subtitle">일의 보람부터 성장의 순간까지, 먼저 경험한 현직자들이 솔직하게 들려드립니다.</p>
+        </header>
+        <img class="jobs-character" src="./images/con3_char.png" alt="" aria-hidden="true">
+        <ul class="jobs-list">
+          <li>
+            <article class="jobs-card">
+              <img class="jobs-photo" src="./images/con3_int1.jpg" alt="실험실에서 의약품 품질관리 업무를 소개하는 이건호 사원">
+              <p class="jobs-description">정밀한 시험과 분석으로 의약품의 품질을 확인해<br>안전하고 신뢰할 수 있는 의약품을 만들어갑니다.</p>
+              <div class="jobs-card-bottom">
+                <p class="jobs-meta">한미약품 품질관리 <span class="jobs-meta-divider">|</span> 이건호 사원</p>
+                <a class="jobs-arrow" href="#jobs" aria-label="이건호 사원 직무소개 상세 보기"><svg viewBox="0 0 24 24" fill="none"
+                    aria-hidden="true">
+                    <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg></a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="jobs-card">
+              <img class="jobs-photo" src="./images/con3_int2.jpg" alt="사무실 소파에 앉아 있는 신약 연구원 박진하 연구원">
+              <p class="jobs-description">신약 후보물질의 가능성을 과학적으로 검증해<br>새로운 치료제가 환자에게 향하는 첫걸음을 만듭니다.</p>
+              <div class="jobs-card-bottom">
+                <p class="jobs-meta">한미약품 전임상연구 <span class="jobs-meta-divider">|</span> 박진하 연구원</p>
+                <a class="jobs-arrow" href="#jobs" aria-label="박진하 연구원 직무소개 상세 보기"><svg viewBox="0 0 24 24" fill="none"
+                    aria-hidden="true">
+                    <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg></a>
+              </div>
+            </article>
+          </li>
+        </ul>
+        <img class="jobs-bottle" src="./images/con3_bottle.png" alt="" aria-hidden="true">
+        <div class="jobs-cta-wrap"><a class="jobs-cta" href="#jobs">모든 현직자 알아가기!</a></div>
+      </div>
+    </section>
   </main>
 
   <!-- 하단 푸터 영역 -->
