@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>한미그룹 2026년 하반기 공개채용</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+KR:wght@500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  /* CSS변수구역 */
-  /* :root{변수코드} 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>한미그룹 2026년 하반기 공개채용</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+KR:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    /* CSS변수구역 */
+    /* :root{변수코드} 
     1. 변수설정방법
     --변수명: 값;
     변수명은 케밥케이스로 주로 씀
@@ -18,1205 +22,2308 @@
     var(변수명)
     쓰고 싶은 곳에 값으로 변수를 사용함
   */
-  :root {
-    --red: #E60012;
-    --orange: #FF5D32;
-    --black: #000000;
-    --white: #FFFFFF;
-    --white-10: rgba(255, 255, 255, 0.1);
-    --white-50: rgba(255, 255, 255, 0.5);
-    --gradient-cta: linear-gradient(90deg, #E60012 0%, #FF5D32 100%);
-    --font: 'Inter', 'Noto Sans KR', 'Pretendard', sans-serif;
-    --transition: 0.2s ease;
-    --page-width: 1920px;
-    --container-width: 1440px;
-    --hero-height: 900px;
-    --scale: 1; /* JS가 1440px 미만에서 갱신 */
-  }
+    :root {
+      --red: #E60012;
+      --orange: #FF5D32;
+      --black: #000000;
+      --white: #FFFFFF;
+      --white-10: rgba(255, 255, 255, 0.1);
+      --white-50: rgba(255, 255, 255, 0.5);
+      --gradient-cta: linear-gradient(90deg, #E60012 0%, #FF5D32 100%);
+      --font: 'Inter', 'Noto Sans KR', 'Pretendard', sans-serif;
+      --transition: 0.2s ease;
+      --page-width: 1920px;
+      --container-width: 1440px;
+      --hero-height: 900px;
+      --scale: 1;
+      /* JS가 1440px 미만에서 갱신 */
+    }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: var(--font);
-    color: var(--black);
-    background: var(--white);
-    -webkit-font-smoothing: antialiased;
-    word-break: keep-all;
-    overflow-x: hidden;
-    position: relative;
-  }
-  a { color: inherit; text-decoration: none; transition: color var(--ease), background-color var(--ease), border-color var(--ease), opacity var(--ease); }
-  ul { list-style: none; }
-  img { display: block; max-width: 100%; }
-  button { font-family: inherit; border: 0; cursor: pointer; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  /* ---------- Header ---------- */
-  .site-header {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 100px;
-    z-index: 10;
-  }
-  .header-inner {
-    max-width: 1440px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .brand { display: flex; width: 182px; height: 31px; flex: none; }
-  .brand img { width: 182px; height: 31px; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  .gnb { display: flex; align-items: center; height: 100%; }
-  .gnb-list { display: flex; gap: 40px; height: 100%; align-items: center; }
-  .gnb-list a {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    font-size: 19.1px;
-    line-height: 20px;
-    font-weight: 600;
-    letter-spacing: -0.4px;
-    color: var(--black);
-  }
-  .gnb-list li:first-child a { font-size: 19.4px; }
-  .gnb-list a:hover, .gnb-list a:focus-visible { color: var(--red); }
-  .gnb-cta { padding-left: 40px; }
+    body {
+      font-family: var(--font);
+      color: var(--black);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      word-break: keep-all;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-  /* 버튼 공통: hover 시 흰색/빨간색 반전 */
-  .btn {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border: 2px solid transparent;
-    border-radius: 500px;
-    color: var(--white);
-    font-weight: 600;
-    letter-spacing: -0.4px;
-    background-origin: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    isolation: isolate;
-    transition: color var(--ease), border-color var(--ease), background-color var(--ease);
-  }
-  .btn .ico-chevron { flex: none; overflow: visible; }
-  .btn-sm { width: 119px; height: 48px; padding: 0 20px; font-size: 17.4px; line-height: 18px; letter-spacing: -0.36px; background: var(--red); }
-  .btn-lg { width: 303px; height: 72px; padding: 0 64px; font-size: 22.7px; line-height: 34px; letter-spacing: -0.48px; background: var(--gradient-cta); }
-  /* 흰색 오버레이로 hover 반전 구현 (그라데이션은 transition 불가) */
-  .btn::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--white);
-    opacity: 0;
-    z-index: -1;
-    transition: opacity var(--ease);
-  }
-  .btn:hover, .btn:focus-visible { color: var(--red); border-color: var(--red); }
-  .btn:hover::before, .btn:focus-visible::before { opacity: 1; }
-  .btn svg path { stroke: currentColor; }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--ease), background-color var(--ease), border-color var(--ease), opacity var(--ease);
+    }
 
-  /* ---------- Main > Section : 메인 비주얼 ---------- */
-  .main-visual {
-    position: relative;
-    width: 100%;
-    height: 900px;
-    min-height: 720px;
-    max-height: 100vh;
-    background: #fff3ee url("./images/mv_bg.png") center / cover no-repeat;
-    overflow: hidden;
-  }
-  @media (max-height: 720px) { .main-visual { max-height: none; } }
+    ul {
+      list-style: none;
+    }
 
-  .mv-inner {
-    position: relative;
-    max-width: 1440px;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-  }
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-  .mv-text {
-    flex: none;
-    width: 560px;
-    margin-left: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-    position: relative;
-    z-index: 2;
-  }
-  .mv-copy { display: flex; flex-direction: column; gap: 31.9px; width: 442px; }
-  .mv-sub {
-    font-size: 31.1px; line-height: 45px; font-weight: 700; letter-spacing: -0.64px;
-  }
-  .mv-title { display: flex; flex-direction: column; }
-  .mv-title strong {
-    font-size: 72.3px; line-height: 76px; font-weight: 800; letter-spacing: -1.76px;
-  }
-  .mv-title span {
-    font-size: 45.8px; line-height: 72px; font-weight: 800; letter-spacing: -1.12px;
-  }
-  .mv-period {
-    font-size: 19.2px; line-height: 28px; font-weight: 500; letter-spacing: -0.4px; white-space: nowrap;
-  }
+    button {
+      font-family: inherit;
+      border: 0;
+      cursor: pointer;
+    }
 
-  /* 캐릭터 스테이지 (겹침 구성을 위해 스테이지 내부만 absolute) */
-  .mv-stage {
-    position: relative;
-    flex: none;
-    width: 663px;
-    aspect-ratio: 1 / 1;
-    height: auto;
-    margin-left: 40px;
-    z-index: 1;
-  }
-  .mv-stage .ring-glow {
-    position: absolute;
-    left: 0; top: 0;
-    width: 100.00000%; height: 100.00000%;
-    border: 5px solid var(--white);
-    border-radius: 500px;
-    background: radial-gradient(70.71% 70.71% at 50% 50%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
-    filter: blur(5px);
-  }
-  .mv-stage .ring-line {
-    position: absolute;
-    left: 8.29563%; top: 8.29563%;
-    width: 83.40875%; height: 83.40875%;
-    border: 1px solid rgba(255,255,255,0.5);
-    border-radius: 500px;
-  }
-  .mv-stage img { position: absolute; height: auto; }
-  .mv-micro { left: 9.92459%;   top: 5.08296%;  width: 43.66817%; }
-  .mv-char1 { left: 17.36048%;  top: 26.71192%; width: 38.22624%; }
-  .mv-char2 { left: 50.79940%;  top: 26.45551%; width: 27.34238%; }
-  .mv-char3 { left: 5.94268%;   top: 53.00151%; width: 32.65158%; }
-  .mv-char4 { left: 59.69834%;  top: 56.18401%; width: 44.06637%; }
-  .mv-star1 { left: 33.42383%;  top: 17.94872%;   width: 2.65460%; }
-  .mv-star2 { left: 6.07843%;   top: 53.00151%; width: 3.45098%; }
-  .mv-star3 { left: 92.74510%;  top: 53.78582%; width: 3.18552%; }
-  .mv-star4 { left: 69.51735%;  top: 19.81900%; width: 3.58371%; }
-  .mv-star5 { left: 95.39970%;  top: 47.42081%; width: 5.17647%; }
+    /* ---------- Header ---------- */
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      z-index: 10;
+    }
 
-  /* 스크롤 버튼 */
-  .scroll-wrap {
-    position: absolute;
-    left: 0; right: 0; bottom: 64px;
-    display: flex;
-    justify-content: center;
-    z-index: 2;
-  }
-  .btn-scroll {
-    position: relative;
-    width: 80px; height: 80px;
-    border-radius: 500px;
-    background: rgba(255,255,255,0.1);
-    box-shadow: inset 4px 4px 10px rgba(255,255,255,0.4), inset -4px -4px 10px rgba(0,0,0,0.1);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-    display: flex; align-items: center; justify-content: center;
-    transition: background-color var(--ease), transform var(--ease);
-  }
-  .btn-scroll::before {
-    content: "";
-    position: absolute; inset: 0;
-    border-radius: 500px;
-    background: linear-gradient(132.3deg, rgba(255,255,255,0.8) 12.7%, rgba(255,255,255,0) 86.3%);
-    opacity: .5;
-    pointer-events: none;
-  }
-  .btn-scroll svg { position: relative; width: 40px; height: 40px; }
-  .btn-scroll:hover { background: rgba(255,255,255,0.45); transform: translateY(2px); }
+    .header-inner {
+      max-width: 1440px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-  /* ---------- Footer ---------- */
-  /* 현재 시안에 푸터 디자인이 없으므로 화면에 영향을 주지 않는 빈 영역으로 둔다.
+    .brand {
+      display: flex;
+      width: 182px;
+      height: 31px;
+      flex: none;
+    }
+
+    .brand img {
+      width: 182px;
+      height: 31px;
+    }
+
+    .gnb {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .gnb-list {
+      display: flex;
+      gap: 40px;
+      height: 100%;
+      align-items: center;
+    }
+
+    .gnb-list a {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      font-size: 19.1px;
+      line-height: 20px;
+      font-weight: 600;
+      letter-spacing: -0.4px;
+      color: var(--black);
+    }
+
+    .gnb-list li:first-child a {
+      font-size: 19.4px;
+    }
+
+    .gnb-list a:hover,
+    .gnb-list a:focus-visible {
+      color: var(--red);
+    }
+
+    .gnb-cta {
+      padding-left: 40px;
+    }
+
+    /* 버튼 공통: hover 시 흰색/빨간색 반전 */
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 2px solid transparent;
+      border-radius: 500px;
+      color: var(--white);
+      font-weight: 600;
+      letter-spacing: -0.4px;
+      background-origin: border-box;
+      white-space: nowrap;
+      overflow: hidden;
+      isolation: isolate;
+      transition: color var(--ease), border-color var(--ease), background-color var(--ease);
+    }
+
+    .btn .ico-chevron {
+      flex: none;
+      overflow: visible;
+    }
+
+    .btn-sm {
+      width: 119px;
+      height: 48px;
+      padding: 0 20px;
+      font-size: 17.4px;
+      line-height: 18px;
+      letter-spacing: -0.36px;
+      background: var(--red);
+    }
+
+    .btn-lg {
+      width: 303px;
+      height: 72px;
+      padding: 0 64px;
+      font-size: 22.7px;
+      line-height: 34px;
+      letter-spacing: -0.48px;
+      background: var(--gradient-cta);
+    }
+
+    /* 흰색 오버레이로 hover 반전 구현 (그라데이션은 transition 불가) */
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--white);
+      opacity: 0;
+      z-index: -1;
+      transition: opacity var(--ease);
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      color: var(--red);
+      border-color: var(--red);
+    }
+
+    .btn:hover::before,
+    .btn:focus-visible::before {
+      opacity: 1;
+    }
+
+    .btn svg path {
+      stroke: currentColor;
+    }
+
+    /* ---------- Main > Section : 메인 비주얼 ---------- */
+    .main-visual {
+      position: relative;
+      width: 100%;
+      height: 900px;
+      min-height: 720px;
+      max-height: 100vh;
+      background: #fff3ee url("./images/mv_bg.png") center / cover no-repeat;
+      overflow: hidden;
+    }
+
+    @media (max-height: 720px) {
+      .main-visual {
+        max-height: none;
+      }
+    }
+
+    .mv-inner {
+      position: relative;
+      max-width: 1440px;
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+
+    .mv-text {
+      flex: none;
+      width: 560px;
+      margin-left: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mv-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 31.9px;
+      width: 442px;
+    }
+
+    .mv-sub {
+      font-size: 31.1px;
+      line-height: 45px;
+      font-weight: 700;
+      letter-spacing: -0.64px;
+    }
+
+    .mv-title {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mv-title strong {
+      font-size: 72.3px;
+      line-height: 76px;
+      font-weight: 800;
+      letter-spacing: -1.76px;
+    }
+
+    .mv-title span {
+      font-size: 45.8px;
+      line-height: 72px;
+      font-weight: 800;
+      letter-spacing: -1.12px;
+    }
+
+    .mv-period {
+      font-size: 19.2px;
+      line-height: 28px;
+      font-weight: 500;
+      letter-spacing: -0.4px;
+      white-space: nowrap;
+    }
+
+    /* 캐릭터 스테이지 (겹침 구성을 위해 스테이지 내부만 absolute) */
+    .mv-stage {
+      position: relative;
+      flex: none;
+      width: 663px;
+      aspect-ratio: 1 / 1;
+      height: auto;
+      margin-left: 40px;
+      z-index: 1;
+    }
+
+    .mv-stage .ring-glow {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100.00000%;
+      height: 100.00000%;
+      border: 5px solid var(--white);
+      border-radius: 500px;
+      background: radial-gradient(70.71% 70.71% at 50% 50%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+      filter: blur(5px);
+    }
+
+    .mv-stage .ring-line {
+      position: absolute;
+      left: 8.29563%;
+      top: 8.29563%;
+      width: 83.40875%;
+      height: 83.40875%;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 500px;
+    }
+
+    .mv-stage img {
+      position: absolute;
+      height: auto;
+    }
+
+    .mv-micro {
+      left: 9.92459%;
+      top: 5.08296%;
+      width: 43.66817%;
+    }
+
+    .mv-char1 {
+      left: 17.36048%;
+      top: 26.71192%;
+      width: 38.22624%;
+    }
+
+    .mv-char2 {
+      left: 50.79940%;
+      top: 26.45551%;
+      width: 27.34238%;
+    }
+
+    .mv-char3 {
+      left: 5.94268%;
+      top: 53.00151%;
+      width: 32.65158%;
+    }
+
+    .mv-char4 {
+      left: 59.69834%;
+      top: 56.18401%;
+      width: 44.06637%;
+    }
+
+    .mv-star1 {
+      left: 33.42383%;
+      top: 17.94872%;
+      width: 2.65460%;
+    }
+
+    .mv-star2 {
+      left: 6.07843%;
+      top: 53.00151%;
+      width: 3.45098%;
+    }
+
+    .mv-star3 {
+      left: 92.74510%;
+      top: 53.78582%;
+      width: 3.18552%;
+    }
+
+    .mv-star4 {
+      left: 69.51735%;
+      top: 19.81900%;
+      width: 3.58371%;
+    }
+
+    .mv-star5 {
+      left: 95.39970%;
+      top: 47.42081%;
+      width: 5.17647%;
+    }
+
+    /* 스크롤 버튼 */
+    .scroll-wrap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 64px;
+      display: flex;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .btn-scroll {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      border-radius: 500px;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: inset 4px 4px 10px rgba(255, 255, 255, 0.4), inset -4px -4px 10px rgba(0, 0, 0, 0.1);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color var(--ease), transform var(--ease);
+    }
+
+    .btn-scroll::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 500px;
+      background: linear-gradient(132.3deg, rgba(255, 255, 255, 0.8) 12.7%, rgba(255, 255, 255, 0) 86.3%);
+      opacity: .5;
+      pointer-events: none;
+    }
+
+    .btn-scroll svg {
+      position: relative;
+      width: 40px;
+      height: 40px;
+    }
+
+    .btn-scroll:hover {
+      background: rgba(255, 255, 255, 0.45);
+      transform: translateY(2px);
+    }
+
+    /* ---------- Footer ---------- */
+    /* 현재 시안에 푸터 디자인이 없으므로 화면에 영향을 주지 않는 빈 영역으로 둔다.
      푸터 내용을 추가할 때 이 영역 안에 작성한다. */
-     
-     .site-footer {
-    background: var(--black);
-    color: var(--white-50);
-  }
-  .footer-inner {
-    width: 100%;
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 40px 60px;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 22px;
-    letter-spacing: -0.3px;
-  }
-  .footer-inner p { margin: 0; }
 
-  .sr-only {
-    position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
-    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-  }
+    .site-footer {
+      background: var(--black);
+      color: var(--white-50);
+    }
 
-  /* 모바일 전용 헤더 영역(지원하기 pill + 햄버거): 데스크탑/태블릿에서는 숨김 */
-  .header-m { display: none; }
+    .footer-inner {
+      width: 100%;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 40px 60px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: -0.3px;
+    }
 
-  /* =====================================================
+    .footer-inner p {
+      margin: 0;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* 모바일 전용 헤더 영역(지원하기 pill + 햄버거): 데스크탑/태블릿에서는 숨김 */
+    .header-m {
+      display: none;
+    }
+
+    /* =====================================================
      Responsive (Desktop First / max-width)
      데스크탑 : 1025px 이상 (위 기본 CSS)
      태블릿   : 1024px 이하
      모바일   : 390px 이하
      ===================================================== */
 
-  /* ---------- Tablet : max-width 1024px ---------- */
-  @media (max-width: 1024px) {
-    :root { --gutter: clamp(20px, 4vw, 40px); }
+    /* ---------- Tablet : max-width 1024px ---------- */
+    @media (max-width: 1024px) {
+      :root {
+        --gutter: clamp(20px, 4vw, 40px);
+      }
 
-    /* 헤더: 로고·메뉴·버튼을 축소하고 좌우 여백을 유동적으로 */
-    .header-inner { padding: 0 var(--gutter); }
-    .brand { width: clamp(120px, 14.8vw, 152px); height: auto; aspect-ratio: 182 / 31; }
-    .brand img { width: 100%; height: auto; }
-    .gnb-list { gap: clamp(16px, 3.1vw, 32px); }
-    .gnb-list a,
-    .gnb-list li:first-child a { font-size: clamp(13px, 2.25vw, 17.3px); }
-    .gnb-cta { padding-left: clamp(16px, 2.3vw, 24px); }
-    .btn-sm { width: clamp(92px, 11.6vw, 119px); height: 44px; padding: 0 8px; font-size: clamp(13px, 1.5vw, 15px); }
+      /* 헤더: 로고·메뉴·버튼을 축소하고 좌우 여백을 유동적으로 */
+      .header-inner {
+        padding: 0 var(--gutter);
+      }
 
-    /* 메인 비주얼: 텍스트 위 / 캐릭터 아래 세로 배치 */
-    .main-visual { height: auto; min-height: 100vh; min-height: 100dvh; max-height: none; padding-top: 100px; }
-    .mv-inner { flex-direction: column; align-items: stretch; justify-content: flex-start; height: auto; gap: 30px; }
-    .mv-text { width: 100%; margin: 0; padding: 0 var(--gutter); gap: 40px; }
-    .mv-copy { width: 100%; gap: 16px; }
-    .mv-sub { font-size: 27px; line-height: 38px; letter-spacing: -0.56px; }
-    .mv-title strong { font-size: 56px; line-height: 60px; letter-spacing: -1.36px; }
-    .mv-title span { font-size: 35px; line-height: 60px; letter-spacing: -0.86px; }
-    .mv-period { font-size: clamp(13px, 2.5vw, 19.2px); white-space: normal; }
-    .btn-lg { width: 303px; max-width: 100%; height: 64px; padding: 0 24px; font-size: 20px; line-height: 30px; }
+      .brand {
+        width: clamp(120px, 14.8vw, 152px);
+        height: auto;
+        aspect-ratio: 182 / 31;
+      }
 
-    /* 캐릭터 스테이지: 내부 absolute 좌표는 유지하고 zoom 으로 비율 축소 (레이아웃 영역도 함께 줄어듦) */
-    .mv-stage { margin: 0 auto; width: min(71vw, 470.73px); }
-
-    .btn-scroll { width: 70px; height: 70px; }
-    .btn-scroll svg { width: 35px; height: 35px; }
-
-    .footer-inner { padding: 32px var(--gutter); }
-  }
-
-  /* 태블릿 보완: 600px 이하에서는 메뉴 4개가 한 줄에 들어가지 않으므로 텍스트 메뉴는 숨기고 지원하기만 유지 */
-  @media (max-width: 600px) {
-    .gnb-list { display: none; }
-    .gnb-cta { padding-left: 0; }
-  }
-
-  /* ---------- Mobile : max-width 390px ---------- */
-  @media (max-width: 390px) {
-    :root { --gutter: 20px; }
-
-    /* 메뉴가 열리면 배경 스크롤 방지 */
-    html.is-menu-open,
-    html.is-menu-open body { overflow: hidden; }
-
-    /* 헤더 */
-    .site-header { height: 68px; }
-    .brand { width: 130px; }
-    .brand, .header-m { position: relative; z-index: 2; }
-
-    .header-m { display: flex; align-items: center; gap: 12px; }
-    .header-m .btn-sm { width: 63px; height: 28px; padding: 0; font-size: 13px; line-height: 18px; }
-    html.is-menu-open .header-m .btn-sm { visibility: hidden; }
-
-    .btn-menu {
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
-      width: 44px; height: 44px; margin-right: -11px; /* 터치 영역 44px, 아이콘은 좌우 여백선에 정렬 */
-      background: none;
-    }
-    .btn-menu span {
-      display: block; width: 22px; height: 2px; background: var(--black);
-      transition: transform 0.3s ease, opacity 0.2s ease;
-    }
-    html.is-menu-open .btn-menu span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    html.is-menu-open .btn-menu span:nth-child(2) { opacity: 0; }
-    html.is-menu-open .btn-menu span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* 전체 메뉴: 기존 .gnb 를 오른쪽에서 슬라이드되는 패널로 전환 */
-    .gnb {
-      position: fixed; top: 0; right: 0; z-index: 1;
-      width: 100%; height: 100vh; height: 100dvh;
-      flex-direction: column; align-items: stretch; justify-content: flex-start;
-      padding: 100px var(--gutter) 0;
-      background: var(--white);
-      overflow-y: auto;
-      transform: translateX(100%);
-      visibility: hidden;
-      transition: transform 0.3s ease, visibility 0s linear 0.3s;
-    }
-    .gnb.is-open {
-      transform: translateX(0);
-      visibility: visible;
-      transition: transform 0.3s ease, visibility 0s;
-    }
-    /* 메뉴 우측 하단 캐릭터 (images 폴더) */
-    .gnb::after {
-      content: "";
-      position: absolute; right: 16px; bottom: 40px;
-      width: 130px; aspect-ratio: 413 / 420;
-      background: url("./images/imgi_76_con5_char.png") center / contain no-repeat;
-      pointer-events: none;
-    }
-    .gnb-list { display: flex; flex-direction: column; align-items: stretch; gap: 0; height: auto; }
-    .gnb-list li { border-bottom: 1px solid #E5E5E5; }
-    .gnb-list a,
-    .gnb-list li:first-child a { height: 56px; font-size: 18px; line-height: 24px; }
-    .gnb-cta { margin-top: 40px; padding-left: 0; }
-    .gnb-cta .btn-sm { width: 100%; height: 48px; padding: 0 20px; font-size: 16px; line-height: 24px; }
-
-    /* 메인 비주얼 */
-    .mv-text { gap: 56px; }
-    .mv-copy { gap: 12px; }
-    .mv-sub { font-size: 20px; line-height: 28px; letter-spacing: -0.4px; }
-    .mv-period { font-size: 13px; line-height: 20px; letter-spacing: -0.3px; }
-    .btn-lg { width: 200px; height: 48px; padding: 0 16px; font-size: 15px; line-height: 22px; }
-    .mv-stage { width: min(90vw, 351.39px); }
-
-    .scroll-wrap { bottom: 24px; }
-    .btn-scroll { width: 40px; height: 40px; }
-    .btn-scroll svg { width: 20px; height: 20px; }
-  }
-
-  /* ---------- Main > Section : 새로운 미래 (피그마 재대조 2026-10-27) ---------- */
-  .mirae {
-    position: relative;
-    width: 100%;
-    height: clamp(700px, 57.3vw, 825px);
-    overflow: hidden;
-    isolation: isolate;
-    background: linear-gradient(180deg, #fff 0%, #fffaf8 25%, #ffe7df 100%);
-  }
-  /* 수정: 구름 기준을 1440px 내부 박스가 아닌 실제 화면 전체로 변경 */
-  .mirae-inner { position: relative; width: 100%; height: 100%; margin: 0 auto; }
-  /* 수정: 제목은 캐릭터와 독립적으로 시안 상단 약 23% 지점에 고정 */
-  .mirae-title {
-    position: absolute; z-index: 4; top: 22.5%; left: 0; width: 100%;
-    text-align: center; white-space: nowrap;
-    font-size: clamp(32px, 3.5vw, 62px); line-height: 1.3;
-    font-weight: 800; letter-spacing: -0.065em;
-  }
-  .mirae-title-red { color: #ed161d; }
-  .mirae-title-black { color: #000; }
-  .mirae-cloud { position: absolute; z-index: 1; display: block; height: auto; max-width: none; pointer-events: none; }
-  /* 수정: 왼쪽 구름의 잘린 면은 섹션 밖에 숨기고, 오른쪽도 화면 가장자리에서 크롭 */
-  .mirae-cloud-left { width: 29%; left: -14.5%; top: 53%; }
-  .mirae-cloud-right { width: 49%; right: -24.5%; top: 29%; }
-  .mirae-cloud-blur-left { width: 29%; left: 5%; top: 30%; }
-  .mirae-cloud-blur-right { width: 18%; right: 14%; top: 63%; }
-
-  /* 수정: 캐릭터+별은 동일한 이미지 좌표계. 이미지 투명 여백까지 고려해 배치 */
-  .mirae-character-stage {
-    position: absolute; z-index: 2; left: 50%; bottom: 0;
-    width: min(76%, 1100px); aspect-ratio: 2048 / 1258;
-    transform: translateX(-50%);
-    pointer-events: none;
-  }
-  .mirae-character-stage > img { position: absolute; display: block; height: auto; max-width: none; }
-  .mirae-walking { left: 0; top: 0; width: 100%; }
-  .mirae-star { z-index: 3; }
-  /* 별 좌표는 전체 섹션이 아닌 캐릭터 이미지의 투명 캔버스 기준 */
-  .mirae-star-top { width: 3%; left: 59%; top: 18%; }
-  .mirae-star-bottom { width: 3.6%; left: 38.5%; top: 66%; }
-
-  /* 태블릿 : 1024px 이하 */
-  @media (max-width: 1024px) {
-    .mirae { height: clamp(680px, 75vw, 790px); }
-    .mirae-title { top: 21%; font-size: clamp(30px, 4.4vw, 46px); }
-    .mirae-character-stage { width: 64%; }
-    .mirae-cloud-left { width: 32%; left: -16%; top: 55%; }
-    .mirae-cloud-right { width: 50%; right: -25%; top: 43%; }
-    .mirae-cloud-blur-left { width: 32%; left: 14%; top: 42%; }
-    .mirae-cloud-blur-right { width: 20%; right: 20%; top: 72%; }
-  }
-
-  /* 모바일 : 390px 이하 */
-  @media (max-width: 390px) {
-    .mirae { height: 805px; }
-    .mirae-title { top: 15%; font-size: clamp(20px, 5.65vw, 23px); letter-spacing: -0.065em; }
-    .mirae-character-stage { width: 102%; bottom: 0; }
-    .mirae-cloud-left { width: 55%; left: -27.5%; top: 52%; }
-    .mirae-cloud-right { width: 93%; right: -46.5%; top: 31%; }
-    .mirae-cloud-blur-left { width: 65%; left: 8%; top: 33%; }
-    .mirae-cloud-blur-right { width: 40%; right: 5%; top: 63%; }
-  }
-
-      /* ---------- History (53th → 100th) ---------- */
-      /* 데스크탑(1025px~)은 1440 기준 px 값을 --scale 로 축소(기존 히어로와 동일 방식),
-         태블릿/모바일은 아래 미디어쿼리에서 변수만 clamp(vw) 값으로 교체한다. */
-      .history {
-        --u: calc(1px * var(--scale));
-        --his-orange: var(--orange);
-        --his-pad-top: calc(150 * var(--u));
-        --his-pad-x: calc(60 * var(--u));
-        --his-title: calc(48 * var(--u));
-        --his-title-gap: calc(74 * var(--u));
-        --his-count: calc(340 * var(--u));
-        --his-head-gap: calc(122 * var(--u));
-        --his-axis: calc(98 * var(--u));
-        --his-line: calc(24 * var(--u));
-        --his-period: calc(40 * var(--u));
-        --his-lead: calc(28 * var(--u));
-        --his-text: calc(16 * var(--u));
-        --his-year: calc(24 * var(--u));
-        --his-item-gap: calc(34 * var(--u));
-        --his-row-gap: calc(32 * var(--u));
-        --his-block-gap: calc(184 * var(--u));
-        --his-end-gap: calc(220 * var(--u));
-        --his-end-sub: calc(16 * var(--u));
-        --his-end-main: calc(30 * var(--u));
-        --his-dot: calc(8 * var(--u));
-        --his-ease: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
+      .brand img {
         width: 100%;
-        background: var(--white);
+        height: auto;
       }
-      .history-body {
-        position: relative;
-        overflow: hidden;
-        transition: max-height var(--his-ease);
-      }
-      /* 접힘 상태: 하단 페이드아웃 (투명 → #fff). rgba(255,255,255,0)은 사파리의 회색 번짐 방지용 */
-      .history-body::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: clamp(180px, 22vw, 320px);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 85%);
-        opacity: 0;
-        pointer-events: none;
-        z-index: 1;
-        transition: opacity 0.4s ease;
-      }
-      .history.is-collapsed .history-body::after { opacity: 1; }
 
-      .history-flow {
-        position: relative;
-        max-width: var(--container-width);
-        margin: 0 auto;
-        padding: var(--his-pad-top) var(--his-pad-x) calc(60 * var(--u));
+      .gnb-list {
+        gap: clamp(16px, 3.1vw, 32px);
       }
-      .history-deco { position: absolute; height: auto; max-width: none; pointer-events: none; z-index: -1; }
 
-      /* 헤드: 타이틀 + 53th */
-      .history-head { position: relative; isolation: isolate; text-align: center; margin-bottom: var(--his-head-gap); }
-      .history-title {
-        margin: 0 0 var(--his-title-gap);
-        font-size: var(--his-title);
-        font-weight: 700;
-        line-height: 1.5;
-        letter-spacing: -0.03em;
+      .gnb-list a,
+      .gnb-list li:first-child a {
+        font-size: clamp(13px, 2.25vw, 17.3px);
       }
-      .history-count {
-        display: flex;
-        align-items: baseline;
-        justify-content: center;
+
+      .gnb-cta {
+        padding-left: clamp(16px, 2.3vw, 24px);
+      }
+
+      .btn-sm {
+        width: clamp(92px, 11.6vw, 119px);
+        height: 44px;
+        padding: 0 8px;
+        font-size: clamp(13px, 1.5vw, 15px);
+      }
+
+      /* 메인 비주얼: 텍스트 위 / 캐릭터 아래 세로 배치 */
+      .main-visual {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        max-height: none;
+        padding-top: 100px;
+      }
+
+      .mv-inner {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        height: auto;
+        gap: 30px;
+      }
+
+      .mv-text {
+        width: 100%;
         margin: 0;
-        font-family: "Inter", var(--font);
-        font-size: var(--his-count);
-        font-weight: 800;
-        line-height: 0.727; /* 숫자 캡 높이 = 박스 높이 → 타임라인 선이 숫자 하단/상단에 정확히 맞물림 */
-        letter-spacing: -0.07em;
-        color: var(--his-orange);
-      }
-      .history-count-unit { margin-left: 0.07em; font-size: 0.4em; letter-spacing: -0.03em; }
-
-      /* 타임라인 중앙선: 53th 하단 → 100th 상단 */
-      .history-timeline { position: relative; display: flex; flex-direction: column; gap: var(--his-block-gap); }
-      .history-timeline::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: calc(-1 * var(--his-head-gap));
-        bottom: calc(-1 * var(--his-end-gap));
-        width: var(--his-line);
-        background: var(--his-orange);
+        padding: 0 var(--gutter);
+        gap: 40px;
       }
 
-      /* 블록: 텍스트열/미디어열 지그재그 (DOM 순서 고정, 배치는 grid-template-areas 로만 제어) */
-      .history-block {
-        position: relative;
-        isolation: isolate;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: calc(var(--his-axis) * 2);
-        row-gap: var(--his-row-gap);
-        align-items: start;
+      .mv-copy {
+        width: 100%;
+        gap: 16px;
       }
-      .history-block--text-left {
-        grid-template-areas: "lead period" "list figure";
-        grid-template-rows: auto 1fr;
+
+      .mv-sub {
+        font-size: 27px;
+        line-height: 38px;
+        letter-spacing: -0.56px;
       }
-      .history-block--text-right {
-        grid-template-areas: "period list" "figure list";
-        grid-template-rows: auto 1fr;
+
+      .mv-title strong {
+        font-size: 56px;
+        line-height: 60px;
+        letter-spacing: -1.36px;
       }
-      .history-period { grid-area: period; margin: 0; font-size: var(--his-period); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; color: var(--his-orange); white-space: nowrap; }
-      .history-lead { grid-area: lead; margin: 0; font-size: var(--his-lead); font-weight: 700; line-height: 1.4; letter-spacing: -0.03em; }
-      .history-list { grid-area: list; display: flex; flex-direction: column; gap: var(--his-item-gap); margin: 0; padding: 0; list-style: none; }
-      .history-list li { display: flex; align-items: center; gap: calc(var(--his-year) * 1.2); }
-      .history-year { flex: none; width: calc(var(--his-year) * 2.4); font-size: var(--his-year); font-weight: 700; line-height: 1.4; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-      .history-text { font-size: var(--his-text); font-weight: 500; line-height: 1.5; letter-spacing: -0.03em; }
 
-      /* 텍스트가 왼쪽: 축 쪽(오른쪽)으로 우측 정렬, 연도가 축에 가장 가깝게 */
-      .history-block--text-left .history-lead { justify-self: end; text-align: right; }
-      .history-block--text-left .history-list { justify-self: end; align-items: flex-end; }
-      .history-block--text-left .history-list li { flex-direction: row-reverse; text-align: right; }
-      .history-block--text-left .history-period,
-      .history-block--text-left .history-figure { justify-self: start; }
-      /* 텍스트가 오른쪽: 미디어는 축 쪽(왼쪽 열의 오른쪽 끝)으로 정렬 */
-      .history-block--text-right .history-period,
-      .history-block--text-right .history-figure { justify-self: end; }
-      .history-block--text-right .history-list { justify-self: start; align-items: flex-start; }
-      .history-block--text-right .history-period { text-align: right; }
-
-      /* 점 3개(more): 마지막 연도 중앙 아래 */
-      .history-list::after {
-        content: "";
-        width: var(--his-dot);
-        height: var(--his-dot);
-        margin-top: calc(var(--his-item-gap) * 0.4);
-        margin-bottom: calc(var(--his-dot) * 4.5);
-        border-radius: 50%;
-        background: var(--his-orange);
-        box-shadow: 0 calc(var(--his-dot) * 2.25) 0 rgba(255, 93, 50, 0.55), 0 calc(var(--his-dot) * 4.5) 0 rgba(255, 93, 50, 0.25);
+      .mv-title span {
+        font-size: 35px;
+        line-height: 60px;
+        letter-spacing: -0.86px;
       }
-      .history-block--text-left .history-list::after { margin-right: calc(var(--his-year) * 1.2 - var(--his-dot) / 2); }
-      .history-block--text-right .history-list::after { margin-left: calc(var(--his-year) * 1.2 - var(--his-dot) / 2); }
 
-      .history-figure { grid-area: figure; width: var(--w-d, 80%); margin: 0; }
-      .history-figure img { width: 100%; height: auto; max-width: 100%; }
-      .history-figure--1 { --w-d: 72%; --w-t: 100%; --w-m: 64%; }
-      .history-figure--2 { --w-d: 80%; --w-t: 100%; --w-m: 69%; }
-      .history-figure--3 { --w-d: 94%; --w-t: 100%; --w-m: 85%; }
-      .history-figure--4 { --w-d: 87%; --w-t: 100%; --w-m: 76%; }
-      .history-figure--5 { --w-d: 74%; --w-t: 100%; --w-m: 63%; }
-
-      /* 데코 (데스크탑 전용, 좌표는 1440 기준) */
-      .history-deco--star { right: calc(107 * var(--u)); top: calc(162 * var(--u)); width: calc(180 * var(--u)); z-index: 0; }
-      .history-deco--beaker { left: calc(68 * var(--u)); top: calc(208 * var(--u)); width: calc(171 * var(--u)); z-index: 3; }
-      .history-deco--microscope { left: calc(1115 * var(--u)); top: calc(300 * var(--u)); width: calc(202 * var(--u)); }
-      .history-deco--mol-blur1 { left: calc(1090 * var(--u)); top: calc(66 * var(--u)); width: calc(392 * var(--u)); }
-      .history-deco--mol-blur2 { left: calc(-150 * var(--u)); top: calc(-150 * var(--u)); width: calc(240 * var(--u)); }
-      .history-deco--mol-big { left: auto; right: calc(-95 * var(--u)); top: calc(260 * var(--u)); width: calc(245 * var(--u)); z-index: 2; opacity: 0.8; }
-
-      /* 엔딩: 100th + 마무리 카피 */
-      .history-end { position: relative; isolation: isolate; margin-top: var(--his-end-gap); text-align: center; }
-      .history-count--end { position: relative; left: 8%; }
-      .history-end-copy { position: relative; margin-top: calc(75 * var(--u)); padding-bottom: calc(40 * var(--u)); }
-      .history-end-copy::before {
-        content: "";
-        position: absolute;
-        inset: calc(-170 * var(--u)) -2% 0;
-        background: radial-gradient(ellipse at 50% 50%, rgba(255, 93, 50, 0.08) 0%, rgba(255, 93, 50, 0) 70%);
-        z-index: -1;
+      .mv-period {
+        font-size: clamp(13px, 2.5vw, 19.2px);
+        white-space: normal;
       }
-      .history-end-sub { margin: 0 0 calc(24 * var(--u)); font-size: var(--his-end-sub); font-weight: 500; line-height: 1.6; letter-spacing: -0.03em; }
-      .history-end-main { margin: 0; font-size: var(--his-end-main); font-weight: 800; line-height: 1.95; letter-spacing: -0.04em; }
-      .history-deco--char { left: calc(15 * var(--u)); top: calc(-135 * var(--u)); width: calc(175 * var(--u)); z-index: 0; }
-      .history-deco--cloud { left: calc(-10 * var(--u)); top: calc(105 * var(--u)); width: calc(220 * var(--u)); z-index: -1; }
 
-      /* 펼치기/접기 */
-      .history-foot {
+      .btn-lg {
+        width: 303px;
+        max-width: 100%;
+        height: 64px;
+        padding: 0 24px;
+        font-size: 20px;
+        line-height: 30px;
+      }
+
+      /* 캐릭터 스테이지: 내부 absolute 좌표는 유지하고 zoom 으로 비율 축소 (레이아웃 영역도 함께 줄어듦) */
+      .mv-stage {
+        margin: 0 auto;
+        width: min(71vw, 470.73px);
+      }
+
+      .btn-scroll {
+        width: 70px;
+        height: 70px;
+      }
+
+      .btn-scroll svg {
+        width: 35px;
+        height: 35px;
+      }
+
+      .footer-inner {
+        padding: 32px var(--gutter);
+      }
+    }
+
+    /* 태블릿 보완: 600px 이하에서는 메뉴 4개가 한 줄에 들어가지 않으므로 텍스트 메뉴는 숨기고 지원하기만 유지 */
+    @media (max-width: 600px) {
+      .gnb-list {
+        display: none;
+      }
+
+      .gnb-cta {
+        padding-left: 0;
+      }
+    }
+
+    /* ---------- Mobile : max-width 390px ---------- */
+    @media (max-width: 390px) {
+      :root {
+        --gutter: 20px;
+      }
+
+      /* 메뉴가 열리면 배경 스크롤 방지 */
+      html.is-menu-open,
+      html.is-menu-open body {
+        overflow: hidden;
+      }
+
+      /* 헤더 */
+      .site-header {
+        height: 68px;
+      }
+
+      .brand {
+        width: 130px;
+      }
+
+      .brand,
+      .header-m {
         position: relative;
         z-index: 2;
-        display: flex;
-        justify-content: center;
-        padding: calc(24 * var(--u)) 0 calc(120 * var(--u));
-        transition: margin-top var(--his-ease);
       }
-      .history.is-collapsed .history-foot { margin-top: -110px; padding-top: 0; padding-bottom: 60px; }
-      .history-toggle {
+
+      .header-m {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .header-m .btn-sm {
+        width: 63px;
+        height: 28px;
+        padding: 0;
+        font-size: 13px;
+        line-height: 18px;
+      }
+
+      html.is-menu-open .header-m .btn-sm {
+        visibility: hidden;
+      }
+
+      .btn-menu {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 6px;
-        min-width: 64px;
-        min-height: 64px;
-        padding: 8px 16px;
-        background: transparent;
-        color: #444;
+        justify-content: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        margin-right: -11px;
+        /* 터치 영역 44px, 아이콘은 좌우 여백선에 정렬 */
+        background: none;
+      }
+
+      .btn-menu span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--black);
+        transition: transform 0.3s ease, opacity 0.2s ease;
+      }
+
+      html.is-menu-open .btn-menu span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      html.is-menu-open .btn-menu span:nth-child(2) {
+        opacity: 0;
+      }
+
+      html.is-menu-open .btn-menu span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* 전체 메뉴: 기존 .gnb 를 오른쪽에서 슬라이드되는 패널로 전환 */
+      .gnb {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        padding: 100px var(--gutter) 0;
+        background: var(--white);
+        overflow-y: auto;
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform 0.3s ease, visibility 0s linear 0.3s;
+      }
+
+      .gnb.is-open {
+        transform: translateX(0);
+        visibility: visible;
+        transition: transform 0.3s ease, visibility 0s;
+      }
+
+      /* 메뉴 우측 하단 캐릭터 (images 폴더) */
+      .gnb::after {
+        content: "";
+        position: absolute;
+        right: 16px;
+        bottom: 40px;
+        width: 130px;
+        aspect-ratio: 413 / 420;
+        background: url("./images/imgi_76_con5_char.png") center / contain no-repeat;
+        pointer-events: none;
+      }
+
+      .gnb-list {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        height: auto;
+      }
+
+      .gnb-list li {
+        border-bottom: 1px solid #E5E5E5;
+      }
+
+      .gnb-list a,
+      .gnb-list li:first-child a {
+        height: 56px;
+        font-size: 18px;
+        line-height: 24px;
+      }
+
+      .gnb-cta {
+        margin-top: 40px;
+        padding-left: 0;
+      }
+
+      .gnb-cta .btn-sm {
+        width: 100%;
+        height: 48px;
+        padding: 0 20px;
         font-size: 16px;
-        font-weight: 500;
-        letter-spacing: -0.02em;
-        transition: color var(--transition);
-      }
-      .history-toggle svg { width: 24px; height: 24px; transition: transform var(--his-ease); }
-      .history-toggle[aria-expanded="false"] svg { transform: rotate(180deg); }
-      .history-toggle:hover { color: var(--black); }
-
-      @media (prefers-reduced-motion: reduce) {
-        .history-body, .history-body::after, .history-foot, .history-toggle svg { transition: none; }
+        line-height: 24px;
       }
 
-      /* ---------- Tablet : 1024px 이하 (선 유지, 데코 제거, 2열 지그재그 유지) ---------- */
-      @media (max-width: 1024px) {
-        .history {
-          --u: 1px;
-          --his-pad-top: clamp(80px, 12vw, 130px);
-          --his-pad-x: clamp(20px, 5.7vw, 56px);
-          --his-title: clamp(26px, 4.2vw, 42px);
-          --his-title-gap: clamp(40px, 8.1vw, 80px);
-          --his-count: clamp(150px, 28.8vw, 295px);
-          --his-head-gap: clamp(60px, 10.7vw, 110px);
-          --his-axis: clamp(30px, 8.6vw, 76px);
-          --his-line: clamp(12px, 2.1vw, 22px);
-          --his-period: clamp(22px, 3.3vw, 34px);
-          --his-lead: clamp(17px, 2.45vw, 25px);
-          --his-text: clamp(12px, 1.45vw, 15px);
-          --his-year: clamp(16px, 2vw, 21px);
-          --his-item-gap: clamp(16px, 2.8vw, 30px);
-          --his-row-gap: clamp(20px, 3.4vw, 32px);
-          --his-block-gap: clamp(80px, 16vw, 160px);
-          --his-end-gap: clamp(100px, 20vw, 200px);
-          --his-end-sub: clamp(13px, 1.9vw, 17px);
-          --his-end-main: clamp(20px, 3.3vw, 32px);
-          --his-dot: clamp(6px, 0.9vw, 8px);
-        }
-        .history-deco { display: none; } /* 장식 이미지는 데스크탑 전용 */
-        .history-figure { width: var(--w-t); }
-        .history-end-copy { margin-top: clamp(40px, 8vw, 75px); }
-        .history-end-copy::before { inset: -120px -2% 0; }
-        .history-foot { padding: 24px 0 clamp(60px, 12vw, 120px); }
+      /* 메인 비주얼 */
+      .mv-text {
+        gap: 56px;
       }
 
-      /* ---------- Mobile : 568px 이하 (선 제거, 1열, 홀/짝 블록 좌우 교차 정렬) ---------- */
-      @media (max-width: 568px) {
-        .history {
-          --his-pad-top: clamp(24px, 6vw, 36px);
-          --his-pad-x: 20px;
-          --his-title: clamp(17px, 3.85vw, 22px);
-          --his-title-gap: clamp(20px, 5.3vw, 30px);
-          --his-count: clamp(80px, 22.6vw, 128px);
-          --his-head-gap: clamp(36px, 10vw, 56px);
-          --his-period: clamp(17px, 3.4vw, 20px);
-          --his-lead: clamp(14px, 2.6vw, 15px);
-          --his-text: clamp(12px, 2.2vw, 13px);
-          --his-year: clamp(15px, 2.8vw, 16px);
-          --his-item-gap: clamp(18px, 4.7vw, 28px);
-          --his-row-gap: clamp(18px, 4.6vw, 26px);
-          --his-block-gap: clamp(64px, 17vw, 96px);
-          --his-end-gap: clamp(56px, 14vw, 80px);
-          --his-end-sub: clamp(11px, 2.5vw, 13px);
-          --his-end-main: clamp(17px, 3.7vw, 20px);
-        }
-        .history-timeline::before { content: none; }
-        .history-block { grid-template-columns: 1fr; grid-template-rows: none; }
-        .history-block--text-left { grid-template-areas: "period" "lead" "list" "figure"; justify-items: end; }
-        .history-block--text-right { grid-template-areas: "period" "list" "figure"; justify-items: start; }
-        .history-block .history-period,
-        .history-block .history-lead,
-        .history-block .history-list,
-        .history-block .history-figure { justify-self: auto; }
-        .history-block--text-right .history-period { text-align: left; }
-        .history-block--text-left .history-period { text-align: right; }
-        .history-figure { width: var(--w-m); }
-        .history-count--end { left: 2.7%; }
-        .history-end-copy { margin-top: 20px; }
-        .history-end-copy::before { inset: -60px -20px 0; }
-        .history-end-main { line-height: 1.75; }
-        .history-toggle { font-size: 14px; }
+      .mv-copy {
+        gap: 12px;
       }
 
-      /* ===== Final history responsive corrections (isolated to section 3) ===== */
+      .mv-sub {
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -0.4px;
+      }
+
+      .mv-period {
+        font-size: 13px;
+        line-height: 20px;
+        letter-spacing: -0.3px;
+      }
+
+      .btn-lg {
+        width: 200px;
+        height: 48px;
+        padding: 0 16px;
+        font-size: 15px;
+        line-height: 22px;
+      }
+
+      .mv-stage {
+        width: min(90vw, 351.39px);
+      }
+
+      .scroll-wrap {
+        bottom: 24px;
+      }
+
+      .btn-scroll {
+        width: 40px;
+        height: 40px;
+      }
+
+      .btn-scroll svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    /* ---------- Main > Section : 새로운 미래 (피그마 재대조 2026-10-27) ---------- */
+    .mirae {
+      position: relative;
+      width: 100%;
+      height: clamp(700px, 57.3vw, 825px);
+      overflow: hidden;
+      isolation: isolate;
+      background: linear-gradient(180deg, #fff 0%, #fffaf8 25%, #ffe7df 100%);
+    }
+
+    /* 수정: 구름 기준을 1440px 내부 박스가 아닌 실제 화면 전체로 변경 */
+    .mirae-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    /* 수정: 제목은 캐릭터와 독립적으로 시안 상단 약 23% 지점에 고정 */
+    .mirae-title {
+      position: absolute;
+      z-index: 4;
+      top: 22.5%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      white-space: nowrap;
+      font-size: clamp(32px, 3.5vw, 62px);
+      line-height: 1.3;
+      font-weight: 800;
+      letter-spacing: -0.065em;
+    }
+
+    .mirae-title-red {
+      color: #ed161d;
+    }
+
+    .mirae-title-black {
+      color: #000;
+    }
+
+    .mirae-cloud {
+      position: absolute;
+      z-index: 1;
+      display: block;
+      height: auto;
+      max-width: none;
+      pointer-events: none;
+    }
+
+    /* 수정: 왼쪽 구름의 잘린 면은 섹션 밖에 숨기고, 오른쪽도 화면 가장자리에서 크롭 */
+    .mirae-cloud-left {
+      width: 29%;
+      left: -14.5%;
+      top: 53%;
+    }
+
+    .mirae-cloud-right {
+      width: 49%;
+      right: -24.5%;
+      top: 29%;
+    }
+
+    .mirae-cloud-blur-left {
+      width: 29%;
+      left: 5%;
+      top: 30%;
+    }
+
+    .mirae-cloud-blur-right {
+      width: 18%;
+      right: 14%;
+      top: 63%;
+    }
+
+    /* 수정: 캐릭터+별은 동일한 이미지 좌표계. 이미지 투명 여백까지 고려해 배치 */
+    .mirae-character-stage {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      bottom: 0;
+      width: min(76%, 1100px);
+      aspect-ratio: 2048 / 1258;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .mirae-character-stage>img {
+      position: absolute;
+      display: block;
+      height: auto;
+      max-width: none;
+    }
+
+    .mirae-walking {
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+
+    .mirae-star {
+      z-index: 3;
+    }
+
+    /* 별 좌표는 전체 섹션이 아닌 캐릭터 이미지의 투명 캔버스 기준 */
+    .mirae-star-top {
+      width: 3%;
+      left: 59%;
+      top: 18%;
+    }
+
+    .mirae-star-bottom {
+      width: 3.6%;
+      left: 37%;
+      top: 54%;
+    }
+
+    /* 태블릿 : 1024px 이하 */
+    @media (max-width: 1024px) {
+      .mirae {
+        height: clamp(680px, 75vw, 790px);
+      }
+
+      .mirae-title {
+        top: 21%;
+        font-size: clamp(30px, 4.4vw, 46px);
+      }
+
+      .mirae-character-stage {
+        width: 64%;
+      }
+
+      .mirae-cloud-left {
+        width: 32%;
+        left: -16%;
+        top: 55%;
+      }
+
+      .mirae-cloud-right {
+        width: 50%;
+        right: -25%;
+        top: 43%;
+      }
+
+      .mirae-cloud-blur-left {
+        width: 32%;
+        left: 14%;
+        top: 42%;
+      }
+
+      .mirae-cloud-blur-right {
+        width: 20%;
+        right: 20%;
+        top: 72%;
+      }
+    }
+
+    /* 모바일 : 390px 이하 */
+    @media (max-width: 390px) {
+      .mirae {
+        height: 805px;
+      }
+
+      .mirae-title {
+        top: 15%;
+        font-size: clamp(20px, 5.65vw, 23px);
+        letter-spacing: -0.065em;
+      }
+
+      .mirae-character-stage {
+        width: 102%;
+        bottom: 0;
+      }
+
+      .mirae-cloud-left {
+        width: 55%;
+        left: -27.5%;
+        top: 52%;
+      }
+
+      .mirae-cloud-right {
+        width: 93%;
+        right: -46.5%;
+        top: 31%;
+      }
+
+      .mirae-cloud-blur-left {
+        width: 65%;
+        left: 8%;
+        top: 33%;
+      }
+
+      .mirae-cloud-blur-right {
+        width: 40%;
+        right: 5%;
+        top: 63%;
+      }
+    }
+
+    /* ---------- History (53th → 100th) ---------- */
+    /* 데스크탑(1025px~)은 1440 기준 px 값을 --scale 로 축소(기존 히어로와 동일 방식),
+         태블릿/모바일은 아래 미디어쿼리에서 변수만 clamp(vw) 값으로 교체한다. */
+    .history {
+      --u: calc(1px * var(--scale));
+      --his-orange: var(--orange);
+      --his-pad-top: calc(150 * var(--u));
+      --his-pad-x: calc(60 * var(--u));
+      --his-title: calc(48 * var(--u));
+      --his-title-gap: calc(74 * var(--u));
+      --his-count: calc(340 * var(--u));
+      --his-head-gap: calc(122 * var(--u));
+      --his-axis: calc(98 * var(--u));
+      --his-line: calc(24 * var(--u));
+      --his-period: calc(40 * var(--u));
+      --his-lead: calc(28 * var(--u));
+      --his-text: calc(16 * var(--u));
+      --his-year: calc(24 * var(--u));
+      --his-item-gap: calc(34 * var(--u));
+      --his-row-gap: calc(32 * var(--u));
+      --his-block-gap: calc(184 * var(--u));
+      --his-end-gap: calc(220 * var(--u));
+      --his-end-sub: calc(16 * var(--u));
+      --his-end-main: calc(30 * var(--u));
+      --his-dot: calc(8 * var(--u));
+      --his-ease: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      width: 100%;
+      background: var(--white);
+    }
+
+    .history-body {
+      position: relative;
+      overflow: hidden;
+      transition: max-height var(--his-ease);
+    }
+
+    /* 접힘 상태: 하단 페이드아웃 (투명 → #fff). rgba(255,255,255,0)은 사파리의 회색 번짐 방지용 */
+    .history-body::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: clamp(180px, 22vw, 320px);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 85%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+      transition: opacity 0.4s ease;
+    }
+
+    .history.is-collapsed .history-body::after {
+      opacity: 1;
+    }
+
+    .history-flow {
+      position: relative;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: var(--his-pad-top) var(--his-pad-x) calc(60 * var(--u));
+    }
+
+    .history-deco {
+      position: absolute;
+      height: auto;
+      max-width: none;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* 헤드: 타이틀 + 53th */
+    .history-head {
+      position: relative;
+      isolation: isolate;
+      text-align: center;
+      margin-bottom: var(--his-head-gap);
+    }
+
+    .history-title {
+      margin: 0 0 var(--his-title-gap);
+      font-size: var(--his-title);
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: -0.03em;
+    }
+
+    .history-count {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      margin: 0;
+      font-family: "Inter", var(--font);
+      font-size: var(--his-count);
+      font-weight: 800;
+      line-height: 0.727;
+      /* 숫자 캡 높이 = 박스 높이 → 타임라인 선이 숫자 하단/상단에 정확히 맞물림 */
+      letter-spacing: -0.07em;
+      color: var(--his-orange);
+    }
+
+    .history-count-unit {
+      margin-left: 0.07em;
+      font-size: 0.4em;
+      letter-spacing: -0.03em;
+    }
+
+    /* 타임라인 중앙선: 53th 하단 → 100th 상단 */
+    .history-timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: var(--his-block-gap);
+    }
+
+    .history-timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: calc(-1 * var(--his-head-gap));
+      bottom: calc(-1 * var(--his-end-gap));
+      width: var(--his-line);
+      background: var(--his-orange);
+    }
+
+    /* 블록: 텍스트열/미디어열 지그재그 (DOM 순서 고정, 배치는 grid-template-areas 로만 제어) */
+    .history-block {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: calc(var(--his-axis) * 2);
+      row-gap: var(--his-row-gap);
+      align-items: start;
+    }
+
+    .history-block--text-left {
+      grid-template-areas: "lead period" "list figure";
+      grid-template-rows: auto 1fr;
+    }
+
+    .history-block--text-right {
+      grid-template-areas: "period list" "figure list";
+      grid-template-rows: auto 1fr;
+    }
+
+    .history-period {
+      grid-area: period;
+      margin: 0;
+      font-size: var(--his-period);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--his-orange);
+      white-space: nowrap;
+    }
+
+    .history-lead {
+      grid-area: lead;
+      margin: 0;
+      font-size: var(--his-lead);
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -0.03em;
+    }
+
+    .history-list {
+      grid-area: list;
+      display: flex;
+      flex-direction: column;
+      gap: var(--his-item-gap);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .history-list li {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--his-year) * 1.2);
+    }
+
+    .history-year {
+      flex: none;
+      width: calc(var(--his-year) * 2.4);
+      font-size: var(--his-year);
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .history-text {
+      font-size: var(--his-text);
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: -0.03em;
+    }
+
+    /* 텍스트가 왼쪽: 축 쪽(오른쪽)으로 우측 정렬, 연도가 축에 가장 가깝게 */
+    .history-block--text-left .history-lead {
+      justify-self: end;
+      text-align: right;
+    }
+
+    .history-block--text-left .history-list {
+      justify-self: end;
+      align-items: flex-end;
+    }
+
+    .history-block--text-left .history-list li {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+
+    .history-block--text-left .history-period,
+    .history-block--text-left .history-figure {
+      justify-self: start;
+    }
+
+    /* 텍스트가 오른쪽: 미디어는 축 쪽(왼쪽 열의 오른쪽 끝)으로 정렬 */
+    .history-block--text-right .history-period,
+    .history-block--text-right .history-figure {
+      justify-self: end;
+    }
+
+    .history-block--text-right .history-list {
+      justify-self: start;
+      align-items: flex-start;
+    }
+
+    .history-block--text-right .history-period {
+      text-align: right;
+    }
+
+    /* 점 3개(more): 마지막 연도 중앙 아래 */
+    .history-list::after {
+      content: "";
+      width: var(--his-dot);
+      height: var(--his-dot);
+      margin-top: calc(var(--his-item-gap) * 0.4);
+      margin-bottom: calc(var(--his-dot) * 4.5);
+      border-radius: 50%;
+      background: var(--his-orange);
+      box-shadow: 0 calc(var(--his-dot) * 2.25) 0 rgba(255, 93, 50, 0.55), 0 calc(var(--his-dot) * 4.5) 0 rgba(255, 93, 50, 0.25);
+    }
+
+    .history-block--text-left .history-list::after {
+      margin-right: calc(var(--his-year) * 1.2 - var(--his-dot) / 2);
+    }
+
+    .history-block--text-right .history-list::after {
+      margin-left: calc(var(--his-year) * 1.2 - var(--his-dot) / 2);
+    }
+
+    .history-figure {
+      grid-area: figure;
+      width: var(--w-d, 80%);
+      margin: 0;
+    }
+
+    .history-figure img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .history-figure--1 {
+      --w-d: 72%;
+      --w-t: 100%;
+      --w-m: 64%;
+    }
+
+    .history-figure--2 {
+      --w-d: 80%;
+      --w-t: 100%;
+      --w-m: 69%;
+    }
+
+    .history-figure--3 {
+      --w-d: 94%;
+      --w-t: 100%;
+      --w-m: 85%;
+    }
+
+    .history-figure--4 {
+      --w-d: 87%;
+      --w-t: 100%;
+      --w-m: 76%;
+    }
+
+    .history-figure--5 {
+      --w-d: 74%;
+      --w-t: 100%;
+      --w-m: 63%;
+    }
+
+    /* 데코 (데스크탑 전용, 좌표는 1440 기준) */
+    .history-deco--star {
+      right: calc(107 * var(--u));
+      top: calc(162 * var(--u));
+      width: calc(180 * var(--u));
+      z-index: 0;
+    }
+
+    .history-deco--beaker {
+      left: calc(68 * var(--u));
+      top: calc(208 * var(--u));
+      width: calc(171 * var(--u));
+      z-index: 3;
+    }
+
+    .history-deco--microscope {
+      left: calc(1115 * var(--u));
+      top: calc(300 * var(--u));
+      width: calc(202 * var(--u));
+    }
+
+    .history-deco--mol-blur1 {
+      left: calc(1090 * var(--u));
+      top: calc(66 * var(--u));
+      width: calc(392 * var(--u));
+    }
+
+    .history-deco--mol-blur2 {
+      left: calc(-150 * var(--u));
+      top: calc(-150 * var(--u));
+      width: calc(240 * var(--u));
+    }
+
+    .history-deco--mol-big {
+      left: auto;
+      right: calc(-95 * var(--u));
+      top: calc(260 * var(--u));
+      width: calc(245 * var(--u));
+      z-index: 2;
+      opacity: 0.8;
+    }
+
+    /* 엔딩: 100th + 마무리 카피 */
+    .history-end {
+      position: relative;
+      isolation: isolate;
+      margin-top: var(--his-end-gap);
+      text-align: center;
+    }
+
+    .history-count--end {
+      position: relative;
+      left: 8%;
+    }
+
+    .history-end-copy {
+      position: relative;
+      margin-top: calc(75 * var(--u));
+      padding-bottom: calc(40 * var(--u));
+    }
+
+    .history-end-copy::before {
+      content: "";
+      position: absolute;
+      inset: calc(-170 * var(--u)) -2% 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(255, 93, 50, 0.08) 0%, rgba(255, 93, 50, 0) 70%);
+      z-index: -1;
+    }
+
+    .history-end-sub {
+      margin: 0 0 calc(24 * var(--u));
+      font-size: var(--his-end-sub);
+      font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: -0.03em;
+    }
+
+    .history-end-main {
+      margin: 0;
+      font-size: var(--his-end-main);
+      font-weight: 800;
+      line-height: 1.95;
+      letter-spacing: -0.04em;
+    }
+
+    .history-deco--char {
+      left: calc(15 * var(--u));
+      top: calc(-135 * var(--u));
+      width: calc(175 * var(--u));
+      z-index: 0;
+    }
+
+    .history-deco--cloud {
+      left: calc(-10 * var(--u));
+      top: calc(105 * var(--u));
+      width: calc(220 * var(--u));
+      z-index: -1;
+    }
+
+    /* 펼치기/접기 */
+    .history-foot {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      padding: calc(24 * var(--u)) 0 calc(120 * var(--u));
+      transition: margin-top var(--his-ease);
+    }
+
+    .history.is-collapsed .history-foot {
+      margin-top: -110px;
+      padding-top: 0;
+      padding-bottom: 60px;
+    }
+
+    .history-toggle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 64px;
+      min-height: 64px;
+      padding: 8px 16px;
+      background: transparent;
+      color: #444;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      transition: color var(--transition);
+    }
+
+    .history-toggle svg {
+      width: 24px;
+      height: 24px;
+      transition: transform var(--his-ease);
+    }
+
+    .history-toggle[aria-expanded="false"] svg {
+      transform: rotate(180deg);
+    }
+
+    .history-toggle:hover {
+      color: var(--black);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .history-body,
+      .history-body::after,
+      .history-foot,
+      .history-toggle svg {
+        transition: none;
+      }
+    }
+
+    /* ---------- Tablet : 1024px 이하 (선 유지, 데코 제거, 2열 지그재그 유지) ---------- */
+    @media (max-width: 1024px) {
       .history {
-        --his-pad-top: 92px; --his-pad-x: 48px;
-        --his-title: 34px; --his-title-gap: 55px;
-        --his-count: 190px; --his-head-gap: 66px;
-        --his-axis: 70px; --his-line: 10px;
-        --his-period: 27px; --his-lead: 19px;
-        --his-text: 13px; --his-year: 16px;
-        --his-item-gap: 20px; --his-row-gap: 23px;
-        --his-block-gap: 105px; --his-end-gap: 135px;
-        --his-end-sub: 15px; --his-end-main: 27px;
+        --u: 1px;
+        --his-pad-top: clamp(80px, 12vw, 130px);
+        --his-pad-x: clamp(20px, 5.7vw, 56px);
+        --his-title: clamp(26px, 4.2vw, 42px);
+        --his-title-gap: clamp(40px, 8.1vw, 80px);
+        --his-count: clamp(150px, 28.8vw, 295px);
+        --his-head-gap: clamp(60px, 10.7vw, 110px);
+        --his-axis: clamp(30px, 8.6vw, 76px);
+        --his-line: clamp(12px, 2.1vw, 22px);
+        --his-period: clamp(22px, 3.3vw, 34px);
+        --his-lead: clamp(17px, 2.45vw, 25px);
+        --his-text: clamp(12px, 1.45vw, 15px);
+        --his-year: clamp(16px, 2vw, 21px);
+        --his-item-gap: clamp(16px, 2.8vw, 30px);
+        --his-row-gap: clamp(20px, 3.4vw, 32px);
+        --his-block-gap: clamp(80px, 16vw, 160px);
+        --his-end-gap: clamp(100px, 20vw, 200px);
+        --his-end-sub: clamp(13px, 1.9vw, 17px);
+        --his-end-main: clamp(20px, 3.3vw, 32px);
+        --his-dot: clamp(6px, 0.9vw, 8px);
+      }
+
+      .history-deco {
+        display: none;
+      }
+
+      /* 장식 이미지는 데스크탑 전용 */
+      .history-figure {
+        width: var(--w-t);
+      }
+
+      .history-end-copy {
+        margin-top: clamp(40px, 8vw, 75px);
+      }
+
+      .history-end-copy::before {
+        inset: -120px -2% 0;
+      }
+
+      .history-foot {
+        padding: 24px 0 clamp(60px, 12vw, 120px);
+      }
+    }
+
+    /* ---------- Mobile : 568px 이하 (선 제거, 1열, 홀/짝 블록 좌우 교차 정렬) ---------- */
+    @media (max-width: 568px) {
+      .history {
+        --his-pad-top: clamp(24px, 6vw, 36px);
+        --his-pad-x: 20px;
+        --his-title: clamp(17px, 3.85vw, 22px);
+        --his-title-gap: clamp(20px, 5.3vw, 30px);
+        --his-count: clamp(80px, 22.6vw, 128px);
+        --his-head-gap: clamp(36px, 10vw, 56px);
+        --his-period: clamp(17px, 3.4vw, 20px);
+        --his-lead: clamp(14px, 2.6vw, 15px);
+        --his-text: clamp(12px, 2.2vw, 13px);
+        --his-year: clamp(15px, 2.8vw, 16px);
+        --his-item-gap: clamp(18px, 4.7vw, 28px);
+        --his-row-gap: clamp(18px, 4.6vw, 26px);
+        --his-block-gap: clamp(64px, 17vw, 96px);
+        --his-end-gap: clamp(56px, 14vw, 80px);
+        --his-end-sub: clamp(11px, 2.5vw, 13px);
+        --his-end-main: clamp(17px, 3.7vw, 20px);
+      }
+
+      .history-timeline::before {
+        content: none;
+      }
+
+      .history-block {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+      }
+
+      .history-block--text-left {
+        grid-template-areas: "period" "lead" "list" "figure";
+        justify-items: end;
+      }
+
+      .history-block--text-right {
+        grid-template-areas: "period" "list" "figure";
+        justify-items: start;
+      }
+
+      .history-block .history-period,
+      .history-block .history-lead,
+      .history-block .history-list,
+      .history-block .history-figure {
+        justify-self: auto;
+      }
+
+      .history-block--text-right .history-period {
+        text-align: left;
+      }
+
+      .history-block--text-left .history-period {
+        text-align: right;
+      }
+
+      .history-figure {
+        width: var(--w-m);
+      }
+
+      .history-count--end {
+        left: 2.7%;
+      }
+
+      .history-end-copy {
+        margin-top: 20px;
+      }
+
+      .history-end-copy::before {
+        inset: -60px -20px 0;
+      }
+
+      .history-end-main {
+        line-height: 1.75;
+      }
+
+      .history-toggle {
+        font-size: 14px;
+      }
+    }
+
+    /* ===== Final history responsive corrections (isolated to section 3) ===== */
+    .history {
+      --his-pad-top: 92px;
+      --his-pad-x: 48px;
+      --his-title: 34px;
+      --his-title-gap: 55px;
+      --his-count: 190px;
+      --his-head-gap: 66px;
+      --his-axis: 70px;
+      --his-line: 10px;
+      --his-period: 27px;
+      --his-lead: 19px;
+      --his-text: 13px;
+      --his-year: 16px;
+      --his-item-gap: 20px;
+      --his-row-gap: 23px;
+      --his-block-gap: 105px;
+      --his-end-gap: 135px;
+      --his-end-sub: 15px;
+      --his-end-main: 27px;
+      --his-dot: 5px;
+    }
+
+    .history-head {
+      margin-bottom: var(--his-head-gap);
+    }
+
+    .history-count {
+      line-height: .92;
+      letter-spacing: -.075em;
+    }
+
+    .history-count-unit {
+      font-size: .34em;
+    }
+
+    .history-timeline::before {
+      left: 50%;
+      transform: translateX(-50%);
+      top: calc(-1 * var(--his-head-gap) - 0.1 * var(--his-count));
+      bottom: calc(-1.5 * var(--his-end-gap));
+      width: var(--his-line);
+      /* background: linear-gradient(to bottom,#ff5d32 0%,#ff5d32 84%,rgba(255,93,50,0) 100%); */
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .history-block {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .history-block--text-left {
+      grid-template-areas: 'lead period' 'list figure';
+    }
+
+    .history-block--text-right {
+      grid-template-areas: 'period list' 'figure list';
+    }
+
+    .history-list li {
+      min-width: 0;
+    }
+
+    .history-text {
+      overflow-wrap: anywhere;
+    }
+
+    .history-figure {
+      max-width: 100%;
+    }
+
+    .history-figure--1 {
+      --w-d: 74%;
+    }
+
+    .history-deco--star {
+      width: 105px;
+      right: 14%;
+      top: 120px;
+    }
+
+    .history-deco--beaker {
+      width: 105px;
+      left: 6%;
+      top: 340px;
+    }
+
+    .history-count--end {
+      left: 0;
+    }
+
+    .history-body {
+      will-change: max-height;
+    }
+
+    .history.is-collapsed .history-foot {
+      margin-top: -72px;
+      padding-top: 0;
+      padding-bottom: 62px;
+    }
+
+    .history-body::after {
+      height: clamp(150px, 20vw, 260px);
+    }
+
+    @media (max-width:1024px) {
+      .history {
+        --his-pad-top: clamp(65px, 9vw, 95px);
+        --his-pad-x: clamp(22px, 4vw, 42px);
+        --his-title: clamp(24px, 3.5vw, 34px);
+        --his-title-gap: clamp(35px, 5vw, 55px);
+        --his-count: clamp(120px, 19vw, 190px);
+        --his-head-gap: clamp(42px, 6.5vw, 66px);
+        --his-axis: clamp(26px, 5vw, 60px);
+        --his-line: 8px;
+        --his-period: clamp(18px, 2.7vw, 26px);
+        --his-lead: clamp(14px, 1.9vw, 19px);
+        --his-text: clamp(10px, 1.3vw, 13px);
+        --his-year: clamp(12px, 1.6vw, 16px);
+        --his-item-gap: clamp(14px, 2vw, 20px);
+        --his-row-gap: 20px;
+        --his-block-gap: clamp(75px, 10vw, 110px);
+        --his-end-gap: clamp(85px, 13vw, 135px);
+        --his-end-sub: clamp(12px, 1.5vw, 15px);
+        --his-end-main: clamp(19px, 2.6vw, 27px);
+      }
+
+      .history-figure--1 {
+        --w-t: 82%;
+      }
+
+      .history-figure--2 {
+        --w-t: 85%;
+      }
+
+      .history-list li {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width:568px) {
+      .history {
+        --his-pad-top: 48px;
+        --his-pad-x: 18px;
+        --his-title: clamp(18px, 5vw, 22px);
+        --his-title-gap: 30px;
+        --his-count: clamp(88px, 25vw, 110px);
+        --his-head-gap: 32px;
+        --his-period: clamp(17px, 4.6vw, 20px);
+        --his-lead: 13px;
+        --his-text: clamp(10px, 2.7vw, 12px);
+        --his-year: clamp(12px, 3.3vw, 15px);
+        --his-item-gap: 16px;
+        --his-row-gap: 17px;
+        --his-block-gap: 65px;
+        --his-end-gap: 70px;
+        --his-end-sub: 11px;
+        --his-end-main: 18px;
+      }
+
+      .history-timeline::before {
+        display: none;
+      }
+
+      .history-block {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .history-block--text-left {
+        grid-template-areas: 'period' 'lead' 'list' 'figure';
+        justify-items: end;
+      }
+
+      .history-block--text-right {
+        grid-template-areas: 'period' 'list' 'figure';
+        justify-items: start;
+      }
+
+      .history-block--text-left .history-list {
+        align-items: flex-end;
+      }
+
+      .history-block--text-left .history-list li {
+        flex-direction: row-reverse;
+        text-align: right;
+      }
+
+      .history-block--text-right .history-list li {
+        flex-direction: row;
+        text-align: left;
+      }
+
+      .history-block--text-right .history-period {
+        text-align: left;
+      }
+
+      .history-block--text-left .history-period {
+        text-align: right;
+      }
+
+      .history-figure--1 {
+        --w-m: 76%;
+      }
+
+      .history-figure {
+        max-width: 100%;
+      }
+
+      .history-body::after {
+        height: 150px;
+      }
+
+      .history.is-collapsed .history-foot {
+        margin-top: -52px;
+        padding-bottom: 45px;
+      }
+
+      .history-title {
+        line-height: 1.5;
+      }
+
+      .history-count--end {
+        left: 0;
+      }
+    }
+
+    /* ---------- Final desktop proportion correction (reference: collapsed 1440px) ---------- */
+    @media (min-width: 1025px) {
+      .site-header {
+        height: 80px;
+      }
+
+      .header-inner {
+        height: 80px;
+        padding-inline: 40px;
+      }
+
+      .brand,
+      .brand img {
+        width: 140px;
+        height: auto;
+      }
+
+      .gnb-list {
+        gap: 30px;
+      }
+
+      .gnb-list a,
+      .gnb-list li:first-child a {
+        height: 80px;
+        font-size: 15px;
+        line-height: 1.4;
+        letter-spacing: -0.035em;
+      }
+
+      .gnb-cta {
+        padding-left: 30px;
+      }
+
+      .gnb-cta .btn-apply {
+        width: 100px;
+        height: 40px;
+        font-size: 14px;
+      }
+
+      .history {
+        --his-pad-top: 92px;
+        --his-pad-x: 54px;
+        --his-title: 36px;
+        --his-title-gap: 55px;
+        --his-count: 265px;
+        --his-head-gap: 83px;
+        --his-axis: 66px;
+        --his-line: 12px;
+        --his-period: 30px;
+        --his-lead: 21px;
+        --his-text: 13px;
+        --his-year: 18px;
+        --his-item-gap: 22px;
+        --his-row-gap: 22px;
+        --his-block-gap: 130px;
+        --his-end-gap: 170px;
         --his-dot: 5px;
       }
-      .history-head { margin-bottom: var(--his-head-gap); }
-      .history-count { line-height: .92; letter-spacing: -.075em; }
-      .history-count-unit { font-size: .34em; }
-      .history-timeline::before {
-        left: 50%; transform: translateX(-50%);
-        top: calc(-1 * var(--his-head-gap) - 0.1 * var(--his-count));
-        bottom: calc(-1.5 * var(--his-end-gap));
-        width: var(--his-line);
-        /* background: linear-gradient(to bottom,#ff5d32 0%,#ff5d32 84%,rgba(255,93,50,0) 100%); */
-        z-index: 0; pointer-events:none;
+
+      .history-title {
+        line-height: 1.45;
       }
-      .history-block { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
-      .history-block--text-left { grid-template-areas: 'lead period' 'list figure'; }
-      .history-block--text-right { grid-template-areas: 'period list' 'figure list'; }
-      .history-list li { min-width:0; }
-      .history-text { overflow-wrap:anywhere; }
-      .history-figure { max-width:100%; }
-      .history-figure--1 { --w-d: 74%; }
-      .history-deco--star { width:105px; right:14%; top:120px; }
-      .history-deco--beaker { width:105px; left:6%; top:340px; }
-      .history-count--end { left:0; }
-      .history-body { will-change:max-height; }
+
+      .history-count {
+        line-height: .82;
+        letter-spacing: -.065em;
+      }
+
+      .history-count-unit {
+        font-size: .36em;
+      }
+
+      .history-figure--1 {
+        --w-d: 78%;
+      }
+
+      .history-figure--2 {
+        --w-d: 82%;
+      }
+
+      .history-deco--star {
+        width: 115px;
+        top: 125px;
+        right: 110px;
+      }
+
+      .history-deco--beaker {
+        width: 160px;
+        top: 125px;
+        left: 0;
+        z-index: 5;
+      }
+
+      .history.is-collapsed .history-body::after {
+        height: 240px;
+      }
+
       .history.is-collapsed .history-foot {
-        margin-top:-72px; padding-top:0; padding-bottom:62px;
+        margin-top: -70px;
+        padding-bottom: 55px;
       }
-      .history-body::after { height:clamp(150px,20vw,260px); }
-      @media (max-width:1024px) {
-        .history {
-          --his-pad-top:clamp(65px,9vw,95px);
-          --his-pad-x:clamp(22px,4vw,42px);
-          --his-title:clamp(24px,3.5vw,34px);
-          --his-title-gap:clamp(35px,5vw,55px);
-          --his-count:clamp(120px,19vw,190px);
-          --his-head-gap:clamp(42px,6.5vw,66px);
-          --his-axis:clamp(26px,5vw,60px);
-          --his-line:8px;
-          --his-period:clamp(18px,2.7vw,26px);
-          --his-lead:clamp(14px,1.9vw,19px);
-          --his-text:clamp(10px,1.3vw,13px);
-          --his-year:clamp(12px,1.6vw,16px);
-          --his-item-gap:clamp(14px,2vw,20px);
-          --his-row-gap:20px;
-          --his-block-gap:clamp(75px,10vw,110px);
-          --his-end-gap:clamp(85px,13vw,135px);
-          --his-end-sub:clamp(12px,1.5vw,15px);
-          --his-end-main:clamp(19px,2.6vw,27px);
-        }
-        .history-figure--1 { --w-t:82%; }
-        .history-figure--2 { --w-t:85%; }
-        .history-list li { gap:10px; }
-      }
-      @media (max-width:568px) {
-        .history {
-          --his-pad-top:48px; --his-pad-x:18px;
-          --his-title:clamp(18px,5vw,22px);
-          --his-title-gap:30px;
-          --his-count:clamp(88px,25vw,110px);
-          --his-head-gap:32px;
-          --his-period:clamp(17px,4.6vw,20px);
-          --his-lead:13px; --his-text:clamp(10px,2.7vw,12px);
-          --his-year:clamp(12px,3.3vw,15px);
-          --his-item-gap:16px; --his-row-gap:17px;
-          --his-block-gap:65px; --his-end-gap:70px;
-          --his-end-sub:11px; --his-end-main:18px;
-        }
-        .history-timeline::before { display:none; }
-        .history-block { display:grid; grid-template-columns:minmax(0,1fr); }
-        .history-block--text-left { grid-template-areas:'period' 'lead' 'list' 'figure'; justify-items:end; }
-        .history-block--text-right { grid-template-areas:'period' 'list' 'figure'; justify-items:start; }
-        .history-block--text-left .history-list { align-items:flex-end; }
-        .history-block--text-left .history-list li { flex-direction:row-reverse; text-align:right; }
-        .history-block--text-right .history-list li { flex-direction:row; text-align:left; }
-        .history-block--text-right .history-period { text-align:left; }
-        .history-block--text-left .history-period { text-align:right; }
-        .history-figure--1 { --w-m:76%; }
-        .history-figure { max-width:100%; }
-        .history-body::after { height:150px; }
-        .history.is-collapsed .history-foot { margin-top:-52px; padding-bottom:45px; }
-        .history-title { line-height:1.5; }
-        .history-count--end { left:0; }
-      }
+    }
 
-      /* ---------- Final desktop proportion correction (reference: collapsed 1440px) ---------- */
-      @media (min-width: 1025px) {
-        .site-header { height: 80px; }
-        .header-inner { height: 80px; padding-inline: 40px; }
-        .brand, .brand img { width: 140px; height: auto; }
-        .gnb-list { gap: 30px; }
-        .gnb-list a, .gnb-list li:first-child a { height: 80px; font-size: 15px; line-height: 1.4; letter-spacing: -0.035em; }
-        .gnb-cta { padding-left: 30px; }
-        .gnb-cta .btn-apply { width: 100px; height: 40px; font-size: 14px; }
-
-        .history {
-          --his-pad-top: 92px;
-          --his-pad-x: 54px;
-          --his-title: 36px;
-          --his-title-gap: 55px;
-          --his-count: 265px;
-          --his-head-gap: 83px;
-          --his-axis: 66px;
-          --his-line: 12px;
-          --his-period: 30px;
-          --his-lead: 21px;
-          --his-text: 13px;
-          --his-year: 18px;
-          --his-item-gap: 22px;
-          --his-row-gap: 22px;
-          --his-block-gap: 130px;
-          --his-end-gap: 170px;
-          --his-dot: 5px;
-        }
-        .history-title { line-height: 1.45; }
-        .history-count { line-height: .82; letter-spacing: -.065em; }
-        .history-count-unit { font-size: .36em; }
-        .history-figure--1 { --w-d: 78%; }
-        .history-figure--2 { --w-d: 82%; }
-        .history-deco--star { width: 115px; top: 125px; right: 110px; }
-        .history-deco--beaker { width: 160px; top: 125px; left: 0; z-index: 5; }
-        .history.is-collapsed .history-body::after { height: 240px; }
-        .history.is-collapsed .history-foot { margin-top: -70px; padding-bottom: 55px; }
+    /* Put the orange stem directly beneath the 53's visual center, not the full 53th text. */
+    @media (min-width: 569px) {
+      .history-timeline::before {
+        left: 50%;
       }
-      /* Put the orange stem directly beneath the 53's visual center, not the full 53th text. */
-      @media (min-width: 569px) {
-        .history-timeline::before { left: 50%; }
-      }
-
-</style>
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- 1. 상단 메뉴 영역 -->
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="#" aria-label="한미그룹 홈">
-      <img src="./images/logo.svg" alt="Hanmi 한미그룹">
-    </a>
-    <nav class="gnb" id="gnb" aria-label="주요 메뉴">
-      <ul class="gnb-list">
-        <li><a href="#job">직무소개</a></li>
-        <li><a href="#qualification">지원자격 및 접수방법</a></li>
-        <li><a href="#schedule">채용설명회 일정</a></li>
-      </ul>
-      <div class="gnb-cta">
-        <a class="btn btn-sm" href="#apply">
-          <span>지원하기</span>
-          <svg class="ico-chevron" width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1.2 1.2L5.8 6l-4.6 4.8" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </nav>
-    <!-- 모바일 전용: 지원하기 + 햄버거(열기/닫기 토글) -->
-    <div class="header-m">
-      <a class="btn btn-sm" href="#apply"><span>지원하기</span></a>
-      <button class="btn-menu" type="button" id="menuToggle" aria-label="전체 메뉴 열기" aria-expanded="false" aria-controls="gnb">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- 2. 메인 컨텐츠 영역 -->
-<main>
-
-  <!-- 2-1. 메인 비주얼 section -->
-  <section class="main-visual" id="main-visual" aria-label="메인 비주얼">
-    <div class="mv-inner">
-      <div class="mv-text">
-        <div class="mv-copy">
-          <p class="mv-sub">2026년 하반기</p>
-          <h1 class="mv-title">
-            <strong>한미그룹</strong>
-            <span>공개채용</span>
-          </h1>
-          <p class="mv-period">모집기간 : 2026.9.28(월) ~ 2026.10.18(일) 23:59까지</p>
+  <!-- 1. 상단 메뉴 영역 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-label="한미그룹 홈">
+        <img src="./images/logo.svg" alt="Hanmi 한미그룹">
+      </a>
+      <nav class="gnb" id="gnb" aria-label="주요 메뉴">
+        <ul class="gnb-list">
+          <li><a href="#job">직무소개</a></li>
+          <li><a href="#qualification">지원자격 및 접수방법</a></li>
+          <li><a href="#schedule">채용설명회 일정</a></li>
+        </ul>
+        <div class="gnb-cta">
+          <a class="btn btn-sm" href="#apply">
+            <span>지원하기</span>
+            <svg class="ico-chevron" width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true">
+              <path d="M1.2 1.2L5.8 6l-4.6 4.8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
         </div>
-        <div>
-          <a class="btn btn-lg" href="#job">모집직무 바로가기!</a>
-        </div>
-      </div>
-
-      <div class="mv-stage" aria-hidden="true">
-        <div class="ring-glow"></div>
-        <div class="ring-line"></div>
-        <img class="mv-micro" src="./images/mv_micro.png" alt="">
-        <img class="mv-char1" src="./images/mv_char1.png" alt="">
-        <img class="mv-char2" src="./images/mv_char2.png" alt="">
-        <img class="mv-char3" src="./images/mv_char3.png" alt="">
-        <img class="mv-char4" src="./images/mv_char4.png" alt="">
-        <img class="mv-star1" src="./images/mv_star1.svg" alt="">
-        <img class="mv-star2" src="./images/mv_star2.svg" alt="">
-        <img class="mv-star3" src="./images/mv_star3.svg" alt="">
-        <img class="mv-star4" src="./images/mv_star4.svg" alt="">
-        <img class="mv-star5" src="./images/mv_star3.svg" alt="">
+      </nav>
+      <!-- 모바일 전용: 지원하기 + 햄버거(열기/닫기 토글) -->
+      <div class="header-m">
+        <a class="btn btn-sm" href="#apply"><span>지원하기</span></a>
+        <button class="btn-menu" type="button" id="menuToggle" aria-label="전체 메뉴 열기" aria-expanded="false"
+          aria-controls="gnb">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
+  </header>
 
-    <div class="scroll-wrap">
-      <button class="btn-scroll" type="button" id="scrollDown" aria-label="아래로 스크롤">
-        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M11 16l9 9 9-9" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-  </section>
+  <!-- 2. 메인 컨텐츠 영역 -->
+  <main>
 
-  <!-- 2-2. 새로운 미래 소개 section : 신규 추가 -->
-  <section class="mirae" id="mirae" aria-labelledby="mirae-title">
-    <div class="mirae-inner">
-      <h2 class="mirae-title" id="mirae-title">
-        <span class="mirae-title-red">새로운 미래</span><span class="mirae-title-black">를 향해 나아갑니다</span>
-      </h2>
-      <img class="mirae-cloud mirae-cloud-left" src="images/mirae_cloud3.png" alt="왼쪽 아래에 떠 있는 하얀 입체 구름">
-      <img class="mirae-cloud mirae-cloud-right" src="images/mirae_cloud4.png" alt="오른쪽에 떠 있는 커다란 하얀 입체 구름">
-      <img class="mirae-cloud mirae-cloud-blur-left" src="images/mirae_cloud1.png" alt="왼쪽 멀리 흐릿하게 떠 있는 구름">
-      <img class="mirae-cloud mirae-cloud-blur-right" src="images/mirae_cloud2.png" alt="오른쪽 아래 멀리 흐릿하게 떠 있는 작은 구름">
-      <div class="mirae-character-stage">
-        <img class="mirae-walking" src="images/mirae_walking.png" alt="초록 행성 위에서 미래를 향해 걸어가는 파란색 캐릭터">
-        <img class="mirae-star mirae-star-top" src="images/mirae_star1.png" alt="캐릭터 머리 오른쪽 위에 반짝이는 노란 별">
-        <img class="mirae-star mirae-star-bottom" src="images/mirae_star2.png" alt="캐릭터 몸통 왼쪽 아래에 반짝이는 노란 별">
-      </div>
-    </div>
-  </section>
-
-  <!-- 2-3. 한미그룹 연혁 section -->
-      <section class="history is-expanded" id="history" aria-labelledby="history-title">
-        <div class="history-body" id="history-body">
-          <div class="history-flow">
-            <header class="history-head">
-              <h2 class="history-title" id="history-title">한미의 도전은 작은 가능성에서<br />시작되었습니다.</h2>
-              <p class="history-count" role="img" aria-label="한미 창립 53주년"><span class="history-count-num">53</span><span class="history-count-unit">th</span></p>
-              <img class="history-deco history-deco--star" src="./images/obj_star_big.png" alt="반짝이는 노란 별 세 개" />
-            </header>
-
-            <div class="history-timeline">
-              <!-- 1973~2001 -->
-              <div class="history-block history-block--text-left">
-                <h3 class="history-period">1973~2001</h3>
-                <p class="history-lead">한계를 하나씩 넘을 때마다,</p>
-                <ul class="history-list">
-                  <li><span class="history-year">1973</span><span class="history-text">한미약품공업주식회사 설립</span></li>
-                  <li><span class="history-year">1984</span><span class="history-text">팔탄 GMP 공장 신축</span></li>
-                  <li><span class="history-year">1989</span><span class="history-text">세프트리악손 제조방법 Roche사 기술 수출</span></li>
-                  <li><span class="history-year">1997</span><span class="history-text">마이크로에멀전 제제기술 Novartis사 기술 수출</span></li>
-                </ul>
-                <figure class="history-figure history-figure--1">
-                  <img src="./images/his1.png" alt="한미약품 초기 대표 제품 텐텐 어린이 영양제와 쎄쎄 비타민C 캐러멜" />
-                </figure>
-                <img class="history-deco history-deco--beaker" src="./images/obj_beaker.png" alt="분홍색 액체가 담긴 실험용 비커" />
-              </div>
-
-              <!-- 2002~2010 -->
-              <div class="history-block history-block--text-right">
-                <h3 class="history-period">2002~2010</h3>
-                <ul class="history-list">
-                  <li><span class="history-year">2004</span><span class="history-text">국내 최초 고혈압치료제 ‘아모디핀’ 미국특허 획득</span></li>
-                  <li><span class="history-year">2006</span><span class="history-text">세계 최초 유소아 해열 시럽제 개량신약 ‘맥시부펜’ 개발 성공</span></li>
-                  <li><span class="history-year">2008</span><span class="history-text">국내 최초 주사용항생제 세프트리악손 美 FDA 승인</span></li>
-                  <li><span class="history-year">2009</span><span class="history-text">세계최초 암로디핀+로살탄 복합제 ‘아모잘탄’ 발매</span></li>
-                </ul>
-                <figure class="history-figure history-figure--2">
-                  <img src="./images/his2.png" alt="석양을 배경으로 손을 잡고 함께 뛰어오르는 다섯 사람의 실루엣" />
-                </figure>
-                <img class="history-deco history-deco--mol-blur1" src="./images/obj_mol_blur1.png" alt="흐릿하게 번진 푸른 분자 구조" />
-                <img class="history-deco history-deco--microscope" src="./images/obj_microscope.png" alt="파란색 현미경" />
-              </div>
-
-              <!-- 2011~2015 -->
-              <div class="history-block history-block--text-left">
-                <h3 class="history-period">2011~2015</h3>
-                <p class="history-lead">새로운 가능성이 현실이 되었어요.</p>
-                <ul class="history-list">
-                  <li><span class="history-year">2011</span><span class="history-text">MSD와 ‘아모잘탄’ 50여개국 수출 계약 체결</span></li>
-                  <li><span class="history-year">2012</span><span class="history-text">‘LAPS-GCSF’ 美 스펙트럼사와 공동개발 및 상업화 계약</span></li>
-                  <li><span class="history-year">2013</span><span class="history-text">국내 개량신약 최초 미국 FDA 승인 및 미국 출시 ‘에소메졸’</span></li>
-                  <li><span class="history-year">2014</span><span class="history-text">‘트리악손’ 국내 최초 유럽 4개국 시판 허가</span></li>
-                  <li><span class="history-year">2015</span><span class="history-text">한국 사상 최대규모 릴레이 기술수출</span></li>
-                </ul>
-                <figure class="history-figure history-figure--3">
-                  <img src="./images/his3.png" alt="스펙트럼 파마슈티컬스 로고와 인체 모형, 에소메졸 제품 용기" />
-                </figure>
-              </div>
-
-              <!-- 2016~2020 -->
-              <div class="history-block history-block--text-right">
-                <h3 class="history-period">2016~2020</h3>
-                <ul class="history-list">
-                  <li><span class="history-year">2016</span><span class="history-text">차세대 RAF 저해제, Roche 제넨텍 기술수출</span></li>
-                  <li><span class="history-year">2017</span><span class="history-text">‘에소메졸’ 국내 제약회사 최초 미국약전(USP) 등재</span></li>
-                  <li><span class="history-year">2018</span><span class="history-text">‘Glucagon Analog’, ‘오락솔’ 차세대 AML 치료제 美 희귀의약품 지정</span></li>
-                  <li><span class="history-year">2019</span><span class="history-text">최근 10년간 처방실적 최다 4조 4,176억원</span></li>
-                </ul>
-                <figure class="history-figure history-figure--4">
-                  <img src="./images/his4.png" alt="미국임상종양학회 ASCO와 미국약전 USP 로고, 로수젯 제품 패키지" />
-                </figure>
-                <img class="history-deco history-deco--mol-blur2" src="./images/obj_mol_blur2.png" alt="흐릿하게 번진 분홍빛 분자 구조" />
-              </div>
-
-              <!-- 2021~2026 -->
-              <div class="history-block history-block--text-left">
-                <h3 class="history-period">2021~2026</h3>
-                <p class="history-lead">하지만 아직, 가야 할 길이 더 남아 있습니다.</p>
-                <ul class="history-list">
-                  <li><span class="history-year">2021</span><span class="history-text">‘로수젯’, 국내사 개발 처방의약품 매출 1위 달성</span></li>
-                  <li><span class="history-year">2022</span><span class="history-text">‘롤론티스’ 한국 최초 FDA 허가 받은 바이오신약 등재<br />‘로수젯 RACING 연구’ 세계 최고 권위 의학저널 ‘LANCET’ 등재</span></li>
-                  <li><span class="history-year">2023</span><span class="history-text">비만 프로젝트 ‘H.O.P’ 프로젝트 가동</span></li>
-                  <li><span class="history-year">2024</span><span class="history-text">근손실 한계 뛰어넘은 신개념 비만 신약 ‘HM17321’ 발표</span></li>
-                  <li><span class="history-year">2025</span><span class="history-text">‘로수젯’ 한국 전문의약품 시장 1위 품목 등록<br />한미약품 8년 연속 원외처방 1위<br />미국암연구학회(AACR)서 국내 최다 11개 연구 성과 발표<br />한미사이언스 약국화장품 ‘EGF크림’ 27만개 완판</span></li>
-                  <li><span class="history-year">2026</span><span class="history-text">희귀질환치료제 ‘LAPS-GLP2’ 릴리 기술수출<br />한미 ‘완전두유·케어미’ 국제 우수 미각상 수상</span></li>
-                </ul>
-                <figure class="history-figure history-figure--5">
-                  <img src="./images/his5.png" alt="THE LANCET 창간 200주년 표지와 롤론티스 작용 원리, 롤론티스 제품 패키지" />
-                </figure>
-                <img class="history-deco history-deco--mol-big" src="./images/obj_mol_big.png" alt="유리 질감의 큰 분자 구조 모형" />
-              </div>
-            </div>
-
-            <footer class="history-end">
-              <p class="history-count history-count--end" role="img" aria-label="한미 창립 100주년"><span class="history-count-num">100</span><span class="history-count-unit">th</span></p>
-              <div class="history-end-copy">
-                <p class="history-end-sub">한계를 넘을 때마다, 건강한 미래는 가까워졌습니다. 한계를 넘는 일, 우리에게는 꽤 익숙하니까.</p>
-                <p class="history-end-main">수많은 도전이 오늘의 한미를 만들었습니다.<br />이제 또 다른 가능성을 향해 당신과 함께 나아갑니다.</p>
-              </div>
-              <img class="history-deco history-deco--cloud" src="./images/cloud_blur_medium.png" alt="캐릭터 아래에 깔린 흐릿한 구름 그림자" />
-              <img class="history-deco history-deco--char" src="./images/con2_char.png" alt="사원증을 목에 걸고 달려가는 파란색 알약 캐릭터" />
-            </footer>
+    <!-- 2-1. 메인 비주얼 section -->
+    <section class="main-visual" id="main-visual" aria-label="메인 비주얼">
+      <div class="mv-inner">
+        <div class="mv-text">
+          <div class="mv-copy">
+            <p class="mv-sub">2026년 하반기</p>
+            <h1 class="mv-title">
+              <strong>한미그룹</strong>
+              <span>공개채용</span>
+            </h1>
+            <p class="mv-period">모집기간 : 2026.9.28(월) ~ 2026.10.18(일) 23:59까지</p>
+          </div>
+          <div>
+            <a class="btn btn-lg" href="#job">모집직무 바로가기!</a>
           </div>
         </div>
 
-        <div class="history-foot">
-          <button class="history-toggle" type="button" aria-expanded="true" aria-controls="history-body">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5 11l7-7 7 7M5 19l7-7 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <span class="history-toggle-label">접기</span>
-          </button>
+        <div class="mv-stage" aria-hidden="true">
+          <div class="ring-glow"></div>
+          <div class="ring-line"></div>
+          <img class="mv-micro" src="./images/mv_micro.png" alt="">
+          <img class="mv-char1" src="./images/mv_char1.png" alt="">
+          <img class="mv-char2" src="./images/mv_char2.png" alt="">
+          <img class="mv-char3" src="./images/mv_char3.png" alt="">
+          <img class="mv-char4" src="./images/mv_char4.png" alt="">
+          <img class="mv-star1" src="./images/mv_star1.svg" alt="">
+          <img class="mv-star2" src="./images/mv_star2.svg" alt="">
+          <img class="mv-star3" src="./images/mv_star3.svg" alt="">
+          <img class="mv-star4" src="./images/mv_star4.svg" alt="">
+          <img class="mv-star5" src="./images/mv_star3.svg" alt="">
         </div>
-      </section>
+      </div>
+
+      <div class="scroll-wrap">
+        <button class="btn-scroll" type="button" id="scrollDown" aria-label="아래로 스크롤">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M11 16l9 9 9-9" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- 2-2. 새로운 미래 소개 section : 신규 추가 -->
+    <section class="mirae" id="mirae" aria-labelledby="mirae-title">
+      <div class="mirae-inner">
+        <h2 class="mirae-title" id="mirae-title">
+          <span class="mirae-title-red">새로운 미래</span><span class="mirae-title-black">를 향해 나아갑니다</span>
+        </h2>
+        <img class="mirae-cloud mirae-cloud-left" src="images/mirae_cloud3.png" alt="왼쪽 아래에 떠 있는 하얀 입체 구름">
+        <img class="mirae-cloud mirae-cloud-right" src="images/mirae_cloud4.png" alt="오른쪽에 떠 있는 커다란 하얀 입체 구름">
+        <img class="mirae-cloud mirae-cloud-blur-left" src="images/mirae_cloud1.png" alt="왼쪽 멀리 흐릿하게 떠 있는 구름">
+        <img class="mirae-cloud mirae-cloud-blur-right" src="images/mirae_cloud2.png" alt="오른쪽 아래 멀리 흐릿하게 떠 있는 작은 구름">
+        <div class="mirae-character-stage">
+          <img class="mirae-walking" src="images/mirae_walking.png" alt="초록 행성 위에서 미래를 향해 걸어가는 파란색 캐릭터">
+          <img class="mirae-star mirae-star-top" src="images/mirae_star1.png" alt="캐릭터 머리 오른쪽 위에 반짝이는 노란 별">
+          <img class="mirae-star mirae-star-bottom" src="images/mirae_star2.png" alt="캐릭터 몸통 왼쪽 아래에 반짝이는 노란 별">
+        </div>
+      </div>
+    </section>
+
+    <!-- 2-3. 한미그룹 연혁 section -->
+    <section class="history is-expanded" id="history" aria-labelledby="history-title">
+      <div class="history-body" id="history-body">
+        <div class="history-flow">
+          <header class="history-head">
+            <h2 class="history-title" id="history-title">한미의 도전은 작은 가능성에서<br />시작되었습니다.</h2>
+            <p class="history-count" role="img" aria-label="한미 창립 53주년"><span class="history-count-num">53</span><span
+                class="history-count-unit">th</span></p>
+            <img class="history-deco history-deco--star" src="./images/obj_star_big.png" alt="반짝이는 노란 별 세 개" />
+          </header>
+
+          <div class="history-timeline">
+            <!-- 1973~2001 -->
+            <div class="history-block history-block--text-left">
+              <h3 class="history-period">1973~2001</h3>
+              <p class="history-lead">한계를 하나씩 넘을 때마다,</p>
+              <ul class="history-list">
+                <li><span class="history-year">1973</span><span class="history-text">한미약품공업주식회사 설립</span></li>
+                <li><span class="history-year">1984</span><span class="history-text">팔탄 GMP 공장 신축</span></li>
+                <li><span class="history-year">1989</span><span class="history-text">세프트리악손 제조방법 Roche사 기술 수출</span>
+                </li>
+                <li><span class="history-year">1997</span><span class="history-text">마이크로에멀전 제제기술 Novartis사 기술 수출</span>
+                </li>
+              </ul>
+              <figure class="history-figure history-figure--1">
+                <img src="./images/his1.png" alt="한미약품 초기 대표 제품 텐텐 어린이 영양제와 쎄쎄 비타민C 캐러멜" />
+              </figure>
+              <img class="history-deco history-deco--beaker" src="./images/obj_beaker.png" alt="분홍색 액체가 담긴 실험용 비커" />
+            </div>
+
+            <!-- 2002~2010 -->
+            <div class="history-block history-block--text-right">
+              <h3 class="history-period">2002~2010</h3>
+              <ul class="history-list">
+                <li><span class="history-year">2004</span><span class="history-text">국내 최초 고혈압치료제 ‘아모디핀’ 미국특허 획득</span>
+                </li>
+                <li><span class="history-year">2006</span><span class="history-text">세계 최초 유소아 해열 시럽제 개량신약 ‘맥시부펜’ 개발
+                    성공</span></li>
+                <li><span class="history-year">2008</span><span class="history-text">국내 최초 주사용항생제 세프트리악손 美 FDA 승인</span>
+                </li>
+                <li><span class="history-year">2009</span><span class="history-text">세계최초 암로디핀+로살탄 복합제 ‘아모잘탄’ 발매</span>
+                </li>
+              </ul>
+              <figure class="history-figure history-figure--2">
+                <img src="./images/his2.png" alt="석양을 배경으로 손을 잡고 함께 뛰어오르는 다섯 사람의 실루엣" />
+              </figure>
+              <img class="history-deco history-deco--mol-blur1" src="./images/obj_mol_blur1.png"
+                alt="흐릿하게 번진 푸른 분자 구조" />
+              <img class="history-deco history-deco--microscope" src="./images/obj_microscope.png" alt="파란색 현미경" />
+            </div>
+
+            <!-- 2011~2015 -->
+            <div class="history-block history-block--text-left">
+              <h3 class="history-period">2011~2015</h3>
+              <p class="history-lead">새로운 가능성이 현실이 되었어요.</p>
+              <ul class="history-list">
+                <li><span class="history-year">2011</span><span class="history-text">MSD와 ‘아모잘탄’ 50여개국 수출 계약 체결</span>
+                </li>
+                <li><span class="history-year">2012</span><span class="history-text">‘LAPS-GCSF’ 美 스펙트럼사와 공동개발 및 상업화
+                    계약</span></li>
+                <li><span class="history-year">2013</span><span class="history-text">국내 개량신약 최초 미국 FDA 승인 및 미국 출시
+                    ‘에소메졸’</span></li>
+                <li><span class="history-year">2014</span><span class="history-text">‘트리악손’ 국내 최초 유럽 4개국 시판 허가</span>
+                </li>
+                <li><span class="history-year">2015</span><span class="history-text">한국 사상 최대규모 릴레이 기술수출</span></li>
+              </ul>
+              <figure class="history-figure history-figure--3">
+                <img src="./images/his3.png" alt="스펙트럼 파마슈티컬스 로고와 인체 모형, 에소메졸 제품 용기" />
+              </figure>
+            </div>
+
+            <!-- 2016~2020 -->
+            <div class="history-block history-block--text-right">
+              <h3 class="history-period">2016~2020</h3>
+              <ul class="history-list">
+                <li><span class="history-year">2016</span><span class="history-text">차세대 RAF 저해제, Roche 제넨텍 기술수출</span>
+                </li>
+                <li><span class="history-year">2017</span><span class="history-text">‘에소메졸’ 국내 제약회사 최초 미국약전(USP)
+                    등재</span></li>
+                <li><span class="history-year">2018</span><span class="history-text">‘Glucagon Analog’, ‘오락솔’ 차세대 AML
+                    치료제 美 희귀의약품 지정</span></li>
+                <li><span class="history-year">2019</span><span class="history-text">최근 10년간 처방실적 최다 4조 4,176억원</span>
+                </li>
+              </ul>
+              <figure class="history-figure history-figure--4">
+                <img src="./images/his4.png" alt="미국임상종양학회 ASCO와 미국약전 USP 로고, 로수젯 제품 패키지" />
+              </figure>
+              <img class="history-deco history-deco--mol-blur2" src="./images/obj_mol_blur2.png"
+                alt="흐릿하게 번진 분홍빛 분자 구조" />
+            </div>
+
+            <!-- 2021~2026 -->
+            <div class="history-block history-block--text-left">
+              <h3 class="history-period">2021~2026</h3>
+              <p class="history-lead">하지만 아직, 가야 할 길이 더 남아 있습니다.</p>
+              <ul class="history-list">
+                <li><span class="history-year">2021</span><span class="history-text">‘로수젯’, 국내사 개발 처방의약품 매출 1위 달성</span>
+                </li>
+                <li><span class="history-year">2022</span><span class="history-text">‘롤론티스’ 한국 최초 FDA 허가 받은 바이오신약
+                    등재<br />‘로수젯 RACING 연구’ 세계 최고 권위 의학저널 ‘LANCET’ 등재</span></li>
+                <li><span class="history-year">2023</span><span class="history-text">비만 프로젝트 ‘H.O.P’ 프로젝트 가동</span></li>
+                <li><span class="history-year">2024</span><span class="history-text">근손실 한계 뛰어넘은 신개념 비만 신약 ‘HM17321’
+                    발표</span></li>
+                <li><span class="history-year">2025</span><span class="history-text">‘로수젯’ 한국 전문의약품 시장 1위 품목
+                    등록<br />한미약품 8년 연속 원외처방 1위<br />미국암연구학회(AACR)서 국내 최다 11개 연구 성과 발표<br />한미사이언스 약국화장품 ‘EGF크림’ 27만개
+                    완판</span></li>
+                <li><span class="history-year">2026</span><span class="history-text">희귀질환치료제 ‘LAPS-GLP2’ 릴리 기술수출<br />한미
+                    ‘완전두유·케어미’ 국제 우수 미각상 수상</span></li>
+              </ul>
+              <figure class="history-figure history-figure--5">
+                <img src="./images/his5.png" alt="THE LANCET 창간 200주년 표지와 롤론티스 작용 원리, 롤론티스 제품 패키지" />
+              </figure>
+              <img class="history-deco history-deco--mol-big" src="./images/obj_mol_big.png" alt="유리 질감의 큰 분자 구조 모형" />
+            </div>
+          </div>
+
+          <footer class="history-end">
+            <p class="history-count history-count--end" role="img" aria-label="한미 창립 100주년"><span
+                class="history-count-num">100</span><span class="history-count-unit">th</span></p>
+            <div class="history-end-copy">
+              <p class="history-end-sub">한계를 넘을 때마다, 건강한 미래는 가까워졌습니다. 한계를 넘는 일, 우리에게는 꽤 익숙하니까.</p>
+              <p class="history-end-main">수많은 도전이 오늘의 한미를 만들었습니다.<br />이제 또 다른 가능성을 향해 당신과 함께 나아갑니다.</p>
+            </div>
+            <img class="history-deco history-deco--cloud" src="./images/cloud_blur_medium.png"
+              alt="캐릭터 아래에 깔린 흐릿한 구름 그림자" />
+            <img class="history-deco history-deco--char" src="./images/con2_char.png"
+              alt="사원증을 목에 걸고 달려가는 파란색 알약 캐릭터" />
+          </footer>
+        </div>
+      </div>
+
+      <div class="history-foot">
+        <button class="history-toggle" type="button" aria-expanded="true" aria-controls="history-body">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M5 11l7-7 7 7M5 19l7-7 7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span class="history-toggle-label">접기</span>
+        </button>
+      </div>
+    </section>
 
 
-</main>
+  </main>
 
-<!-- 하단 푸터 영역 -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <p>&copy; 2026 Hanmi Group. All rights reserved.</p>
-  </div>
-</footer>
+  <!-- 하단 푸터 영역 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 Hanmi Group. All rights reserved.</p>
+    </div>
+  </footer>
 
-<script>
-  (function () {
-    var root = document.documentElement;
-    var inner = document.querySelector('.mv-inner');
-    var gnb = document.getElementById('gnb');
-    var menuBtn = document.getElementById('menuToggle');
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var inner = document.querySelector('.mv-inner');
+      var gnb = document.getElementById('gnb');
+      var menuBtn = document.getElementById('menuToggle');
 
-    // 모바일 전체 메뉴 열기/닫기 (슬라이드는 CSS transform/transition, 스크롤 잠금은 html.is-menu-open)
-    function setMenu(open) {
-      gnb.classList.toggle('is-open', open);
-      root.classList.toggle('is-menu-open', open);
-      menuBtn.setAttribute('aria-expanded', String(open));
-      menuBtn.setAttribute('aria-label', open ? '전체 메뉴 닫기' : '전체 메뉴 열기');
-    }
-    menuBtn.addEventListener('click', function () {
-      setMenu(!gnb.classList.contains('is-open'));
-    });
-    gnb.addEventListener('click', function (e) {
-      if (e.target.closest('a')) setMenu(false);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') setMenu(false);
-    });
-
-    // 1025~1439px: 1440px 원본 레이아웃 전체를 화면 너비에 맞춰 축소. 1024px 이하는 CSS 반응형 처리
-    function fit() {
-      var w = window.innerWidth;
-      if (w > 1024 && w < 1440) {
-        inner.style.width = '1440px';
-        inner.style.maxWidth = 'none';
-        inner.style.zoom = w / 1440;
-      } else {
-        inner.style.width = '';
-        inner.style.maxWidth = '';
-        inner.style.zoom = '';
+      // 모바일 전체 메뉴 열기/닫기 (슬라이드는 CSS transform/transition, 스크롤 잠금은 html.is-menu-open)
+      function setMenu(open) {
+        gnb.classList.toggle('is-open', open);
+        root.classList.toggle('is-menu-open', open);
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.setAttribute('aria-label', open ? '전체 메뉴 닫기' : '전체 메뉴 열기');
       }
+      menuBtn.addEventListener('click', function () {
+        setMenu(!gnb.classList.contains('is-open'));
+      });
+      gnb.addEventListener('click', function (e) {
+        if (e.target.closest('a')) setMenu(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setMenu(false);
+      });
 
-      if (w > 390) setMenu(false);           // 모바일을 벗어나면 메뉴 상태 초기화
-    }
-    fit();
-    window.addEventListener('resize', fit);
+      // 1025~1439px: 1440px 원본 레이아웃 전체를 화면 너비에 맞춰 축소. 1024px 이하는 CSS 반응형 처리
+      function fit() {
+        var w = window.innerWidth;
+        if (w > 1024 && w < 1440) {
+          inner.style.width = '1440px';
+          inner.style.maxWidth = 'none';
+          inner.style.zoom = w / 1440;
+        } else {
+          inner.style.width = '';
+          inner.style.maxWidth = '';
+          inner.style.zoom = '';
+        }
 
-    // 스크롤 버튼: 메인 비주얼 높이만큼 부드럽게 이동
-    document.getElementById('scrollDown').addEventListener('click', function () {
-      var hero = document.getElementById('main-visual');
-      window.scrollTo({ top: hero.offsetHeight, behavior: 'smooth' });
-    });
-  })();
-</script>
+        if (w > 390) setMenu(false);           // 모바일을 벗어나면 메뉴 상태 초기화
+      }
+      fit();
+      window.addEventListener('resize', fit);
 
-<script>
-      // 히스토리: 전체 높이 비율이 아닌 실제 요소 위치를 기준으로 접힘 높이를 계산
-      (function () {
-        var section = document.getElementById('history');
-        if (!section) return;
-        var body = document.getElementById('history-body');
-        var flow = section.querySelector('.history-flow');
-        var blocks = section.querySelectorAll('.history-block');
-        var button = section.querySelector('.history-toggle');
-        var label = button.querySelector('.history-toggle-label');
-        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-        var collapsed = true;
-        var resizeFrame = 0;
-        function topInFlow(el) {
-          return el.getBoundingClientRect().top - flow.getBoundingClientRect().top;
+      // 스크롤 버튼: 메인 비주얼 높이만큼 부드럽게 이동
+      document.getElementById('scrollDown').addEventListener('click', function () {
+        var hero = document.getElementById('main-visual');
+        window.scrollTo({ top: hero.offsetHeight, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+  <script>
+    // 히스토리: 전체 높이 비율이 아닌 실제 요소 위치를 기준으로 접힘 높이를 계산
+    (function () {
+      var section = document.getElementById('history');
+      if (!section) return;
+      var body = document.getElementById('history-body');
+      var flow = section.querySelector('.history-flow');
+      var blocks = section.querySelectorAll('.history-block');
+      var button = section.querySelector('.history-toggle');
+      var label = button.querySelector('.history-toggle-label');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+      var collapsed = true;
+      var resizeFrame = 0;
+      function topInFlow(el) {
+        return el.getBoundingClientRect().top - flow.getBoundingClientRect().top;
+      }
+      function fullHeight() { return Math.ceil(flow.offsetHeight); }
+      function collapsedHeight() {
+        var mobile = window.matchMedia('(max-width:568px)').matches;
+        var first = blocks[0];
+        var second = blocks[1];
+        var point;
+        if (mobile) {
+          var figure = first.querySelector('.history-figure');
+          // 첫 제품 이미지 하단을 살짝 흐리게 가리는 위치
+          point = topInFlow(figure) + figure.getBoundingClientRect().height * .88;
+        } else {
+          // 데스크탑/태블릿: 첫 연혁의 하단을 흐리게 처리 (피그마 접힘 화면)
+          var firstFigure = first.querySelector('.history-figure');
+          point = topInFlow(firstFigure) + firstFigure.getBoundingClientRect().height * .94;
         }
-        function fullHeight() { return Math.ceil(flow.offsetHeight); }
-        function collapsedHeight() {
-          var mobile = window.matchMedia('(max-width:568px)').matches;
-          var first = blocks[0];
-          var second = blocks[1];
-          var point;
-          if (mobile) {
-            var figure = first.querySelector('.history-figure');
-            // 첫 제품 이미지 하단을 살짝 흐리게 가리는 위치
-            point = topInFlow(figure) + figure.getBoundingClientRect().height * .88;
-          } else {
-            // 데스크탑/태블릿: 첫 연혁의 하단을 흐리게 처리 (피그마 접힘 화면)
-            var firstFigure = first.querySelector('.history-figure');
-            point = topInFlow(firstFigure) + firstFigure.getBoundingClientRect().height * .94;
-          }
-          return Math.max(1, Math.min(fullHeight(), Math.round(point)));
-        }
-        function syncState() {
-          section.classList.toggle('is-collapsed', collapsed);
-          section.classList.toggle('is-expanded', !collapsed);
-          button.setAttribute('aria-expanded', String(!collapsed));
-          label.textContent = collapsed ? '펼치기' : '접기';
-        }
-        function resize() {
-          if (collapsed) body.style.maxHeight = collapsedHeight() + 'px';
-          else if (body.style.maxHeight !== 'none') body.style.maxHeight = fullHeight() + 'px';
-        }
-        function onResize() {
-          if (resizeFrame) cancelAnimationFrame(resizeFrame);
-          resizeFrame = requestAnimationFrame(function () {
-            resizeFrame = 0;
-            body.style.transition = 'none';
-            resize();
-            void body.offsetHeight;
-            body.style.transition = '';
-          });
-        }
-        button.addEventListener('click', function () {
-          if (collapsed) {
-            collapsed = false;
-            body.style.maxHeight = fullHeight() + 'px';
-          } else {
-            collapsed = true;
-            body.style.maxHeight = fullHeight() + 'px';
-            void body.offsetHeight;
-            body.style.maxHeight = collapsedHeight() + 'px';
-          }
-          syncState();
-          if (collapsed && section.getBoundingClientRect().top < 0) {
-            section.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'start'});
-          }
+        return Math.max(1, Math.min(fullHeight(), Math.round(point)));
+      }
+      function syncState() {
+        section.classList.toggle('is-collapsed', collapsed);
+        section.classList.toggle('is-expanded', !collapsed);
+        button.setAttribute('aria-expanded', String(!collapsed));
+        label.textContent = collapsed ? '펼치기' : '접기';
+      }
+      function resize() {
+        if (collapsed) body.style.maxHeight = collapsedHeight() + 'px';
+        else if (body.style.maxHeight !== 'none') body.style.maxHeight = fullHeight() + 'px';
+      }
+      function onResize() {
+        if (resizeFrame) cancelAnimationFrame(resizeFrame);
+        resizeFrame = requestAnimationFrame(function () {
+          resizeFrame = 0;
+          body.style.transition = 'none';
+          resize();
+          void body.offsetHeight;
+          body.style.transition = '';
         });
-        body.addEventListener('transitionend', function (e) {
-          if (e.target === body && e.propertyName === 'max-height' && !collapsed) {
-            body.style.maxHeight = 'none';
-          }
-        });
-        body.style.transition = 'none';
+      }
+      button.addEventListener('click', function () {
+        if (collapsed) {
+          collapsed = false;
+          body.style.maxHeight = fullHeight() + 'px';
+        } else {
+          collapsed = true;
+          body.style.maxHeight = fullHeight() + 'px';
+          void body.offsetHeight;
+          body.style.maxHeight = collapsedHeight() + 'px';
+        }
         syncState();
-        resize();
-        void body.offsetHeight;
-        body.style.transition = '';
-        if (window.ResizeObserver) new ResizeObserver(onResize).observe(flow);
-        window.addEventListener('resize', onResize);
-        window.addEventListener('load', onResize);
-        if (document.fonts && document.fonts.ready) document.fonts.ready.then(onResize);
-      })();
-</script>
+        if (collapsed && section.getBoundingClientRect().top < 0) {
+          section.scrollIntoView({ behavior: reduce.matches ? 'auto' : 'smooth', block: 'start' });
+        }
+      });
+      body.addEventListener('transitionend', function (e) {
+        if (e.target === body && e.propertyName === 'max-height' && !collapsed) {
+          body.style.maxHeight = 'none';
+        }
+      });
+      body.style.transition = 'none';
+      syncState();
+      resize();
+      void body.offsetHeight;
+      body.style.transition = '';
+      if (window.ResizeObserver) new ResizeObserver(onResize).observe(flow);
+      window.addEventListener('resize', onResize);
+      window.addEventListener('load', onResize);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(onResize);
+    })();
+  </script>
 </body>
+
 </html>
