@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한미그룹 2026년 하반기 공개채용</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+KR:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* CSS변수구역 */
+  /* :root{변수코드} 
+    1. 변수설정방법
+    --변수명: 값;
+    변수명은 케밥케이스로 주로 씀
+    (케밥케이스란? 마이너스 기호로 연결된 변수법)
+    2. 변수호출방법
+    var(변수명)
+    쓰고 싶은 곳에 값으로 변수를 사용함
+  */
+  :root {
+    --red: #E60012;
+    --orange: #FF5D32;
+    --black: #000000;
+    --white: #FFFFFF;
+    --white-10: rgba(255, 255, 255, 0.1);
+    --white-50: rgba(255, 255, 255, 0.5);
+    --gradient-cta: linear-gradient(90deg, #E60012 0%, #FF5D32 100%);
+    --font: 'Inter', 'Noto Sans KR', 'Pretendard', sans-serif;
+    --transition: 0.2s ease;
+    --page-width: 1920px;
+    --container-width: 1440px;
+    --hero-height: 900px;
+    --scale: 1; /* JS가 1440px 미만에서 갱신 */
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    color: var(--black);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    word-break: keep-all;
+    overflow-x: hidden;
+    position: relative;
+  }
+  a { color: inherit; text-decoration: none; transition: color var(--ease), background-color var(--ease), border-color var(--ease), opacity var(--ease); }
+  ul { list-style: none; }
+  img { display: block; max-width: 100%; }
+  button { font-family: inherit; border: 0; cursor: pointer; }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 100px;
+    z-index: 10;
+  }
+  .header-inner {
+    max-width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand { display: flex; width: 182px; height: 31px; flex: none; }
+  .brand img { width: 182px; height: 31px; }
+
+  .gnb { display: flex; align-items: center; height: 100%; }
+  .gnb-list { display: flex; gap: 40px; height: 100%; align-items: center; }
+  .gnb-list a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 19.1px;
+    line-height: 20px;
+    font-weight: 600;
+    letter-spacing: -0.4px;
+    color: var(--black);
+  }
+  .gnb-list li:first-child a { font-size: 19.4px; }
+  .gnb-list a:hover, .gnb-list a:focus-visible { color: var(--red); }
+  .gnb-cta { padding-left: 40px; }
+
+  /* 버튼 공통: hover 시 흰색/빨간색 반전 */
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid transparent;
+    border-radius: 500px;
+    color: var(--white);
+    font-weight: 600;
+    letter-spacing: -0.4px;
+    background-origin: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    isolation: isolate;
+    transition: color var(--ease), border-color var(--ease), background-color var(--ease);
+  }
+  .btn .ico-chevron { flex: none; overflow: visible; }
+  .btn-sm { width: 119px; height: 48px; padding: 0 20px; font-size: 17.4px; line-height: 18px; letter-spacing: -0.36px; background: var(--red); }
+  .btn-lg { width: 303px; height: 72px; padding: 0 64px; font-size: 22.7px; line-height: 34px; letter-spacing: -0.48px; background: var(--gradient-cta); }
+  /* 흰색 오버레이로 hover 반전 구현 (그라데이션은 transition 불가) */
+  .btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--white);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity var(--ease);
+  }
+  .btn:hover, .btn:focus-visible { color: var(--red); border-color: var(--red); }
+  .btn:hover::before, .btn:focus-visible::before { opacity: 1; }
+  .btn svg path { stroke: currentColor; }
+
+  /* ---------- Main > Section : 메인 비주얼 ---------- */
+  .main-visual {
+    position: relative;
+    width: 100%;
+    height: 900px;
+    min-height: 720px;
+    max-height: 100vh;
+    background: #fff3ee url("./images/mv_bg.png") center / cover no-repeat;
+    overflow: hidden;
+  }
+  @media (max-height: 720px) { .main-visual { max-height: none; } }
+
+  .mv-inner {
+    position: relative;
+    max-width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .mv-text {
+    flex: none;
+    width: 560px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    position: relative;
+    z-index: 2;
+  }
+  .mv-copy { display: flex; flex-direction: column; gap: 31.9px; width: 442px; }
+  .mv-sub {
+    font-size: 31.1px; line-height: 45px; font-weight: 700; letter-spacing: -0.64px;
+  }
+  .mv-title { display: flex; flex-direction: column; }
+  .mv-title strong {
+    font-size: 72.3px; line-height: 76px; font-weight: 800; letter-spacing: -1.76px;
+  }
+  .mv-title span {
+    font-size: 45.8px; line-height: 72px; font-weight: 800; letter-spacing: -1.12px;
+  }
+  .mv-period {
+    font-size: 19.2px; line-height: 28px; font-weight: 500; letter-spacing: -0.4px; white-space: nowrap;
+  }
+
+  /* 캐릭터 스테이지 (겹침 구성을 위해 스테이지 내부만 absolute) */
+  .mv-stage {
+    position: relative;
+    flex: none;
+    width: 663px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    margin-left: 40px;
+    z-index: 1;
+  }
+  .mv-stage .ring-glow {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100.00000%; height: 100.00000%;
+    border: 5px solid var(--white);
+    border-radius: 500px;
+    background: radial-gradient(70.71% 70.71% at 50% 50%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+    filter: blur(5px);
+  }
+  .mv-stage .ring-line {
+    position: absolute;
+    left: 8.29563%; top: 8.29563%;
+    width: 83.40875%; height: 83.40875%;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 500px;
+  }
+  .mv-stage img { position: absolute; height: auto; }
+  .mv-micro { left: 9.92459%;   top: 5.08296%;  width: 43.66817%; }
+  .mv-char1 { left: 17.36048%;  top: 26.71192%; width: 38.22624%; }
+  .mv-char2 { left: 50.79940%;  top: 26.45551%; width: 27.34238%; }
+  .mv-char3 { left: 5.94268%;   top: 53.00151%; width: 32.65158%; }
+  .mv-char4 { left: 59.69834%;  top: 56.18401%; width: 44.06637%; }
+  .mv-star1 { left: 33.42383%;  top: 17.94872%;   width: 2.65460%; }
+  .mv-star2 { left: 6.07843%;   top: 53.00151%; width: 3.45098%; }
+  .mv-star3 { left: 92.74510%;  top: 53.78582%; width: 3.18552%; }
+  .mv-star4 { left: 69.51735%;  top: 19.81900%; width: 3.58371%; }
+  .mv-star5 { left: 95.39970%;  top: 47.42081%; width: 5.17647%; }
+
+  /* 스크롤 버튼 */
+  .scroll-wrap {
+    position: absolute;
+    left: 0; right: 0; bottom: 64px;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+  }
+  .btn-scroll {
+    position: relative;
+    width: 80px; height: 80px;
+    border-radius: 500px;
+    background: rgba(255,255,255,0.1);
+    box-shadow: inset 4px 4px 10px rgba(255,255,255,0.4), inset -4px -4px 10px rgba(0,0,0,0.1);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    display: flex; align-items: center; justify-content: center;
+    transition: background-color var(--ease), transform var(--ease);
+  }
+  .btn-scroll::before {
+    content: "";
+    position: absolute; inset: 0;
+    border-radius: 500px;
+    background: linear-gradient(132.3deg, rgba(255,255,255,0.8) 12.7%, rgba(255,255,255,0) 86.3%);
+    opacity: .5;
+    pointer-events: none;
+  }
+  .btn-scroll svg { position: relative; width: 40px; height: 40px; }
+  .btn-scroll:hover { background: rgba(255,255,255,0.45); transform: translateY(2px); }
+
+  /* ---------- Footer ---------- */
+  /* 현재 시안에 푸터 디자인이 없으므로 화면에 영향을 주지 않는 빈 영역으로 둔다.
+     푸터 내용을 추가할 때 이 영역 안에 작성한다. */
+     
+     .site-footer {
+    background: var(--black);
+    color: var(--white-50);
+  }
+  .footer-inner {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 40px 60px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.3px;
+  }
+  .footer-inner p { margin: 0; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  /* 모바일 전용 헤더 영역(지원하기 pill + 햄버거): 데스크탑/태블릿에서는 숨김 */
+  .header-m { display: none; }
+
+  /* =====================================================
+     Responsive (Desktop First / max-width)
+     데스크탑 : 1025px 이상 (위 기본 CSS)
+     태블릿   : 1024px 이하
+     모바일   : 390px 이하
+     ===================================================== */
+
+  /* ---------- Tablet : max-width 1024px ---------- */
+  @media (max-width: 1024px) {
+    :root { --gutter: clamp(20px, 4vw, 40px); }
+
+    /* 헤더: 로고·메뉴·버튼을 축소하고 좌우 여백을 유동적으로 */
+    .header-inner { padding: 0 var(--gutter); }
+    .brand { width: clamp(120px, 14.8vw, 152px); height: auto; aspect-ratio: 182 / 31; }
+    .brand img { width: 100%; height: auto; }
+    .gnb-list { gap: clamp(16px, 3.1vw, 32px); }
+    .gnb-list a,
+    .gnb-list li:first-child a { font-size: clamp(13px, 2.25vw, 17.3px); }
+    .gnb-cta { padding-left: clamp(16px, 2.3vw, 24px); }
+    .btn-sm { width: clamp(92px, 11.6vw, 119px); height: 44px; padding: 0 8px; font-size: clamp(13px, 1.5vw, 15px); }
+
+    /* 메인 비주얼: 텍스트 위 / 캐릭터 아래 세로 배치 */
+    .main-visual { height: auto; min-height: 100vh; min-height: 100dvh; max-height: none; padding-top: 100px; }
+    .mv-inner { flex-direction: column; align-items: stretch; justify-content: flex-start; height: auto; gap: 30px; }
+    .mv-text { width: 100%; margin: 0; padding: 0 var(--gutter); gap: 40px; }
+    .mv-copy { width: 100%; gap: 16px; }
+    .mv-sub { font-size: 27px; line-height: 38px; letter-spacing: -0.56px; }
+    .mv-title strong { font-size: 56px; line-height: 60px; letter-spacing: -1.36px; }
+    .mv-title span { font-size: 35px; line-height: 60px; letter-spacing: -0.86px; }
+    .mv-period { font-size: clamp(13px, 2.5vw, 19.2px); white-space: normal; }
+    .btn-lg { width: 303px; max-width: 100%; height: 64px; padding: 0 24px; font-size: 20px; line-height: 30px; }
+
+    /* 캐릭터 스테이지: 내부 absolute 좌표는 유지하고 zoom 으로 비율 축소 (레이아웃 영역도 함께 줄어듦) */
+    .mv-stage { margin: 0 auto; width: min(71vw, 470.73px); }
+
+    .btn-scroll { width: 70px; height: 70px; }
+    .btn-scroll svg { width: 35px; height: 35px; }
+
+    .footer-inner { padding: 32px var(--gutter); }
+  }
+
+  /* 태블릿 보완: 600px 이하에서는 메뉴 4개가 한 줄에 들어가지 않으므로 텍스트 메뉴는 숨기고 지원하기만 유지 */
+  @media (max-width: 600px) {
+    .gnb-list { display: none; }
+    .gnb-cta { padding-left: 0; }
+  }
+
+  /* ---------- Mobile : max-width 390px ---------- */
+  @media (max-width: 390px) {
+    :root { --gutter: 20px; }
+
+    /* 메뉴가 열리면 배경 스크롤 방지 */
+    html.is-menu-open,
+    html.is-menu-open body { overflow: hidden; }
+
+    /* 헤더 */
+    .site-header { height: 68px; }
+    .brand { width: 130px; }
+    .brand, .header-m { position: relative; z-index: 2; }
+
+    .header-m { display: flex; align-items: center; gap: 12px; }
+    .header-m .btn-sm { width: 63px; height: 28px; padding: 0; font-size: 13px; line-height: 18px; }
+    html.is-menu-open .header-m .btn-sm { visibility: hidden; }
+
+    .btn-menu {
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+      width: 44px; height: 44px; margin-right: -11px; /* 터치 영역 44px, 아이콘은 좌우 여백선에 정렬 */
+      background: none;
+    }
+    .btn-menu span {
+      display: block; width: 22px; height: 2px; background: var(--black);
+      transition: transform 0.3s ease, opacity 0.2s ease;
+    }
+    html.is-menu-open .btn-menu span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    html.is-menu-open .btn-menu span:nth-child(2) { opacity: 0; }
+    html.is-menu-open .btn-menu span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* 전체 메뉴: 기존 .gnb 를 오른쪽에서 슬라이드되는 패널로 전환 */
+    .gnb {
+      position: fixed; top: 0; right: 0; z-index: 1;
+      width: 100%; height: 100vh; height: 100dvh;
+      flex-direction: column; align-items: stretch; justify-content: flex-start;
+      padding: 100px var(--gutter) 0;
+      background: var(--white);
+      overflow-y: auto;
+      transform: translateX(100%);
+      visibility: hidden;
+      transition: transform 0.3s ease, visibility 0s linear 0.3s;
+    }
+    .gnb.is-open {
+      transform: translateX(0);
+      visibility: visible;
+      transition: transform 0.3s ease, visibility 0s;
+    }
+    /* 메뉴 우측 하단 캐릭터 (images 폴더) */
+    .gnb::after {
+      content: "";
+      position: absolute; right: 16px; bottom: 40px;
+      width: 130px; aspect-ratio: 413 / 420;
+      background: url("./images/imgi_76_con5_char.png") center / contain no-repeat;
+      pointer-events: none;
+    }
+    .gnb-list { display: flex; flex-direction: column; align-items: stretch; gap: 0; height: auto; }
+    .gnb-list li { border-bottom: 1px solid #E5E5E5; }
+    .gnb-list a,
+    .gnb-list li:first-child a { height: 56px; font-size: 18px; line-height: 24px; }
+    .gnb-cta { margin-top: 40px; padding-left: 0; }
+    .gnb-cta .btn-sm { width: 100%; height: 48px; padding: 0 20px; font-size: 16px; line-height: 24px; }
+
+    /* 메인 비주얼 */
+    .mv-text { gap: 56px; }
+    .mv-copy { gap: 12px; }
+    .mv-sub { font-size: 20px; line-height: 28px; letter-spacing: -0.4px; }
+    .mv-period { font-size: 13px; line-height: 20px; letter-spacing: -0.3px; }
+    .btn-lg { width: 200px; height: 48px; padding: 0 16px; font-size: 15px; line-height: 22px; }
+    .mv-stage { width: min(90vw, 351.39px); }
+
+    .scroll-wrap { bottom: 24px; }
+    .btn-scroll { width: 40px; height: 40px; }
+    .btn-scroll svg { width: 20px; height: 20px; }
+  }
+
+  /* ---------- Main > Section : 새로운 미래 (신규 추가) ---------- */
+  .mirae {
+    position: relative;
+    width: 100%;
+    height: clamp(700px, 57.3vw, 825px);
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(180deg, #fff 0%, #fffaf8 25%, #ffe7df 100%);
+  }
+  .mirae-inner { position: relative; width: 100%; max-width: 1440px; height: 100%; margin: 0 auto; }
+  .mirae-title {
+    position: absolute; z-index: 4; top: 22%; left: 0; width: 100%;
+    text-align: center; white-space: nowrap;
+    font-size: clamp(32px, 4.3vw, 62px); line-height: 1.3;
+    font-weight: 800; letter-spacing: -0.065em;
+  }
+  .mirae-title-red { color: #ed161d; }
+  .mirae-title-black { color: #000; }
+  .mirae-inner > img { position: absolute; display: block; height: auto; max-width: none; pointer-events: none; }
+  .mirae-walking { z-index: 2; width: 76.4%; left: 50%; bottom: 0; transform: translateX(-50%); }
+  .mirae-cloud { z-index: 1; }
+  .mirae-cloud-left { width: 29.3%; left: -14%; top: 53%; }
+  .mirae-cloud-right { width: 48.6%; right: -25%; top: 28%; }
+  .mirae-cloud-blur-left { width: 30%; left: 5%; top: 30%; }
+  .mirae-cloud-blur-right { width: 19%; right: 14%; top: 62%; }
+  .mirae-star { z-index: 3; }
+  .mirae-star-top { width: 2.9%; left: 58%; top: 38%; }
+  .mirae-star-bottom { width: 3.8%; left: 39%; top: 70%; }
+
+  /* 태블릿 : 1024px 이하 */
+  @media (max-width: 1024px) {
+    .mirae { height: clamp(680px, 75vw, 790px); }
+    .mirae-title { top: 21%; font-size: clamp(30px, 4.4vw, 46px); }
+    .mirae-walking { width: 94%; }
+    .mirae-cloud-left { width: 32%; left: -15%; top: 55%; }
+    .mirae-cloud-right { width: 50%; right: -30%; top: 43%; }
+    .mirae-cloud-blur-left { width: 32%; left: 14%; top: 42%; }
+    .mirae-cloud-blur-right { width: 20%; right: 20%; top: 72%; }
+    .mirae-star-top { width: 3%; left: 56%; top: 52%; }
+    .mirae-star-bottom { width: 3.8%; left: 41%; top: 76%; }
+  }
+
+  /* 모바일 : 390px 이하 */
+  @media (max-width: 390px) {
+    .mirae { height: 805px; }
+    .mirae-title { top: 15%; font-size: clamp(20px, 5.65vw, 23px); letter-spacing: -0.065em; }
+    .mirae-walking { width: 195%; bottom: -10px; }
+    .mirae-cloud-left { width: 55%; left: -29%; top: 52%; }
+    .mirae-cloud-right { width: 93%; right: -58%; top: 31%; }
+    .mirae-cloud-blur-left { width: 65%; left: 8%; top: 33%; }
+    .mirae-cloud-blur-right { width: 40%; right: 5%; top: 63%; }
+    .mirae-star-top { width: 5%; left: 59%; top: 54%; }
+    .mirae-star-bottom { width: 6%; left: 38%; top: 73%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 1. 상단 메뉴 영역 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#" aria-label="한미그룹 홈">
+      <img src="./images/logo.svg" alt="Hanmi 한미그룹">
+    </a>
+    <nav class="gnb" id="gnb" aria-label="주요 메뉴">
+      <ul class="gnb-list">
+        <li><a href="#job">직무소개</a></li>
+        <li><a href="#qualification">지원자격 및 접수방법</a></li>
+        <li><a href="#schedule">채용설명회 일정</a></li>
+      </ul>
+      <div class="gnb-cta">
+        <a class="btn btn-sm" href="#apply">
+          <span>지원하기</span>
+          <svg class="ico-chevron" width="7" height="12" viewBox="0 0 7 12" fill="none" aria-hidden="true"><path d="M1.2 1.2L5.8 6l-4.6 4.8" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </nav>
+    <!-- 모바일 전용: 지원하기 + 햄버거(열기/닫기 토글) -->
+    <div class="header-m">
+      <a class="btn btn-sm" href="#apply"><span>지원하기</span></a>
+      <button class="btn-menu" type="button" id="menuToggle" aria-label="전체 메뉴 열기" aria-expanded="false" aria-controls="gnb">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 2. 메인 컨텐츠 영역 -->
+<main>
+
+  <!-- 2-1. 메인 비주얼 section -->
+  <section class="main-visual" id="main-visual" aria-label="메인 비주얼">
+    <div class="mv-inner">
+      <div class="mv-text">
+        <div class="mv-copy">
+          <p class="mv-sub">2026년 하반기</p>
+          <h1 class="mv-title">
+            <strong>한미그룹</strong>
+            <span>공개채용</span>
+          </h1>
+          <p class="mv-period">모집기간 : 2026.9.28(월) ~ 2026.10.18(일) 23:59까지</p>
+        </div>
+        <div>
+          <a class="btn btn-lg" href="#job">모집직무 바로가기!</a>
+        </div>
+      </div>
+
+      <div class="mv-stage" aria-hidden="true">
+        <div class="ring-glow"></div>
+        <div class="ring-line"></div>
+        <img class="mv-micro" src="./images/mv_micro.png" alt="">
+        <img class="mv-char1" src="./images/mv_char1.png" alt="">
+        <img class="mv-char2" src="./images/mv_char2.png" alt="">
+        <img class="mv-char3" src="./images/mv_char3.png" alt="">
+        <img class="mv-char4" src="./images/mv_char4.png" alt="">
+        <img class="mv-star1" src="./images/mv_star1.svg" alt="">
+        <img class="mv-star2" src="./images/mv_star2.svg" alt="">
+        <img class="mv-star3" src="./images/mv_star3.svg" alt="">
+        <img class="mv-star4" src="./images/mv_star4.svg" alt="">
+        <img class="mv-star5" src="./images/mv_star3.svg" alt="">
+      </div>
+    </div>
+
+    <div class="scroll-wrap">
+      <button class="btn-scroll" type="button" id="scrollDown" aria-label="아래로 스크롤">
+        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M11 16l9 9 9-9" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- 2-2. 새로운 미래 소개 section : 신규 추가 -->
+  <section class="mirae" id="mirae" aria-labelledby="mirae-title">
+    <div class="mirae-inner">
+      <h2 class="mirae-title" id="mirae-title">
+        <span class="mirae-title-red">새로운 미래</span><span class="mirae-title-black">를 향해 나아갑니다</span>
+      </h2>
+      <img class="mirae-cloud mirae-cloud-left" src="images/mirae_cloud3.png" alt="왼쪽 아래에 떠 있는 하얀 입체 구름">
+      <img class="mirae-cloud mirae-cloud-right" src="images/mirae_cloud4.png" alt="오른쪽에 떠 있는 커다란 하얀 입체 구름">
+      <img class="mirae-cloud mirae-cloud-blur-left" src="images/mirae_cloud1.png" alt="왼쪽 멀리 흐릿하게 떠 있는 구름">
+      <img class="mirae-cloud mirae-cloud-blur-right" src="images/mirae_cloud2.png" alt="오른쪽 아래 멀리 흐릿하게 떠 있는 작은 구름">
+      <img class="mirae-walking" src="images/mirae_walking.png" alt="초록 행성 위에서 미래를 향해 걸어가는 파란색 캐릭터">
+      <img class="mirae-star mirae-star-top" src="images/mirae_star1.png" alt="캐릭터 오른쪽 위의 노란 반짝이는 별">
+      <img class="mirae-star mirae-star-bottom" src="images/mirae_star2.png" alt="캐릭터 왼쪽 아래의 노란 반짝이는 별">
+    </div>
+  </section>
+
+  <!-- 이후 컨텐츠 section 추가 위치 -->
+
+</main>
+
+<!-- 하단 푸터 영역 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>&copy; 2026 Hanmi Group. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var inner = document.querySelector('.mv-inner');
+    var gnb = document.getElementById('gnb');
+    var menuBtn = document.getElementById('menuToggle');
+
+    // 모바일 전체 메뉴 열기/닫기 (슬라이드는 CSS transform/transition, 스크롤 잠금은 html.is-menu-open)
+    function setMenu(open) {
+      gnb.classList.toggle('is-open', open);
+      root.classList.toggle('is-menu-open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? '전체 메뉴 닫기' : '전체 메뉴 열기');
+    }
+    menuBtn.addEventListener('click', function () {
+      setMenu(!gnb.classList.contains('is-open'));
+    });
+    gnb.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setMenu(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setMenu(false);
+    });
+
+    // 1025~1439px: 1440px 원본 레이아웃 전체를 화면 너비에 맞춰 축소. 1024px 이하는 CSS 반응형 처리
+    function fit() {
+      var w = window.innerWidth;
+      if (w > 1024 && w < 1440) {
+        inner.style.width = '1440px';
+        inner.style.maxWidth = 'none';
+        inner.style.zoom = w / 1440;
+      } else {
+        inner.style.width = '';
+        inner.style.maxWidth = '';
+        inner.style.zoom = '';
+      }
+
+      if (w > 390) setMenu(false);           // 모바일을 벗어나면 메뉴 상태 초기화
+    }
+    fit();
+    window.addEventListener('resize', fit);
+
+    // 스크롤 버튼: 메인 비주얼 높이만큼 부드럽게 이동
+    document.getElementById('scrollDown').addEventListener('click', function () {
+      var hero = document.getElementById('main-visual');
+      window.scrollTo({ top: hero.offsetHeight, behavior: 'smooth' });
+    });
+  })();
+</script>
+</body>
+</html>
