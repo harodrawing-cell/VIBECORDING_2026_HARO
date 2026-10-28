@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs><linearGradient id="clock" x2="1" y2="1"><stop stop-color="#ffd5c8"/><stop offset="1" stop-color="#e87862"/></linearGradient></defs>
+  <path d="M14 47c2-9 12-15 25-13l9 3-3 9-9-2c-7-1-12 3-14 8l-9-5Z" fill="#ef927d"/><circle cx="29" cy="29" r="22" fill="url(#clock)" stroke="#d77863" stroke-width="2"/><circle cx="29" cy="29" r="14" fill="#fff6f1"/><path d="M29 19v11l8 5" fill="none" stroke="#d77863" stroke-width="3" stroke-linecap="round"/><path d="M17 7 11 2M42 8l5-6" stroke="#d77863" stroke-width="4" stroke-linecap="round"/><circle cx="29" cy="29" r="2" fill="#c75c4d"/>
+</svg>
