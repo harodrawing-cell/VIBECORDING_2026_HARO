@@ -2347,6 +2347,287 @@
       .innovation-hint { margin-top:18px; font-size:10px; }
     }
 
+    /* ---------- Section 6: 회사 복지 ---------- */
+    .welfare {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      padding: 78px 48px 92px;
+    }
+
+    .welfare-inner {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .welfare-header {
+      position: relative;
+      margin: 0 auto 44px;
+      text-align: center;
+    }
+
+    .welfare-title {
+      margin: 0;
+      font-size: clamp(28px, 3.2vw, 40px);
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .welfare-title-break {
+      display: none;
+    }
+
+    .welfare-subtitle {
+      margin: 12px 0 0;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .welfare-character {
+      position: absolute;
+      top: -34px;
+      right: -14px;
+      width: clamp(110px, 16vw, 165px);
+      height: auto;
+      pointer-events: none;
+    }
+
+    .welfare-lead {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 0 0 16px;
+    }
+
+    .welfare-lead strong {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      flex: none;
+      color: var(--orange);
+      font-size: 17px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .welfare-heart {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      vertical-align: -4px;
+    }
+
+    .welfare-lead p {
+      margin: 0;
+      color: #555;
+      font-size: 12px;
+    }
+
+    .welfare-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-auto-rows: 74px;
+      gap: 10px 14px;
+      max-height: 410px;
+      overflow-y: auto;
+      padding: 0 12px 4px 0;
+      list-style: none;
+      scrollbar-width: thin;
+      scrollbar-color: #ff7657 #f2efed;
+      overscroll-behavior: contain;
+    }
+
+    .welfare-list::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .welfare-list::-webkit-scrollbar-track {
+      background: #f2efed;
+      border-radius: 4px;
+    }
+
+    .welfare-list::-webkit-scrollbar-thumb {
+      background: #ff7657;
+      border-radius: 4px;
+    }
+
+    .welfare-card {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 18px;
+      border: 1px solid #ffe4dc;
+      border-radius: 15px;
+      background: #fff;
+      box-shadow: 0 3px 7px rgba(133, 76, 57, .09);
+    }
+
+    .welfare-card-copy {
+      min-width: 0;
+    }
+
+    .welfare-card h3 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .welfare-card p {
+      margin: 5px 0 0;
+      color: #777;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .welfare-icon {
+      flex: none;
+      display: block;
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+    }
+
+    .welfare-character-bottom {
+      position: absolute;
+      bottom: -96px;
+      left: -12px;
+      width: 118px;
+      height: auto;
+      pointer-events: none;
+    }
+
+    @media (max-width: 1024px) {
+      .welfare {
+        padding: 70px 40px 86px;
+      }
+
+      .welfare-header {
+        margin-bottom: 42px;
+      }
+
+      .welfare-title {
+        font-size: clamp(26px, 3.7vw, 36px);
+      }
+
+      .welfare-character {
+        top: -24px;
+        right: -2px;
+        width: clamp(115px, 17vw, 150px);
+      }
+
+      .welfare-list {
+        grid-template-columns: minmax(0, 1fr);
+        grid-auto-rows: 80px;
+        max-height: 455px;
+        gap: 11px;
+      }
+
+      .welfare-card {
+        padding: 13px 18px;
+      }
+
+      .welfare-card h3 {
+        font-size: 15px;
+      }
+
+      .welfare-card p {
+        font-size: 12px;
+      }
+
+      .welfare-character-bottom {
+        width: 105px;
+        bottom: -72px;
+      }
+    }
+
+    @media (max-width: 568px) {
+      .welfare {
+        padding: 48px 20px 76px;
+      }
+
+      .welfare-header {
+        margin-bottom: 34px;
+        padding: 16px 8px 0;
+      }
+
+      .welfare-title {
+        max-width: 290px;
+        margin: 0 auto;
+        font-size: clamp(22px, 6vw, 27px);
+        line-height: 1.45;
+      }
+
+      .welfare-title-break {
+        display: block;
+      }
+
+      .welfare-subtitle {
+        margin-top: 12px;
+        font-size: 12px;
+      }
+
+      .welfare-character {
+        top: -60px;
+        right: -4px;
+        width: 70px;
+      }
+
+      .welfare-lead {
+        display: block;
+        margin-bottom: 16px;
+      }
+
+      .welfare-lead strong {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 15px;
+        white-space: normal;
+      }
+
+      .welfare-lead p {
+        font-size: 11px;
+      }
+
+      .welfare-list {
+        grid-auto-rows: 103px;
+        max-height: 450px;
+        gap: 12px;
+        padding-right: 8px;
+      }
+
+      .welfare-card {
+        gap: 10px;
+        padding: 15px 16px;
+        border-radius: 15px;
+      }
+
+      .welfare-card h3 {
+        font-size: 15px;
+      }
+
+      .welfare-card p {
+        max-width: 230px;
+        margin-top: 7px;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .welfare-icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .welfare-character-bottom {
+        bottom: -64px;
+        left: 8px;
+        width: 92px;
+      }
+    }
+
   </style>
 </head>
 
@@ -2692,6 +2973,147 @@
           <p class="innovation-hint"><span aria-hidden="true">•</span> 말풍선을 클릭해서 기사를 확인해 보세요.</p>
         </div>
         <img class="innovation-molecule" src="./images/inno_molecule2.png" alt="" aria-hidden="true">
+      </div>
+    </section>
+
+    <!-- Section 6: 회사 복지 -->
+    <section class="welfare" id="welfare" aria-labelledby="welfare-title">
+      <div class="welfare-inner">
+        <header class="welfare-header">
+          <h2 class="welfare-title" id="welfare-title">한미 생활을<br class="welfare-title-break">더 즐겁게 만드는 방법</h2>
+          <p class="welfare-subtitle">건강부터 성장, 휴식까지 알차게 준비한 복지를 소개할게요.</p>
+          <img class="welfare-character" src="./images/imgi_76_con5_char.png" alt="거울을 보며 건강을 챙기는 한미 캐릭터">
+        </header>
+
+        <div class="welfare-lead">
+          <strong><img class="welfare-heart" src="./images/welfare-heart.svg" alt="분홍 하트"> 오늘의 나도, 내일의 나도 든든하게!</strong>
+          <p>건강, 성장, 문화생활까지 알차게 챙겨드려요.</p>
+        </div>
+
+        <ul class="welfare-list" aria-label="한미그룹 복지 제도">
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>건강 검진</h3><p>건강한 하루가 오래 이어지도록, 정기적인 건강관리를 지원해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-health.svg" alt="건강 검진 달력과 하트">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>기념일 축하 지원</h3><p>소중한 기념일이 더 특별해지도록 한미가 함께 축하해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-celebration.svg" alt="기념일 축하 케이크">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>본인주도 선택복지</h3><p>나에게 필요한 복지를 내 취향과 생활에 맞게 선택할 수 있어요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-choice.svg" alt="선택복지 카드">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>장기 근속 포상</h3><p>한미와 함께 걸어온 소중한 시간에 감사의 마음을 전해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-award.svg" alt="장기 근속 포상 과녁">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>유연근무제</h3><p>업무와 일상의 균형을 찾을 수 있도록 유연한 근무를 지원해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-flexible.svg" alt="유연근무 시계">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>단체 상해 보험</h3><p>예상하지 못한 순간에도 든든할 수 있도록 임직원을 보호해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-insurance.svg" alt="상해 보험 보호 방패">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>직무 교육 지원</h3><p>배우고 성장하는 즐거움이 계속되도록 역량 개발을 지원해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-learning.svg" alt="직무 교육 영상과 연필">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>임직원 제휴 할인</h3><p>다양한 제휴 혜택으로 일상 속 즐거움과 실속을 더해드려요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-discount.svg" alt="제휴 할인 쇼핑백">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>문화 생활 지원</h3><p>바쁜 일상에 기분 좋은 쉼표를 더할 수 있도록 문화생활을 응원해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-culture.svg" alt="문화생활 곰 인형">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>구내식당</h3><p>든든하고 맛있는 한 끼로 활기찬 하루를 함께 만들어요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-dining.svg" alt="구내식당 포크와 숟가락">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>건강 검진</h3><p>건강한 하루가 오래 이어지도록, 정기적인 건강관리를 지원해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-health.svg" alt="건강 검진 달력과 하트">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>기념일 축하 지원</h3><p>소중한 기념일이 더 특별해지도록 한미가 함께 축하해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-celebration.svg" alt="기념일 축하 케이크">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>본인주도 선택복지</h3><p>나에게 필요한 복지를 내 취향과 생활에 맞게 선택할 수 있어요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-choice.svg" alt="선택복지 카드">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>장기 근속 포상</h3><p>한미와 함께 걸어온 소중한 시간에 감사의 마음을 전해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-award.svg" alt="장기 근속 포상 과녁">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>유연근무제</h3><p>업무와 일상의 균형을 찾을 수 있도록 유연한 근무를 지원해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-flexible.svg" alt="유연근무 시계">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>단체 상해 보험</h3><p>예상하지 못한 순간에도 든든할 수 있도록 임직원을 보호해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-insurance.svg" alt="상해 보험 보호 방패">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>직무 교육 지원</h3><p>배우고 성장하는 즐거움이 계속되도록 역량 개발을 지원해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-learning.svg" alt="직무 교육 영상과 연필">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>임직원 제휴 할인</h3><p>다양한 제휴 혜택으로 일상 속 즐거움과 실속을 더해드려요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-discount.svg" alt="제휴 할인 쇼핑백">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>문화 생활 지원</h3><p>바쁜 일상에 기분 좋은 쉼표를 더할 수 있도록 문화생활을 응원해요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-culture.svg" alt="문화생활 곰 인형">
+            </article>
+          </li>
+          <li>
+            <article class="welfare-card">
+              <div class="welfare-card-copy"><h3>구내식당</h3><p>든든하고 맛있는 한 끼로 활기찬 하루를 함께 만들어요.</p></div>
+              <img class="welfare-icon" src="./images/welfare-dining.svg" alt="구내식당 포크와 숟가락">
+            </article>
+          </li>
+        </ul>
+
+        <img class="welfare-character-bottom" src="./images/con5_cloud.png" alt="한미그룹 복지 섹션의 구름 장식">
       </div>
     </section>
   </main>
