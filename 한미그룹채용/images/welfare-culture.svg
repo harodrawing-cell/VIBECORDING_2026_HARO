@@ -1,4 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs><linearGradient id="bear" x2="1" y2="1"><stop stop-color="#fff0e6"/><stop offset="1" stop-color="#d6b7a9"/></linearGradient></defs>
-  <path d="M15 18 9 10l11-3 7 8m14 3 7-11 10 4-8 11" fill="url(#bear)" stroke="#ba9689" stroke-width="2"/><circle cx="32" cy="33" r="23" fill="url(#bear)" stroke="#ba9689" stroke-width="2"/><circle cx="24" cy="30" r="3" fill="#473832"/><circle cx="40" cy="30" r="3" fill="#473832"/><ellipse cx="32" cy="38" rx="7" ry="5" fill="#ee9c89"/><path d="M32 39v4m0 0-4 2m4-2 4 2" fill="none" stroke="#704c44" stroke-width="2" stroke-linecap="round"/><path d="M9 33c-5-5-7 2-2 4m48-4c5-5 7 2 2 4" fill="none" stroke="#ee9178" stroke-width="3"/>
-</svg>
