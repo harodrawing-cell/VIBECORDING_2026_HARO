@@ -651,7 +651,7 @@
       }
       .history-toggle svg { width: 24px; height: 24px; transition: transform var(--his-ease); }
       .history-toggle[aria-expanded="false"] svg { transform: rotate(180deg); }
-      .history-toggle:hover { color: var(--red); }
+      .history-toggle:hover { color: var(--black); }
 
       @media (prefers-reduced-motion: reduce) {
         .history-body, .history-body::after, .history-foot, .history-toggle svg { transition: none; }
@@ -744,10 +744,10 @@
       .history-count-unit { font-size: .34em; }
       .history-timeline::before {
         left: 50%; transform: translateX(-50%);
-        top: calc(-1 * var(--his-head-gap) - 5px);
-        bottom: calc(-1 * var(--his-end-gap));
+        top: calc(-1 * var(--his-head-gap) - 0.1 * var(--his-count));
+        bottom: calc(-1.5 * var(--his-end-gap));
         width: var(--his-line);
-        background: linear-gradient(to bottom,#ff5d32 0%,#ff5d32 84%,rgba(255,93,50,0) 100%);
+        /* background: linear-gradient(to bottom,#ff5d32 0%,#ff5d32 84%,rgba(255,93,50,0) 100%); */
         z-index: 0; pointer-events:none;
       }
       .history-block { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
@@ -862,7 +862,7 @@
       }
       /* Put the orange stem directly beneath the 53's visual center, not the full 53th text. */
       @media (min-width: 569px) {
-        .history-timeline::before { left: calc(50% - var(--his-line) / 2); }
+        .history-timeline::before { left: 50%; }
       }
 
 </style>
