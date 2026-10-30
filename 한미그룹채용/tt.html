@@ -1,0 +1,4588 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>한미그룹 2026년 하반기 공개채용</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+KR:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* CSS변수구역 */
+      /* :root{변수코드} 
+    1. 변수설정방법
+    --변수명: 값;
+    변수명은 케밥케이스로 주로 씀
+    (케밥케이스란? 마이너스 기호로 연결된 변수법)
+    2. 변수호출방법
+    var(변수명)
+    쓰고 싶은 곳에 값으로 변수를 사용함
+  */
+      :root {
+        --black: #000000;
+        --white: #ffffff;
+        --red: #e60012;
+        --orange: #ff5d32;
+        --white-10: rgba(255, 255, 255, 0.1);
+        --white-50: rgba(255, 255, 255, 0.5);
+        --gradient-cta: linear-gradient(90deg, #e60012 0%, #ff5d32 100%);
+        --font:
+          "Inter", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic",
+          sans-serif;
+        --transition: 0.2s ease;
+        --page-width: 1920px;
+        --container-width: 1440px;
+        --hero-height: 900px;
+        --scale: 1; /* JS가 1440px 미만에서 갱신 */
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: var(--font);
+        color: var(--black);
+        background: var(--white);
+        -webkit-font-smoothing: antialiased;
+        word-break: keep-all;
+        position: relative;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: color var(--transition);
+      }
+      button {
+        font-family: inherit;
+        border: 0;
+        cursor: pointer;
+      }
+      img {
+        display: block;
+        max-width: none;
+      }
+      :focus-visible {
+        outline: 2px solid var(--red);
+        outline-offset: 3px;
+      }
+
+      /* ---------- Hero (main_visual) ---------- */
+      .main-visual {
+        position: relative;
+        width: 100%;
+        max-width: var(--page-width);
+        height: calc(var(--hero-height) * var(--scale));
+        min-height: calc(720px * var(--scale));
+        margin: 0 auto;
+        overflow: hidden;
+        background: #fff1ec url("./images/mv_bg.png") center / cover no-repeat;
+      }
+
+      /* 1440 기준 내용 컨테이너 */
+      .mv-container {
+        position: relative;
+        max-width: var(--container-width);
+        height: var(--hero-height);
+        margin: 0 auto;
+        transform: scale(var(--scale));
+        transform-origin: top center;
+      }
+
+      /* ---------- Header ---------- */
+      /* header는 main 밖(형제)에 위치하며, 히어로 상단에 겹쳐 보이도록 절대 배치 */
+      .site-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: calc(100px * var(--scale));
+        z-index: 5;
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: var(--container-width);
+        height: 100px;
+        margin: 0 auto;
+        padding: 0 60px;
+        transform: scale(var(--scale));
+        transform-origin: top center;
+      }
+      .brand {
+        display: block;
+        width: 182px;
+        height: 31px;
+      }
+      .brand img {
+        width: 182px;
+        height: 31px;
+      }
+
+      .gnb {
+        display: flex;
+        align-items: center;
+      }
+      .gnb-list {
+        display: flex;
+        gap: 40px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .gnb-list a {
+        display: flex;
+        align-items: center;
+        height: 100px;
+        font-weight: 600;
+        font-size: 19.1px;
+        line-height: 20px;
+        letter-spacing: -0.4px;
+        white-space: nowrap;
+      }
+      .gnb-list li:first-child a {
+        font-size: 19.4px;
+      }
+      .gnb-list a:hover {
+        color: var(--red);
+      }
+
+      .gnb-cta {
+        padding-left: 40px;
+      }
+
+      /* 버튼 공통: hover 시 흰색/빨간색 반전 */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 500px;
+        color: var(--white);
+        font-weight: 600;
+        text-align: center;
+        white-space: nowrap;
+        transition:
+          background-color var(--transition),
+          color var(--transition),
+          box-shadow var(--transition);
+      }
+      .btn-apply {
+        gap: 10px;
+        width: 119px;
+        height: 48px;
+        padding: 13.5px 20px 14.5px;
+        background: var(--red);
+        font-size: 17.4px;
+        line-height: 18px;
+        letter-spacing: -0.36px;
+      }
+      .btn-apply svg {
+        width: 7px;
+        height: 12px;
+        flex: none;
+      }
+      .btn-apply:hover {
+        background: var(--white);
+        color: var(--red);
+        box-shadow: inset 0 0 0 1px var(--red);
+      }
+
+      .btn-main {
+        width: 303px;
+        height: 72px;
+        padding: 18.7px 64px 19.3px;
+        background-image: var(--gradient-cta);
+        background-color: var(--red);
+        font-size: 22.7px;
+        line-height: 34px;
+        letter-spacing: -0.48px;
+      }
+      .btn-main:hover {
+        background-image: none;
+        background-color: var(--white);
+        color: var(--red);
+        box-shadow: inset 0 0 0 2px var(--red);
+      }
+
+      /* ---------- Copy ---------- */
+      .mv-copy {
+        position: absolute;
+        left: 100px;
+        top: 0;
+        bottom: 0;
+        width: 560px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 80px;
+        z-index: 3;
+      }
+      .mv-text {
+        display: flex;
+        flex-direction: column;
+        gap: 31.9px;
+      }
+      .mv-title {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 31.9px;
+        font-weight: inherit;
+      }
+      .mv-season {
+        font-weight: 700;
+        font-size: 31.1px;
+        line-height: 45px;
+        letter-spacing: -0.64px;
+      }
+      .mv-title-wrap {
+        display: flex;
+        flex-direction: column;
+      }
+      .mv-brand {
+        font-weight: 800;
+        font-size: 72.3px;
+        line-height: 76px;
+        letter-spacing: -1.76px;
+      }
+      .mv-kind {
+        font-weight: 800;
+        font-size: 45.8px;
+        line-height: 72px;
+        letter-spacing: -1.12px;
+      }
+      .mv-period {
+        margin: 0;
+        font-weight: 500;
+        font-size: 19.2px;
+        line-height: 28px;
+        letter-spacing: -0.4px;
+        white-space: nowrap;
+      }
+
+      /* ---------- Visual collage ---------- */
+      /* 1440px 디자인 좌표를 유지하면서 컨테이너 폭에 따라 전체 콜라주 축소 */
+      .mv-visual {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1440px;
+        height: 900px;
+        z-index: 1;
+        pointer-events: none;
+      }
+      .ring {
+        position: absolute;
+        border-radius: 500px;
+      }
+      .ring-glow {
+        left: 700px;
+        top: 118px;
+        width: 663px;
+        height: 663px;
+        border: 5px solid var(--white);
+        background: radial-gradient(
+          70.71% 70.71% at 50% 50%,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        filter: blur(5px);
+      }
+      .ring-line {
+        left: 755px;
+        top: 173px;
+        width: 553px;
+        height: 553px;
+        border: 1px solid var(--white-50);
+      }
+      .mv-visual img {
+        position: absolute;
+      }
+      .micro {
+        left: 765.8px;
+        top: 151.7px;
+        width: 289.52px;
+        height: 221.76px;
+      }
+      .char1 {
+        left: 815.1px;
+        top: 295.1px;
+        width: 253.44px;
+        height: 395.12px;
+      }
+      .char2 {
+        left: 1036.8px;
+        top: 293.4px;
+        width: 181.28px;
+        height: 381.04px;
+      }
+      .char3 {
+        left: 739.4px;
+        top: 469.4px;
+        width: 216.48px;
+        height: 262.24px;
+      }
+      .char4 {
+        left: 1095.8px;
+        top: 490.5px;
+        width: 292.16px;
+        height: 206.8px;
+      }
+
+      /* 별 장식 (mv_star*.png 미제공 → CSS 4각 별로 대체) */
+      .star {
+        position: absolute;
+        background: var(--star, #ffc928);
+        clip-path: polygon(
+          50% 0,
+          62% 38%,
+          100% 50%,
+          62% 62%,
+          50% 100%,
+          38% 62%,
+          0 50%,
+          38% 38%
+        );
+      }
+      .star1 {
+        --star: #cfe6f5;
+        left: 921.6px;
+        top: 237px;
+        width: 17.6px;
+        height: 16.72px;
+      }
+      .star2 {
+        --star: #a267f0;
+        left: 740.3px;
+        top: 469.4px;
+        width: 22.88px;
+        height: 23.76px;
+      }
+      .star3 {
+        --star: #ffc928;
+        left: 1314.9px;
+        top: 474.6px;
+        width: 21.12px;
+        height: 21.12px;
+      }
+      .star3.big {
+        left: 1332.5px;
+        top: 432.4px;
+        width: 34.32px;
+        height: 35.2px;
+      }
+      .star4 {
+        --star: #ff5d32;
+        left: 1160.9px;
+        top: 249.4px;
+        width: 23.76px;
+        height: 24.64px;
+      }
+
+      /* ---------- Scroll button ---------- */
+      .scroll-down {
+        position: absolute;
+        left: 50%;
+        bottom: 64px;
+        width: 80px;
+        height: 80px;
+        margin-left: -40px;
+        isolation: isolate;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 500px;
+        background: var(--white-10);
+        box-shadow:
+          inset 4px 4px 10px rgba(255, 255, 255, 0.4),
+          inset -4px -4px 10px rgba(0, 0, 0, 0.1);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        color: var(--white);
+        z-index: 2;
+        transition:
+          background-color var(--transition),
+          color var(--transition);
+      }
+      .scroll-down::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(
+          132.3deg,
+          rgba(255, 255, 255, 0.8) 12.7%,
+          rgba(255, 255, 255, 0) 86.3%
+        );
+        z-index: -1;
+        opacity: 0.5;
+      }
+      .scroll-down svg {
+        width: 40px;
+        height: 40px;
+      }
+      .scroll-down:hover {
+        background: var(--white);
+        color: var(--red);
+      }
+
+      /* ---------- Footer ---------- */
+      .site-footer {
+        background: var(--black);
+        color: var(--white-50);
+      }
+      .footer-inner {
+        width: 100%;
+        max-width: var(--container-width);
+        margin: 0 auto;
+        padding: 40px 60px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: -0.3px;
+      }
+      .footer-inner p {
+        margin: 0;
+      }
+
+      /* =====================================================
+     Responsive (Desktop First / max-width)
+     ===================================================== */
+      /* 모바일 전용 요소는 기본(데스크탑)에서 숨김 */
+      .header-apply,
+      .btn-menu,
+      .gnb-head {
+        display: none;
+      }
+
+      /* 1440px 이하 데스크톱: 고정 좌표의 콜라주를 컨테이너와 같은 비율로 축소.
+         부모 .mv-container에도 scale이 적용되므로 별도 중복 축소는 하지 않음. */
+      @media (min-width: 1025px) and (max-width: 1439px) {
+        .mv-container {
+          width: 1440px;
+          max-width: none;
+          left: 50%;
+          margin-left: -720px;
+          transform-origin: top center;
+        }
+      }
+
+      /* ---------- Tablet : 1024px 이하 ---------- */
+      @media (max-width: 1024px) {
+        /* 헤더 */
+        .header-inner {
+          width: 100%;
+          padding: 0 clamp(20px, 3.9vw, 40px);
+          transform: none;
+        }
+        .brand {
+          width: clamp(110px, 14.8vw, 152px);
+          height: auto;
+        }
+        .brand img {
+          width: 100%;
+          height: auto;
+        }
+        .gnb-list {
+          gap: clamp(10px, 2.93vw, 30px);
+        }
+        .gnb-list a,
+        .gnb-list li:first-child a {
+          font-size: clamp(12px, 1.66vw, 17px);
+        }
+        .gnb-cta {
+          padding-left: clamp(12px, 2.93vw, 30px);
+        }
+        .btn-apply {
+          width: clamp(88px, 11.7vw, 120px);
+          height: clamp(36px, 4.3vw, 44px);
+          padding: 0;
+          font-size: clamp(13px, 1.56vw, 16px);
+        }
+        .btn-apply svg {
+          width: 6px;
+          height: 10px;
+        }
+
+        /* 히어로: 텍스트 위 / 비주얼 아래 세로 배치 */
+        .main-visual {
+          height: auto;
+          min-height: 0;
+        }
+        .mv-container {
+          width: 100%;
+          height: auto;
+          padding-bottom: 140px;
+          transform: none;
+        }
+
+        .mv-copy {
+          position: static;
+          width: auto;
+          padding: 98px clamp(20px, 3.9vw, 40px) 0;
+          justify-content: flex-start;
+          gap: 40px;
+        }
+        .mv-text {
+          gap: 22px;
+        }
+        .mv-title {
+          gap: 16px;
+        }
+        .mv-season {
+          font-size: clamp(20px, 2.73vw, 28px);
+        }
+        .mv-brand {
+          font-size: clamp(44px, 5.57vw, 57px);
+          line-height: 60px;
+          letter-spacing: -1.4px;
+        }
+        .mv-kind {
+          font-size: clamp(28px, 3.32vw, 34px);
+          line-height: 54px;
+          letter-spacing: -0.9px;
+        }
+        .mv-period {
+          font-size: clamp(13px, 1.875vw, 19.2px);
+          white-space: normal;
+        }
+        .btn-main {
+          width: 303px;
+          height: 64px;
+          padding: 0;
+          font-size: 20px;
+          line-height: 30px;
+          letter-spacing: -0.42px;
+        }
+
+        /* 비주얼 콜라주: 1440 기준 px 좌표(700,118 ~ 1390,781) → 박스 대비 % 로 변환 */
+        .mv-visual {
+          position: relative;
+          width: clamp(300px, 46vw, 470px);
+          height: auto;
+          aspect-ratio: 690 / 663;
+          margin: 30px auto 0;
+        }
+        .ring-glow {
+          left: 0;
+          top: 0;
+          width: 96.09%;
+          height: 100%;
+        }
+        .ring-line {
+          left: 7.97%;
+          top: 8.3%;
+          width: 80.14%;
+          height: 83.41%;
+        }
+        .micro {
+          left: 9.54%;
+          top: 5.08%;
+          width: 41.96%;
+          height: 33.45%;
+        }
+        .char1 {
+          left: 16.68%;
+          top: 26.71%;
+          width: 36.73%;
+          height: 59.6%;
+        }
+        .char2 {
+          left: 48.81%;
+          top: 26.46%;
+          width: 26.27%;
+          height: 57.47%;
+        }
+        .char3 {
+          left: 5.71%;
+          top: 53%;
+          width: 31.37%;
+          height: 39.55%;
+        }
+        .char4 {
+          left: 57.36%;
+          top: 56.18%;
+          width: 42.34%;
+          height: 31.19%;
+        }
+        .star1 {
+          left: 32.12%;
+          top: 17.95%;
+          width: 2.55%;
+          height: 2.52%;
+        }
+        .star2 {
+          left: 5.84%;
+          top: 53%;
+          width: 3.32%;
+          height: 3.58%;
+        }
+        .star3 {
+          left: 89.12%;
+          top: 53.78%;
+          width: 3.06%;
+          height: 3.19%;
+        }
+        .star3.big {
+          left: 91.67%;
+          top: 47.42%;
+          width: 4.97%;
+          height: 5.31%;
+        }
+        .star4 {
+          left: 66.8%;
+          top: 19.82%;
+          width: 3.44%;
+          height: 3.72%;
+        }
+
+        .scroll-down {
+          bottom: 40px;
+          width: 64px;
+          height: 64px;
+          margin-left: -32px;
+        }
+        .scroll-down svg {
+          width: 32px;
+          height: 32px;
+        }
+      }
+
+      /* ---------- Mobile : 390px 이하 ---------- */
+      @media (max-width: 568px) {
+        /* 헤더: 로고 + 지원하기 + 햄버거 */
+        .site-header {
+          height: 70px;
+        }
+        .header-inner {
+          height: 70px;
+          padding: 0 20px;
+        }
+        .brand {
+          width: 130px;
+          margin-right: auto;
+        }
+
+        .header-apply {
+          display: inline-flex;
+          position: relative;
+          width: 63px;
+          height: 29px;
+          font-size: 12px;
+          line-height: 1;
+          letter-spacing: -0.3px;
+        }
+        .header-apply::after {
+          content: "";
+          position: absolute;
+          inset: -8px -4px;
+        } /* 터치 영역 확장 */
+
+        .btn-menu {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 44px;
+          height: 44px;
+          margin-right: -12px; /* 아이콘 우측을 20px 여백에 맞춤 */
+          padding: 0;
+          background: transparent;
+          color: var(--black);
+        }
+        .btn-menu svg {
+          width: 20px;
+          height: 14px;
+        }
+
+        /* 전체 메뉴: 오른쪽에서 슬라이드 */
+        .gnb {
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          flex-direction: column;
+          align-items: stretch;
+          padding: 0 20px;
+          overflow-y: auto;
+          background: var(--white) url("./images/mo_menu_char.png") no-repeat
+            right 12px bottom 24px / 121px auto;
+          z-index: 10;
+          transform: translateX(100%);
+          visibility: hidden;
+          transition:
+            transform 0.3s ease,
+            visibility 0s linear 0.3s;
+        }
+        .gnb.is-open {
+          transform: translateX(0);
+          visibility: visible;
+          transition:
+            transform 0.3s ease,
+            visibility 0s;
+        }
+        html.menu-open,
+        html.menu-open body {
+          overflow: hidden;
+        } /* 배경 스크롤 방지 */
+
+        .gnb-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 48px;
+        }
+        .gnb-head img {
+          width: 94px;
+          height: 16px;
+        }
+        .btn-close {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 44px;
+          height: 44px;
+          margin-right: -15px;
+          padding: 0;
+          background: transparent;
+          color: var(--black);
+        }
+        .btn-close svg {
+          width: 14px;
+          height: 14px;
+        }
+
+        .gnb-list {
+          flex-direction: column;
+          gap: 0;
+          margin-top: 44px;
+        }
+        .gnb-list li {
+          border-bottom: 1px solid #e5e5e5;
+        }
+        .gnb-list a,
+        .gnb-list li:first-child a {
+          height: 51px;
+          font-size: 17px;
+        }
+        .gnb-cta {
+          padding: 36px 0 0;
+        }
+        .gnb-cta .btn-apply {
+          width: 100%;
+          height: 44px;
+          font-size: 16px;
+        }
+
+        /* 히어로 */
+        .mv-container {
+          padding-bottom: 90px;
+        }
+        .mv-copy {
+          padding: 100px 20px 0;
+          gap: 48px;
+        }
+        .mv-text {
+          gap: 24px;
+        }
+        .mv-title {
+          gap: 20px;
+        }
+        .mv-season {
+          font-size: 20px;
+          line-height: 34px;
+          letter-spacing: -0.4px;
+        }
+        .mv-brand {
+          font-size: 54px;
+          line-height: 58px;
+          letter-spacing: -1.3px;
+        }
+        .mv-kind {
+          font-size: 34px;
+          line-height: 52px;
+          letter-spacing: -0.8px;
+        }
+        .mv-period {
+          font-size: 12.5px;
+          line-height: 20px;
+          letter-spacing: -0.26px;
+        }
+        .btn-main {
+          width: 200px;
+          height: 47px;
+          font-size: 15px;
+          line-height: 22px;
+          letter-spacing: -0.3px;
+        }
+
+        .mv-visual {
+          width: calc(100% - 30px);
+          margin-top: 32px;
+        }
+        .ring-glow {
+          border-width: 3px;
+        }
+        .scroll-down {
+          bottom: 20px;
+          width: 40px;
+          height: 40px;
+          margin-left: -20px;
+        }
+        .scroll-down svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* ---------- Mirae vision ---------- */
+      .mirae-visual {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        background: linear-gradient(180deg, #fff 0%, #fff7f5 40%, #ffe9e3 100%);
+      }
+      .mirae-inner {
+        position: relative;
+        width: 100%;
+        max-width: 1920px;
+        height: clamp(650px, 66.22vw, 900px);
+        margin: 0 auto;
+      }
+      .mirae-title {
+        position: absolute;
+        z-index: 3;
+        top: 21.5%;
+        left: 50%;
+        width: max-content;
+        max-width: calc(100% - 32px);
+        margin: 0;
+        transform: translateX(-50%);
+        font-size: clamp(30px, 4.4vw, 64px);
+        font-weight: 800;
+        line-height: 1.25;
+        letter-spacing: -0.065em;
+        white-space: nowrap;
+        background: linear-gradient(90deg, var(--red), var(--orange));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .mirae-scene {
+        position: absolute;
+        inset: 0;
+      }
+      .mirae-scene img {
+        position: absolute;
+        height: auto;
+        pointer-events: none;
+      }
+      .mirae-walking {
+        z-index: 2;
+        width: 68%;
+        max-width: 1000px;
+        left: 50%;
+        bottom: -1%;
+        transform: translateX(-50%);
+      }
+      .mirae-cloud--left {
+        width: 17%;
+        left: -2%;
+        top: 54%;
+      }
+      .mirae-cloud--upper {
+        width: 24%;
+        left: 5%;
+        top: 23%;
+        opacity: 0.32;
+        filter: blur(9px);
+      }
+      .mirae-cloud--right {
+        width: 34%;
+        right: -9%;
+        top: 25%;
+      }
+      .mirae-cloud--small {
+        width: 12%;
+        right: 15%;
+        top: 63%;
+        opacity: 0.45;
+        filter: blur(4px);
+      }
+      .mirae-star {
+        z-index: 3;
+      }
+      .mirae-star--top {
+        width: 2.6%;
+        left: 56%;
+        top: 38%;
+      }
+      .mirae-star--bottom {
+        width: 3%;
+        left: 38%;
+        top: 72%;
+      }
+
+      @media (max-width: 1024px) {
+        .mirae-inner {
+          height: clamp(600px, 68.4vw, 700px);
+        }
+        .mirae-title {
+          top: 20%;
+          font-size: clamp(27px, 4.4vw, 46px);
+        }
+        .mirae-walking {
+          width: 65%;
+          max-width: 760px;
+          bottom: -1%;
+        }
+        .mirae-cloud--left {
+          top: 62%;
+        }
+        .mirae-cloud--upper {
+          top: 38%;
+        }
+        .mirae-cloud--right {
+          top: 42%;
+        }
+        .mirae-cloud--small {
+          top: 72%;
+        }
+        .mirae-star--top {
+          top: 53%;
+        }
+        .mirae-star--bottom {
+          top: 78%;
+        }
+      }
+      @media (max-width: 568px) {
+        .mirae-inner {
+          height: clamp(640px, 108.5vw, 920px);
+        }
+        .mirae-title {
+          top: 15.5%;
+          font-size: clamp(19px, 6.5vw, 55px);
+          letter-spacing: -0.075em;
+        }
+        .mirae-walking {
+          width: 105%;
+          max-width: none;
+          bottom: -1%;
+        }
+        .mirae-cloud--left {
+          width: 27%;
+          left: -3%;
+          top: 52%;
+        }
+        .mirae-cloud--upper {
+          width: 40%;
+          left: 5%;
+          top: 28%;
+        }
+        .mirae-cloud--right {
+          width: 49%;
+          right: -13%;
+          top: 30%;
+        }
+        .mirae-cloud--small {
+          width: 18%;
+          right: 5%;
+          top: 67%;
+        }
+        .mirae-star--top {
+          width: 4%;
+          left: 59%;
+          top: 56%;
+        }
+        .mirae-star--bottom {
+          width: 4%;
+          left: 37%;
+          top: 78%;
+        }
+      }
+
+      /* ---------- History (53th → 100th) ---------- */
+      /* 데스크탑(1025px~)은 1440 기준 px 값을 --scale 로 축소(기존 히어로와 동일 방식),
+         태블릿/모바일은 아래 미디어쿼리에서 변수만 clamp(vw) 값으로 교체한다. */
+      .history {
+        --u: calc(1px * var(--scale));
+        --his-orange: var(--orange);
+        --his-pad-top: calc(150 * var(--u));
+        --his-pad-x: calc(60 * var(--u));
+        --his-title: calc(48 * var(--u));
+        --his-title-gap: calc(74 * var(--u));
+        --his-count: calc(340 * var(--u));
+        --his-head-gap: calc(122 * var(--u));
+        --his-axis: calc(98 * var(--u));
+        --his-line: calc(24 * var(--u));
+        --his-period: calc(40 * var(--u));
+        --his-lead: calc(28 * var(--u));
+        --his-text: calc(16 * var(--u));
+        --his-year: calc(24 * var(--u));
+        --his-item-gap: calc(34 * var(--u));
+        --his-row-gap: calc(32 * var(--u));
+        --his-block-gap: calc(184 * var(--u));
+        --his-end-gap: calc(220 * var(--u));
+        --his-end-sub: calc(18 * var(--u));
+        --his-end-main: calc(34 * var(--u));
+        --his-dot: calc(8 * var(--u));
+        --his-ease: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        /* 접힘 상태 한 화면 기준: 100vh 폴백 → 100dvh 우선 (모바일 주소창 대응) */
+        --his-vh: 100vh;
+        /* 접힘 시 푸터(토글 버튼)가 본문과 겹치는 양 / 본문 아래로 튀어나오는 양 */
+        --his-foot-pull: 110px;
+        --his-foot-net: 14px;
+        --his-collapsed-h: calc(
+          var(--his-vh) - var(--his-foot-net)
+        ); /* 본문 + 푸터 = 정확히 1화면 */
+        position: relative;
+        width: 100%;
+        background: var(--white);
+      }
+      @supports (height: 100dvh) {
+        .history {
+          --his-vh: 100dvh;
+        }
+      }
+      .history-body {
+        position: relative;
+        overflow: hidden; /* 트랜지션 중 콘텐츠 클리핑. 펼침 완료 후엔 max-height:none 이라 잘리지 않음 */
+        min-height: 0;
+        transition: max-height var(--his-ease);
+      }
+      /* 접힘: JS 가 inline 으로 넣는 max-height(전체 높이의 2/3)보다 우선시켜 1화면(100dvh)로 고정.
+         inline max-height 가 px 로 남아 있어도 !important 로 덮어써서 기존 토글/트랜지션 구조는 그대로 사용 */
+      .history.is-collapsed .history-body {
+        max-height: var(--his-collapsed-h) !important;
+      }
+      /* 펼침: 높이 제한 해제(JS 가 transitionend 후 inline none 처리). 내부 콘텐츠는 자연 높이로 늘어나며 페이지 스크롤로 이어짐 */
+      .history.is-expanded .history-body {
+        min-height: 0;
+      }
+      /* 접힘 상태: 하단 페이드아웃 (투명 → #fff). rgba(255,255,255,0)은 사파리의 회색 번짐 방지용 */
+      .history-body::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: min(clamp(180px, 22vw, 320px), 40%);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0) 0%,
+          #fff 85%
+        );
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1;
+        transition: opacity 0.4s ease;
+      }
+      .history.is-collapsed .history-body::after {
+        opacity: 1;
+      }
+
+      .history-flow {
+        position: relative;
+        max-width: var(--container-width);
+        margin: 0 auto;
+        padding: var(--his-pad-top) var(--his-pad-x) calc(60 * var(--u));
+      }
+      .history-deco {
+        position: absolute;
+        height: auto;
+        max-width: none;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* 헤드: 타이틀 + 53th */
+      .history-head {
+        position: relative;
+        isolation: isolate;
+        text-align: center;
+        margin-bottom: var(--his-head-gap);
+      }
+      .history-title {
+        margin: 0 0 var(--his-title-gap);
+        font-size: var(--his-title);
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: -0.03em;
+      }
+      .history-count {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        margin: 0;
+        font-family: "Inter", var(--font);
+        font-size: var(--his-count);
+        font-weight: 800;
+        line-height: 0.727; /* 숫자 캡 높이 = 박스 높이 → 타임라인 선이 숫자 하단/상단에 정확히 맞물림 */
+        letter-spacing: -0.07em;
+        color: var(--his-orange);
+      }
+      .history-count-unit {
+        margin-left: 0.07em;
+        font-size: 0.4em;
+        letter-spacing: -0.03em;
+      }
+
+      /* 타임라인 중앙선: 53th 하단 → 100th 상단 */
+      .history-timeline {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: var(--his-block-gap);
+      }
+      .history-timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: calc(-1 * var(--his-head-gap));
+        bottom: calc(-1 * var(--his-end-gap));
+        width: var(--his-line);
+        background: var(--his-orange);
+      }
+
+      /* 블록: 텍스트열/미디어열 지그재그 (DOM 순서 고정, 배치는 grid-template-areas 로만 제어) */
+      .history-block {
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: calc(var(--his-axis) * 2);
+        row-gap: var(--his-row-gap);
+        align-items: start;
+      }
+      .history-block--text-left {
+        grid-template-areas: "lead period" "list figure";
+        grid-template-rows: auto 1fr;
+      }
+      .history-block--text-right {
+        grid-template-areas: "period list" "figure list";
+        grid-template-rows: auto 1fr;
+      }
+      .history-period {
+        grid-area: period;
+        margin: 0;
+        font-size: var(--his-period);
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        color: var(--his-orange);
+        white-space: nowrap;
+      }
+      .history-lead {
+        grid-area: lead;
+        margin: 0;
+        font-size: var(--his-lead);
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: -0.03em;
+      }
+      .history-list {
+        grid-area: list;
+        display: flex;
+        flex-direction: column;
+        gap: var(--his-item-gap);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .history-list li {
+        display: flex;
+        align-items: center;
+        gap: calc(var(--his-year) * 1.2);
+      }
+      .history-year {
+        flex: none;
+        width: calc(var(--his-year) * 2.4);
+        font-size: var(--his-year);
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: -0.02em;
+        font-variant-numeric: tabular-nums;
+      }
+      .history-text {
+        font-size: var(--his-text);
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: -0.03em;
+      }
+
+      /* 텍스트가 왼쪽: 축 쪽(오른쪽)으로 우측 정렬, 연도가 축에 가장 가깝게 */
+      .history-block--text-left .history-lead {
+        justify-self: end;
+        text-align: right;
+      }
+      .history-block--text-left .history-list {
+        justify-self: end;
+        align-items: flex-end;
+      }
+      .history-block--text-left .history-list li {
+        flex-direction: row-reverse;
+        text-align: right;
+      }
+      .history-block--text-left .history-period,
+      .history-block--text-left .history-figure {
+        justify-self: start;
+      }
+      /* 텍스트가 오른쪽: 미디어는 축 쪽(왼쪽 열의 오른쪽 끝)으로 정렬 */
+      .history-block--text-right .history-period,
+      .history-block--text-right .history-figure {
+        justify-self: end;
+      }
+      .history-block--text-right .history-list {
+        justify-self: start;
+        align-items: flex-start;
+      }
+      .history-block--text-right .history-period {
+        text-align: right;
+      }
+
+      /* 점 3개(more): 마지막 연도 중앙 아래 */
+      .history-list::after {
+        content: "";
+        width: var(--his-dot);
+        height: var(--his-dot);
+        margin-top: calc(var(--his-item-gap) * 0.4);
+        margin-bottom: calc(var(--his-dot) * 4.5);
+        border-radius: 50%;
+        background: var(--his-orange);
+        box-shadow:
+          0 calc(var(--his-dot) * 2.25) 0 rgba(255, 93, 50, 0.55),
+          0 calc(var(--his-dot) * 4.5) 0 rgba(255, 93, 50, 0.25);
+      }
+      .history-block--text-left .history-list::after {
+        margin-right: calc(var(--his-year) * 1.2 - var(--his-dot) / 2);
+      }
+      .history-block--text-right .history-list::after {
+        margin-left: calc(var(--his-year) * 1.2 - var(--his-dot) / 2);
+      }
+
+      .history-figure {
+        grid-area: figure;
+        width: var(--w-d, 80%);
+        margin: 0;
+      }
+      .history-figure img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+      }
+      .history-figure--1 {
+        --w-d: 72%;
+        --w-t: 100%;
+        --w-m: 64%;
+      }
+      .history-figure--2 {
+        --w-d: 80%;
+        --w-t: 100%;
+        --w-m: 69%;
+      }
+      .history-figure--3 {
+        --w-d: 94%;
+        --w-t: 100%;
+        --w-m: 85%;
+      }
+      .history-figure--4 {
+        --w-d: 87%;
+        --w-t: 100%;
+        --w-m: 76%;
+      }
+      .history-figure--5 {
+        --w-d: 74%;
+        --w-t: 100%;
+        --w-m: 63%;
+      }
+
+      /* 데코 (데스크탑 전용, 좌표는 1440 기준) */
+      .history-deco--star {
+        right: calc(107 * var(--u));
+        top: calc(162 * var(--u));
+        width: calc(180 * var(--u));
+        z-index: 0;
+      }
+      .history-deco--beaker {
+        left: calc(68 * var(--u));
+        top: calc(208 * var(--u));
+        width: calc(171 * var(--u));
+      }
+      .history-deco--microscope {
+        left: calc(1115 * var(--u));
+        top: calc(300 * var(--u));
+        width: calc(202 * var(--u));
+      }
+      .history-deco--mol-blur1 {
+        left: calc(1090 * var(--u));
+        top: calc(66 * var(--u));
+        width: calc(392 * var(--u));
+      }
+      .history-deco--mol-blur2 {
+        left: calc(-150 * var(--u));
+        top: calc(-150 * var(--u));
+        width: calc(240 * var(--u));
+      }
+      .history-deco--mol-big {
+        left: calc(1164 * var(--u));
+        top: calc(343 * var(--u));
+        width: calc(215 * var(--u));
+      }
+
+      /* 엔딩: 100th + 마무리 카피 */
+      .history-end {
+        position: relative;
+        isolation: isolate;
+        margin-top: var(--his-end-gap);
+        text-align: center;
+      }
+      .history-count--end {
+        position: relative;
+        left: 8%;
+      }
+      .history-end-copy {
+        position: relative;
+        margin-top: calc(75 * var(--u));
+        padding-bottom: calc(40 * var(--u));
+      }
+      .history-end-copy::before {
+        content: "";
+        position: absolute;
+        inset: calc(-170 * var(--u)) -2% 0;
+        background: radial-gradient(
+          ellipse at 50% 50%,
+          rgba(255, 93, 50, 0.08) 0%,
+          rgba(255, 93, 50, 0) 70%
+        );
+        z-index: -1;
+      }
+      .history-end-sub {
+        margin: 0 0 calc(24 * var(--u));
+        font-size: var(--his-end-sub);
+        font-weight: 500;
+        line-height: 1.6;
+        letter-spacing: -0.03em;
+      }
+      .history-end-main {
+        margin: 0;
+        font-size: var(--his-end-main);
+        font-weight: 800;
+        line-height: 1.95;
+        letter-spacing: -0.04em;
+      }
+      .history-deco--char {
+        left: calc(-11 * var(--u));
+        top: calc(-171 * var(--u));
+        width: calc(248 * var(--u));
+        z-index: 0;
+      }
+      .history-deco--cloud {
+        left: calc(-60 * var(--u));
+        top: calc(150 * var(--u));
+        width: calc(330 * var(--u));
+        z-index: -1;
+      }
+
+      /* 펼치기/접기 */
+      .history-foot {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        padding: calc(24 * var(--u)) 0 calc(120 * var(--u));
+        transition: margin-top var(--his-ease);
+      }
+      .history.is-collapsed .history-foot {
+        box-sizing: border-box;
+        align-items: flex-start;
+        margin-top: calc(-1 * var(--his-foot-pull));
+        height: calc(
+          var(--his-foot-pull) + var(--his-foot-net)
+        ); /* 본문 하단 +14px 만 차지 */
+        padding-top: 0;
+        padding-bottom: 60px;
+      }
+      .history-toggle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        min-width: 64px;
+        min-height: 64px;
+        padding: 8px 16px;
+        background: transparent;
+        color: #444;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        transition: color var(--transition);
+      }
+      .history-toggle svg {
+        width: 24px;
+        height: 24px;
+        transition: transform var(--his-ease);
+      }
+      .history-toggle[aria-expanded="false"] svg {
+        transform: rotate(180deg);
+      }
+      .history-toggle:hover {
+        color: var(--red);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .history-body,
+        .history-body::after,
+        .history-foot,
+        .history-toggle svg {
+          transition: none;
+        }
+      }
+
+      /* ---------- Tablet : 1024px 이하 (선 유지, 데코 제거, 2열 지그재그 유지) ---------- */
+      @media (max-width: 1024px) {
+        .history {
+          --u: 1px;
+          --his-pad-top: clamp(80px, 12vw, 130px);
+          --his-pad-x: clamp(20px, 5.7vw, 56px);
+          --his-title: clamp(26px, 4.2vw, 42px);
+          --his-title-gap: clamp(40px, 8.1vw, 80px);
+          --his-count: clamp(150px, 28.8vw, 295px);
+          --his-head-gap: clamp(60px, 10.7vw, 110px);
+          --his-axis: clamp(30px, 8.6vw, 76px);
+          --his-line: clamp(12px, 2.1vw, 22px);
+          --his-period: clamp(22px, 3.3vw, 34px);
+          --his-lead: clamp(17px, 2.45vw, 25px);
+          --his-text: clamp(12px, 1.45vw, 15px);
+          --his-year: clamp(16px, 2vw, 21px);
+          --his-item-gap: clamp(16px, 2.8vw, 30px);
+          --his-row-gap: clamp(20px, 3.4vw, 32px);
+          --his-block-gap: clamp(80px, 16vw, 160px);
+          --his-end-gap: clamp(100px, 20vw, 200px);
+          --his-end-sub: clamp(13px, 1.9vw, 17px);
+          --his-end-main: clamp(20px, 3.3vw, 32px);
+          --his-dot: clamp(6px, 0.9vw, 8px);
+        }
+        .history-deco {
+          display: none;
+        } /* 장식 이미지는 데스크탑 전용 */
+        .history-figure {
+          width: var(--w-t);
+        }
+        .history-end-copy {
+          margin-top: clamp(40px, 8vw, 75px);
+        }
+        .history-end-copy::before {
+          inset: -120px -2% 0;
+        }
+        .history-foot {
+          padding: 24px 0 clamp(60px, 12vw, 120px);
+        }
+        /* 접힘 푸터는 .history.is-collapsed .history-foot(높이 고정)이 우선 → 1화면 비율 유지 */
+      }
+
+      /* ---------- Mobile : 568px 이하 (선 제거, 1열, 홀/짝 블록 좌우 교차 정렬) ---------- */
+      @media (max-width: 568px) {
+        .history {
+          --his-pad-top: clamp(24px, 6vw, 36px);
+          --his-pad-x: 20px;
+          --his-title: clamp(17px, 3.85vw, 22px);
+          --his-title-gap: clamp(20px, 5.3vw, 30px);
+          --his-count: clamp(80px, 22.6vw, 128px);
+          --his-head-gap: clamp(36px, 10vw, 56px);
+          --his-period: clamp(17px, 3.4vw, 20px);
+          --his-lead: clamp(14px, 2.6vw, 15px);
+          --his-text: clamp(12px, 2.2vw, 13px);
+          --his-year: clamp(15px, 2.8vw, 16px);
+          --his-item-gap: clamp(18px, 4.7vw, 28px);
+          --his-row-gap: clamp(18px, 4.6vw, 26px);
+          --his-block-gap: clamp(64px, 17vw, 96px);
+          --his-end-gap: clamp(56px, 14vw, 80px);
+          --his-end-sub: clamp(11px, 2.5vw, 13px);
+          --his-end-main: clamp(17px, 3.7vw, 20px);
+        }
+        .history-timeline::before {
+          content: none;
+        }
+        .history-block {
+          grid-template-columns: 1fr;
+          grid-template-rows: none;
+        }
+        .history-block--text-left {
+          grid-template-areas: "period" "lead" "list" "figure";
+          justify-items: end;
+        }
+        .history-block--text-right {
+          grid-template-areas: "period" "list" "figure";
+          justify-items: start;
+        }
+        .history-block .history-period,
+        .history-block .history-lead,
+        .history-block .history-list,
+        .history-block .history-figure {
+          justify-self: auto;
+        }
+        .history-block--text-right .history-period {
+          text-align: left;
+        }
+        .history-block--text-left .history-period {
+          text-align: right;
+        }
+        .history-figure {
+          width: var(--w-m);
+        }
+        .history-count--end {
+          left: 2.7%;
+        }
+        .history-end-copy {
+          margin-top: 20px;
+        }
+        .history-end-copy::before {
+          inset: -60px -20px 0;
+        }
+        .history-end-main {
+          line-height: 1.75;
+        }
+        .history-toggle {
+          font-size: 14px;
+        }
+        .history-body::after {
+          height: min(clamp(120px, 30vw, 180px), 40%);
+        }
+      }
+
+      /* 가로 모드 등 낮은 화면: 페이드/푸터가 한 화면을 과점하지 않도록 */
+      @media (max-height: 480px) {
+        .history {
+          --his-foot-pull: 90px;
+        }
+        .history.is-collapsed .history-foot {
+          padding-bottom: 40px;
+        }
+        .history-body::after {
+          height: min(120px, 40%);
+        }
+      }
+
+      /* ---------- Jobs (직무소개) ---------- */
+      /* 데스크탑(1025px~): 1440 기준 px 값을 --scale 로 축소 (history 와 동일 방식).
+         태블릿/모바일: 같은 변수를 시안 비율(vw) 기반 clamp 값으로 교체. */
+      .jobs {
+        --u: calc(1px * var(--scale));
+        --jobs-pad-top: calc(199 * var(--u));
+        --jobs-pad-bottom: calc(112 * var(--u));
+        --jobs-pad-x: calc(60 * var(--u));
+        --jobs-title: calc(48 * var(--u));
+        --jobs-title-gap: calc(24 * var(--u));
+        --jobs-lead: calc(24 * var(--u));
+        --jobs-lead-gap: calc(84 * var(--u));
+        --jobs-card-gap: calc(60 * var(--u));
+        --jobs-card-pad: calc(40 * var(--u));
+        --jobs-card-radius: calc(32 * var(--u));
+        --jobs-photo-radius: calc(24 * var(--u));
+        --jobs-desc: calc(18 * var(--u));
+        --jobs-desc-gap: calc(36 * var(--u));
+        --jobs-meta: calc(16 * var(--u));
+        --jobs-foot-gap: calc(30 * var(--u));
+        --jobs-arrow: calc(40 * var(--u));
+        --jobs-cta-gap: calc(88 * var(--u));
+        --jobs-cta-w: calc(328 * var(--u));
+        --jobs-cta-h: calc(72 * var(--u));
+        --jobs-cta-font: calc(22px * var(--scale));
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        background: #fdf5f2;
+      }
+      /* 우측 중앙 / 우하단 은은한 빛 번짐 (데스크탑 시안) */
+      .jobs::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            ellipse calc(130 * var(--u)) calc(90 * var(--u)) at 100% 54%,
+            rgba(248, 196, 150, 0.6) 0%,
+            rgba(248, 196, 150, 0) 100%
+          ),
+          radial-gradient(
+            ellipse calc(420 * var(--u)) calc(120 * var(--u)) at 100% 100%,
+            rgba(255, 93, 50, 0.08) 0%,
+            rgba(255, 93, 50, 0) 100%
+          );
+      }
+      .jobs-inner {
+        position: relative;
+        z-index: 2;
+        max-width: var(--container-width);
+        margin: 0 auto;
+        padding: var(--jobs-pad-top) var(--jobs-pad-x) var(--jobs-pad-bottom);
+      }
+      .jobs-deco {
+        position: absolute;
+        height: auto;
+        max-width: none;
+        pointer-events: none;
+      }
+      .jobs-deco--bottle {
+        z-index: 2;
+        left: 0;
+        bottom: calc(118 * var(--u));
+        width: calc(224 * var(--u));
+      }
+      .jobs-deco--char {
+        z-index: 2;
+        right: calc(11 * var(--u));
+        top: calc(134 * var(--u));
+        width: calc(281 * var(--u));
+      }
+
+      /* 헤드 */
+      .jobs-head {
+        text-align: center;
+        margin-bottom: var(--jobs-lead-gap);
+      }
+      .jobs-headline {
+        position: relative;
+        display: inline-block;
+      }
+      .jobs-logo {
+        position: absolute;
+        left: calc(-46 * var(--u));
+        top: calc(-60 * var(--u));
+        width: calc(110 * var(--u));
+        height: auto;
+      }
+      .jobs-title {
+        margin: 0;
+        font-size: var(--jobs-title);
+        font-weight: 800;
+        line-height: 1.5;
+        letter-spacing: -0.03em;
+      }
+      .jobs-lead {
+        margin: var(--jobs-title-gap) 0 0;
+        font-size: var(--jobs-lead);
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: -0.03em;
+      }
+
+      /* 카드 2열 */
+      .jobs-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--jobs-card-gap);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .jobs-card {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        padding: var(--jobs-card-pad);
+        border-radius: var(--jobs-card-radius);
+        background: #fef7f5c9;
+        backdrop-filter: blur(4px);
+        box-shadow: 0 calc(10 * var(--u)) calc(30 * var(--u))
+          rgba(120, 60, 40, 0.07);
+        transition:
+          transform var(--transition),
+          box-shadow var(--transition),
+          background 0.5s;
+      }
+
+      /* 마우스 오버시 카드 배경색 투명도없애기 */
+      .jobs-card:hover {
+        background: #fef7f5;
+      }
+
+      .jobs-photo {
+        margin: 0;
+        overflow: hidden;
+        border-radius: var(--jobs-photo-radius);
+        aspect-ratio: 1100 / 706;
+        background: #eee;
+      }
+      .jobs-photo img {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+      }
+      .jobs-desc {
+        margin: var(--jobs-desc-gap) 0 0;
+        font-size: var(--jobs-desc);
+        font-weight: 700;
+        line-height: 1.6;
+        letter-spacing: -0.03em;
+      }
+      .jobs-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: var(--jobs-foot-gap);
+      }
+      .jobs-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 0;
+        font-size: var(--jobs-meta);
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: -0.03em;
+        color: #585858;
+      }
+      .jobs-name {
+        display: inline-flex;
+        align-items: center;
+      }
+      .jobs-name::before {
+        content: "";
+        width: 1px;
+        height: 0.8em;
+        margin: 0 0.9em;
+        background: #8a8a8a;
+      } /* 소속 | 이름 구분선 (장식) */
+
+      /* 화살표 원형 버튼: ::after 로 카드 전체를 클릭 영역으로 확장 */
+      .jobs-arrow {
+        display: flex;
+        flex: none;
+        align-items: center;
+        justify-content: center;
+        width: var(--jobs-arrow);
+        height: var(--jobs-arrow);
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ea8a6b 0%, #f4dfd8 105%);
+        color: var(--white);
+        transition:
+          background var(--transition),
+          transform var(--transition);
+      }
+      .jobs-arrow svg {
+        width: 45%;
+        height: 45%;
+      }
+      .jobs-arrow::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--jobs-card-radius);
+      }
+      .jobs-arrow:focus-visible {
+        outline: none;
+      }
+      .jobs-arrow:focus-visible::after {
+        outline: 2px solid var(--red);
+        outline-offset: 3px;
+      }
+      @media (hover: hover) {
+        .jobs-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 calc(16 * var(--u)) calc(36 * var(--u))
+            rgba(120, 60, 40, 0.12);
+        }
+        .jobs-card:hover .jobs-arrow {
+          background: var(--gradient-cta);
+          transform: translateX(3px);
+        }
+      }
+
+      /* CTA (기존 .btn-main 재사용, 크기만 시안에 맞게 변수화) */
+      .jobs-cta-wrap {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        margin-top: var(--jobs-cta-gap);
+      }
+      .jobs .jobs-cta {
+        width: var(--jobs-cta-w);
+        height: var(--jobs-cta-h);
+        padding: 0;
+        font-size: var(--jobs-cta-font);
+        line-height: 1.5;
+        letter-spacing: -0.03em;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .jobs-card,
+        .jobs-arrow {
+          transition: none;
+        }
+        .jobs-card:hover,
+        .jobs-card:hover .jobs-arrow {
+          transform: none;
+        }
+      }
+
+      /* ---------- Tablet : 1024px 이하 (시안 954px 폭 기준 vw 비례, 2열 유지) ---------- */
+      @media (max-width: 1024px) {
+        .jobs {
+          --u: 1px;
+          --jobs-pad-top: clamp(80px, 13.6vw, 140px);
+          --jobs-pad-bottom: clamp(60px, 10.7vw, 110px);
+          --jobs-pad-x: clamp(20px, 4.2vw, 43px);
+          --jobs-title: clamp(24px, 3.4vw, 35px);
+          --jobs-title-gap: clamp(8px, 1.7vw, 18px);
+          --jobs-lead: clamp(14px, 2.05vw, 21px);
+          --jobs-lead-gap: clamp(28px, 3.7vw, 38px);
+          --jobs-card-gap: clamp(12px, 1.9vw, 20px);
+          --jobs-card-pad: clamp(16px, 2.4vw, 25px);
+          --jobs-card-radius: clamp(18px, 2.5vw, 26px);
+          --jobs-photo-radius: clamp(12px, 1.9vw, 20px);
+          --jobs-desc: clamp(13px, 1.52vw, 16px);
+          --jobs-desc-gap: clamp(14px, 2.1vw, 22px);
+          --jobs-meta: clamp(11px, 1.3vw, 13.5px);
+          --jobs-foot-gap: clamp(12px, 1.7vw, 18px);
+          --jobs-arrow: clamp(24px, 3.1vw, 32px);
+          --jobs-cta-gap: clamp(28px, 3.9vw, 40px);
+          --jobs-cta-w: clamp(220px, 29.3vw, 300px);
+          --jobs-cta-h: clamp(48px, 6.3vw, 64px);
+          --jobs-cta-font: clamp(15px, 1.66vw, 17px);
+        }
+        .jobs::before {
+          content: none;
+        }
+        .jobs-logo {
+          left: -8.2vw;
+          top: -4.2vw;
+          width: 7.4vw;
+        }
+        .jobs-deco--char {
+          right: 0.6vw;
+          top: 2.6vw;
+          width: 19.5vw;
+        }
+        .jobs-deco--bottle {
+          left: 9.2vw;
+          bottom: 2.3vw;
+          width: 16vw;
+        }
+        .jobs-card {
+          box-shadow: 0 8px 24px rgba(120, 60, 40, 0.07);
+        }
+      }
+
+      /* ---------- Mobile : 568px 이하 (시안 337px 폭 기준 vw 비례, 1열) ---------- */
+      @media (max-width: 568px) {
+        .jobs {
+          --jobs-pad-top: clamp(100px, 29.7vw, 170px);
+          --jobs-pad-bottom: clamp(60px, 20.5vw, 110px);
+          --jobs-pad-x: clamp(20px, 5vw, 28px);
+          --jobs-title: clamp(20px, 5.5vw, 30px);
+          --jobs-title-gap: clamp(10px, 3.7vw, 20px);
+          --jobs-lead: clamp(12px, 3.03vw, 17px);
+          --jobs-lead-gap: clamp(20px, 6.2vw, 36px);
+          --jobs-card-gap: clamp(12px, 4.2vw, 24px);
+          --jobs-card-pad: clamp(18px, 6.2vw, 32px);
+          --jobs-card-radius: clamp(18px, 5.6vw, 30px);
+          --jobs-photo-radius: clamp(10px, 3.5vw, 18px);
+          --jobs-desc: clamp(12px, 2.97vw, 16px);
+          --jobs-desc-gap: clamp(14px, 4.7vw, 24px);
+          --jobs-meta: clamp(11px, 2.6vw, 14px);
+          --jobs-foot-gap: clamp(10px, 3vw, 16px);
+          --jobs-arrow: clamp(24px, 6.2vw, 34px);
+          --jobs-cta-gap: clamp(20px, 6.2vw, 34px);
+          --jobs-cta-w: clamp(200px, 51.5vw, 260px);
+          --jobs-cta-h: clamp(47px, 11.6vw, 58px);
+          --jobs-cta-font: clamp(15px, 3.7vw, 18px);
+        }
+        .jobs-logo {
+          left: -12.5vw;
+          top: -11.6vw;
+          width: 19.3vw;
+        }
+        .jobs-deco--char {
+          right: 0;
+          top: 0;
+          width: 32.7vw;
+        }
+        .jobs-deco--bottle {
+          display: none;
+        } /* 모바일 시안에는 약병 없음 */
+        .jobs-list {
+          grid-template-columns: 1fr;
+        }
+        .jobs-br {
+          display: none;
+        } /* PC/태블릿 강제 줄바꿈 해제 → 자연 줄바꿈 */
+      }
+
+      /* ---------- Innovation: 성장과 혁신 소식 ---------- */
+      .innovation {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        background: #fff8f5;
+      }
+      .innovation::before,
+      .innovation::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        z-index: -1;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--red) 0%, transparent 72%);
+      }
+      .innovation::before {
+        width: 30vw;
+        height: 30vw;
+        right: -12vw;
+        top: -6vw;
+        opacity: 0.1;
+      }
+      .innovation::after {
+        width: 20vw;
+        height: 20vw;
+        left: -7vw;
+        bottom: -7vw;
+        opacity: 0.2;
+      }
+      .innovation-inner {
+        max-width: 1440px;
+        margin: auto;
+        padding: 105px 60px 100px;
+        position: relative;
+      }
+      .innovation-head {
+        text-align: center;
+        margin-bottom: 70px;
+      }
+      .innovation-title {
+        font-size: clamp(30px, 3.2vw, 48px);
+        line-height: 1.4;
+        font-weight: 800;
+        letter-spacing: -0.05em;
+        margin: 0 0 22px;
+      }
+      .innovation-lead {
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.6;
+      }
+      .innovation-board {
+        position: relative;
+        background: rgba(255, 250, 248, 0.75);
+        border: 1px solid #fff;
+        box-shadow: 0 6px 15px rgba(104, 55, 38, 0.12);
+        border-radius: 22px;
+        padding: 38px 60px 42px;
+      }
+      .innovation-news {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .innovation-news li {
+        display: flex;
+        min-width: 0;
+      }
+      .innovation-news li:nth-child(even) {
+        justify-content: flex-end;
+      }
+      .innovation-bubble {
+        position: relative;
+        max-width: 66%;
+        padding: 17px 23px;
+        border-radius: 14px;
+        background: var(--orange);
+        color: #fff;
+        box-shadow: 0 6px 13px rgba(96, 51, 38, 0.09);
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.55;
+        letter-spacing: -0.035em;
+      }
+      .innovation-news li:nth-child(even) .innovation-bubble {
+        background: #fff;
+        color: var(--orange);
+        border-bottom-left-radius: 0;
+      }
+      .innovation-bubble svg {
+        position: absolute;
+        bottom: 0px;
+        left: -9px;
+        width: 18px;
+        height: 18px;
+        fill: var(--orange);
+        pointer-events: none;
+      }
+      .innovation-news li:nth-child(even) .innovation-bubble svg {
+        left: auto;
+        right: -9px;
+        fill: #fff;
+        transform: scaleX(-1);
+      }
+      .innovation-note {
+        text-align: right;
+        margin: 28px 0 0;
+        font-size: 12px;
+        color: #999;
+      }
+      .innovation-note::before {
+        content: "•";
+        color: var(--orange);
+        margin-right: 8px;
+      }
+      .innovation-deco {
+        position: absolute;
+        height: auto;
+        pointer-events: none;
+        z-index: 2;
+      }
+      .innovation-deco--chemical {
+        width: 230px;
+        right: 8px;
+        top: 205px;
+        opacity: 0.7;
+      }
+      .innovation-deco--atom {
+        width: 135px;
+        right: 85px;
+        top: 180px;
+      }
+      .innovation-deco--molecule {
+        width: 140px;
+        left: 60px;
+        bottom: 10px;
+      }
+      @media (max-width: 1024px) {
+        .innovation-inner {
+          padding: 75px 30px 85px;
+        }
+        .innovation-head {
+          margin-bottom: 55px;
+        }
+        .innovation-title {
+          font-size: clamp(28px, 3.6vw, 38px);
+        }
+        .innovation-lead {
+          font-size: 16px;
+        }
+        .innovation-board {
+          padding: 40px 42px;
+        }
+        .innovation-bubble {
+          max-width: 74%;
+          font-size: 15px;
+          padding: 14px 18px;
+        }
+        .innovation-deco--chemical {
+          width: 190px;
+          right: 0;
+          top: 188px;
+        }
+        .innovation-deco--atom {
+          width: 105px;
+          right: 58px;
+          top: 183px;
+        }
+        .innovation-deco--molecule {
+          width: 100px;
+          left: 30px;
+          bottom: 8px;
+        }
+      }
+      @media (max-width: 568px) {
+        .innovation-inner {
+          padding: 14px 28px 70px;
+        }
+        .innovation-head {
+          margin-bottom: 45px;
+        }
+        .innovation-title {
+          font-size: clamp(24px, 6vw, 32px);
+          line-height: 1.4;
+          margin-bottom: 14px;
+        }
+        .innovation-lead {
+          font-size: 15px;
+          line-height: 1.6;
+        }
+        .innovation-board {
+          padding: 20px 28px 25px;
+          border-radius: 20px;
+        }
+        .innovation-news {
+          gap: 13px;
+        }
+        .innovation-news li,
+        .innovation-news li:nth-child(even) {
+          justify-content: stretch;
+        }
+        .innovation-bubble {
+          max-width: 100%;
+          width: 100%;
+          padding: 13px 15px;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+        .innovation-note {
+          font-size: 11px;
+          margin-top: 22px;
+        }
+        .innovation-deco--chemical {
+          width: 125px;
+          right: 8px;
+          top: 145px;
+        }
+        .innovation-deco--atom {
+          width: 76px;
+          right: 46px;
+          top: 148px;
+        }
+        .innovation-deco--molecule {
+          width: 80px;
+          left: 25px;
+          bottom: 6px;
+        }
+      }
+
+      /* ---------- Welfare: 회사 복지 ---------- */
+      .welfare {
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+      }
+      .welfare-inner {
+        position: relative;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 82px 60px 30px;
+      }
+      .welfare-head {
+        position: relative;
+        margin-bottom: 48px;
+        text-align: center;
+      }
+      .welfare-title {
+        margin: 0 0 12px;
+        font-size: clamp(30px, 3vw, 40px);
+        font-weight: 800;
+        line-height: 1.4;
+        letter-spacing: -0.05em;
+      }
+      .welfare-title-break {
+        display: none;
+      }
+      .welfare-lead {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      .welfare-character {
+        position: absolute;
+        top: -36px;
+        right: 0;
+        width: 145px;
+        height: auto;
+        pointer-events: none;
+      }
+      .welfare-intro {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 10px;
+        margin: 0 0 18px;
+      }
+      .welfare-intro > * {
+        flex: 1 1 200px;
+        min-width: min(200px, 100%);
+      }
+      .welfare-scrollbox {
+        max-height: 418px;
+        padding-right: 10px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-width: thin;
+        scrollbar-color: var(--orange) #ededed;
+      }
+      .welfare-scrollbox::-webkit-scrollbar {
+        width: 4px;
+      }
+      .welfare-scrollbox::-webkit-scrollbar-track {
+        border-radius: 999px;
+        background: #ededed;
+      }
+      .welfare-scrollbox::-webkit-scrollbar-thumb {
+        border-radius: 999px;
+        background: var(--orange);
+      }
+      .welfare-subtitle {
+        margin: 0;
+        color: var(--orange);
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 1.5;
+        letter-spacing: -0.04em;
+      }
+      .welfare-subtitle::before {
+        content: "💗";
+        margin-right: 8px;
+      }
+      .welfare-subtitle,
+      .welfare-note {
+        word-break: break-all;
+        overflow-wrap: break-word;
+      }
+      .welfare-note {
+        margin: 0;
+        color: #555;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .welfare-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 74px;
+        gap: 12px 14px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .welfare-list li {
+        min-width: 0;
+      }
+      .welfare-list-intro {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+      }
+      .welfare-list-intro .welfare-intro {
+        margin: 0;
+      }
+      .welfare-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        height: 100%;
+        min-width: 0;
+        padding: 12px 18px;
+        border: 1px solid #ffe1d8;
+        border-radius: 16px;
+        background: #fffdfc;
+        box-shadow: 0 4px 8px rgba(111, 58, 42, 0.08);
+      }
+      .welfare-card-copy {
+        min-width: 0;
+      }
+      .welfare-card-title {
+        margin: 0 0 5px;
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.4;
+        letter-spacing: -0.03em;
+      }
+      .welfare-card-description {
+        margin: 0;
+        color: #666;
+        font-size: 12px;
+        line-height: 1.45;
+      }
+      .welfare-card-icon {
+        flex: none;
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+      }
+      .welfare-cloud {
+        width: 120px;
+        height: auto;
+        margin-top: 30px;
+        pointer-events: none;
+      }
+      @media (max-width: 1024px) {
+        .welfare-inner {
+          padding: 86px 32px 28px;
+        }
+        .welfare-head {
+          margin-bottom: 46px;
+        }
+        .welfare-title {
+          font-size: clamp(30px, 4vw, 38px);
+        }
+        .welfare-lead {
+          font-size: 16px;
+        }
+        .welfare-character {
+          top: -48px;
+          right: -4px;
+          width: 145px;
+        }
+        .welfare-list {
+          grid-template-columns: 1fr;
+          grid-auto-rows: 84px;
+          gap: 12px;
+        }
+        .welfare-scrollbox {
+          max-height: 468px;
+        }
+        .welfare-card {
+          padding: 14px 20px;
+        }
+        .welfare-card-title {
+          font-size: 16px;
+        }
+        .welfare-card-description {
+          font-size: 13px;
+        }
+        .welfare-card-icon {
+          width: 56px;
+          height: 56px;
+        }
+        .welfare-cloud {
+          width: 130px;
+        }
+      }
+      @media (max-width: 568px) {
+        .welfare-inner {
+          padding: 82px 24px 24px;
+        }
+        .welfare-head {
+          margin-bottom: 46px;
+        }
+        .welfare-title {
+          max-width: 340px;
+          margin: 0 auto 12px;
+          font-size: clamp(26px, 6.4vw, 30px);
+          line-height: 1.45;
+        }
+        .welfare-title-break {
+          display: block;
+        }
+        .welfare-lead {
+          font-size: 15px;
+          line-height: 1.6;
+        }
+        .welfare-character {
+          top: -34px;
+          right: -12px;
+          width: 94px;
+        }
+        .welfare-list-intro {
+          display: block;
+        }
+        .welfare-list-intro .welfare-intro {
+          margin-bottom: 0;
+        }
+        .welfare-subtitle {
+          font-size: 18px;
+        }
+        .welfare-subtitle::before {
+          margin-right: 6px;
+        }
+        .welfare-note {
+          font-size: 13px;
+        }
+        .welfare-list {
+          grid-auto-rows: minmax(124px, auto);
+          gap: 14px;
+        }
+        .welfare-scrollbox {
+          max-height: 552px;
+          padding-right: 8px;
+        }
+        .welfare-card {
+          gap: 12px;
+          padding: 16px 18px 16px 22px;
+          border-radius: 19px;
+        }
+        .welfare-card-title {
+          margin-bottom: 8px;
+          font-size: 18px;
+        }
+        .welfare-card-description {
+          font-size: 14px;
+          line-height: 1.55;
+        }
+        .welfare-card-icon {
+          width: 60px;
+          height: 60px;
+        }
+        .welfare-cloud {
+          width: 112px;
+          margin-top: 30px;
+        }
+      }
+
+      /* ---------- Tasks: 직무 탐색 ---------- */
+      .tasks {
+        background: #fff;
+        color: #111;
+      }
+      .tasks-hero {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        height: clamp(440px, 39vw, 560px);
+        overflow: hidden;
+        background: linear-gradient(180deg, #ffe2db 0%, #fff8f5 72%, #fff 100%);
+      }
+      .tasks-title-bg {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        opacity: 0.45;
+        pointer-events: none;
+      }
+      .tasks-character {
+        position: absolute;
+        z-index: 0;
+        bottom: 0;
+        left: 50%;
+        width: clamp(300px, 38vw, 550px);
+        max-width: 80vw;
+        height: auto;
+        transform: translateX(-50%);
+      }
+      .tasks-inner {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 38px 80px;
+      }
+      .tasks-intro {
+        margin: 0 auto 52px;
+        text-align: center;
+      }
+      .tasks-title {
+        margin: 0;
+        font-size: clamp(28px, 3.2vw, 38px);
+        font-weight: 800;
+        line-height: 1.4;
+        letter-spacing: -0.05em;
+      }
+      .tasks-lead {
+        margin: 14px 0 0;
+        font-size: clamp(14px, 1.35vw, 17px);
+        line-height: 1.7;
+      }
+      .tasks-tabs {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 8px;
+        margin: 0;
+        padding: 0 0 22px;
+        overflow: visible;
+        border-bottom: 1px solid #dedede;
+        list-style: none;
+      }
+      .tasks-tabs > li {
+        min-width: 0;
+      }
+      .tasks-tab {
+        width: 100%;
+        min-width: 0;
+        height: 68px;
+        padding: 0 14px;
+        border-radius: 16px;
+        background: transparent;
+        color: #777;
+        font-size: 16px;
+        font-weight: 600;
+        white-space: nowrap;
+        transition:
+          background var(--transition),
+          color var(--transition),
+          box-shadow var(--transition);
+      }
+      .tasks-tab[aria-selected="true"] {
+        background: #fffaf8;
+        box-shadow: 0 5px 13px rgba(128, 74, 54, 0.16);
+        color: var(--orange);
+      }
+      .tasks-accordion {
+        border-bottom: 1px solid #dedede;
+      }
+      .tasks-department-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 72px;
+        padding: 0 30px;
+        background: #fff;
+        color: #888;
+        text-align: left;
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .tasks-accordion.is-open > .tasks-department-toggle {
+        color: var(--orange);
+      }
+      .tasks-count {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 30px;
+        height: 27px;
+        padding: 0 9px;
+        border-radius: 999px;
+        background: var(--orange);
+        color: #fff;
+        line-height: 1;
+      }
+      .tasks-panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        padding: 0 40px;
+        overflow: hidden;
+        transition:
+          grid-template-rows 0.35s ease,
+          padding-bottom 0.35s ease;
+      }
+      .tasks-accordion.is-open > .tasks-panel {
+        grid-template-rows: 1fr;
+        padding-bottom: 38px;
+      }
+      .tasks-panel-inner {
+        min-height: 0;
+        overflow: hidden;
+      }
+      .tasks-role-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .tasks-role-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        width: 100%;
+        min-height: 84px;
+        padding: 20px 30px;
+        border: 1px solid #ffded4;
+        border-radius: 20px;
+        background: #fffdfc;
+        box-shadow: 0 5px 12px rgba(111, 58, 42, 0.09);
+        text-align: left;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.45;
+      }
+      .tasks-role-arrow {
+        flex: none;
+        color: #888;
+        font-size: 26px;
+        line-height: 1;
+      }
+      .tasks-data-error {
+        margin: 18px 0 0;
+        color: #b42318;
+        font-size: 14px;
+        text-align: center;
+      }
+      .tasks-modal {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        width: min(760px, calc(100% - 32px));
+        max-width: none;
+        height: min(680px, 80vh);
+        max-height: min(80vh, 760px);
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: 0 18px 70px rgba(0, 0, 0, 0.24);
+      }
+      .tasks-modal:not([open]) {
+        display: none;
+      }
+      .tasks-modal::backdrop {
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .tasks-modal-header {
+        position: relative;
+        flex: none;
+        overflow: hidden;
+        height: 152px;
+        background: #dce8f4;
+      }
+      .tasks-modal-image {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+      }
+      .tasks-modal-close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: var(--orange);
+        color: #fff;
+        font-size: 28px;
+        font-weight: 400;
+      }
+      .tasks-modal-body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-height: 0;
+        padding: 40px 56px 0;
+        overflow: hidden;
+      }
+      .tasks-modal-summary {
+        flex: none;
+      }
+      .tasks-modal-content {
+        flex: 1;
+        min-height: 0;
+        padding: 0 0 32px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scrollbar-width: none;
+        overscroll-behavior: contain;
+      }
+      .tasks-modal-content::-webkit-scrollbar {
+        display: none;
+      }
+      .tasks-modal-heading {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px 18px;
+        margin: 0;
+      }
+      .tasks-modal-title {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      .tasks-modal-category,
+      .tasks-modal-department {
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .tasks-modal-category {
+        color: var(--orange);
+      }
+      .tasks-modal-department {
+        color: #888;
+      }
+      .tasks-modal-experience {
+        margin: 4px 0 36px;
+        font-size: 13px;
+      }
+      .tasks-modal-section {
+        padding: 0 0 24px;
+      }
+      .tasks-modal-section[hidden] {
+        display: none;
+      }
+      .tasks-modal-section + .tasks-modal-section {
+        padding-top: 32px;
+        border-top: 1px solid #ddd;
+      }
+      .tasks-modal-section h4 {
+        margin: 0 0 14px;
+        font-size: 18px;
+      }
+      .tasks-modal-section ul {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .tasks-modal-section li {
+        position: relative;
+        padding-left: 15px;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+      .tasks-modal-section li::before {
+        position: absolute;
+        top: 0.65em;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--orange);
+        content: "";
+      }
+      @media (max-width: 1024px) {
+        .tasks-hero {
+          height: clamp(400px, 61vw, 480px);
+        }
+        .tasks-character {
+          width: clamp(300px, 58vw, 420px);
+        }
+        .tasks-inner {
+          padding: 0 30px 64px;
+        }
+        .tasks-intro {
+          margin-bottom: 48px;
+        }
+        .tasks-title {
+          font-size: clamp(28px, 4vw, 34px);
+        }
+        .tasks-tabs {
+          gap: 4px;
+          padding-bottom: 18px;
+        }
+        .tasks-tab {
+          height: 58px;
+          padding: 0 6px;
+          font-size: clamp(12px, 1.8vw, 16px);
+        }
+        .tasks-role-list {
+          gap: 16px;
+        }
+        .tasks-role-button {
+          min-height: 76px;
+          padding: 18px 22px;
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 568px) {
+        .tasks-hero {
+          height: 412px;
+        }
+        .tasks-character {
+          width: min(78vw, 340px);
+        }
+        .tasks-inner {
+          padding: 0 22px 40px;
+        }
+        .tasks-intro {
+          margin: 0 auto 44px;
+          padding: 0 8px;
+        }
+        .tasks-title {
+          font-size: 26px;
+          line-height: 1.55;
+        }
+        .tasks-lead {
+          margin-top: 14px;
+          font-size: 14px;
+          line-height: 1.8;
+        }
+        .tasks-tabs {
+          display: flex;
+          gap: 10px;
+          margin: 0 -22px;
+          padding: 0 22px 18px;
+          overflow-x: auto;
+          overscroll-behavior-x: contain;
+          scrollbar-width: none;
+        }
+        .tasks-tabs::-webkit-scrollbar {
+          display: none;
+        }
+        .tasks-tab {
+          flex: none;
+          height: 68px;
+          padding: 0 16px;
+          font-size: 14px;
+        }
+        .tasks-tabs > li {
+          flex: 0 0 96px;
+        }
+        .tasks-department-toggle {
+          min-height: 76px;
+          padding: 0 12px 0 22px;
+          font-size: 16px;
+        }
+        .tasks-count {
+          min-width: 26px;
+          height: 22px;
+        }
+        .tasks-panel {
+          padding: 0;
+        }
+        .tasks-accordion.is-open > .tasks-panel {
+          padding-bottom: 24px;
+        }
+        .tasks-role-list {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+        .tasks-role-button {
+          min-height: 72px;
+          padding: 18px 20px;
+          border-radius: 17px;
+          font-size: 16px;
+        }
+        .tasks-modal {
+          width: calc(100% - 24px);
+          height: min(680px, 86vh);
+          max-height: 86vh;
+          border-radius: 16px;
+        }
+        .tasks-modal-header {
+          height: 112px;
+        }
+        .tasks-modal-close {
+          top: 12px;
+          right: 12px;
+          width: 36px;
+          height: 36px;
+        }
+        .tasks-modal-body {
+          padding: 28px 24px 0;
+        }
+        .tasks-modal-title {
+          font-size: 20px;
+        }
+        .tasks-modal-experience {
+          margin-bottom: 32px;
+        }
+        .tasks-modal-content {
+          padding-bottom: 28px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .tasks-tab,
+        .tasks-panel {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 상단 메뉴 영역 -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#main-visual" aria-label="한미그룹 홈">
+          <img src="./images/logo_svg.svg" alt="한미그룹 Hanmi" />
+        </a>
+
+        <nav class="gnb" id="gnb" aria-label="주요 메뉴">
+          <div class="gnb-head">
+            <img src="./images/logo_svg.svg" alt="한미그룹 Hanmi" />
+            <button type="button" class="btn-close" aria-label="메뉴 닫기">
+              <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path
+                  d="M1 1l12 12M13 1L1 13"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+          </div>
+          <ul class="gnb-list">
+            <li><a href="#jobs">직무소개</a></li>
+            <li><a href="#qualification">지원자격 및 접수방법</a></li>
+            <li><a href="#schedule">채용설명회 일정</a></li>
+          </ul>
+          <div class="gnb-cta">
+            <a class="btn btn-apply" href="#apply">
+              <span>지원하기</span>
+              <svg viewBox="0 0 7 12" fill="none" aria-hidden="true">
+                <path
+                  d="M1 1l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </nav>
+
+        <!-- 모바일 전용: 헤더 지원하기 + 햄버거 -->
+        <a class="btn btn-apply header-apply" href="#apply">지원하기</a>
+        <button
+          type="button"
+          class="btn-menu"
+          aria-label="메뉴 열기"
+          aria-controls="gnb"
+          aria-expanded="false"
+        >
+          <svg viewBox="0 0 20 14" fill="none" aria-hidden="true">
+            <path
+              d="M0 1h20M0 7h20M0 13h20"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main>
+      <section
+        class="main-visual"
+        id="main-visual"
+        aria-label="한미그룹 2026년 하반기 공개채용"
+      >
+        <div class="mv-container">
+          <div class="mv-copy">
+            <div class="mv-text">
+              <h1 class="mv-title">
+                <span class="mv-season">2026년 하반기</span>
+                <span class="mv-title-wrap">
+                  <span class="mv-brand">한미그룹</span>
+                  <span class="mv-kind">공개채용</span>
+                </span>
+              </h1>
+              <p class="mv-period">
+                모집기간 : 2026.9.28(월) ~ 2026.10.18(일) 23:59까지
+              </p>
+            </div>
+            <div>
+              <a class="btn btn-main" href="#jobs">모집직무 바로가기!</a>
+            </div>
+          </div>
+          <div class="mv-visual" aria-hidden="true">
+            <div class="ring ring-glow"></div>
+            <div class="ring ring-line"></div>
+            <img class="micro" src="./images/mv_micro.png" alt="" />
+            <img class="char1" src="./images/mv_char1.png" alt="" />
+            <img class="char2" src="./images/mv_char2.png" alt="" />
+            <img class="char3" src="./images/mv_char3.png" alt="" />
+            <img class="char4" src="./images/mv_char4.png" alt="" />
+            <span class="star star1"></span>
+            <span class="star star2"></span>
+            <span class="star star3"></span>
+            <span class="star star3 big"></span>
+            <span class="star star4"></span>
+          </div>
+
+          <a class="scroll-down" href="#jobs" aria-label="아래로 스크롤">
+            <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <path
+                d="M10 15l10 10 10-10"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+      <!-- 미래 비전 섹션 -->
+      <section
+        class="mirae-visual"
+        id="mirae-visual"
+        aria-labelledby="mirae-title"
+      >
+        <div class="mirae-inner">
+          <h2 class="mirae-title" id="mirae-title">
+            새로운 미래를 향해 나아갑니다
+          </h2>
+          <div class="mirae-scene">
+            <img
+              class="mirae-cloud mirae-cloud--left"
+              src="./images/mirae_cloud1.png"
+              alt="왼쪽 아래에 떠 있는 하얀 구름"
+            />
+            <img
+              class="mirae-cloud mirae-cloud--upper"
+              src="./images/mirae_cloud2.png"
+              alt="멀리 떠 있는 흐릿한 구름"
+            />
+            <img
+              class="mirae-cloud mirae-cloud--right"
+              src="./images/mirae_cloud3.png"
+              alt="오른쪽에서 떠다니는 커다란 하얀 구름"
+            />
+            <img
+              class="mirae-cloud mirae-cloud--small"
+              src="./images/mirae_cloud4.png"
+              alt="오른쪽 아래의 작은 구름"
+            />
+            <img
+              class="mirae-walking"
+              src="./images/mirae_walking.png"
+              alt="초록빛 지구본 위를 씩씩하게 걸어가는 파란색 알약 캐릭터"
+            />
+            <img
+              class="mirae-star mirae-star--top"
+              src="./images/mirae_star1.png"
+              alt="캐릭터 옆에서 빛나는 노란 별"
+            />
+            <img
+              class="mirae-star mirae-star--bottom"
+              src="./images/mirae_star2.png"
+              alt="지구본 위에서 반짝이는 노란 별"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- 한미의 도전 히스토리 섹션 (53th → 100th) -->
+      <section
+        class="history is-expanded"
+        id="history"
+        aria-labelledby="history-title"
+      >
+        <div class="history-body" id="history-body">
+          <div class="history-flow">
+            <header class="history-head">
+              <h2 class="history-title" id="history-title">
+                한미의 도전은 작은 가능성에서<br />시작되었습니다.
+              </h2>
+              <p class="history-count" role="img" aria-label="한미 창립 53주년">
+                <span class="history-count-num">53</span
+                ><span class="history-count-unit">th</span>
+              </p>
+              <img
+                class="history-deco history-deco--star"
+                src="./images/obj_star_big.png"
+                alt="반짝이는 노란 별 세 개"
+              />
+            </header>
+
+            <div class="history-timeline">
+              <!-- 1973~2001 -->
+              <div class="history-block history-block--text-left">
+                <h3 class="history-period">1973~2001</h3>
+                <p class="history-lead">한계를 하나씩 넘을 때마다,</p>
+                <ul class="history-list">
+                  <li>
+                    <span class="history-year">1973</span
+                    ><span class="history-text">한미약품공업주식회사 설립</span>
+                  </li>
+                  <li>
+                    <span class="history-year">1984</span
+                    ><span class="history-text">팔탄 GMP 공장 신축</span>
+                  </li>
+                  <li>
+                    <span class="history-year">1989</span
+                    ><span class="history-text"
+                      >세프트리악손 제조방법 Roche사 기술 수출</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">1997</span
+                    ><span class="history-text"
+                      >마이크로에멀전 제제기술 Novartis사 기술 수출</span
+                    >
+                  </li>
+                </ul>
+                <figure class="history-figure history-figure--1">
+                  <img
+                    src="./images/his1.png"
+                    alt="한미약품 초기 대표 제품 텐텐 어린이 영양제와 쎄쎄 비타민C 캐러멜"
+                  />
+                </figure>
+                <img
+                  class="history-deco history-deco--beaker"
+                  src="./images/obj_beaker.png"
+                  alt="분홍색 액체가 담긴 실험용 비커"
+                />
+              </div>
+
+              <!-- 2002~2010 -->
+              <div class="history-block history-block--text-right">
+                <h3 class="history-period">2002~2010</h3>
+                <ul class="history-list">
+                  <li>
+                    <span class="history-year">2004</span
+                    ><span class="history-text"
+                      >국내 최초 고혈압치료제 ‘아모디핀’ 미국특허 획득</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2006</span
+                    ><span class="history-text"
+                      >세계 최초 유소아 해열 시럽제 개량신약 ‘맥시부펜’ 개발
+                      성공</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2008</span
+                    ><span class="history-text"
+                      >국내 최초 주사용항생제 세프트리악손 美 FDA 승인</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2009</span
+                    ><span class="history-text"
+                      >세계최초 암로디핀+로살탄 복합제 ‘아모잘탄’ 발매</span
+                    >
+                  </li>
+                </ul>
+                <figure class="history-figure history-figure--2">
+                  <img
+                    src="./images/his2.png"
+                    alt="석양을 배경으로 손을 잡고 함께 뛰어오르는 다섯 사람의 실루엣"
+                  />
+                </figure>
+                <img
+                  class="history-deco history-deco--mol-blur1"
+                  src="./images/obj_mol_blur1.png"
+                  alt="흐릿하게 번진 푸른 분자 구조"
+                />
+                <img
+                  class="history-deco history-deco--microscope"
+                  src="./images/obj_microscope.png"
+                  alt="파란색 현미경"
+                />
+              </div>
+
+              <!-- 2011~2015 -->
+              <div class="history-block history-block--text-left">
+                <h3 class="history-period">2011~2015</h3>
+                <p class="history-lead">새로운 가능성이 현실이 되었어요.</p>
+                <ul class="history-list">
+                  <li>
+                    <span class="history-year">2011</span
+                    ><span class="history-text"
+                      >MSD와 ‘아모잘탄’ 50여개국 수출 계약 체결</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2012</span
+                    ><span class="history-text"
+                      >‘LAPS-GCSF’ 美 스펙트럼사와 공동개발 및 상업화 계약</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2013</span
+                    ><span class="history-text"
+                      >국내 개량신약 최초 미국 FDA 승인 및 미국 출시
+                      ‘에소메졸’</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2014</span
+                    ><span class="history-text"
+                      >‘트리악손’ 국내 최초 유럽 4개국 시판 허가</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2015</span
+                    ><span class="history-text"
+                      >한국 사상 최대규모 릴레이 기술수출</span
+                    >
+                  </li>
+                </ul>
+                <figure class="history-figure history-figure--3">
+                  <img
+                    src="./images/his3.png"
+                    alt="스펙트럼 파마슈티컬스 로고와 인체 모형, 에소메졸 제품 용기"
+                  />
+                </figure>
+              </div>
+
+              <!-- 2016~2020 -->
+              <div class="history-block history-block--text-right">
+                <h3 class="history-period">2016~2020</h3>
+                <ul class="history-list">
+                  <li>
+                    <span class="history-year">2016</span
+                    ><span class="history-text"
+                      >차세대 RAF 저해제, Roche 제넨텍 기술수출</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2017</span
+                    ><span class="history-text"
+                      >‘에소메졸’ 국내 제약회사 최초 미국약전(USP) 등재</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2018</span
+                    ><span class="history-text"
+                      >‘Glucagon Analog’, ‘오락솔’ 차세대 AML 치료제 美
+                      희귀의약품 지정</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2019</span
+                    ><span class="history-text"
+                      >최근 10년간 처방실적 최다 4조 4,176억원</span
+                    >
+                  </li>
+                </ul>
+                <figure class="history-figure history-figure--4">
+                  <img
+                    src="./images/his4.png"
+                    alt="미국임상종양학회 ASCO와 미국약전 USP 로고, 로수젯 제품 패키지"
+                  />
+                </figure>
+                <img
+                  class="history-deco history-deco--mol-blur2"
+                  src="./images/obj_mol_blur2.png"
+                  alt="흐릿하게 번진 분홍빛 분자 구조"
+                />
+              </div>
+
+              <!-- 2021~2026 -->
+              <div class="history-block history-block--text-left">
+                <h3 class="history-period">2021~2026</h3>
+                <p class="history-lead">
+                  하지만 아직, 가야 할 길이 더 남아 있습니다.
+                </p>
+                <ul class="history-list">
+                  <li>
+                    <span class="history-year">2021</span
+                    ><span class="history-text"
+                      >‘로수젯’, 국내사 개발 처방의약품 매출 1위 달성</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2022</span
+                    ><span class="history-text"
+                      >‘롤론티스’ 한국 최초 FDA 허가 받은 바이오신약 등재<br />‘로수젯
+                      RACING 연구’ 세계 최고 권위 의학저널 ‘LANCET’ 등재</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2023</span
+                    ><span class="history-text"
+                      >비만 프로젝트 ‘H.O.P’ 프로젝트 가동</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2024</span
+                    ><span class="history-text"
+                      >근손실 한계 뛰어넘은 신개념 비만 신약 ‘HM17321’
+                      발표</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2025</span
+                    ><span class="history-text"
+                      >‘로수젯’ 한국 전문의약품 시장 1위 품목 등록<br />한미약품
+                      8년 연속 원외처방 1위<br />미국암연구학회(AACR)서 국내
+                      최다 11개 연구 성과 발표<br />한미사이언스 약국화장품
+                      ‘EGF크림’ 27만개 완판</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2026</span
+                    ><span class="history-text"
+                      >희귀질환치료제 ‘LAPS-GLP2’ 릴리 기술수출<br />한미
+                      ‘완전두유·케어미’ 국제 우수 미각상 수상</span
+                    >
+                  </li>
+                </ul>
+                <figure class="history-figure history-figure--5">
+                  <img
+                    src="./images/his5.png"
+                    alt="THE LANCET 창간 200주년 표지와 롤론티스 작용 원리, 롤론티스 제품 패키지"
+                  />
+                </figure>
+                <img
+                  class="history-deco history-deco--mol-big"
+                  src="./images/obj_mol_big.png"
+                  alt="유리 질감의 큰 분자 구조 모형"
+                />
+              </div>
+            </div>
+
+            <footer class="history-end">
+              <p
+                class="history-count history-count--end"
+                role="img"
+                aria-label="한미 창립 100주년"
+              >
+                <span class="history-count-num">100</span
+                ><span class="history-count-unit">th</span>
+              </p>
+              <div class="history-end-copy">
+                <p class="history-end-sub">
+                  한계를 넘을 때마다, 건강한 미래는 가까워졌습니다. 한계를 넘는
+                  일, 우리에게는 꽤 익숙하니까.
+                </p>
+                <p class="history-end-main">
+                  수많은 도전이 오늘의 한미를 만들었습니다.<br />이제 또 다른
+                  가능성을 향해 당신과 함께 나아갑니다.
+                </p>
+              </div>
+              <img
+                class="history-deco history-deco--cloud"
+                src="./images/cloud_blur_medium.png"
+                alt="캐릭터 아래에 깔린 흐릿한 구름 그림자"
+              />
+              <img
+                class="history-deco history-deco--char"
+                src="./images/con2_char.png"
+                alt="사원증을 목에 걸고 달려가는 파란색 알약 캐릭터"
+              />
+            </footer>
+          </div>
+        </div>
+
+        <div class="history-foot">
+          <button
+            class="history-toggle"
+            type="button"
+            aria-expanded="true"
+            aria-controls="history-body"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M5 11l7-7 7 7M5 19l7-7 7 7"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="history-toggle-label">접기</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ---------- 직무소개 (Jobs) ---------- -->
+      <section class="jobs" id="jobs" aria-labelledby="jobs-title">
+        <img
+          class="jobs-deco jobs-deco--bottle"
+          src="./images/con3_bottle.png"
+          width="442"
+          height="692"
+          alt="한미 로고가 새겨진 파란색 약병 일러스트"
+        />
+
+        <div class="jobs-inner">
+          <header class="jobs-head">
+            <div class="jobs-headline">
+              <img
+                class="jobs-logo"
+                src="./images/con3_logo.png"
+                width="216"
+                height="193"
+                alt="Hanmi 로고"
+              />
+              <h2 class="jobs-title" id="jobs-title">
+                한미에서는 어떤 일을 할까요?
+              </h2>
+            </div>
+            <p class="jobs-lead">
+              일의 보람부터 성장의 순간까지, 먼저 경험한 현직자들이 솔직하게
+              들려드립니다.
+            </p>
+          </header>
+
+          <img
+            class="jobs-deco jobs-deco--char"
+            src="./images/con3_char.png"
+            width="560"
+            height="458"
+            alt="서류 가방을 들고 출근하는 보라색 캐릭터"
+          />
+
+          <ul class="jobs-list">
+            <li class="jobs-card">
+              <figure class="jobs-photo">
+                <img
+                  src="./images/con3_int1.png"
+                  width="1100"
+                  height="706"
+                  alt="실험 장비가 놓인 품질관리 연구실에서 주먹을 쥐어 보이며 웃고 있는 한미약품 이건호 사원"
+                />
+              </figure>
+              <p class="jobs-desc">
+                정밀한 시험과 분석으로 의약품의 품질을 확인해<br
+                  class="jobs-br"
+                />
+                안전하고 신뢰할 수 있는 의약품을 만들어갑니다.
+              </p>
+              <div class="jobs-foot">
+                <p class="jobs-meta">
+                  <span class="jobs-dept">한미약품 품질관리</span>
+                  <span class="jobs-name">이건호 사원</span>
+                </p>
+                <!-- TODO: 실제 인터뷰 상세 URL로 교체 (카드 전체가 클릭 영역) -->
+                <a
+                  class="jobs-arrow"
+                  href="#jobs"
+                  aria-label="한미약품 품질관리 이건호 사원 인터뷰 보기"
+                >
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path
+                      d="M2 8h12M9 3l5 5-5 5"
+                      stroke="currentColor"
+                      stroke-width="1.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </li>
+
+            <li class="jobs-card">
+              <figure class="jobs-photo">
+                <img
+                  src="./images/con3_int2.png"
+                  width="1100"
+                  height="706"
+                  alt="밝은 사무 공간의 소파에 앉아 미소 짓고 있는 한미약품 박진하 연구원"
+                />
+              </figure>
+              <p class="jobs-desc">
+                신약 후보물질의 가능성을 과학적으로 검증해<br class="jobs-br" />
+                새로운 치료제가 환자에게 향하는 첫걸음을 만듭니다.
+              </p>
+              <div class="jobs-foot">
+                <p class="jobs-meta">
+                  <span class="jobs-dept">한미약품 전임상연구</span>
+                  <span class="jobs-name">박진하 연구원</span>
+                </p>
+                <a
+                  class="jobs-arrow"
+                  href="#jobs"
+                  aria-label="한미약품 전임상연구 박진하 연구원 인터뷰 보기"
+                >
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path
+                      d="M2 8h12M9 3l5 5-5 5"
+                      stroke="currentColor"
+                      stroke-width="1.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </li>
+          </ul>
+
+          <div class="jobs-cta-wrap">
+            <!-- TODO: 현직자 전체 보기 URL로 교체 -->
+            <a class="btn btn-main jobs-cta" href="#jobs"
+              >모든 현직자 알아가기!</a
+            >
+          </div>
+        </div>
+      </section>
+      <section
+        class="innovation"
+        id="innovation"
+        aria-labelledby="innovation-title"
+      >
+        <div class="innovation-inner">
+          <header class="innovation-head">
+            <h2 class="innovation-title" id="innovation-title">
+              당신의 가능성,<br />한미그룹에서 더 크게 성장합니다
+            </h2>
+            <p class="innovation-lead">
+              연구와 혁신으로 성장하며 글로벌 제약/바이오 기업을 향해
+              나아갑니다.
+            </p>
+          </header>
+          <img
+            class="innovation-deco innovation-deco--chemical"
+            src="./images/inno_chemical.png"
+            alt=""
+          />
+          <img
+            class="innovation-deco innovation-deco--atom"
+            src="./images/inno_molecule1.png"
+            alt=""
+          />
+          <div class="innovation-board">
+            <ul class="innovation-news" aria-label="한미그룹 혁신 소식">
+              <li>
+                <div class="innovation-bubble">
+                  한미약품, 상반기 누적 매출 8,602억원...2분기 영업이익 117%
+                  증가<svg
+                    viewBox="0 0 18 18"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M18 0 V18 H0 Q11 15 18 0Z" />
+                  </svg>
+                </div>
+              </li>
+              <li>
+                <div class="innovation-bubble">
+                  “사업형 지주사 경쟁력 입증”...한미사이언스, 2분기 영업이익
+                  71%↑ 2분기 매출 3,679억원...상반기 누적 매출 7,216억원
+                  돌파<svg
+                    viewBox="0 0 18 18"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M18 0 V18 H0 Q11 15 18 0Z" />
+                  </svg>
+                </div>
+              </li>
+              <li>
+                <div class="innovation-bubble">
+                  한미약품, 로슈 제넨텍에 비만신약 기술수출...최대 3조 2,000억
+                  규모<svg
+                    viewBox="0 0 18 18"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M18 0 V18 H0 Q11 15 18 0Z" />
+                  </svg>
+                </div>
+              </li>
+              <li>
+                <div class="innovation-bubble">
+                  “UCN2 이어 또...” 한미약품, 두 번째 근육 증가 비만신약
+                  공개<svg
+                    viewBox="0 0 18 18"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M18 0 V18 H0 Q11 15 18 0Z" />
+                  </svg>
+                </div>
+              </li>
+              <li>
+                <div class="innovation-bubble">
+                  명품 반열 오른 한미 ‘로수젯’...압도적 데이터 경쟁력으로 시장
+                  석권 2년 연속 국내사 개발 전문의약품 시장 ‘1위’...올해 상반기
+                  누적 처방액도 선두<svg
+                    viewBox="0 0 18 18"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M18 0 V18 H0 Q11 15 18 0Z" />
+                  </svg>
+                </div>
+              </li>
+              <li>
+                <div class="innovation-bubble">
+                  “비만 넘어 항암으로 혁신 확장”...한미, AACR서 차세대 신약 대거
+                  공개<svg
+                    viewBox="0 0 18 18"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M18 0 V18 H0 Q11 15 18 0Z" />
+                  </svg>
+                </div>
+              </li>
+              <li>
+                <div class="innovation-bubble">
+                  한미 완전두유·케어미, 영양에 ‘맛’까지 인정...국제 우수 미각상
+                  수상<svg
+                    viewBox="0 0 18 18"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M18 0 V18 H0 Q11 15 18 0Z" />
+                  </svg>
+                </div>
+              </li>
+            </ul>
+            <p class="innovation-note">
+              말풍선을 클릭해서 기사를 확인해 보세요.
+            </p>
+          </div>
+          <img
+            class="innovation-deco innovation-deco--molecule"
+            src="./images/inno_molecule2.png"
+            alt=""
+          />
+        </div>
+      </section>
+      <section class="welfare" id="welfare" aria-labelledby="welfare-title">
+        <div class="welfare-inner">
+          <header class="welfare-head">
+            <h2 class="welfare-title" id="welfare-title">
+              한미 생활을<br class="welfare-title-break" />더 즐겁게 만드는 방법
+            </h2>
+            <p class="welfare-lead">
+              건강부터 성장, 휴식까지 알차게 준비한 복지를 소개할게요.
+            </p>
+            <img
+              class="welfare-character"
+              src="./images/con5_char.png"
+              alt="화장품과 거울을 든 한미 캐릭터"
+            />
+          </header>
+          <div class="welfare-scrollbox">
+            <div class="welfare-intro">
+              <h3 class="welfare-subtitle">
+                오늘의 나도, 내일의 나도 든든하게!
+              </h3>
+              <p class="welfare-note">
+                건강, 성장, 문화생활까지 알차게 챙겨드려요.
+              </p>
+            </div>
+            <ul class="welfare-list" aria-label="한미그룹 회사 복지">
+              <li>
+                <article class="welfare-card">
+                  <div class="welfare-card-copy">
+                    <h4 class="welfare-card-title">건강 검진</h4>
+                    <p class="welfare-card-description">
+                      건강한 하루가 오래 이어지도록, 정기적인 건강관리를 지원해요.
+                    </p>
+                  </div>
+                  <img
+                    class="welfare-card-icon"
+                    src="./images/wf_ico1.png"
+                    alt="하트가 그려진 건강 검진 달력"
+                  />
+                </article>
+              </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">기념일 축하 지원</h4>
+                  <p class="welfare-card-description">
+                    소중한 기념일이 더 특별해지도록 한미가 함께 축하해요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico2.png"
+                  alt="기념일 축하 케이크"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">본인주도 선택복지</h4>
+                  <p class="welfare-card-description">
+                    나에게 필요한 복지를 내 취향과 생활에 맞게 선택할 수 있어요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico3.png"
+                  alt="선택 복지를 나타내는 카드"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">장기 근속 포상</h4>
+                  <p class="welfare-card-description">
+                    한미와 함께 걸어온 소중한 시간에 감사의 마음을 전해요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico4.png"
+                  alt="목표를 향한 과녁과 화살"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">유연근무제</h4>
+                  <p class="welfare-card-description">
+                    업무와 일상의 균형을 찾을 수 있도록 유연한 근무를 지원해요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico5.png"
+                  alt="유연한 근무 시간을 상징하는 시계"
+                />
+              </article>
+            </li>
+            <li class="welfare-list-intro">
+              <div class="welfare-intro">
+                <h3 class="welfare-subtitle">가족의 행복도 빼놓을 수 없죠!</h3>
+                <p class="welfare-note">
+                  축하할 때도, 도움이 필요할 때도 한미가 함께해요.
+                </p>
+              </div>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">단체 상해 보험</h4>
+                  <p class="welfare-card-description">
+                    예상하지 못한 순간에도 든든할 수 있도록 임직원을 보호해요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico6.png"
+                  alt="보장을 나타내는 확인 표시 방패"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">직무 교육 지원</h4>
+                  <p class="welfare-card-description">
+                    배우고 성장하는 즐거움이 계속되도록 역량 개발을 지원해요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico7.png"
+                  alt="학습 영상을 보여주는 화면과 연필"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">임직원 제휴 할인</h4>
+                  <p class="welfare-card-description">
+                    다양한 제휴 혜택으로 일상 속 즐거움과 실속을 더해드려요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico8.png"
+                  alt="세일 문구가 적힌 할인 쇼핑백"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">문화 생활 지원</h4>
+                  <p class="welfare-card-description">
+                    바쁜 일상에 기분 좋은 쉼표를 더할 수 있도록 문화생활을
+                    응원해요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico9.png"
+                  alt="문화생활을 상징하는 곰 인형과 음표"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">구내식당</h4>
+                  <p class="welfare-card-description">
+                    든든하고 맛있는 한 끼로 활기찬 하루를 채워드려요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico10.png"
+                  alt="숟가락과 포크"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">건강 검진</h4>
+                  <p class="welfare-card-description">
+                    건강한 하루가 오래 이어지도록, 정기적인 건강관리를 지원해요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico1.png"
+                  alt="하트가 그려진 건강 검진 달력"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">기념일 축하 지원</h4>
+                  <p class="welfare-card-description">
+                    소중한 기념일이 더 특별해지도록 한미가 함께 축하해요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico2.png"
+                  alt="기념일 축하 케이크"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">본인주도 선택복지</h4>
+                  <p class="welfare-card-description">
+                    나에게 필요한 복지를 내 취향과 생활에 맞게 선택할 수 있어요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico3.png"
+                  alt="선택 복지를 나타내는 카드"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">장기 근속 포상</h4>
+                  <p class="welfare-card-description">
+                    한미와 함께 걸어온 소중한 시간에 감사의 마음을 전해요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico4.png"
+                  alt="목표를 향한 과녁과 화살"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">유연근무제</h4>
+                  <p class="welfare-card-description">
+                    업무와 일상의 균형을 찾을 수 있도록 유연한 근무를 지원해요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico5.png"
+                  alt="유연한 근무 시간을 상징하는 시계"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">단체 상해 보험</h4>
+                  <p class="welfare-card-description">
+                    예상하지 못한 순간에도 든든할 수 있도록 임직원을 보호해요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico6.png"
+                  alt="보장을 나타내는 확인 표시 방패"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">직무 교육 지원</h4>
+                  <p class="welfare-card-description">
+                    배우고 성장하는 즐거움이 계속되도록 역량 개발을 지원해요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico7.png"
+                  alt="학습 영상을 보여주는 화면과 연필"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">임직원 제휴 할인</h4>
+                  <p class="welfare-card-description">
+                    다양한 제휴 혜택으로 일상 속 즐거움과 실속을 더해드려요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico8.png"
+                  alt="세일 문구가 적힌 할인 쇼핑백"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">문화 생활 지원</h4>
+                  <p class="welfare-card-description">
+                    바쁜 일상에 기분 좋은 쉼표를 더할 수 있도록 문화생활을
+                    응원해요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico9.png"
+                  alt="문화생활을 상징하는 곰 인형과 음표"
+                />
+              </article>
+            </li>
+            <li>
+              <article class="welfare-card">
+                <div class="welfare-card-copy">
+                  <h4 class="welfare-card-title">구내식당</h4>
+                  <p class="welfare-card-description">
+                    든든하고 맛있는 한 끼로 활기찬 하루를 채워드려요.
+                  </p>
+                </div>
+                <img
+                  class="welfare-card-icon"
+                  src="./images/wf_ico10.png"
+                  alt="숟가락과 포크"
+                />
+              </article>
+            </li>
+            </ul>
+          </div>
+          <img
+            class="welfare-cloud"
+            src="./images/con5_cloud.png"
+            alt="간식을 들고 있는 한미 캐릭터"
+          />
+        </div>
+      </section>
+      <section class="tasks" id="tasks" aria-labelledby="tasks-title">
+        <div class="tasks-hero" aria-hidden="true">
+          <img
+            class="tasks-title-bg"
+            src="./images/tasks_bg_title.png"
+            alt=""
+          />
+          <img
+            class="tasks-character"
+            src="./images/tasks_character.png"
+            alt=""
+          />
+        </div>
+        <div class="tasks-inner">
+          <header class="tasks-intro">
+            <h2 class="tasks-title" id="tasks-title">
+              알약이를 따라<br />나에게 맞는 직무를 찾아봐요!
+            </h2>
+            <p class="tasks-lead">
+              연구부터 생산, 영업, 경영지원까지 당신의 가능성이 빛날 자리를
+              안내해 드릴게요.
+            </p>
+          </header>
+          <nav aria-label="직무 분야">
+            <ul class="tasks-tabs" role="tablist">
+              <li>
+                <button class="tasks-tab" type="button" role="tab" id="tasks-tab-0" aria-selected="true" aria-controls="tasks-content" data-category="0">R&amp;D</button>
+              </li>
+              <li>
+                <button class="tasks-tab" type="button" role="tab" id="tasks-tab-1" aria-selected="false" aria-controls="tasks-content" data-category="1" tabindex="-1">생산/품질</button>
+              </li>
+              <li>
+                <button class="tasks-tab" type="button" role="tab" id="tasks-tab-2" aria-selected="false" aria-controls="tasks-content" data-category="2" tabindex="-1">영업</button>
+              </li>
+              <li>
+                <button class="tasks-tab" type="button" role="tab" id="tasks-tab-3" aria-selected="false" aria-controls="tasks-content" data-category="3" tabindex="-1">경영관리</button>
+              </li>
+              <li>
+                <button class="tasks-tab" type="button" role="tab" id="tasks-tab-4" aria-selected="false" aria-controls="tasks-content" data-category="4" tabindex="-1">임상</button>
+              </li>
+              <li>
+                <button class="tasks-tab" type="button" role="tab" id="tasks-tab-5" aria-selected="false" aria-controls="tasks-content" data-category="5" tabindex="-1">글로벌</button>
+              </li>
+              <li>
+                <button class="tasks-tab" type="button" role="tab" id="tasks-tab-6" aria-selected="false" aria-controls="tasks-content" data-category="6" tabindex="-1">헬스케어</button>
+              </li>
+            </ul>
+          </nav>
+          <div class="tasks-content" id="tasks-content" role="tabpanel" aria-labelledby="tasks-tab-0"></div>
+          <p class="tasks-data-error" role="alert" hidden></p>
+        </div>
+        <dialog class="tasks-modal" aria-labelledby="tasks-modal-title">
+          <div class="tasks-modal-header">
+            <img class="tasks-modal-image" alt="" />
+            <button class="tasks-modal-close" type="button" aria-label="상세 정보 닫기">×</button>
+          </div>
+          <div class="tasks-modal-body">
+            <div class="tasks-modal-summary">
+              <div class="tasks-modal-heading">
+                <h3 class="tasks-modal-title" id="tasks-modal-title"></h3>
+                <span class="tasks-modal-category"></span>
+                <span class="tasks-modal-department"></span>
+              </div>
+              <p class="tasks-modal-experience"></p>
+            </div>
+            <div class="tasks-modal-content">
+              <section class="tasks-modal-section">
+                <h4>직무 내용</h4>
+                <ul class="tasks-modal-duties"></ul>
+              </section>
+              <section class="tasks-modal-section">
+                <h4>자격 요건</h4>
+                <ul class="tasks-modal-qualifications"></ul>
+              </section>
+              <section class="tasks-modal-section tasks-modal-preferred-section">
+                <h4>우대 사항</h4>
+                <ul class="tasks-modal-preferred"></ul>
+              </section>
+            </div>
+          </div>
+        </dialog>
+      </section>
+    </main>
+
+    <!-- 하단 푸터 영역 -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>&copy; 2026 Hanmi Group. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // 1440px 미만 뷰포트에서는 컨테이너 전체를 비율 축소해 레이아웃이 깨지지 않게 한다.
+      (function () {
+        var root = document.documentElement;
+        function fit() {
+          // 태블릿/모바일(1024px 이하)은 CSS 반응형 레이아웃을 쓰므로 축소하지 않는다.
+          var w = window.innerWidth;
+          var s = w <= 1024 ? 1 : Math.min(1, w / 1440);
+          root.style.setProperty("--scale", s.toFixed(4));
+        }
+        fit();
+        window.addEventListener("resize", fit);
+
+        // 모바일 햄버거 메뉴
+        var toggle = document.querySelector(".btn-menu");
+        var closeBtn = document.querySelector(".btn-close");
+        var gnb = document.getElementById("gnb");
+        function setMenu(open) {
+          gnb.classList.toggle("is-open", open);
+          root.classList.toggle("menu-open", open);
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+          if (open) closeBtn.focus();
+          else if (gnb.contains(document.activeElement)) toggle.focus();
+        }
+        toggle.addEventListener("click", function () {
+          setMenu(true);
+        });
+        closeBtn.addEventListener("click", function () {
+          setMenu(false);
+        });
+        gnb.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            setMenu(false);
+          }); // 스크롤 잠금 해제 후 아래 앵커 이동 실행
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && gnb.classList.contains("is-open"))
+            setMenu(false);
+        });
+        var mq = window.matchMedia("(max-width: 390px)");
+        function onMq(e) {
+          if (!e.matches) setMenu(false);
+        }
+        if (mq.addEventListener) mq.addEventListener("change", onMq);
+        else mq.addListener(onMq);
+
+        // 앵커 이동: 대상 섹션이 있을 때만 부드럽게 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+          a.addEventListener("click", function (e) {
+            var id = a.getAttribute("href");
+            var target = id.length > 1 ? document.querySelector(id) : null;
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: "smooth" });
+            }
+          });
+        });
+      })();
+
+      // 히스토리 섹션: 펼치기/접기 (초기 상태 = 전체 높이의 2/3만 노출 + 하단 페이드아웃)
+      (function () {
+        var COLLAPSE_RATIO = 2 / 3; // 접힘 시 노출 비율 (필요 시 여기만 조정)
+        var section = document.getElementById("history");
+        if (!section) return;
+        var body = document.getElementById("history-body");
+        var flow = section.querySelector(".history-flow");
+        var btn = section.querySelector(".history-toggle");
+        var label = btn.querySelector(".history-toggle-label");
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+        var collapsed = false;
+
+        function fullHeight() {
+          // 절대배치 데코가 scrollHeight 를 부풀리지 않도록 흐름 콘텐츠 높이를 기준으로 계산
+          return flow.offsetHeight;
+        }
+        function collapsedHeight() {
+          return Math.round(fullHeight() * COLLAPSE_RATIO);
+        }
+        function render() {
+          section.classList.toggle("is-collapsed", collapsed);
+          section.classList.toggle("is-expanded", !collapsed);
+          btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+          label.textContent = collapsed ? "펼치기" : "접기";
+        }
+        function collapse() {
+          collapsed = true;
+          // max-height:none → px 로 고정해야 transition 이 동작
+          body.style.maxHeight = fullHeight() + "px";
+          void body.offsetHeight; // reflow
+          body.style.maxHeight = collapsedHeight() + "px";
+          render();
+          // 접힐 때 시선이 엉뚱한 곳에 머물지 않도록 섹션 상단으로 이동
+          if (section.getBoundingClientRect().top < 0) {
+            section.scrollIntoView({
+              behavior: reduce.matches ? "auto" : "smooth",
+              block: "start",
+            });
+          }
+        }
+        function expand() {
+          collapsed = false;
+          body.style.maxHeight = fullHeight() + "px";
+          render();
+          function done(e) {
+            if (e && e.propertyName !== "max-height") return;
+            body.removeEventListener("transitionend", done);
+            if (!collapsed) body.style.maxHeight = "none"; // 이후 리사이즈 시 자연 높이 유지
+          }
+          if (reduce.matches) done();
+          else body.addEventListener("transitionend", done);
+        }
+
+        btn.addEventListener("click", function () {
+          if (collapsed) expand();
+          else collapse();
+        });
+
+        // 초기 상태: 접힘 (JS 미동작 시에는 전체 펼침 상태로 폴백)
+        body.style.transition = "none";
+        collapsed = true;
+        body.style.maxHeight = collapsedHeight() + "px";
+        render();
+        void body.offsetHeight;
+        body.style.transition = "";
+
+        // 폰트/이미지 로딩·리사이즈로 높이가 바뀌면 접힘 높이 재계산
+        function refit() {
+          if (collapsed) {
+            body.style.transition = "none";
+            body.style.maxHeight = collapsedHeight() + "px";
+            void body.offsetHeight;
+            body.style.transition = "";
+          }
+        }
+        if (window.ResizeObserver) new ResizeObserver(refit).observe(flow);
+        else window.addEventListener("resize", refit);
+      })();
+
+      // 직무 분야 탭, 소속별 아코디언, 직무 상세 모달
+      (function () {
+        var categories = [
+          {
+            name: "R&D",
+            departments: [
+              {
+                name: "연구센터 (경기도 동탄)",
+                count: "6",
+                roles: [
+                  { title: "NCE (New Chemical Entity)" },
+                  { title: "QS&F (Quality Science & Formulation)" },
+                  { title: "MST (Manufacturing Science Technology)" },
+                  { title: "TE (Toxicology Evaluation)" },
+                  { title: "DST (Drug Science & Technology)" },
+                  { title: "BSS (Biological & Structural Evaluation Science)" },
+                ],
+              },
+              {
+                name: "제제연구소 [의약혁신센터] (경기도 광교)",
+                count: "1",
+                roles: [{ title: "신제형연구 (전문연구요원)" }],
+              },
+            ],
+          },
+          {
+            name: "생산/품질",
+            departments: [
+              {
+                name: "팔탄제조센터 (경기도 화성)",
+                count: "4",
+                roles: [
+                  { title: "제조" },
+                  { title: "포장" },
+                  { title: "품질관리" },
+                  { title: "기술지원" },
+                ],
+              },
+              {
+                name: "평택제조센터 (경기도 평택)",
+                count: "2",
+                roles: [
+                  { title: "DS생산 (학사)" },
+                  { title: "DS생산 (전문학사)" },
+                ],
+              },
+            ],
+          },
+          {
+            name: "영업",
+            departments: [
+              {
+                name: "전국 (Mobile Office)",
+                count: "1",
+                roles: [{ title: "제약영업" }],
+              },
+              {
+                name: "본사 (서울시 송파구)",
+                count: "2",
+                roles: [{ title: "해외영업" }, { title: "IT솔루션영업" }],
+              },
+            ],
+          },
+          {
+            name: "경영관리",
+            departments: [
+              {
+                name: "본사 (서울시 송파구)",
+                count: "5",
+                roles: [
+                  { title: "구매" },
+                  { title: "국내법무" },
+                  { title: "특허" },
+                  { title: "안전관리" },
+                  { title: "인사총무" },
+                ],
+              },
+            ],
+          },
+          {
+            name: "임상",
+            departments: [
+              {
+                name: "본사 (서울시 송파구)",
+                count: "4",
+                roles: [
+                  { title: "Pipeline Valuation (신약가치평가)" },
+                  { title: "Market Intelligence (신약개발 전략분석)" },
+                  { title: "Data Management" },
+                  { title: "Biostatistician" },
+                ],
+              },
+            ],
+          },
+          {
+            name: "글로벌",
+            departments: [
+              {
+                name: "본사 (서울시 송파구)",
+                count: "2",
+                roles: [
+                  { title: "Global Regulatory Affairs" },
+                  { title: "Licensing" },
+                ],
+              },
+            ],
+          },
+          {
+            name: "헬스케어",
+            departments: [
+              {
+                name: "본사 (서울시 송파구)",
+                count: "9",
+                roles: [
+                  { title: "식품영업" },
+                  { title: "식품커머스운영" },
+                  { title: "화장품 커머스사업기획" },
+                  { title: "화장품 상품기획" },
+                  { title: "화장품 홈쇼핑영업/운영" },
+                  { title: "화장품 국내영업" },
+                  { title: "화장품 해외영업" },
+                  { title: "화장품 글로벌마케팅" },
+                  { title: "해외이커머스운영" },
+                ],
+              },
+              {
+                name: "서울/수도권/영남",
+                count: "1",
+                roles: [{ title: "의료기기영업" }],
+              },
+            ],
+          },
+        ];
+        var section = document.querySelector(".tasks");
+        if (!section) return;
+        var tabs = Array.from(section.querySelectorAll(".tasks-tab"));
+        var panel = section.querySelector(".tasks-content");
+        var modal = section.querySelector(".tasks-modal");
+        var modalImage = section.querySelector(".tasks-modal-image");
+        var modalTitle = section.querySelector(".tasks-modal-title");
+        var modalCategory = section.querySelector(".tasks-modal-category");
+        var modalDepartment = section.querySelector(".tasks-modal-department");
+        var modalExperience = section.querySelector(".tasks-modal-experience");
+        var modalDuties = section.querySelector(".tasks-modal-duties");
+        var modalQualifications = section.querySelector(
+          ".tasks-modal-qualifications",
+        );
+        var modalPreferredSection = section.querySelector(
+          ".tasks-modal-preferred-section",
+        );
+        var modalPreferred = section.querySelector(".tasks-modal-preferred");
+        var dataError = section.querySelector(".tasks-data-error");
+        var popupJobsPromise = fetch("./data/pop_data.json")
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error(
+                "직무 상세 데이터 요청 실패: HTTP " + response.status,
+              );
+            }
+            return response.json();
+          })
+          .then(function (records) {
+            if (!Array.isArray(records)) {
+              throw new Error("직무 상세 데이터 형식이 배열이 아닙니다.");
+            }
+            var jobs = new Map();
+            records.forEach(function (record) {
+              if (
+                !record ||
+                !record.department ||
+                !record.location ||
+                !record.title ||
+                !record.image ||
+                !Array.isArray(record.job_description) ||
+                !Array.isArray(record.qualifications) ||
+                !Array.isArray(record.preferred)
+              ) {
+                throw new Error("직무 상세 데이터의 필수 항목이 누락되었습니다.");
+              }
+              var key =
+                record.department +
+                "\u0000" +
+                record.location +
+                "\u0000" +
+                record.title;
+              if (jobs.has(key)) {
+                throw new Error("중복된 직무 상세 데이터: " + record.title);
+              }
+              jobs.set(key, record);
+            });
+
+            var missingRoles = [];
+            categories.forEach(function (category) {
+              category.departments.forEach(function (department) {
+                var location = department.name.split(" (")[0];
+                department.roles.forEach(function (role) {
+                  var key =
+                    category.name +
+                    "\u0000" +
+                    location +
+                    "\u0000" +
+                    role.title;
+                  if (!jobs.has(key)) missingRoles.push(role.title);
+                });
+              });
+            });
+            if (missingRoles.length) {
+              throw new Error(
+                "팝업 데이터에 직무 정보가 없습니다: " +
+                  missingRoles.join(", "),
+              );
+            }
+            return jobs;
+          })
+          .catch(function (error) {
+            console.error("직무 상세 데이터를 불러오지 못했습니다.", error);
+            dataError.textContent =
+              "직무 상세 정보를 불러오지 못했습니다. 페이지를 웹 서버에서 열고 다시 시도해 주세요.";
+            dataError.hidden = false;
+            return null;
+          });
+
+        function addBulletList(list, entries) {
+          list.replaceChildren();
+          entries.forEach(function (entry) {
+            var item = document.createElement("li");
+            item.textContent = entry;
+            list.appendChild(item);
+          });
+        }
+
+        function openRole(role) {
+          modalImage.src = new URL(
+            role.image,
+            new URL("./data/pop_data.json", document.baseURI),
+          ).href;
+          modalTitle.textContent = role.title;
+          modalCategory.textContent = role.department;
+          modalDepartment.textContent = role.location;
+          modalExperience.textContent = role.category;
+          addBulletList(modalDuties, role.job_description);
+          addBulletList(modalQualifications, role.qualifications);
+          addBulletList(modalPreferred, role.preferred);
+          modalPreferredSection.hidden = role.preferred.length === 0;
+          modal.showModal();
+        }
+
+        function renderCategory(categoryIndex) {
+          var category = categories[categoryIndex];
+          panel.replaceChildren();
+          panel.setAttribute("aria-labelledby", "tasks-tab-" + categoryIndex);
+          category.departments.forEach(function (department, index) {
+            var accordion = document.createElement("section");
+            var toggle = document.createElement("button");
+            var count = document.createElement("span");
+            var content = document.createElement("div");
+            var list = document.createElement("ul");
+            var panelId = "tasks-panel-" + categoryIndex + "-" + index;
+
+            accordion.className = "tasks-accordion";
+            toggle.className = "tasks-department-toggle";
+            toggle.type = "button";
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.setAttribute("aria-controls", panelId);
+            toggle.appendChild(document.createTextNode(department.name));
+            count.className = "tasks-count";
+            count.textContent = department.count;
+            toggle.appendChild(count);
+
+            content.className = "tasks-panel";
+            content.id = panelId;
+            content.inert = true;
+            var contentInner = document.createElement("div");
+            contentInner.className = "tasks-panel-inner";
+            list.className = "tasks-role-list";
+            department.roles.forEach(function (role) {
+              var item = document.createElement("li");
+              var button = document.createElement("button");
+              var title = document.createElement("span");
+              var arrow = document.createElement("span");
+              button.className = "tasks-role-button";
+              button.type = "button";
+              title.textContent = role.title;
+              arrow.className = "tasks-role-arrow";
+              arrow.setAttribute("aria-hidden", "true");
+              arrow.textContent = "→";
+              button.append(title, arrow);
+              button.addEventListener("click", function () {
+                popupJobsPromise
+                  .then(function (jobs) {
+                    if (!jobs) return;
+                    var key =
+                      category.name +
+                      "\u0000" +
+                      department.name.split(" (")[0] +
+                      "\u0000" +
+                      role.title;
+                    var popupRole = jobs.get(key);
+                    if (!popupRole) {
+                      throw new Error("직무 상세 데이터를 찾을 수 없습니다: " + role.title);
+                    }
+                    openRole(popupRole);
+                  })
+                  .catch(function (error) {
+                    console.error("직무 팝업을 표시하지 못했습니다.", error);
+                    dataError.textContent =
+                      "선택한 직무의 상세 정보를 표시할 수 없습니다.";
+                    dataError.hidden = false;
+                  });
+              });
+              item.appendChild(button);
+              list.appendChild(item);
+            });
+            contentInner.appendChild(list);
+            content.appendChild(contentInner);
+            toggle.addEventListener("click", function () {
+              var expanded = toggle.getAttribute("aria-expanded") === "true";
+              if (!expanded) {
+                panel
+                  .querySelectorAll(".tasks-accordion.is-open")
+                  .forEach(function (openAccordion) {
+                    if (openAccordion === accordion) return;
+                    openAccordion.classList.remove("is-open");
+                    openAccordion
+                      .querySelector(".tasks-department-toggle")
+                      .setAttribute("aria-expanded", "false");
+                    openAccordion.querySelector(".tasks-panel").inert = true;
+                  });
+              }
+              var nextExpanded = !expanded;
+              toggle.setAttribute(
+                "aria-expanded",
+                nextExpanded ? "true" : "false",
+              );
+              accordion.classList.toggle("is-open", nextExpanded);
+              content.inert = !nextExpanded;
+            });
+            accordion.append(toggle, content);
+            panel.appendChild(accordion);
+          });
+        }
+
+        function selectTab(tab, focus) {
+          var categoryIndex = Number(tab.dataset.category);
+          tabs.forEach(function (item) {
+            var selected = item === tab;
+            item.setAttribute("aria-selected", selected ? "true" : "false");
+            item.tabIndex = selected ? 0 : -1;
+          });
+          renderCategory(categoryIndex);
+          if (focus) tab.focus();
+          tab.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "nearest",
+          });
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            selectTab(tab, false);
+          });
+          tab.addEventListener("keydown", function (event) {
+            var index = tabs.indexOf(tab);
+            var nextIndex = index;
+            if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+            else if (event.key === "ArrowLeft")
+              nextIndex = (index - 1 + tabs.length) % tabs.length;
+            else if (event.key === "Home") nextIndex = 0;
+            else if (event.key === "End") nextIndex = tabs.length - 1;
+            else return;
+            event.preventDefault();
+            selectTab(tabs[nextIndex], true);
+          });
+        });
+
+        section
+          .querySelector(".tasks-modal-close")
+          .addEventListener("click", function () {
+            modal.close();
+          });
+        modal.addEventListener("click", function (event) {
+          if (event.target === modal) modal.close();
+        });
+        renderCategory(0);
+      })();
+    </script>
+  </body>
+</html>
