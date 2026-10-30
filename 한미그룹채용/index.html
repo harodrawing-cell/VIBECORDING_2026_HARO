@@ -468,23 +468,22 @@
      푸터 내용을 추가할 때 이 영역 안에 작성한다. */
 
       .site-footer {
-        background: var(--black);
-        color: var(--white-50);
+        background: #fff;
+        color: var(--black);
       }
 
       .footer-inner {
-        width: 100%;
-        max-width: var(--container-width);
-        margin: 0 auto;
-        padding: 40px 60px;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 22px;
-        letter-spacing: -0.3px;
+        display: flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 20px;
       }
 
-      .footer-inner p {
-        margin: 0;
+      .footer-logo {
+        display: block;
+        width: 82px;
+        height: auto;
       }
 
       .sr-only {
@@ -3224,8 +3223,8 @@
 
       .expo-period {
         display: grid;
-        grid-template-columns: repeat(var(--expo-day-count), minmax(0, 1fr));
-        margin-bottom: 30px;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        margin-bottom: 0;
         border-bottom: 1px solid #e3e3e3;
       }
 
@@ -3236,7 +3235,7 @@
 
       .expo-date {
         display: flex;
-        min-height: 38px;
+        min-height: 54px;
         align-items: center;
         justify-content: center;
         padding: 6px 4px;
@@ -3264,7 +3263,7 @@
 
       .expo-venues {
         display: flex;
-        min-height: 180px;
+        min-height: 232px;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -3374,6 +3373,447 @@
         text-align: center;
       }
 
+      .con8 {
+        position: relative;
+        overflow: hidden;
+        padding: 46px 48px 72px;
+        background: #fff;
+      }
+
+      .con8-inner {
+        position: relative;
+        width: min(100%, 1320px);
+        margin: 0 auto;
+      }
+
+      .con8-character {
+        position: absolute;
+        top: -32px;
+        right: 0;
+        z-index: 1;
+        width: 100px;
+        height: auto;
+        pointer-events: none;
+      }
+
+      .con8-links {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: start;
+        gap: 42px;
+        padding: 42px 12px 0;
+      }
+
+      .con8-card {
+        position: relative;
+        display: block;
+        min-width: 0;
+        color: #111;
+        text-align: center;
+      }
+
+      .con8-card:nth-child(1) {
+        margin-top: 40px;
+      }
+
+      .con8-card:nth-child(3) {
+        margin-top: 22px;
+      }
+
+      .con8-card-image {
+        position: relative;
+        display: block;
+        width: 100%;
+        aspect-ratio: 0.78;
+      }
+
+      .con8-card-image img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        object-fit: cover;
+        transition: transform 0.25s ease;
+      }
+
+      .con8-card-image img.con8-mark--arrow-left,
+      .con8-card-image img.con8-mark--arrow-right {
+        width: 46px;
+        height: auto;
+        border-radius: 0;
+        object-fit: contain;
+        transition: none;
+      }
+
+      .con8-card-image img.con8-mark--star {
+        width: 54px;
+        height: auto;
+        border-radius: 0;
+        object-fit: contain;
+        transition: none;
+      }
+
+      .con8-mark {
+        position: absolute;
+        z-index: 2;
+        width: auto;
+        height: auto;
+        pointer-events: none;
+      }
+
+      .con8-mark--arrow-left {
+        bottom: -34px;
+        left: 2%;
+        max-width: 46px;
+      }
+
+      .con8-mark--star {
+        right: -14px;
+        bottom: -32px;
+        max-width: 54px;
+      }
+
+      .con8-mark--arrow-right {
+        right: 3%;
+        bottom: -36px;
+        max-width: 46px;
+      }
+
+      .con8-card:hover .con8-card-image img,
+      .con8-card:focus-visible .con8-card-image img {
+        transform: scale(1.025);
+      }
+
+      .con8-card-copy {
+        display: grid;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .con8-question {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .con8-marked-word {
+        position: relative;
+        display: inline-block;
+      }
+
+      .con8-mark--underline,
+      .con8-mark--circle,
+      .con8-mark--wave {
+        position: absolute;
+        z-index: 2;
+        height: auto;
+        pointer-events: none;
+      }
+
+      .con8-mark--underline,
+      .con8-mark--wave {
+        right: -6px;
+        bottom: -8px;
+        left: -5px;
+        width: calc(100% + 11px);
+      }
+
+      .con8-mark--circle {
+        top: 50%;
+        left: 50%;
+        width: calc(100% + 16px);
+        max-width: 72px;
+        transform: translate(-50%, -50%);
+      }
+
+      .con8-card-action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: var(--orange);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .con8-card-arrow {
+        display: inline-flex;
+        width: 20px;
+        height: 20px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--orange);
+        color: #fff;
+        font-size: 13px;
+        line-height: 1;
+      }
+
+      .con8-card:focus-visible {
+        outline: 3px solid rgba(255, 93, 50, 0.45);
+        outline-offset: 5px;
+      }
+
+      .con9 {
+        position: relative;
+        display: flex;
+        min-height: 430px;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        padding: 72px 24px 48px;
+        isolation: isolate;
+        background: #dff9f8 url("./images/con9_bg.png.png") center / cover
+          no-repeat;
+        text-align: center;
+      }
+
+      .con9-title {
+        position: relative;
+        z-index: 2;
+        margin: 0;
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 1.4;
+      }
+
+      .con9-countdown {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: center;
+        gap: 0 10px;
+        margin-top: 8px;
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 1.4;
+      }
+
+      .con9-countdown-part {
+        white-space: nowrap;
+      }
+
+      .con9-countdown-number {
+        color: var(--red);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .con9-glow {
+        position: absolute;
+        z-index: 0;
+        top: 42%;
+        left: 50%;
+        width: min(34vw, 430px);
+        height: auto;
+        transform: translate(-50%, -10%);
+        pointer-events: none;
+      }
+
+      .con9-cloud {
+        position: absolute;
+        z-index: 1;
+        bottom: -1px;
+        width: min(33%, 370px);
+        height: auto;
+        pointer-events: none;
+      }
+
+      .con9-cloud--left {
+        left: 0;
+      }
+
+      .con9-cloud--right {
+        right: 0;
+      }
+
+      .con9-apply {
+        position: relative;
+        z-index: 2;
+        display: block;
+        width: 205px;
+        margin: 46px auto 0;
+        border-radius: 50%;
+        transition: transform 0.2s ease;
+      }
+
+      .con9-apply:hover,
+      .con9-apply:focus-visible {
+        transform: scale(1.04);
+      }
+
+      .con9-apply img {
+        width: 100%;
+        height: auto;
+      }
+
+      .con9-status {
+        position: relative;
+        z-index: 2;
+        margin: 12px 0 0;
+        color: #444;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 1024px) {
+        .site-footer .footer-inner {
+          min-height: 46px;
+          padding: 7px 20px;
+        }
+
+        .footer-logo {
+          width: 78px;
+        }
+
+        .con8 {
+          padding: 40px 40px 58px;
+        }
+
+        .con8-links {
+          gap: 24px;
+          padding-right: 8px;
+          padding-left: 8px;
+        }
+
+        .con8-character {
+          width: 82px;
+          top: -22px;
+        }
+
+        .con8-question {
+          font-size: 12px;
+        }
+
+        .con9 {
+          min-height: 410px;
+          padding-top: 62px;
+        }
+
+        .con9-title,
+        .con9-countdown {
+          font-size: 26px;
+        }
+
+        .con9-apply {
+          width: 185px;
+          margin-top: 38px;
+        }
+      }
+
+      @media (max-width: 568px) {
+        .site-footer .footer-inner {
+          min-height: 40px;
+          padding: 6px 16px;
+        }
+
+        .footer-logo {
+          width: 70px;
+        }
+
+        .con8 {
+          padding: 30px 20px 46px;
+        }
+
+        .con8-character {
+          top: -22px;
+          right: 0;
+          width: 56px;
+        }
+
+        .con8-links {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 16px;
+          padding: 18px 0 0;
+        }
+
+        .con8-card,
+        .con8-card:nth-child(1),
+        .con8-card:nth-child(3) {
+          margin: 0;
+        }
+
+        .con8-card-image {
+          aspect-ratio: 1.65;
+        }
+
+        .con8-card-image img.con8-mark--arrow-left,
+        .con8-card-image img.con8-mark--arrow-right {
+          width: 34px;
+          bottom: -10px;
+        }
+
+        .con8-card-image img.con8-mark--star {
+          right: -8px;
+          bottom: -10px;
+          width: 40px;
+        }
+
+        .con8-mark--circle {
+          max-width: 60px;
+        }
+
+        .con8-card-copy {
+          position: absolute;
+          right: 10px;
+          bottom: 10px;
+          left: 10px;
+          gap: 5px;
+          margin: 0;
+          color: #fff;
+        }
+
+        .con8-question {
+          font-size: 11px;
+        }
+
+        .con8-card-action {
+          color: #fff;
+          font-size: 11px;
+        }
+
+        .con8-card-arrow {
+          width: 18px;
+          height: 18px;
+          background: rgba(255, 255, 255, 0.85);
+          color: var(--orange);
+        }
+
+        .con9 {
+          min-height: 360px;
+          padding: 54px 16px 40px;
+        }
+
+        .con9-title {
+          font-size: 20px;
+        }
+
+        .con9-countdown {
+          gap: 0 5px;
+          margin-top: 6px;
+          font-size: 18px;
+        }
+
+        .con9-glow {
+          top: 42%;
+          width: min(62vw, 250px);
+        }
+
+        .con9-cloud {
+          width: 42%;
+        }
+
+        .con9-apply {
+          width: 150px;
+          margin-top: 38px;
+        }
+
+        .con9-status {
+          margin-top: 10px;
+          font-size: 10px;
+        }
+      }
+
       @media (max-width: 1024px) {
         .requirement {
           padding: 72px 40px 68px;
@@ -3422,7 +3862,7 @@
         }
 
         .expo-venues {
-          min-height: 164px;
+          min-height: 232px;
         }
       }
 
@@ -5398,12 +5838,109 @@
           </div>
         </div>
       </section>
+
+      <section class="con8" id="con8" aria-label="한미그룹 바로가기">
+        <div class="con8-inner">
+          <img
+            class="con8-character"
+            src="./images/con8_char.png.png"
+            alt="책을 읽는 한미 캐릭터"
+          />
+          <div class="con8-links">
+            <a class="con8-card" href="#welfare">
+              <span class="con8-card-image">
+                <img
+                  src="./images/con8_img1.jpg"
+                  alt="함께 손을 모은 사람들"
+                />
+                <img class="con8-mark con8-mark--arrow-left" src="./images/con8_Image.png" alt="" aria-hidden="true" />
+                <img class="con8-mark con8-mark--star" src="./images/con8_Image-2.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="con8-card-copy">
+                <span class="con8-question">
+                  한미그룹의
+                  <span class="con8-marked-word">
+                    문화와 복지
+                    <img class="con8-mark--underline" src="./images/con8_Image-1.png" alt="" aria-hidden="true" />
+                  </span>
+                  가 궁금하다면?
+                </span>
+                <span class="con8-card-action">
+                  한미그룹 YouTube
+                  <span class="con8-card-arrow" aria-hidden="true">→</span>
+                </span>
+              </span>
+            </a>
+            <a class="con8-card" href="#tasks">
+              <span class="con8-card-image">
+                <img src="./images/con8_img2.jpg" alt="촬영 카메라" />
+                <img class="con8-mark con8-mark--arrow-right" src="./images/con8_Image-4.png" alt="" aria-hidden="true" />
+              </span>
+              <span class="con8-card-copy">
+                <span class="con8-question">
+                  한미그룹의
+                  <span class="con8-marked-word">
+                    직무
+                    <img class="con8-mark--circle" src="./images/con8_Image-3.png" alt="" aria-hidden="true" />
+                  </span>
+                  가 궁금하다면?
+                </span>
+                <span class="con8-card-action">
+                  한미그룹 직무 소개 페이지
+                  <span class="con8-card-arrow" aria-hidden="true">→</span>
+                </span>
+              </span>
+            </a>
+            <a class="con8-card" href="#qualification">
+              <span class="con8-card-image">
+                <img src="./images/con8_img3.jpg" alt="한미약품 연구센터" />
+              </span>
+              <span class="con8-card-copy">
+                <span class="con8-question">
+                  한미그룹의
+                  <span class="con8-marked-word">
+                    채용소식을
+                    <img class="con8-mark--wave" src="./images/con8_Image-5.png" alt="" aria-hidden="true" />
+                  </span>
+                  빠르게 받고 싶다면?
+                </span>
+                <span class="con8-card-action">
+                  한미그룹 채용 홈페이지
+                  <span class="con8-card-arrow" aria-hidden="true">→</span>
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="con9"
+        id="con9"
+        aria-labelledby="con9-title"
+        data-deadline="2026-10-18T23:59:00+09:00"
+      >
+        <img class="con9-cloud con9-cloud--left" src="./images/con9_cloud_l.png.png" alt="" aria-hidden="true" />
+        <img class="con9-cloud con9-cloud--right" src="./images/con9_cloud_r.png.png" alt="" aria-hidden="true" />
+        <img class="con9-glow" src="./images/con9_Background+Blur.png" alt="" aria-hidden="true" />
+        <h2 class="con9-title" id="con9-title">당신에게 딱 맞는 자리를 찾으러 출발!</h2>
+        <div class="con9-countdown" role="timer" aria-label="지원 마감까지 남은 시간">
+          <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-days>00</strong> 일</span>
+          <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-hours>00</strong> 시간</span>
+          <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-minutes>00</strong> 분</span>
+          <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-seconds>00</strong> 초 남았어요</span>
+        </div>
+        <a class="con9-apply" href="#qualification" aria-label="지원 일정 확인하기">
+          <img src="./images/con9_지원하기.png" alt="지원하기" />
+        </a>
+        <p class="con9-status" id="con9-status">아이콘을 클릭해서 지원해주세요!</p>
+      </section>
     </main>
 
     <!-- 하단 푸터 영역 -->
     <footer class="site-footer">
       <div class="footer-inner">
-        <p>&copy; 2026 Hanmi Group. All rights reserved.</p>
+        <img class="footer-logo" src="./images/logo.svg" alt="Hanmi 한미그룹" />
       </div>
     </footer>
 
@@ -6092,6 +6629,91 @@
           return detail;
         }
 
+        function buildCampusRegions(scheduleData) {
+          var regionNames = [];
+          scheduleData.forEach(function (item) {
+            if (!item.region || !item.date || !item.school)
+              throw new Error("캠퍼스 일정의 필수 데이터가 누락되었습니다.");
+            if (regionNames.indexOf(item.region) === -1)
+              regionNames.push(item.region);
+          });
+
+          function getDateKey(date) {
+            return (date.getUTCMonth() + 1) + "/" + date.getUTCDate();
+          }
+
+          function formatDate(date) {
+            var weekdays = ["일", "월", "화", "수", "목", "금", "토"];
+            return (
+              (date.getUTCMonth() + 1) +
+              "월 " +
+              date.getUTCDate() +
+              "일 (" +
+              weekdays[date.getUTCDay()] +
+              ")"
+            );
+          }
+
+          return regionNames.map(function (regionName) {
+            var weeks = new Map();
+            scheduleData
+              .filter(function (item) {
+                return item.region === regionName;
+              })
+              .forEach(function (item) {
+                var match = /^(\d{1,2})월\s*(\d{1,2})일/.exec(item.date);
+                if (!match) throw new Error("캠퍼스 일정 날짜 형식이 올바르지 않습니다.");
+
+                var date = new Date(
+                  Date.UTC(2026, Number(match[1]) - 1, Number(match[2])),
+                );
+                var mondayOffset = (date.getUTCDay() + 6) % 7;
+                var monday = new Date(date);
+                monday.setUTCDate(monday.getUTCDate() - mondayOffset);
+                var weekKey = getDateKey(monday);
+                var week = weeks.get(weekKey);
+
+                if (!week) {
+                  week = { monday: monday, lastDate: date, events: {} };
+                  weeks.set(weekKey, week);
+                }
+                if (date > week.lastDate) week.lastDate = date;
+
+                var dateKey = getDateKey(date);
+                if (!week.events[dateKey]) week.events[dateKey] = [];
+                week.events[dateKey].push({
+                  name: item.school,
+                  place: item.location,
+                  time: item.time,
+                });
+              });
+
+            var orderedWeeks = Array.from(weeks.values()).sort(function (a, b) {
+              return a.monday - b.monday;
+            });
+
+            var periods = orderedWeeks.map(function (week, weekIndex) {
+              var isLastWeek = weekIndex === orderedWeeks.length - 1;
+              var lastDay = isLastWeek
+                ? Math.floor((week.lastDate - week.monday) / 86400000)
+                : 4;
+              var dates = [];
+              var events = [];
+
+              for (var dayOffset = 0; dayOffset <= lastDay; dayOffset += 1) {
+                var date = new Date(week.monday);
+                date.setUTCDate(date.getUTCDate() + dayOffset);
+                dates.push(formatDate(date));
+                events.push(week.events[getDateKey(date)] || []);
+              }
+
+              return { dates: dates, events: events };
+            });
+
+            return { region: regionName, periods: periods };
+          });
+        }
+
         function renderPeriods(container, periods, allowDetails) {
           container.replaceChildren();
           if (!periods.length) {
@@ -6107,7 +6729,6 @@
           periods.forEach(function (period) {
             var section = document.createElement("section");
             section.className = "expo-period";
-            section.style.setProperty("--expo-day-count", period.dates.length);
 
             period.dates.forEach(function (date, index) {
               var day = document.createElement("div");
@@ -6218,17 +6839,29 @@
           setActiveExpositionTab,
         );
 
-        fetch("./data/exposition.json")
-          .then(function (response) {
-            if (!response.ok) throw new Error("방문 일정을 불러오지 못했습니다.");
-            return response.json();
+        Promise.all([
+          fetch("./data/exposition.json"),
+          fetch("./data/campus_recruiting_schedule.json"),
+        ])
+          .then(function (responses) {
+            responses.forEach(function (response) {
+              if (!response.ok)
+                throw new Error("방문 일정을 불러오지 못했습니다.");
+            });
+            return Promise.all(
+              responses.map(function (response) {
+                return response.json();
+              }),
+            );
           })
-          .then(function (data) {
-            if (!Array.isArray(data.fair) || !Array.isArray(data.campus))
+          .then(function (datasets) {
+            var fairData = datasets[0];
+            var campusData = datasets[1];
+            if (!Array.isArray(fairData.fair) || !Array.isArray(campusData))
               throw new Error("방문 일정 데이터 형식이 올바르지 않습니다.");
 
-            regions = data.campus;
-            renderPeriods(fairSchedule, data.fair, false);
+            regions = buildCampusRegions(campusData);
+            renderPeriods(fairSchedule, fairData.fair, false);
             regionTabs.replaceChildren();
 
             regions.forEach(function (region, index) {
@@ -6263,6 +6896,42 @@
               container.setAttribute("aria-busy", "false");
             });
           });
+      })();
+    </script>
+    <script>
+      (function () {
+        var section = document.getElementById("con9");
+        if (!section) return;
+
+        var deadline = new Date(section.dataset.deadline).getTime();
+        var daysNode = section.querySelector("[data-countdown-days]");
+        var hoursNode = section.querySelector("[data-countdown-hours]");
+        var minutesNode = section.querySelector("[data-countdown-minutes]");
+        var secondsNode = section.querySelector("[data-countdown-seconds]");
+        var status = section.querySelector(".con9-status");
+        var timer;
+
+        function updateCountdown() {
+          var remaining = deadline - Date.now();
+          if (remaining <= 0) {
+            daysNode.textContent = "00";
+            hoursNode.textContent = "00";
+            minutesNode.textContent = "00";
+            secondsNode.textContent = "00";
+            status.textContent = "이번 채용 지원 기간이 종료되었습니다.";
+            if (timer) window.clearInterval(timer);
+            return;
+          }
+
+          var totalSeconds = Math.floor(remaining / 1000);
+          daysNode.textContent = String(Math.floor(totalSeconds / 86400)).padStart(2, "0");
+          hoursNode.textContent = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, "0");
+          minutesNode.textContent = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
+          secondsNode.textContent = String(totalSeconds % 60).padStart(2, "0");
+        }
+
+        updateCountdown();
+        timer = window.setInterval(updateCountdown, 1000);
       })();
     </script>
   </body>
