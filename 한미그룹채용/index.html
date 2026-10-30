@@ -474,7 +474,7 @@
 
       .footer-inner {
         display: flex;
-        min-height: 48px;
+        min-height: 64px;
         align-items: center;
         justify-content: center;
         padding: 8px 20px;
@@ -482,7 +482,7 @@
 
       .footer-logo {
         display: block;
-        width: 82px;
+        width: 96px;
         height: auto;
       }
 
@@ -3194,7 +3194,8 @@
 
       .expo-region-tabs {
         display: grid;
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        /* 실제 지역 개수에 맞춰 탭 폭을 균등하게 배분한다. */
+        grid-template-columns: repeat(var(--expo-region-columns, 4), minmax(0, 1fr));
         gap: 8px;
         margin: 24px 0 30px;
         padding: 8px;
@@ -3373,6 +3374,7 @@
         text-align: center;
       }
 
+      /* ---------- con8: 카드 이미지, 손그림 장식 및 카드별 호버 ---------- */
       .con8 {
         position: relative;
         overflow: hidden;
@@ -3398,10 +3400,20 @@
 
       .con8-links {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(3, 355px);
         align-items: start;
-        gap: 42px;
-        padding: 42px 12px 0;
+        gap: 53px;
+        padding: 42px 24px 0;
+      }
+
+      /* 작은 데스크탑에서는 카드가 화면 밖으로 밀리지 않도록 유동폭 사용 */
+      @media (max-width: 1250px) and (min-width: 1025px) {
+        .con8-links {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 32px;
+          padding-right: 12px;
+          padding-left: 12px;
+        }
       }
 
       .con8-card {
@@ -3410,14 +3422,16 @@
         min-width: 0;
         color: #111;
         text-align: center;
+        cursor: pointer;
       }
 
+      /* 참조 이미지처럼 가운데 카드가 가장 위, 첫 번째/세 번째는 계단식 배치 */
       .con8-card:nth-child(1) {
-        margin-top: 40px;
+        margin-top: 54px;
       }
 
       .con8-card:nth-child(3) {
-        margin-top: 22px;
+        margin-top: 108px;
       }
 
       .con8-card-image {
@@ -3425,74 +3439,132 @@
         display: block;
         width: 100%;
         aspect-ratio: 0.78;
+        isolation: isolate;
       }
 
-      .con8-card-image img {
+      /* 마크들은 사진 바깥으로 나올 수 있어야 하므로 사진 프레임만 잘라낸다. */
+      .con8-photo-frame {
+        position: absolute;
+        inset: 0;
+        display: block;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+
+      .con8-card-image .con8-photo {
+        display: block;
         width: 100%;
         height: 100%;
-        border-radius: 8px;
+        max-width: none;
         object-fit: cover;
-        transition: transform 0.25s ease;
+        transition: transform .35s ease, filter .35s ease;
       }
 
-      .con8-card-image img.con8-mark--arrow-left,
-      .con8-card-image img.con8-mark--arrow-right {
-        width: 46px;
-        height: auto;
-        border-radius: 0;
-        object-fit: contain;
-        transition: none;
-      }
-
-      .con8-card-image img.con8-mark--star {
-        width: 54px;
-        height: auto;
-        border-radius: 0;
-        object-fit: contain;
-        transition: none;
-      }
-
-      .con8-mark {
+      /* 빨간 원본 PNG: 사진의 테두리를 기준으로 배치, hover에서도 고정 */
+      .con8-card-image .con8-mark {
         position: absolute;
-        z-index: 2;
-        width: auto;
+        z-index: 3;
+        display: block;
         height: auto;
+        max-width: none;
+        border: 0;
+        border-radius: 0;
+        object-fit: contain;
         pointer-events: none;
       }
 
-      .con8-mark--arrow-left {
-        bottom: -34px;
+      .con8-card-image .con8-mark--arrow-left {
+        bottom: -28px;
         left: 2%;
-        max-width: 46px;
+        width: 46px;
       }
 
-      .con8-mark--star {
+      .con8-card-image .con8-mark--star {
         right: -14px;
-        bottom: -32px;
-        max-width: 54px;
+        bottom: -26px;
+        width: 54px;
       }
 
-      .con8-mark--arrow-right {
+      .con8-card-image .con8-mark--arrow-right {
         right: 3%;
-        bottom: -36px;
-        max-width: 46px;
+        bottom: -28px;
+        width: 46px;
       }
 
-      .con8-card:hover .con8-card-image img,
-      .con8-card:focus-visible .con8-card-image img {
+      /* 사진 위에만 나타나는 호버: 배경 흐림+웜톤, 텍스트와 원형 화살표 */
+      .con8-card-hover {
+        position: absolute;
+        z-index: 2;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 12px;
+        border-radius: 8px;
+        background: linear-gradient(180deg,
+          rgba(190, 124, 112, .67) 0%,
+          rgba(164, 87, 67, .67) 48%,
+          rgba(78, 29, 20, .86) 100%);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity .25s ease, visibility 0s linear .25s;
+        color: #fff;
+      }
+
+      .con8-hover-title {
+        font-size: 20px;
+        line-height: 1.45;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .con8-hover-arrow {
+        display: inline-flex;
+        width: 37px;
+        height: 37px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 23px;
+        border: 1px solid rgba(255, 255, 255, .75);
+        border-radius: 50%;
+        background: linear-gradient(140deg, #ff763f, #ffb2a5);
+        box-shadow: inset 1px 1px 4px rgba(255, 255, 255, .25);
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1;
+        color: #fff;
+      }
+
+      .con8-card:hover .con8-photo,
+      .con8-card:focus-visible .con8-photo {
         transform: scale(1.025);
+        filter: blur(3px);
+      }
+
+      .con8-card:hover .con8-card-hover,
+      .con8-card:focus-visible .con8-card-hover {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .25s ease;
       }
 
       .con8-card-copy {
         display: grid;
         gap: 8px;
-        margin-top: 12px;
+        margin-top: 24px;
       }
 
       .con8-question {
-        font-size: 14px;
+        font-size: 20px;
         font-weight: 600;
         line-height: 1.5;
+        letter-spacing: -0.055em;
+        white-space: nowrap;
       }
 
       .con8-marked-word {
@@ -3500,6 +3572,7 @@
         display: inline-block;
       }
 
+      /* 원본 PNG가 단어 밑/위에서 정확히 유지되도록 단어를 기준점으로 함 */
       .con8-mark--underline,
       .con8-mark--circle,
       .con8-mark--wave {
@@ -3511,22 +3584,26 @@
 
       .con8-mark--underline,
       .con8-mark--wave {
-        right: -6px;
-        bottom: -8px;
-        left: -5px;
-        width: calc(100% + 11px);
+        right: -4px;
+        bottom: -7px;
+        left: -4px;
+        width: calc(100% + 8px);
       }
 
       .con8-mark--circle {
         top: 50%;
         left: 50%;
         width: calc(100% + 16px);
-        max-width: 72px;
+        max-width: 77px;
         transform: translate(-50%, -50%);
       }
 
+      /* 원래 모바일용 액션 문구는 모바일에서만 노출한다. */
+      .con8-card-copy > .con8-card-action {
+        display: none;
+      }
+
       .con8-card-action {
-        display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
@@ -3553,6 +3630,13 @@
         outline-offset: 5px;
       }
 
+      @media (prefers-reduced-motion: reduce) {
+        .con8-photo,
+        .con8-card-hover {
+          transition: none !important;
+        }
+      }
+
       .con9 {
         position: relative;
         display: flex;
@@ -3560,7 +3644,7 @@
         flex-direction: column;
         align-items: center;
         overflow: hidden;
-        padding: 72px 24px 48px;
+        padding: 86px 24px 73px;
         isolation: isolate;
         background: #dff9f8 url("./images/con9_bg.png.png") center / cover
           no-repeat;
@@ -3614,7 +3698,7 @@
         position: absolute;
         z-index: 1;
         bottom: -1px;
-        width: min(33%, 370px);
+        width: min(27%, 370px);
         height: auto;
         pointer-events: none;
       }
@@ -3671,6 +3755,7 @@
         }
 
         .con8-links {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
           gap: 24px;
           padding-right: 8px;
           padding-left: 8px;
@@ -3682,7 +3767,12 @@
         }
 
         .con8-question {
-          font-size: 12px;
+          font-size: clamp(12px, 1.55vw, 17px);
+          letter-spacing: -0.06em;
+        }
+
+        .con8-hover-title {
+          font-size: clamp(14px, 2vw, 20px);
         }
 
         .con9 {
@@ -3737,20 +3827,21 @@
           aspect-ratio: 1.65;
         }
 
-        .con8-card-image img.con8-mark--arrow-left,
-        .con8-card-image img.con8-mark--arrow-right {
-          width: 34px;
-          bottom: -10px;
+        /* 모바일에서는 빨간 손그림 장식 6종 모두 숨김 (태블릿까지 노출) */
+        .con8-card-image .con8-mark,
+        .con8-marked-word > .con8-mark--underline,
+        .con8-marked-word > .con8-mark--circle,
+        .con8-marked-word > .con8-mark--wave {
+          display: none;
         }
 
-        .con8-card-image img.con8-mark--star {
-          right: -8px;
-          bottom: -10px;
-          width: 40px;
+        /* 모바일은 기존 흰색 문구/액션을 사진 하단에 유지 */
+        .con8-card-hover {
+          display: none;
         }
 
-        .con8-mark--circle {
-          max-width: 60px;
+        .con8-card-copy > .con8-card-action {
+          display: inline-flex;
         }
 
         .con8-card-copy {
@@ -3765,6 +3856,7 @@
 
         .con8-question {
           font-size: 11px;
+          white-space: normal;
         }
 
         .con8-card-action {
@@ -4610,6 +4702,180 @@
         }
       }
 
+    
+      /* ==========================================================
+         Header: 스크롤 방향별 상태 (클래스 토글 방식)
+         기본 / .is-visible : 화면 상단에 표시
+         .is-hidden         : 아래로 스크롤 시 위쪽으로 퇴장
+         .is-scrolled       : 페이지 중간일 때 흰 배경/그림자 유지
+         ※ 기존 섹션 스타일에는 영향 없음
+         ========================================================== */
+      :root {
+        --sticky-header-offset: 100px;
+      }
+
+      html {
+        scroll-padding-top: var(--sticky-header-offset);
+      }
+
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: #fff;
+        transform: translate3d(0, 0, 0);
+        transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                    box-shadow 0.25s ease;
+        will-change: transform;
+      }
+
+      .site-header.is-visible {
+        transform: translate3d(0, 0, 0);
+        pointer-events: auto;
+      }
+
+      .site-header.is-hidden {
+        transform: translate3d(0, calc(-100% - 2px), 0);
+        pointer-events: none;
+      }
+
+      .site-header.is-scrolled {
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.065);
+      }
+
+      /* html의 scroll-padding-top으로 앵커 목적지의 헤더 겹침 방지 */
+
+      @media (min-width: 1025px) {
+        :root { --sticky-header-offset: 80px; }
+      }
+
+      @media (max-width: 600px) {
+        :root { --sticky-header-offset: 68px; }
+      }
+
+      /* 기존 391~600px에서 GNB 텍스트는 숨기면서
+         모바일 메뉴 버튼은 숨겨 놓은 불일치를 보완 */
+      @media (min-width: 391px) and (max-width: 600px) {
+        html.is-menu-open,
+        html.is-menu-open body { overflow: hidden; }
+        .site-header { height: 68px; }
+        .brand { width: 130px; }
+        .brand, .header-m { position: relative; z-index: 2; }
+        .header-m { display: flex; align-items: center; gap: 12px; }
+        .header-m .btn-sm {
+          width: 63px; height: 28px; padding: 0;
+          font-size: 13px; line-height: 18px;
+        }
+        html.is-menu-open .header-m .btn-sm { visibility: hidden; }
+        .btn-menu {
+          display: flex; flex-direction: column;
+          align-items: center; justify-content: center;
+          gap: 5px; width: 44px; height: 44px;
+          margin-right: -11px; background: none;
+        }
+        .btn-menu span {
+          display: block; width: 22px; height: 2px;
+          background: var(--black);
+          transition: transform 0.3s ease, opacity 0.2s ease;
+        }
+        html.is-menu-open .btn-menu span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        html.is-menu-open .btn-menu span:nth-child(2) { opacity: 0; }
+        html.is-menu-open .btn-menu span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .gnb {
+          position: fixed; top: 0; right: 0; z-index: 1;
+          width: 100%; height: 100vh; height: 100dvh;
+          flex-direction: column; align-items: stretch;
+          justify-content: flex-start;
+          padding: 100px 20px 0;
+          background: var(--white); overflow-y: auto;
+          transform: translateX(100%); visibility: hidden;
+          transition: transform 0.3s ease, visibility 0s linear 0.3s;
+        }
+        .gnb.is-open {
+          transform: translateX(0); visibility: visible;
+          transition: transform 0.3s ease, visibility 0s;
+        }
+        .gnb::after {
+          content: ""; position: absolute;
+          right: 16px; bottom: 40px; width: 130px;
+          aspect-ratio: 413 / 420;
+          background: url("./images/imgi_76_con5_char.png") center / contain no-repeat;
+          pointer-events: none;
+        }
+        .gnb-list {
+          display: flex; flex-direction: column;
+          align-items: stretch; gap: 0; height: auto;
+        }
+        .gnb-list li { border-bottom: 1px solid #e5e5e5; }
+        .gnb-list a, .gnb-list li:first-child a {
+          height: 56px; font-size: 18px; line-height: 24px;
+        }
+        .gnb-cta { margin-top: 40px; padding-left: 0; }
+        .gnb-cta .btn-sm {
+          width: 100%; height: 48px; padding: 0 20px;
+          font-size: 16px; line-height: 24px;
+        }
+      }
+
+      /* 메뉴를 열었을 때는 스크롤 여부와 무관하게 헤더 표시 */
+      html.is-menu-open .site-header {
+        transform: translate3d(0, 0, 0);
+        pointer-events: auto;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .site-header { transition: none; will-change: auto; }
+      }
+
+
+      /* ===== 전형절차 하단 안내: 해당 탭에서만 노출, 미디어쿼리는 글자 크기만 조정 ===== */
+      #process-panel .process-notes li {
+        font-size: 13px;
+      }
+
+      @media (max-width: 1024px) {
+        #process-panel .process-notes li { font-size: 12px; }
+      }
+      @media (max-width: 568px) {
+        #process-panel .process-notes li { font-size: 11px; }
+      }
+
+      /* ===== 캠퍼스 세부 일정: 학교 버튼과 상세 카드를 상호 교체 ===== */
+      #expo-campus-panel .expo-detail {
+        border: 0;
+        font-family: inherit;
+        cursor: pointer;
+        transition: background-color 180ms ease, box-shadow 180ms ease;
+      }
+
+      #expo-campus-panel .expo-detail:hover {
+        background: #fff1eb;
+      }
+
+      #expo-campus-panel .expo-detail:focus-visible {
+        outline: 3px solid rgba(255, 93, 50, 0.45);
+        outline-offset: 2px;
+      }
+
+      #expo-campus-panel .expo-venues.has-open-detail {
+        justify-content: flex-start;
+        padding-top: 0;
+        padding-bottom: 20px;
+      }
+
+      #expo-campus-panel .expo-venue-item.is-detail-open {
+        justify-content: center;
+      }
+
+      #expo-campus-panel .expo-venue-item.is-detail-open .expo-detail {
+        margin-top: 0;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #expo-campus-panel .expo-detail { transition: none; }
+      }
     </style>
   </head>
 
@@ -4617,17 +4883,17 @@
     <!-- 1. 상단 메뉴 영역 -->
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="#" aria-label="한미그룹 홈">
+        <a class="brand" href="#main-visual" aria-label="한미그룹 홈">
           <img src="./images/logo.svg" alt="Hanmi 한미그룹" />
         </a>
         <nav class="gnb" id="gnb" aria-label="주요 메뉴">
           <ul class="gnb-list">
-            <li><a href="#job">직무소개</a></li>
+            <li><a href="#jobs">직무소개</a></li>
             <li><a href="#qualification">지원자격 및 접수방법</a></li>
-            <li><a href="#schedule">채용설명회 일정</a></li>
+            <li><a href="#exposition">채용설명회 일정</a></li>
           </ul>
           <div class="gnb-cta">
-            <a class="btn btn-sm" href="#apply">
+            <a class="btn btn-sm" href="#con9">
               <span>지원하기</span>
               <svg
                 class="ico-chevron"
@@ -4650,7 +4916,7 @@
         </nav>
         <!-- 모바일 전용: 지원하기 + 햄버거(열기/닫기 토글) -->
         <div class="header-m">
-          <a class="btn btn-sm" href="#apply"><span>지원하기</span></a>
+          <a class="btn btn-sm" href="#con9"><span>지원하기</span></a>
           <button
             class="btn-menu"
             type="button"
@@ -4682,7 +4948,7 @@
               </p>
             </div>
             <div>
-              <a class="btn btn-lg" href="#job">모집직무 바로가기!</a>
+              <a class="btn btn-lg" href="#tasks">모집직무 바로가기!</a>
             </div>
           </div>
 
@@ -5754,7 +6020,7 @@
               </div>
             </section>
 
-            <ul class="requirement-notes process-notes">
+            <ul class="requirement-notes process-notes" aria-label="전형절차 안내사항">
               <li>상기 일정은 상황에 따라 변경될 수 있으며 각 전형별 상세 일정은 대상자에 한해 개별 안내 예정입니다.</li>
               <li>입사지원서에 허위 기재가 있거나 제출서류가 허위로 판명되는 경우, 또는 입사 이후 자격 미달이나 중대한 결격사유가 있는 경우는 입사가 취소될 수 있습니다.</li>
               <li>지원서 제출 후에는 수정이 절대 불가하오니, 주의하시기 바랍니다.</li>
@@ -5849,22 +6115,18 @@
           <div class="con8-links">
             <a class="con8-card" href="#welfare">
               <span class="con8-card-image">
-                <img
-                  src="./images/con8_img1.jpg"
-                  alt="함께 손을 모은 사람들"
-                />
+                <span class="con8-photo-frame">
+                  <img class="con8-photo" src="./images/con8_img1.jpg" alt="함께 손을 모은 사람들" />
+                </span>
+                <span class="con8-card-hover" aria-hidden="true">
+                  <span class="con8-hover-title">한미그룹 YouTube</span>
+                  <span class="con8-hover-arrow">→</span>
+                </span>
                 <img class="con8-mark con8-mark--arrow-left" src="./images/con8_Image.png" alt="" aria-hidden="true" />
                 <img class="con8-mark con8-mark--star" src="./images/con8_Image-2.png" alt="" aria-hidden="true" />
               </span>
               <span class="con8-card-copy">
-                <span class="con8-question">
-                  한미그룹의
-                  <span class="con8-marked-word">
-                    문화와 복지
-                    <img class="con8-mark--underline" src="./images/con8_Image-1.png" alt="" aria-hidden="true" />
-                  </span>
-                  가 궁금하다면?
-                </span>
+                <span class="con8-question">한미그룹의 <span class="con8-marked-word">문화와 복지<img class="con8-mark--underline" src="./images/con8_Image-1.png" alt="" aria-hidden="true" /></span>가 궁금하다면?</span>
                 <span class="con8-card-action">
                   한미그룹 YouTube
                   <span class="con8-card-arrow" aria-hidden="true">→</span>
@@ -5873,18 +6135,17 @@
             </a>
             <a class="con8-card" href="#tasks">
               <span class="con8-card-image">
-                <img src="./images/con8_img2.jpg" alt="촬영 카메라" />
+                <span class="con8-photo-frame">
+                  <img class="con8-photo" src="./images/con8_img2.jpg" alt="촬영 카메라" />
+                </span>
+                <span class="con8-card-hover" aria-hidden="true">
+                  <span class="con8-hover-title">한미그룹 직무 소개 페이지</span>
+                  <span class="con8-hover-arrow">→</span>
+                </span>
                 <img class="con8-mark con8-mark--arrow-right" src="./images/con8_Image-4.png" alt="" aria-hidden="true" />
               </span>
               <span class="con8-card-copy">
-                <span class="con8-question">
-                  한미그룹의
-                  <span class="con8-marked-word">
-                    직무
-                    <img class="con8-mark--circle" src="./images/con8_Image-3.png" alt="" aria-hidden="true" />
-                  </span>
-                  가 궁금하다면?
-                </span>
+                <span class="con8-question">한미그룹의 <span class="con8-marked-word">직무<img class="con8-mark--circle" src="./images/con8_Image-3.png" alt="" aria-hidden="true" /></span>가 궁금하다면?</span>
                 <span class="con8-card-action">
                   한미그룹 직무 소개 페이지
                   <span class="con8-card-arrow" aria-hidden="true">→</span>
@@ -5893,17 +6154,16 @@
             </a>
             <a class="con8-card" href="#qualification">
               <span class="con8-card-image">
-                <img src="./images/con8_img3.jpg" alt="한미약품 연구센터" />
+                <span class="con8-photo-frame">
+                  <img class="con8-photo" src="./images/con8_img3.jpg" alt="한미약품 연구센터" />
+                </span>
+                <span class="con8-card-hover" aria-hidden="true">
+                  <span class="con8-hover-title">한미그룹 채용 홈페이지</span>
+                  <span class="con8-hover-arrow">→</span>
+                </span>
               </span>
               <span class="con8-card-copy">
-                <span class="con8-question">
-                  한미그룹의
-                  <span class="con8-marked-word">
-                    채용소식을
-                    <img class="con8-mark--wave" src="./images/con8_Image-5.png" alt="" aria-hidden="true" />
-                  </span>
-                  빠르게 받고 싶다면?
-                </span>
+                <span class="con8-question">한미그룹의 <span class="con8-marked-word">채용소식을<img class="con8-mark--wave" src="./images/con8_Image-5.png" alt="" aria-hidden="true" /></span> 빠르게 받고 싶다면?</span>
                 <span class="con8-card-action">
                   한미그룹 채용 홈페이지
                   <span class="con8-card-arrow" aria-hidden="true">→</span>
@@ -5931,7 +6191,7 @@
           <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-seconds>00</strong> 초 남았어요</span>
         </div>
         <a class="con9-apply" href="#qualification" aria-label="지원 일정 확인하기">
-          <img src="./images/con9_지원하기.png" alt="지원하기" />
+          <img src="./images/con9_apply.png" alt="지원하기" />
         </a>
         <p class="con9-status" id="con9-status">아이콘을 클릭해서 지원해주세요!</p>
       </section>
@@ -5984,7 +6244,7 @@
             inner.style.zoom = "";
           }
 
-          if (w > 390) setMenu(false); // 모바일을 벗어나면 메뉴 상태 초기화
+          if (w > 600) setMenu(false); // 햄버거 메뉴 브레이크포인트(600px)를 벗어나면 초기화
         }
         fit();
         window.addEventListener("resize", fit);
@@ -6595,10 +6855,61 @@
         var campusSchedule = root.querySelector("#expo-campus-schedule");
         var regionTabs = root.querySelector("#expo-region-tabs");
         var regions = [];
+        var activeCampusDetail = null;
+        var campusDetailCounter = 0;
+
+        function closeCampusDetail(restoreFocus) {
+          if (!activeCampusDetail) return;
+          var previous = activeCampusDetail;
+          activeCampusDetail = null;
+          previous.detail.hidden = true;
+          previous.venue.hidden = false;
+          previous.venue.setAttribute("aria-expanded", "false");
+          previous.item.classList.remove("is-detail-open");
+          previous.item.closest(".expo-venues").classList.remove("has-open-detail");
+          if (restoreFocus) previous.venue.focus({ preventScroll: true });
+        }
+
+        function toggleCampusDetail(venue, detail, item) {
+          // 동일한 상세 카드를 재클릭하면 닫고, 다른 학교는 하나만 열리게 한다.
+          if (activeCampusDetail && activeCampusDetail.detail === detail) {
+            closeCampusDetail(true);
+            return;
+          }
+          closeCampusDetail(false);
+          activeCampusDetail = { venue: venue, detail: detail, item: item };
+          venue.setAttribute("aria-expanded", "true");
+          venue.hidden = true;
+          detail.hidden = false;
+          item.classList.add("is-detail-open");
+          item.closest(".expo-venues").classList.add("has-open-detail");
+          detail.focus({ preventScroll: true });
+        }
+
+        // 상세 카드 외부 클릭 또는 다른 요소로 포커스 이동 시 닫는다.
+        document.addEventListener("click", function (event) {
+          if (activeCampusDetail && !activeCampusDetail.item.contains(event.target)) {
+            closeCampusDetail(false);
+          }
+        });
+        document.addEventListener("focusin", function (event) {
+          if (activeCampusDetail && !activeCampusDetail.item.contains(event.target)) {
+            closeCampusDetail(false);
+          }
+        });
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && activeCampusDetail) {
+            event.preventDefault();
+            closeCampusDetail(true);
+          }
+        });
 
         function createDetail(eventData) {
-          var detail = document.createElement("div");
+          var detail = document.createElement("button");
+          detail.type = "button";
           detail.className = "expo-detail";
+          detail.id = "expo-campus-detail-" + (++campusDetailCounter);
+          detail.title = "세부일정을 닫으려면 다시 클릭하세요";
           detail.hidden = true;
 
           function createDetailLabel(iconText, labelText) {
@@ -6626,6 +6937,9 @@
             detail.append(createDetailLabel("◷", "시간"), time);
           }
 
+          detail.setAttribute("aria-label", eventData.name + " 세부일정: " +
+            (eventData.place || "세부 장소 별도 안내") +
+            (eventData.time ? ", " + eventData.time : "") + ". 다시 클릭하면 닫힙니다.");
           return detail;
         }
 
@@ -6715,6 +7029,7 @@
         }
 
         function renderPeriods(container, periods, allowDetails) {
+          closeCampusDetail(false);
           container.replaceChildren();
           if (!periods.length) {
             var empty = document.createElement("p");
@@ -6754,13 +7069,12 @@
                   venue.type = "button";
                   venue.setAttribute("aria-expanded", "false");
                   var detail = createDetail(eventData);
+                  venue.setAttribute("aria-controls", detail.id);
                   venue.addEventListener("click", function () {
-                    detail.hidden = !detail.hidden;
-                    venue.setAttribute("aria-expanded", String(!detail.hidden));
+                    toggleCampusDetail(venue, detail, venueItem);
                   });
-                  venue.addEventListener("blur", function () {
-                    detail.hidden = true;
-                    venue.setAttribute("aria-expanded", "false");
+                  detail.addEventListener("click", function () {
+                    closeCampusDetail(true);
                   });
                   venueItem.append(venue, detail);
                 } else {
@@ -6781,6 +7095,7 @@
         }
 
         function setActiveExpositionTab(tab, moveFocus) {
+          closeCampusDetail(false);
           tabs.forEach(function (item) {
             var active = item === tab;
             item.setAttribute("aria-selected", String(active));
@@ -6862,6 +7177,7 @@
 
             regions = buildCampusRegions(campusData);
             renderPeriods(fairSchedule, fairData.fair, false);
+            regionTabs.style.setProperty("--expo-region-columns", String(Math.max(1, regions.length)));
             regionTabs.replaceChildren();
 
             regions.forEach(function (region, index) {
@@ -6932,6 +7248,78 @@
 
         updateCountdown();
         timer = window.setInterval(updateCountdown, 1000);
+      })();
+    </script>
+  
+    <script>
+      // Header 스크롤 인터랙션: 기존 .site-header에 클래스만 추가/제거
+      (function () {
+        var header = document.querySelector('.site-header');
+        if (!header) return;
+        var menuButton = document.getElementById('menuToggle');
+        var lastY = Math.max(0, window.scrollY);
+        var ticking = false;
+        var threshold = 10; // 미세 스크롤도 누적해 방향 전환 감지
+        var movement = 0;
+        var navigationUntil = 0;
+
+        function showHeader() {
+          header.classList.remove('is-hidden');
+          header.classList.add('is-visible');
+        }
+        function hideHeader() {
+          header.classList.remove('is-visible');
+          header.classList.add('is-hidden');
+        }
+        function updateHeader() {
+          ticking = false;
+          var y = Math.max(0, window.scrollY);
+          header.classList.toggle('is-scrolled', y > 8);
+          var delta = y - lastY;
+          if (delta !== 0) {
+            movement = (delta > 0) === (movement > 0) ? movement + delta : delta;
+          }
+
+          if (document.documentElement.classList.contains('is-menu-open') ||
+              y <= header.offsetHeight + 12 ||
+              Date.now() < navigationUntil) {
+            showHeader();
+          } else if (movement >= threshold) {
+            hideHeader();
+          } else if (movement <= -threshold) {
+            showHeader();
+          }
+          lastY = y;
+        }
+
+        function onScroll() {
+          if (!ticking) {
+            ticking = true;
+            window.requestAnimationFrame(updateHeader);
+          }
+        }
+
+        // 동일한 문서 내 섹션 링크는 기존 부드러운 스크롤 동작을 사용
+        // 링크 전환 중 헤더가 바로 숨겨지는 현상을 방지
+        header.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+          anchor.addEventListener('click', function () {
+            navigationUntil = Date.now() + 1200;
+            showHeader();
+          });
+        });
+        if (menuButton) {
+          menuButton.addEventListener('click', function () {
+            showHeader();
+          });
+        }
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape') showHeader();
+        });
+
+        header.classList.add('is-visible');
+        updateHeader();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
       })();
     </script>
   </body>

@@ -474,7 +474,7 @@
 
       .footer-inner {
         display: flex;
-        min-height: 48px;
+        min-height: 64px;
         align-items: center;
         justify-content: center;
         padding: 8px 20px;
@@ -482,7 +482,7 @@
 
       .footer-logo {
         display: block;
-        width: 82px;
+        width: 96px;
         height: auto;
       }
 
@@ -3194,7 +3194,8 @@
 
       .expo-region-tabs {
         display: grid;
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        /* 실제 지역 개수에 맞춰 탭 폭을 균등하게 배분한다. */
+        grid-template-columns: repeat(var(--expo-region-columns, 4), minmax(0, 1fr));
         gap: 8px;
         margin: 24px 0 30px;
         padding: 8px;
@@ -3643,7 +3644,7 @@
         flex-direction: column;
         align-items: center;
         overflow: hidden;
-        padding: 72px 24px 48px;
+        padding: 86px 24px 73px;
         isolation: isolate;
         background: #dff9f8 url("./images/con9_bg.png.png") center / cover
           no-repeat;
@@ -3682,14 +3683,19 @@
         font-variant-numeric: tabular-nums;
       }
 
-      .con9-glow {
-        position: absolute;
-        z-index: 0;
-        top: 42%;
-        left: 50%;
+      .con9-visual {
+        position: relative;
+        z-index: 2;
         width: min(34vw, 430px);
+        margin: 44px auto 0;
+      }
+
+      .con9-glow {
+        position: relative;
+        z-index: 0;
+        display: block;
+        width: 100%;
         height: auto;
-        transform: translate(-50%, -10%);
         pointer-events: none;
       }
 
@@ -3697,7 +3703,7 @@
         position: absolute;
         z-index: 1;
         bottom: -1px;
-        width: min(33%, 370px);
+        width: min(27%, 370px);
         height: auto;
         pointer-events: none;
       }
@@ -3711,23 +3717,65 @@
       }
 
       .con9-apply {
-        position: relative;
+        position: absolute;
         z-index: 2;
-        display: block;
-        width: 205px;
-        margin: 46px auto 0;
-        border-radius: 50%;
-        transition: transform 0.2s ease;
+        top: 50%;
+        left: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        width: min(56%, 240px);
+        min-width: 200px;
+        padding: 14px 16px 14px 28px;
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.52);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.65),
+          0 12px 30px rgba(129, 174, 188, 0.16);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+        color: #ff5d32;
+        font-size: 19px;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        transform: translate(-50%, -50%);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background-color 0.2s ease;
       }
 
       .con9-apply:hover,
       .con9-apply:focus-visible {
-        transform: scale(1.04);
+        transform: translate(-50%, -50%) scale(1.04);
+        background: rgba(255, 255, 255, 0.66);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.85),
+          0 16px 34px rgba(129, 174, 188, 0.2);
       }
 
-      .con9-apply img {
-        width: 100%;
-        height: auto;
+      .con9-apply-text {
+        white-space: nowrap;
+      }
+
+      .con9-apply-arrow {
+        display: inline-flex;
+        flex: none;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #ff8c66 0%, #ff6c40 100%);
+        box-shadow:
+          inset 0 1px 1px rgba(255, 255, 255, 0.55),
+          0 6px 16px rgba(255, 108, 64, 0.28);
+        color: #fff;
+        font-size: 27px;
+        line-height: 1;
       }
 
       .con9-status {
@@ -3784,9 +3832,21 @@
           font-size: 26px;
         }
 
+        .con9-visual {
+          width: min(40vw, 360px);
+          margin-top: 36px;
+        }
+
         .con9-apply {
-          width: 185px;
-          margin-top: 38px;
+          min-width: 176px;
+          padding: 12px 14px 12px 24px;
+          font-size: 18px;
+        }
+
+        .con9-apply-arrow {
+          width: 38px;
+          height: 38px;
+          font-size: 24px;
         }
       }
 
@@ -3885,9 +3945,9 @@
           font-size: 18px;
         }
 
-        .con9-glow {
-          top: 42%;
-          width: min(62vw, 250px);
+        .con9-visual {
+          width: min(72vw, 270px);
+          margin-top: 34px;
         }
 
         .con9-cloud {
@@ -3895,8 +3955,16 @@
         }
 
         .con9-apply {
-          width: 150px;
-          margin-top: 38px;
+          min-width: 146px;
+          gap: 12px;
+          padding: 10px 12px 10px 20px;
+          font-size: 16px;
+        }
+
+        .con9-apply-arrow {
+          width: 34px;
+          height: 34px;
+          font-size: 20px;
         }
 
         .con9-status {
@@ -4828,6 +4896,53 @@
         .site-header { transition: none; will-change: auto; }
       }
 
+
+      /* ===== 전형절차 하단 안내: 해당 탭에서만 노출, 미디어쿼리는 글자 크기만 조정 ===== */
+      #process-panel .process-notes li {
+        font-size: 13px;
+      }
+
+      @media (max-width: 1024px) {
+        #process-panel .process-notes li { font-size: 12px; }
+      }
+      @media (max-width: 568px) {
+        #process-panel .process-notes li { font-size: 11px; }
+      }
+
+      /* ===== 캠퍼스 세부 일정: 학교 버튼과 상세 카드를 상호 교체 ===== */
+      #expo-campus-panel .expo-detail {
+        border: 0;
+        font-family: inherit;
+        cursor: pointer;
+        transition: background-color 180ms ease, box-shadow 180ms ease;
+      }
+
+      #expo-campus-panel .expo-detail:hover {
+        background: #fff1eb;
+      }
+
+      #expo-campus-panel .expo-detail:focus-visible {
+        outline: 3px solid rgba(255, 93, 50, 0.45);
+        outline-offset: 2px;
+      }
+
+      #expo-campus-panel .expo-venues.has-open-detail {
+        justify-content: flex-start;
+        padding-top: 0;
+        padding-bottom: 20px;
+      }
+
+      #expo-campus-panel .expo-venue-item.is-detail-open {
+        justify-content: center;
+      }
+
+      #expo-campus-panel .expo-venue-item.is-detail-open .expo-detail {
+        margin-top: 0;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #expo-campus-panel .expo-detail { transition: none; }
+      }
     </style>
   </head>
 
@@ -5972,7 +6087,7 @@
               </div>
             </section>
 
-            <ul class="requirement-notes process-notes">
+            <ul class="requirement-notes process-notes" aria-label="전형절차 안내사항">
               <li>상기 일정은 상황에 따라 변경될 수 있으며 각 전형별 상세 일정은 대상자에 한해 개별 안내 예정입니다.</li>
               <li>입사지원서에 허위 기재가 있거나 제출서류가 허위로 판명되는 경우, 또는 입사 이후 자격 미달이나 중대한 결격사유가 있는 경우는 입사가 취소될 수 있습니다.</li>
               <li>지원서 제출 후에는 수정이 절대 불가하오니, 주의하시기 바랍니다.</li>
@@ -6134,7 +6249,6 @@
       >
         <img class="con9-cloud con9-cloud--left" src="./images/con9_cloud_l.png.png" alt="" aria-hidden="true" />
         <img class="con9-cloud con9-cloud--right" src="./images/con9_cloud_r.png.png" alt="" aria-hidden="true" />
-        <img class="con9-glow" src="./images/con9_Background+Blur.png" alt="" aria-hidden="true" />
         <h2 class="con9-title" id="con9-title">당신에게 딱 맞는 자리를 찾으러 출발!</h2>
         <div class="con9-countdown" role="timer" aria-label="지원 마감까지 남은 시간">
           <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-days>00</strong> 일</span>
@@ -6142,9 +6256,13 @@
           <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-minutes>00</strong> 분</span>
           <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-seconds>00</strong> 초 남았어요</span>
         </div>
-        <a class="con9-apply" href="#qualification" aria-label="지원 일정 확인하기">
-          <img src="./images/con9_지원하기.png" alt="지원하기" />
-        </a>
+        <div class="con9-visual">
+          <img class="con9-glow" src="./images/con9_Background+Blur.png" alt="" />
+          <a class="con9-apply" href="#qualification" aria-label="지원 일정 확인하기">
+            <span class="con9-apply-text">지원하기</span>
+            <span class="con9-apply-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
         <p class="con9-status" id="con9-status">아이콘을 클릭해서 지원해주세요!</p>
       </section>
     </main>
@@ -6807,10 +6925,61 @@
         var campusSchedule = root.querySelector("#expo-campus-schedule");
         var regionTabs = root.querySelector("#expo-region-tabs");
         var regions = [];
+        var activeCampusDetail = null;
+        var campusDetailCounter = 0;
+
+        function closeCampusDetail(restoreFocus) {
+          if (!activeCampusDetail) return;
+          var previous = activeCampusDetail;
+          activeCampusDetail = null;
+          previous.detail.hidden = true;
+          previous.venue.hidden = false;
+          previous.venue.setAttribute("aria-expanded", "false");
+          previous.item.classList.remove("is-detail-open");
+          previous.item.closest(".expo-venues").classList.remove("has-open-detail");
+          if (restoreFocus) previous.venue.focus({ preventScroll: true });
+        }
+
+        function toggleCampusDetail(venue, detail, item) {
+          // 동일한 상세 카드를 재클릭하면 닫고, 다른 학교는 하나만 열리게 한다.
+          if (activeCampusDetail && activeCampusDetail.detail === detail) {
+            closeCampusDetail(true);
+            return;
+          }
+          closeCampusDetail(false);
+          activeCampusDetail = { venue: venue, detail: detail, item: item };
+          venue.setAttribute("aria-expanded", "true");
+          venue.hidden = true;
+          detail.hidden = false;
+          item.classList.add("is-detail-open");
+          item.closest(".expo-venues").classList.add("has-open-detail");
+          detail.focus({ preventScroll: true });
+        }
+
+        // 상세 카드 외부 클릭 또는 다른 요소로 포커스 이동 시 닫는다.
+        document.addEventListener("click", function (event) {
+          if (activeCampusDetail && !activeCampusDetail.item.contains(event.target)) {
+            closeCampusDetail(false);
+          }
+        });
+        document.addEventListener("focusin", function (event) {
+          if (activeCampusDetail && !activeCampusDetail.item.contains(event.target)) {
+            closeCampusDetail(false);
+          }
+        });
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && activeCampusDetail) {
+            event.preventDefault();
+            closeCampusDetail(true);
+          }
+        });
 
         function createDetail(eventData) {
-          var detail = document.createElement("div");
+          var detail = document.createElement("button");
+          detail.type = "button";
           detail.className = "expo-detail";
+          detail.id = "expo-campus-detail-" + (++campusDetailCounter);
+          detail.title = "세부일정을 닫으려면 다시 클릭하세요";
           detail.hidden = true;
 
           function createDetailLabel(iconText, labelText) {
@@ -6838,6 +7007,9 @@
             detail.append(createDetailLabel("◷", "시간"), time);
           }
 
+          detail.setAttribute("aria-label", eventData.name + " 세부일정: " +
+            (eventData.place || "세부 장소 별도 안내") +
+            (eventData.time ? ", " + eventData.time : "") + ". 다시 클릭하면 닫힙니다.");
           return detail;
         }
 
@@ -6927,6 +7099,7 @@
         }
 
         function renderPeriods(container, periods, allowDetails) {
+          closeCampusDetail(false);
           container.replaceChildren();
           if (!periods.length) {
             var empty = document.createElement("p");
@@ -6966,13 +7139,12 @@
                   venue.type = "button";
                   venue.setAttribute("aria-expanded", "false");
                   var detail = createDetail(eventData);
+                  venue.setAttribute("aria-controls", detail.id);
                   venue.addEventListener("click", function () {
-                    detail.hidden = !detail.hidden;
-                    venue.setAttribute("aria-expanded", String(!detail.hidden));
+                    toggleCampusDetail(venue, detail, venueItem);
                   });
-                  venue.addEventListener("blur", function () {
-                    detail.hidden = true;
-                    venue.setAttribute("aria-expanded", "false");
+                  detail.addEventListener("click", function () {
+                    closeCampusDetail(true);
                   });
                   venueItem.append(venue, detail);
                 } else {
@@ -6993,6 +7165,7 @@
         }
 
         function setActiveExpositionTab(tab, moveFocus) {
+          closeCampusDetail(false);
           tabs.forEach(function (item) {
             var active = item === tab;
             item.setAttribute("aria-selected", String(active));
@@ -7074,6 +7247,7 @@
 
             regions = buildCampusRegions(campusData);
             renderPeriods(fairSchedule, fairData.fair, false);
+            regionTabs.style.setProperty("--expo-region-columns", String(Math.max(1, regions.length)));
             regionTabs.replaceChildren();
 
             regions.forEach(function (region, index) {

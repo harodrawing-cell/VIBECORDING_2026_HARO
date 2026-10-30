@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="ko">
   <head>
-    <script>document.documentElement.classList.add('has-scroll-reveal');</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>한미그룹 2026년 하반기 공개채용</title>
@@ -475,7 +474,7 @@
 
       .footer-inner {
         display: flex;
-        min-height: 48px;
+        min-height: 64px;
         align-items: center;
         justify-content: center;
         padding: 8px 20px;
@@ -483,7 +482,7 @@
 
       .footer-logo {
         display: block;
-        width: 82px;
+        width: 96px;
         height: auto;
       }
 
@@ -3195,7 +3194,8 @@
 
       .expo-region-tabs {
         display: grid;
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        /* 실제 지역 개수에 맞춰 탭 폭을 균등하게 배분한다. */
+        grid-template-columns: repeat(var(--expo-region-columns, 4), minmax(0, 1fr));
         gap: 8px;
         margin: 24px 0 30px;
         padding: 8px;
@@ -3644,7 +3644,7 @@
         flex-direction: column;
         align-items: center;
         overflow: hidden;
-        padding: 72px 24px 48px;
+        padding: 86px 24px 73px;
         isolation: isolate;
         background: #dff9f8 url("./images/con9_bg.png.png") center / cover
           no-repeat;
@@ -3698,7 +3698,7 @@
         position: absolute;
         z-index: 1;
         bottom: -1px;
-        width: min(33%, 370px);
+        width: min(27%, 370px);
         height: auto;
         pointer-events: none;
       }
@@ -3711,24 +3711,77 @@
         right: 0;
       }
 
-      .con9-apply {
+      .con9-visual {
         position: relative;
         z-index: 2;
+        width: min(24vw, 300px);
+        margin: 34px auto 0;
+      }
+
+      .con9-globe {
         display: block;
-        width: 205px;
-        margin: 46px auto 0;
-        border-radius: 50%;
-        transition: transform 0.2s ease;
+        width: 100%;
+        height: auto;
+      }
+
+      .con9-apply {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 3;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        min-width: 172px;
+        padding: 12px 13px 12px 24px;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.42);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.8),
+          0 10px 24px rgba(90, 140, 160, 0.16);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        color: var(--orange);
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        transform: translate(-50%, -50%);
+        transition:
+          transform 0.2s ease,
+          background-color 0.2s ease,
+          box-shadow 0.2s ease;
       }
 
       .con9-apply:hover,
       .con9-apply:focus-visible {
-        transform: scale(1.04);
+        transform: translate(-50%, -50%) scale(1.04);
+        background: rgba(255, 255, 255, 0.58);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.9),
+          0 12px 30px rgba(90, 140, 160, 0.22);
       }
 
-      .con9-apply img {
-        width: 100%;
-        height: auto;
+      .con9-apply-text {
+        white-space: nowrap;
+      }
+
+      .con9-apply-arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #ff956f 0%, #ff6d43 100%);
+        box-shadow:
+          inset 0 1px 1px rgba(255, 255, 255, 0.65),
+          0 6px 16px rgba(255, 109, 67, 0.3);
+        color: #fff;
+        font-size: 23px;
+        line-height: 1;
       }
 
       .con9-status {
@@ -3785,9 +3838,21 @@
           font-size: 26px;
         }
 
+        .con9-visual {
+          width: min(30vw, 270px);
+          margin-top: 30px;
+        }
+
         .con9-apply {
-          width: 185px;
-          margin-top: 38px;
+          min-width: 150px;
+          padding: 11px 12px 11px 20px;
+          font-size: 17px;
+        }
+
+        .con9-apply-arrow {
+          width: 36px;
+          height: 36px;
+          font-size: 21px;
         }
       }
 
@@ -3895,9 +3960,22 @@
           width: 42%;
         }
 
+        .con9-visual {
+          width: min(52vw, 230px);
+          margin-top: 28px;
+        }
+
         .con9-apply {
-          width: 150px;
-          margin-top: 38px;
+          min-width: 138px;
+          gap: 10px;
+          padding: 9px 10px 9px 18px;
+          font-size: 15px;
+        }
+
+        .con9-apply-arrow {
+          width: 32px;
+          height: 32px;
+          font-size: 18px;
         }
 
         .con9-status {
@@ -4829,54 +4907,53 @@
         .site-header { transition: none; will-change: auto; }
       }
 
-    
-      /* =================================================================
-         SCROLL REVEAL — sub-element reveal / reset when scrolling back
-         .scroll-reveal       : transparent, 20% below the natural position
-         .is-revealed         : visible at the natural position
-         Header, first hero, footer and pure decorative assets are excluded.
-         CSS translate is independent of other transform/hover effects.
-         ================================================================= */
-      html.has-scroll-reveal main .scroll-reveal {
-        opacity: 0;
-        translate: 0 20%;
-        transition:
-          opacity 0.68s ease-out,
-          translate 0.82s cubic-bezier(0.2, 0.72, 0.2, 1);
-        transition-delay: var(--reveal-delay, 0ms);
+
+      /* ===== 전형절차 하단 안내: 해당 탭에서만 노출, 미디어쿼리는 글자 크기만 조정 ===== */
+      #process-panel .process-notes li {
+        font-size: 13px;
       }
 
-      html.has-scroll-reveal main .scroll-reveal.is-revealed {
-        opacity: 1;
-        translate: 0 0;
+      @media (max-width: 1024px) {
+        #process-panel .process-notes li { font-size: 12px; }
+      }
+      @media (max-width: 568px) {
+        #process-panel .process-notes li { font-size: 11px; }
       }
 
-      /* A short sequence in repeated rows / cards without moving their parents. */
-      .history-list .scroll-reveal:nth-child(4n + 2),
-      .innovation-news .scroll-reveal:nth-child(4n + 2),
-      .welfare-list .scroll-reveal:nth-child(4n + 2),
-      .tasks-job-grid .scroll-reveal:nth-child(4n + 2),
-      .expo-period .scroll-reveal:nth-child(4n + 2) { --reveal-delay: 55ms; }
-      .history-list .scroll-reveal:nth-child(4n + 3),
-      .innovation-news .scroll-reveal:nth-child(4n + 3),
-      .welfare-list .scroll-reveal:nth-child(4n + 3),
-      .tasks-job-grid .scroll-reveal:nth-child(4n + 3),
-      .expo-period .scroll-reveal:nth-child(4n + 3) { --reveal-delay: 105ms; }
-      .history-list .scroll-reveal:nth-child(4n),
-      .innovation-news .scroll-reveal:nth-child(4n),
-      .welfare-list .scroll-reveal:nth-child(4n),
-      .tasks-job-grid .scroll-reveal:nth-child(4n),
-      .expo-period .scroll-reveal:nth-child(4n) { --reveal-delay: 155ms; }
+      /* ===== 캠퍼스 세부 일정: 학교 버튼과 상세 카드를 상호 교체 ===== */
+      #expo-campus-panel .expo-detail {
+        border: 0;
+        font-family: inherit;
+        cursor: pointer;
+        transition: background-color 180ms ease, box-shadow 180ms ease;
+      }
+
+      #expo-campus-panel .expo-detail:hover {
+        background: #fff1eb;
+      }
+
+      #expo-campus-panel .expo-detail:focus-visible {
+        outline: 3px solid rgba(255, 93, 50, 0.45);
+        outline-offset: 2px;
+      }
+
+      #expo-campus-panel .expo-venues.has-open-detail {
+        justify-content: flex-start;
+        padding-top: 0;
+        padding-bottom: 20px;
+      }
+
+      #expo-campus-panel .expo-venue-item.is-detail-open {
+        justify-content: center;
+      }
+
+      #expo-campus-panel .expo-venue-item.is-detail-open .expo-detail {
+        margin-top: 0;
+      }
 
       @media (prefers-reduced-motion: reduce) {
-        html.has-scroll-reveal main .scroll-reveal,
-        html.has-scroll-reveal main .scroll-reveal.is-revealed {
-          opacity: 1;
-          translate: none;
-          transition: none;
-        }
+        #expo-campus-panel .expo-detail { transition: none; }
       }
-
     </style>
   </head>
 
@@ -4992,7 +5069,7 @@
       <!-- 2-2. 새로운 미래 소개 section : 신규 추가 -->
       <section class="mirae" id="mirae" aria-labelledby="mirae-title">
         <div class="mirae-inner">
-          <h2 class="mirae-title scroll-reveal" id="mirae-title">
+          <h2 class="mirae-title" id="mirae-title">
             <span class="mirae-title-red">새로운 미래</span
             ><span class="mirae-title-black">를 향해 나아갑니다</span>
           </h2>
@@ -5016,7 +5093,7 @@
             src="images/mirae_cloud2.png"
             alt="오른쪽 아래 멀리 흐릿하게 떠 있는 작은 구름"
           />
-          <div class="mirae-character-stage scroll-reveal">
+          <div class="mirae-character-stage">
             <img
               class="mirae-walking"
               src="images/mirae_walking.png"
@@ -5045,10 +5122,10 @@
         <div class="history-body" id="history-body">
           <div class="history-flow">
             <header class="history-head">
-              <h2 class="history-title scroll-reveal" id="history-title">
+              <h2 class="history-title" id="history-title">
                 한미의 도전은 작은 가능성에서<br />시작되었습니다.
               </h2>
-              <p class="history-count scroll-reveal" role="img" aria-label="한미 창립 53주년">
+              <p class="history-count" role="img" aria-label="한미 창립 53주년">
                 <span class="history-count-num">53</span
                 ><span class="history-count-unit">th</span>
               </p>
@@ -5062,31 +5139,31 @@
             <div class="history-timeline">
               <!-- 1973~2001 -->
               <div class="history-block history-block--text-left">
-                <h3 class="history-period scroll-reveal">1973~2001</h3>
-                <p class="history-lead scroll-reveal">한계를 하나씩 넘을 때마다,</p>
+                <h3 class="history-period">1973~2001</h3>
+                <p class="history-lead">한계를 하나씩 넘을 때마다,</p>
                 <ul class="history-list">
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">1973</span
                     ><span class="history-text">한미약품공업주식회사 설립</span>
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">1984</span
                     ><span class="history-text">팔탄 GMP 공장 신축</span>
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">1989</span
                     ><span class="history-text"
                       >세프트리악손 제조방법 Roche사 기술 수출</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">1997</span
                     ><span class="history-text"
                       >마이크로에멀전 제제기술 Novartis사 기술 수출</span
                     >
                   </li>
                 </ul>
-                <figure class="history-figure history-figure--1 scroll-reveal">
+                <figure class="history-figure history-figure--1">
                   <img
                     src="./images/his1.png"
                     alt="한미약품 초기 대표 제품 텐텐 어린이 영양제와 쎄쎄 비타민C 캐러멜"
@@ -5101,35 +5178,35 @@
 
               <!-- 2002~2010 -->
               <div class="history-block history-block--text-right">
-                <h3 class="history-period scroll-reveal">2002~2010</h3>
+                <h3 class="history-period">2002~2010</h3>
                 <ul class="history-list">
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2004</span
                     ><span class="history-text"
                       >국내 최초 고혈압치료제 ‘아모디핀’ 미국특허 획득</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2006</span
                     ><span class="history-text"
                       >세계 최초 유소아 해열 시럽제 개량신약 ‘맥시부펜’ 개발
                       성공</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2008</span
                     ><span class="history-text"
                       >국내 최초 주사용항생제 세프트리악손 美 FDA 승인</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2009</span
                     ><span class="history-text"
                       >세계최초 암로디핀+로살탄 복합제 ‘아모잘탄’ 발매</span
                     >
                   </li>
                 </ul>
-                <figure class="history-figure history-figure--2 scroll-reveal">
+                <figure class="history-figure history-figure--2">
                   <img
                     src="./images/his2.png"
                     alt="석양을 배경으로 손을 잡고 함께 뛰어오르는 다섯 사람의 실루엣"
@@ -5149,42 +5226,42 @@
 
               <!-- 2011~2015 -->
               <div class="history-block history-block--text-left">
-                <h3 class="history-period scroll-reveal">2011~2015</h3>
-                <p class="history-lead scroll-reveal">새로운 가능성이 현실이 되었어요.</p>
+                <h3 class="history-period">2011~2015</h3>
+                <p class="history-lead">새로운 가능성이 현실이 되었어요.</p>
                 <ul class="history-list">
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2011</span
                     ><span class="history-text"
                       >MSD와 ‘아모잘탄’ 50여개국 수출 계약 체결</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2012</span
                     ><span class="history-text"
                       >‘LAPS-GCSF’ 美 스펙트럼사와 공동개발 및 상업화 계약</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2013</span
                     ><span class="history-text"
                       >국내 개량신약 최초 미국 FDA 승인 및 미국 출시
                       ‘에소메졸’</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2014</span
                     ><span class="history-text"
                       >‘트리악손’ 국내 최초 유럽 4개국 시판 허가</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2015</span
                     ><span class="history-text"
                       >한국 사상 최대규모 릴레이 기술수출</span
                     >
                   </li>
                 </ul>
-                <figure class="history-figure history-figure--3 scroll-reveal">
+                <figure class="history-figure history-figure--3">
                   <img
                     src="./images/his3.png"
                     alt="스펙트럼 파마슈티컬스 로고와 인체 모형, 에소메졸 제품 용기"
@@ -5194,35 +5271,35 @@
 
               <!-- 2016~2020 -->
               <div class="history-block history-block--text-right">
-                <h3 class="history-period scroll-reveal">2016~2020</h3>
+                <h3 class="history-period">2016~2020</h3>
                 <ul class="history-list">
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2016</span
                     ><span class="history-text"
                       >차세대 RAF 저해제, Roche 제넨텍 기술수출</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2017</span
                     ><span class="history-text"
                       >‘에소메졸’ 국내 제약회사 최초 미국약전(USP) 등재</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2018</span
                     ><span class="history-text"
                       >‘Glucagon Analog’, ‘오락솔’ 차세대 AML 치료제 美
                       희귀의약품 지정</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2019</span
                     ><span class="history-text"
                       >최근 10년간 처방실적 최다 4조 4,176억원</span
                     >
                   </li>
                 </ul>
-                <figure class="history-figure history-figure--4 scroll-reveal">
+                <figure class="history-figure history-figure--4">
                   <img
                     src="./images/his4.png"
                     alt="미국임상종양학회 ASCO와 미국약전 USP 로고, 로수젯 제품 패키지"
@@ -5237,38 +5314,38 @@
 
               <!-- 2021~2026 -->
               <div class="history-block history-block--text-left">
-                <h3 class="history-period scroll-reveal">2021~2026</h3>
-                <p class="history-lead scroll-reveal">
+                <h3 class="history-period">2021~2026</h3>
+                <p class="history-lead">
                   하지만 아직, 가야 할 길이 더 남아 있습니다.
                 </p>
                 <ul class="history-list">
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2021</span
                     ><span class="history-text"
                       >‘로수젯’, 국내사 개발 처방의약품 매출 1위 달성</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2022</span
                     ><span class="history-text"
                       >‘롤론티스’ 한국 최초 FDA 허가 받은 바이오신약 등재<br />‘로수젯
                       RACING 연구’ 세계 최고 권위 의학저널 ‘LANCET’ 등재</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2023</span
                     ><span class="history-text"
                       >비만 프로젝트 ‘H.O.P’ 프로젝트 가동</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2024</span
                     ><span class="history-text"
                       >근손실 한계 뛰어넘은 신개념 비만 신약 ‘HM17321’
                       발표</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2025</span
                     ><span class="history-text"
                       >‘로수젯’ 한국 전문의약품 시장 1위 품목 등록<br />한미약품
@@ -5277,7 +5354,7 @@
                       ‘EGF크림’ 27만개 완판</span
                     >
                   </li>
-                  <li class="scroll-reveal">
+                  <li>
                     <span class="history-year">2026</span
                     ><span class="history-text"
                       >희귀질환치료제 ‘LAPS-GLP2’ 릴리 기술수출<br />한미
@@ -5285,7 +5362,7 @@
                     >
                   </li>
                 </ul>
-                <figure class="history-figure history-figure--5 scroll-reveal">
+                <figure class="history-figure history-figure--5">
                   <img
                     src="./images/his5.png"
                     alt="THE LANCET 창간 200주년 표지와 롤론티스 작용 원리, 롤론티스 제품 패키지"
@@ -5301,7 +5378,7 @@
 
             <footer class="history-end">
               <p
-                class="history-count history-count--end scroll-reveal"
+                class="history-count history-count--end"
                 role="img"
                 aria-label="한미 창립 100주년"
               >
@@ -5309,11 +5386,11 @@
                 ><span class="history-count-unit">th</span>
               </p>
               <div class="history-end-copy">
-                <p class="history-end-sub scroll-reveal">
+                <p class="history-end-sub">
                   한계를 넘을 때마다, 건강한 미래는 가까워졌습니다. 한계를 넘는
                   일, 우리에게는 꽤 익숙하니까.
                 </p>
-                <p class="history-end-main scroll-reveal">
+                <p class="history-end-main">
                   수많은 도전이 오늘의 한미를 만들었습니다.<br />이제 또 다른
                   가능성을 향해 당신과 함께 나아갑니다.
                 </p>
@@ -5358,14 +5435,14 @@
         <div class="jobs-inner">
           <header class="jobs-header">
             <img
-              class="jobs-logo scroll-reveal"
+              class="jobs-logo"
               src="./images/con3_logo.png"
               alt="Hanmi 로고"
             />
-            <h2 class="jobs-title scroll-reveal" id="jobs-title">
+            <h2 class="jobs-title" id="jobs-title">
               한미에서는 어떤 일을 할까요?
             </h2>
-            <p class="jobs-subtitle scroll-reveal">
+            <p class="jobs-subtitle">
               일의 보람부터 성장의 순간까지, 먼저 경험한 현직자들이 솔직하게
               들려드립니다.
             </p>
@@ -5380,15 +5457,15 @@
             <li>
               <article class="jobs-card">
                 <img
-                  class="jobs-photo scroll-reveal"
+                  class="jobs-photo"
                   src="./images/con3_int1.jpg"
                   alt="실험실에서 의약품 품질관리 업무를 소개하는 이건호 사원"
                 />
-                <p class="jobs-description scroll-reveal">
+                <p class="jobs-description">
                   정밀한 시험과 분석으로 의약품의 품질을 확인해<br />안전하고
                   신뢰할 수 있는 의약품을 만들어갑니다.
                 </p>
-                <div class="jobs-card-bottom scroll-reveal">
+                <div class="jobs-card-bottom">
                   <p class="jobs-meta">
                     한미약품 품질관리
                     <span class="jobs-meta-divider">|</span> 이건호 사원
@@ -5412,15 +5489,15 @@
             <li>
               <article class="jobs-card">
                 <img
-                  class="jobs-photo scroll-reveal"
+                  class="jobs-photo"
                   src="./images/con3_int2.jpg"
                   alt="사무실 소파에 앉아 있는 신약 연구원 박진하 연구원"
                 />
-                <p class="jobs-description scroll-reveal">
+                <p class="jobs-description">
                   신약 후보물질의 가능성을 과학적으로 검증해<br />새로운
                   치료제가 환자에게 향하는 첫걸음을 만듭니다.
                 </p>
-                <div class="jobs-card-bottom scroll-reveal">
+                <div class="jobs-card-bottom">
                   <p class="jobs-meta">
                     한미약품 전임상연구
                     <span class="jobs-meta-divider">|</span> 박진하 연구원
@@ -5448,7 +5525,7 @@
             alt=""
             aria-hidden="true"
           />
-          <div class="jobs-cta-wrap scroll-reveal">
+          <div class="jobs-cta-wrap">
             <a class="jobs-cta" href="#jobs">모든 현직자 알아가기!</a>
           </div>
         </div>
@@ -5461,10 +5538,10 @@
       >
         <div class="innovation-inner">
           <header class="innovation-header">
-            <h2 id="innovation-title" class="scroll-reveal">
+            <h2 id="innovation-title">
               당신의 가능성,<br />한미그룹에서 더 크게 성장합니다
             </h2>
-            <p class="scroll-reveal">
+            <p>
               연구와 혁신으로 성장하며 글로벌 제약/바이오 기업을 향해
               나아갑니다.
             </p>
@@ -5483,7 +5560,7 @@
               aria-hidden="true"
             />
             <ul class="innovation-news">
-              <li class="innovation-item innovation-item--left scroll-reveal">
+              <li class="innovation-item innovation-item--left">
                 <a
                   class="innovation-bubble"
                   href="#innovation"
@@ -5506,7 +5583,7 @@
                   >
                 </a>
               </li>
-              <li class="innovation-item innovation-item--right scroll-reveal">
+              <li class="innovation-item innovation-item--right">
                 <a
                   class="innovation-bubble"
                   href="#innovation"
@@ -5530,7 +5607,7 @@
                   >
                 </a>
               </li>
-              <li class="innovation-item innovation-item--left scroll-reveal">
+              <li class="innovation-item innovation-item--left">
                 <a
                   class="innovation-bubble"
                   href="#innovation"
@@ -5553,7 +5630,7 @@
                   >
                 </a>
               </li>
-              <li class="innovation-item innovation-item--right scroll-reveal">
+              <li class="innovation-item innovation-item--right">
                 <a
                   class="innovation-bubble"
                   href="#innovation"
@@ -5576,7 +5653,7 @@
                   >
                 </a>
               </li>
-              <li class="innovation-item innovation-item--left scroll-reveal">
+              <li class="innovation-item innovation-item--left">
                 <a
                   class="innovation-bubble"
                   href="#innovation"
@@ -5600,7 +5677,7 @@
                   >
                 </a>
               </li>
-              <li class="innovation-item innovation-item--right scroll-reveal">
+              <li class="innovation-item innovation-item--right">
                 <a
                   class="innovation-bubble"
                   href="#innovation"
@@ -5623,7 +5700,7 @@
                   >
                 </a>
               </li>
-              <li class="innovation-item innovation-item--left scroll-reveal">
+              <li class="innovation-item innovation-item--left">
                 <a
                   class="innovation-bubble"
                   href="#innovation"
@@ -5647,7 +5724,7 @@
                 </a>
               </li>
             </ul>
-            <p class="innovation-hint scroll-reveal">
+            <p class="innovation-hint">
               <span aria-hidden="true">•</span> 말풍선을 클릭해서 기사를 확인해
               보세요.
             </p>
@@ -5665,14 +5742,14 @@
       <section class="welfare" id="welfare" aria-labelledby="welfare-title">
         <div class="welfare-inner">
           <header class="welfare-header">
-            <h2 class="welfare-title scroll-reveal" id="welfare-title">
+            <h2 class="welfare-title" id="welfare-title">
               한미 생활을<br class="welfare-title-break" />더 즐겁게 만드는 방법
             </h2>
-            <p class="welfare-subtitle scroll-reveal">
+            <p class="welfare-subtitle">
               건강부터 성장, 휴식까지 알차게 준비한 복지를 소개할게요.
             </p>
             <img
-              class="welfare-character scroll-reveal"
+              class="welfare-character"
               src="./images/imgi_76_con5_char.png"
               alt="거울을 보며 건강을 챙기는 한미 캐릭터"
             />
@@ -5691,26 +5768,26 @@
       <section class="tasks" id="tasks" aria-labelledby="tasks-title">
         <div class="tasks-hero" aria-hidden="true">
           <img
-            class="tasks-hero-title-art scroll-reveal"
+            class="tasks-hero-title-art"
             src="./images/tasks_bg_title.png"
             alt=""
           />
           <img
-            class="tasks-character scroll-reveal"
+            class="tasks-character"
             src="./images/tasks_character.png"
             alt=""
           />
         </div>
         <div class="tasks-content">
           <header class="tasks-heading">
-            <h2 id="tasks-title" class="scroll-reveal">알약이를 따라<br />나에게 맞는 직무를 찾아봐요!</h2>
-            <p class="scroll-reveal">
+            <h2 id="tasks-title">알약이를 따라<br />나에게 맞는 직무를 찾아봐요!</h2>
+            <p>
               연구부터 생산, 영업, 경영지원까지 당신의 가능성이 빛날 자리를
               안내해 드릴게요.
             </p>
           </header>
 
-          <div class="tasks-tabs scroll-reveal" role="tablist" aria-label="직무 분야">
+          <div class="tasks-tabs" role="tablist" aria-label="직무 분야">
             <button
               class="tasks-tab"
               type="button"
@@ -5794,7 +5871,7 @@
             <section class="tasks-group is-open">
               <h3>
                 <button
-                  class="tasks-accordion-trigger scroll-reveal"
+                  class="tasks-accordion-trigger"
                   type="button"
                   aria-expanded="true"
                   aria-controls="tasks-rnd-center"
@@ -5805,27 +5882,27 @@
               </h3>
               <div class="tasks-group-panel" id="tasks-rnd-center">
                 <div class="tasks-job-grid">
-                  <button class="tasks-job scroll-reveal" type="button" data-job="nce">
+                  <button class="tasks-job" type="button" data-job="nce">
                     <span>NCE (New Chemical Entity)</span>
                     <span class="tasks-job-arrow" aria-hidden="true">→</span>
                   </button>
-                  <button class="tasks-job scroll-reveal" type="button" data-job="qsf">
+                  <button class="tasks-job" type="button" data-job="qsf">
                     <span>QS&amp;F (Quality Science &amp; Formulation)</span>
                     <span class="tasks-job-arrow" aria-hidden="true">→</span>
                   </button>
-                  <button class="tasks-job scroll-reveal" type="button" data-job="mst">
+                  <button class="tasks-job" type="button" data-job="mst">
                     <span>MST (Manufacturing Science Technology)</span>
                     <span class="tasks-job-arrow" aria-hidden="true">→</span>
                   </button>
-                  <button class="tasks-job scroll-reveal" type="button" data-job="te">
+                  <button class="tasks-job" type="button" data-job="te">
                     <span>TE (Toxicology Evaluation)</span>
                     <span class="tasks-job-arrow" aria-hidden="true">→</span>
                   </button>
-                  <button class="tasks-job scroll-reveal" type="button" data-job="dst">
+                  <button class="tasks-job" type="button" data-job="dst">
                     <span>DST (Drug Science &amp; Technology)</span>
                     <span class="tasks-job-arrow" aria-hidden="true">→</span>
                   </button>
-                  <button class="tasks-job scroll-reveal" type="button" data-job="bss">
+                  <button class="tasks-job" type="button" data-job="bss">
                     <span>BSS (Biological &amp; Structural Evaluation Science)</span>
                     <span class="tasks-job-arrow" aria-hidden="true">→</span>
                   </button>
@@ -5835,7 +5912,7 @@
             <section class="tasks-group">
               <h3>
                 <button
-                  class="tasks-accordion-trigger scroll-reveal"
+                  class="tasks-accordion-trigger"
                   type="button"
                   aria-expanded="false"
                   aria-controls="tasks-rnd-formulation"
@@ -5846,7 +5923,7 @@
               </h3>
               <div class="tasks-group-panel" id="tasks-rnd-formulation" hidden>
                 <div class="tasks-job-grid">
-                  <button class="tasks-job scroll-reveal" type="button" data-job="formulation">
+                  <button class="tasks-job" type="button" data-job="formulation">
                     <span>제제연구 직무 상세</span>
                     <span class="tasks-job-arrow" aria-hidden="true">→</span>
                   </button>
@@ -5914,18 +5991,18 @@
       >
         <div class="requirement-inner">
           <header class="requirement-header">
-            <h2 class="requirement-title scroll-reveal" id="requirement-title">
+            <h2 class="requirement-title" id="requirement-title">
               한미그룹과 함께하는 문은<br />활짝 열려 있습니다
             </h2>
             <img
-              class="requirement-bulb scroll-reveal"
+              class="requirement-bulb"
               src="./images/require_bulb.png"
               alt=""
               aria-hidden="true"
             />
           </header>
 
-          <div class="requirement-tabs scroll-reveal" role="tablist" aria-label="채용 안내">
+          <div class="requirement-tabs" role="tablist" aria-label="채용 안내">
             <button
               class="requirement-tab"
               type="button"
@@ -5958,7 +6035,7 @@
             tabindex="0"
           >
             <div class="eligibility-grid">
-              <article class="eligibility-item scroll-reveal">
+              <article class="eligibility-item">
                 <img
                   src="./images/require_calendar_3d.png"
                   alt=""
@@ -5966,7 +6043,7 @@
                 />
                 <h3>27년 1월 입사가 가능한 자</h3>
               </article>
-              <article class="eligibility-item scroll-reveal">
+              <article class="eligibility-item">
                 <img
                   src="./images/require_gradcap_3d.png"
                   alt=""
@@ -5975,14 +6052,14 @@
                 <h3>기졸업자 또는 27년 2월 졸업 예정자</h3>
               </article>
             </div>
-            <div class="requirement-notes-divider scroll-reveal">
+            <div class="requirement-notes-divider">
               <ul class="requirement-notes">
                 <li>남성의 경우 병역을 마쳤거나 면제인 분</li>
                 <li>해외여행 (또는 해외 출장)에 결격사유가 없는 분</li>
                 <li>취업보호대상자는 관련 법령에 의거하여 우대</li>
               </ul>
             </div>
-            <p class="requirement-notice scroll-reveal">
+            <p class="requirement-notice">
               모집 직무별로 지원자격이 상이하오니 반드시
               <strong>&nbsp;채용 공고</strong>를 확인해 주시기 바랍니다.
             </p>
@@ -5997,31 +6074,31 @@
             hidden
           >
             <section class="process-group" aria-labelledby="process-sales-title">
-              <h3 class="scroll-reveal" id="process-sales-title">영업직군</h3>
+              <h3 id="process-sales-title">영업직군</h3>
               <div class="process-steps">
-                <div class="process-step scroll-reveal"><span class="process-step-icon" aria-hidden="true">🗓️</span><strong>지원접수</strong><span>9.28~10.18</span></div>
-                <div class="process-step scroll-reveal"><span class="process-step-icon" aria-hidden="true">📑</span><strong>서류전형</strong><span>10.19~10.20</span></div>
-                <div class="process-step scroll-reveal"><span class="process-step-icon" aria-hidden="true">🔎</span><strong>AI역량검사</strong><span>10.21~10.25</span></div>
-                <div class="process-step scroll-reveal"><span class="process-step-icon" aria-hidden="true">🪪</span><strong>1차면접</strong><span>11월 중</span></div>
-                <div class="process-step scroll-reveal"><span class="process-step-icon" aria-hidden="true">📍</span><strong>현장체험</strong><span>12월 초</span></div>
-                <div class="process-step scroll-reveal"><span class="process-step-icon" aria-hidden="true">💬</span><strong>2차면접</strong><span>12월 중</span></div>
-                <div class="process-step scroll-reveal"><span class="process-step-icon" aria-hidden="true">📚</span><strong>교육전형</strong><span>27.1.4~</span></div>
+                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🗓️</span><strong>지원접수</strong><span>9.28~10.18</span></div>
+                <div class="process-step"><span class="process-step-icon" aria-hidden="true">📑</span><strong>서류전형</strong><span>10.19~10.20</span></div>
+                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🔎</span><strong>AI역량검사</strong><span>10.21~10.25</span></div>
+                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🪪</span><strong>1차면접</strong><span>11월 중</span></div>
+                <div class="process-step"><span class="process-step-icon" aria-hidden="true">📍</span><strong>현장체험</strong><span>12월 초</span></div>
+                <div class="process-step"><span class="process-step-icon" aria-hidden="true">💬</span><strong>2차면접</strong><span>12월 중</span></div>
+                <div class="process-step"><span class="process-step-icon" aria-hidden="true">📚</span><strong>교육전형</strong><span>27.1.4~</span></div>
               </div>
             </section>
 
             <section class="process-group" aria-labelledby="process-other-title">
-              <h3 class="scroll-reveal" id="process-other-title">영업 외 전직군</h3>
+              <h3 id="process-other-title">영업 외 전직군</h3>
               <div class="process-steps process-steps--six">
-                <div class="process-step scroll-reveal"><span class="process-step-icon" aria-hidden="true">🗓️</span><strong>지원접수</strong><span>9.28~10.18</span></div>
-                <div class="process-step scroll-reveal"><span class="process-step-icon" aria-hidden="true">📑</span><strong>서류전형</strong><span>10.19~10.20</span></div>
-                <div class="process-step scroll-reveal"><span class="process-step-icon" aria-hidden="true">🔎</span><strong>AI역량검사</strong><span>10.21~10.25</span></div>
-                <div class="process-step scroll-reveal"><span class="process-step-icon" aria-hidden="true">🪪</span><strong>1차면접</strong><span>11월 중</span></div>
-                <div class="process-step scroll-reveal"><span class="process-step-icon" aria-hidden="true">💬</span><strong>2차면접</strong><span>12월 중</span></div>
-                <div class="process-step scroll-reveal"><span class="process-step-icon" aria-hidden="true">🏢</span><strong>입사</strong><span>27.1.4~<br />(경력직 협의 가능)</span></div>
+                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🗓️</span><strong>지원접수</strong><span>9.28~10.18</span></div>
+                <div class="process-step"><span class="process-step-icon" aria-hidden="true">📑</span><strong>서류전형</strong><span>10.19~10.20</span></div>
+                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🔎</span><strong>AI역량검사</strong><span>10.21~10.25</span></div>
+                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🪪</span><strong>1차면접</strong><span>11월 중</span></div>
+                <div class="process-step"><span class="process-step-icon" aria-hidden="true">💬</span><strong>2차면접</strong><span>12월 중</span></div>
+                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🏢</span><strong>입사</strong><span>27.1.4~<br />(경력직 협의 가능)</span></div>
               </div>
             </section>
 
-            <ul class="requirement-notes process-notes scroll-reveal">
+            <ul class="requirement-notes process-notes" aria-label="전형절차 안내사항">
               <li>상기 일정은 상황에 따라 변경될 수 있으며 각 전형별 상세 일정은 대상자에 한해 개별 안내 예정입니다.</li>
               <li>입사지원서에 허위 기재가 있거나 제출서류가 허위로 판명되는 경우, 또는 입사 이후 자격 미달이나 중대한 결격사유가 있는 경우는 입사가 취소될 수 있습니다.</li>
               <li>지원서 제출 후에는 수정이 절대 불가하오니, 주의하시기 바랍니다.</li>
@@ -6039,25 +6116,25 @@
         <div class="exposition-inner">
           <header class="exposition-header">
             <img
-              class="exposition-character scroll-reveal"
+              class="exposition-character"
               src="./images/expo_char.png"
               alt="박람회와 캠퍼스를 찾아가는 한미 캐릭터"
             />
             <div class="exposition-copy">
-              <h2 class="exposition-title scroll-reveal" id="exposition-title">
+              <h2 class="exposition-title" id="exposition-title">
                 Hanmi 박람회/캠퍼스로 출발!
               </h2>
-              <p class="exposition-intro scroll-reveal">
+              <p class="exposition-intro">
                 한미그룹이 여러분을 만나러 박람회와 캠퍼스로 찾아갑니다.<br />
                 우리가 어디서 만날지 궁금하다면 아래 지역에서 찾아보세요!
               </p>
-              <p class="exposition-hint scroll-reveal">
+              <p class="exposition-hint">
                 학교명/장소를 클릭하거나 터치하면 세부장소를 확인하실 수 있습니다.
               </p>
             </div>
           </header>
 
-          <div class="exposition-tabs scroll-reveal" role="tablist" aria-label="방문 일정 종류">
+          <div class="exposition-tabs" role="tablist" aria-label="방문 일정 종류">
             <button
               class="exposition-tab"
               type="button"
@@ -6115,7 +6192,7 @@
           />
           <div class="con8-links">
             <a class="con8-card" href="#welfare">
-              <span class="con8-card-image scroll-reveal">
+              <span class="con8-card-image">
                 <span class="con8-photo-frame">
                   <img class="con8-photo" src="./images/con8_img1.jpg" alt="함께 손을 모은 사람들" />
                 </span>
@@ -6126,7 +6203,7 @@
                 <img class="con8-mark con8-mark--arrow-left" src="./images/con8_Image.png" alt="" aria-hidden="true" />
                 <img class="con8-mark con8-mark--star" src="./images/con8_Image-2.png" alt="" aria-hidden="true" />
               </span>
-              <span class="con8-card-copy scroll-reveal">
+              <span class="con8-card-copy">
                 <span class="con8-question">한미그룹의 <span class="con8-marked-word">문화와 복지<img class="con8-mark--underline" src="./images/con8_Image-1.png" alt="" aria-hidden="true" /></span>가 궁금하다면?</span>
                 <span class="con8-card-action">
                   한미그룹 YouTube
@@ -6135,7 +6212,7 @@
               </span>
             </a>
             <a class="con8-card" href="#tasks">
-              <span class="con8-card-image scroll-reveal">
+              <span class="con8-card-image">
                 <span class="con8-photo-frame">
                   <img class="con8-photo" src="./images/con8_img2.jpg" alt="촬영 카메라" />
                 </span>
@@ -6145,7 +6222,7 @@
                 </span>
                 <img class="con8-mark con8-mark--arrow-right" src="./images/con8_Image-4.png" alt="" aria-hidden="true" />
               </span>
-              <span class="con8-card-copy scroll-reveal">
+              <span class="con8-card-copy">
                 <span class="con8-question">한미그룹의 <span class="con8-marked-word">직무<img class="con8-mark--circle" src="./images/con8_Image-3.png" alt="" aria-hidden="true" /></span>가 궁금하다면?</span>
                 <span class="con8-card-action">
                   한미그룹 직무 소개 페이지
@@ -6154,7 +6231,7 @@
               </span>
             </a>
             <a class="con8-card" href="#qualification">
-              <span class="con8-card-image scroll-reveal">
+              <span class="con8-card-image">
                 <span class="con8-photo-frame">
                   <img class="con8-photo" src="./images/con8_img3.jpg" alt="한미약품 연구센터" />
                 </span>
@@ -6163,7 +6240,7 @@
                   <span class="con8-hover-arrow">→</span>
                 </span>
               </span>
-              <span class="con8-card-copy scroll-reveal">
+              <span class="con8-card-copy">
                 <span class="con8-question">한미그룹의 <span class="con8-marked-word">채용소식을<img class="con8-mark--wave" src="./images/con8_Image-5.png" alt="" aria-hidden="true" /></span> 빠르게 받고 싶다면?</span>
                 <span class="con8-card-action">
                   한미그룹 채용 홈페이지
@@ -6184,17 +6261,21 @@
         <img class="con9-cloud con9-cloud--left" src="./images/con9_cloud_l.png.png" alt="" aria-hidden="true" />
         <img class="con9-cloud con9-cloud--right" src="./images/con9_cloud_r.png.png" alt="" aria-hidden="true" />
         <img class="con9-glow" src="./images/con9_Background+Blur.png" alt="" aria-hidden="true" />
-        <h2 class="con9-title scroll-reveal" id="con9-title">당신에게 딱 맞는 자리를 찾으러 출발!</h2>
+        <h2 class="con9-title" id="con9-title">당신에게 딱 맞는 자리를 찾으러 출발!</h2>
         <div class="con9-countdown" role="timer" aria-label="지원 마감까지 남은 시간">
-          <span class="con9-countdown-part scroll-reveal"><strong class="con9-countdown-number" data-countdown-days>00</strong> 일</span>
-          <span class="con9-countdown-part scroll-reveal"><strong class="con9-countdown-number" data-countdown-hours>00</strong> 시간</span>
-          <span class="con9-countdown-part scroll-reveal"><strong class="con9-countdown-number" data-countdown-minutes>00</strong> 분</span>
-          <span class="con9-countdown-part scroll-reveal"><strong class="con9-countdown-number" data-countdown-seconds>00</strong> 초 남았어요</span>
+          <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-days>00</strong> 일</span>
+          <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-hours>00</strong> 시간</span>
+          <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-minutes>00</strong> 분</span>
+          <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-seconds>00</strong> 초 남았어요</span>
         </div>
-        <a class="con9-apply scroll-reveal" href="#qualification" aria-label="지원 일정 확인하기">
-          <img src="./images/con9_지원하기.png" alt="지원하기" />
-        </a>
-        <p class="con9-status scroll-reveal" id="con9-status">아이콘을 클릭해서 지원해주세요!</p>
+        <div class="con9-visual">
+          <img class="con9-globe" src="./images/con9_apply.png" alt="지구본과 종이비행기 오브제" />
+          <a class="con9-apply" href="#qualification" aria-label="지원하기 — 지원 일정 확인하기">
+            <span class="con9-apply-text">지원하기</span>
+            <span class="con9-apply-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+        <p class="con9-status" id="con9-status">아이콘을 클릭해서 지원해주세요!</p>
       </section>
     </main>
 
@@ -6856,10 +6937,61 @@
         var campusSchedule = root.querySelector("#expo-campus-schedule");
         var regionTabs = root.querySelector("#expo-region-tabs");
         var regions = [];
+        var activeCampusDetail = null;
+        var campusDetailCounter = 0;
+
+        function closeCampusDetail(restoreFocus) {
+          if (!activeCampusDetail) return;
+          var previous = activeCampusDetail;
+          activeCampusDetail = null;
+          previous.detail.hidden = true;
+          previous.venue.hidden = false;
+          previous.venue.setAttribute("aria-expanded", "false");
+          previous.item.classList.remove("is-detail-open");
+          previous.item.closest(".expo-venues").classList.remove("has-open-detail");
+          if (restoreFocus) previous.venue.focus({ preventScroll: true });
+        }
+
+        function toggleCampusDetail(venue, detail, item) {
+          // 동일한 상세 카드를 재클릭하면 닫고, 다른 학교는 하나만 열리게 한다.
+          if (activeCampusDetail && activeCampusDetail.detail === detail) {
+            closeCampusDetail(true);
+            return;
+          }
+          closeCampusDetail(false);
+          activeCampusDetail = { venue: venue, detail: detail, item: item };
+          venue.setAttribute("aria-expanded", "true");
+          venue.hidden = true;
+          detail.hidden = false;
+          item.classList.add("is-detail-open");
+          item.closest(".expo-venues").classList.add("has-open-detail");
+          detail.focus({ preventScroll: true });
+        }
+
+        // 상세 카드 외부 클릭 또는 다른 요소로 포커스 이동 시 닫는다.
+        document.addEventListener("click", function (event) {
+          if (activeCampusDetail && !activeCampusDetail.item.contains(event.target)) {
+            closeCampusDetail(false);
+          }
+        });
+        document.addEventListener("focusin", function (event) {
+          if (activeCampusDetail && !activeCampusDetail.item.contains(event.target)) {
+            closeCampusDetail(false);
+          }
+        });
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && activeCampusDetail) {
+            event.preventDefault();
+            closeCampusDetail(true);
+          }
+        });
 
         function createDetail(eventData) {
-          var detail = document.createElement("div");
+          var detail = document.createElement("button");
+          detail.type = "button";
           detail.className = "expo-detail";
+          detail.id = "expo-campus-detail-" + (++campusDetailCounter);
+          detail.title = "세부일정을 닫으려면 다시 클릭하세요";
           detail.hidden = true;
 
           function createDetailLabel(iconText, labelText) {
@@ -6887,6 +7019,9 @@
             detail.append(createDetailLabel("◷", "시간"), time);
           }
 
+          detail.setAttribute("aria-label", eventData.name + " 세부일정: " +
+            (eventData.place || "세부 장소 별도 안내") +
+            (eventData.time ? ", " + eventData.time : "") + ". 다시 클릭하면 닫힙니다.");
           return detail;
         }
 
@@ -6976,6 +7111,7 @@
         }
 
         function renderPeriods(container, periods, allowDetails) {
+          closeCampusDetail(false);
           container.replaceChildren();
           if (!periods.length) {
             var empty = document.createElement("p");
@@ -7015,13 +7151,12 @@
                   venue.type = "button";
                   venue.setAttribute("aria-expanded", "false");
                   var detail = createDetail(eventData);
+                  venue.setAttribute("aria-controls", detail.id);
                   venue.addEventListener("click", function () {
-                    detail.hidden = !detail.hidden;
-                    venue.setAttribute("aria-expanded", String(!detail.hidden));
+                    toggleCampusDetail(venue, detail, venueItem);
                   });
-                  venue.addEventListener("blur", function () {
-                    detail.hidden = true;
-                    venue.setAttribute("aria-expanded", "false");
+                  detail.addEventListener("click", function () {
+                    closeCampusDetail(true);
                   });
                   venueItem.append(venue, detail);
                 } else {
@@ -7042,6 +7177,7 @@
         }
 
         function setActiveExpositionTab(tab, moveFocus) {
+          closeCampusDetail(false);
           tabs.forEach(function (item) {
             var active = item === tab;
             item.setAttribute("aria-selected", String(active));
@@ -7123,6 +7259,7 @@
 
             regions = buildCampusRegions(campusData);
             renderPeriods(fairSchedule, fairData.fair, false);
+            regionTabs.style.setProperty("--expo-region-columns", String(Math.max(1, regions.length)));
             regionTabs.replaceChildren();
 
             regions.forEach(function (region, index) {
@@ -7267,117 +7404,5 @@
         window.addEventListener('resize', onScroll, { passive: true });
       })();
     </script>
-  
-    <script>
-      // Fine-grained scroll reveal. Directional header is managed separately.
-      // Out-of-view content resets to hidden, and plays again upon re-entry.
-      (function () {
-        var main = document.querySelector('main');
-        if (!main) return;
-        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        var nodes = [];
-        var registered = new WeakSet();
-        var pending = false;
-        var previousY = Math.max(0, window.scrollY);
-        // Generated from JSON: register the actual small cards/dates, not the containers.
-        var dynamicSelectors = [
-          '.welfare-lead', '.welfare-card',
-          '.tasks-accordion-trigger', '.tasks-job', '.tasks-empty',
-          '.expo-region-tab', '.expo-day', '.expo-empty'
-        ].join(',');
-
-        function register(root) {
-          var list = root.querySelectorAll('main .scroll-reveal, main ' + dynamicSelectors);
-          for (var i = 0; i < list.length; i++) {
-            var node = list[i];
-            if (registered.has(node)) continue;
-            registered.add(node);
-            if (!node.classList.contains('scroll-reveal')) node.classList.add('scroll-reveal');
-            nodes.push(node);
-          }
-        }
-
-        function visibleBox(node) {
-          // Skip hidden tab panels, accordions or elements with no layout box.
-          return node.isConnected && node.getClientRects().length && node.offsetHeight > 0;
-        }
-
-        function update() {
-          pending = false;
-          var screen = window.innerHeight || document.documentElement.clientHeight;
-          var trigger = screen * 0.56; // first appear near the middle of viewport
-          var resetBelow = screen * 0.87; // reset only after moving well below view
-          var resetAbove = -screen * 0.09; // reset when fully above viewport
-          var motionOff = reduceMotion.matches;
-          // Retain tracked elements only while they exist (tabs can recreate their rows).
-          var alive = [];
-          for (var i = 0; i < nodes.length; i++) {
-            var node = nodes[i];
-            if (!node.isConnected) continue;
-            alive.push(node);
-            if (motionOff) {
-              node.classList.add('is-revealed');
-              continue;
-            }
-            if (!visibleBox(node)) {
-              node.classList.remove('is-revealed');
-              continue;
-            }
-            var rect = node.getBoundingClientRect();
-            // The CSS translate(0,20%) changes getBoundingClientRect().
-            // Reconstruct the original, unmoved geometry for stable thresholds.
-            var lift = node.classList.contains('is-revealed') ? 0 : rect.height * 0.20;
-            var naturalTop = rect.top - lift;
-            var naturalBottom = rect.bottom - lift;
-            var isShown = node.classList.contains('is-revealed');
-            if (isShown) {
-              if (naturalTop >= resetBelow || naturalBottom <= resetAbove) {
-                node.classList.remove('is-revealed');
-              }
-            } else if (naturalTop <= trigger && naturalBottom > 0) {
-              node.classList.add('is-revealed');
-            }
-          }
-          nodes = alive;
-          previousY = Math.max(0, window.scrollY);
-        }
-
-        function schedule() {
-          if (pending) return;
-          pending = true;
-          window.requestAnimationFrame(update);
-        }
-
-        register(document);
-        // Observe asynchronous benefits, expo schedule data and dynamic job tabs.
-        var changes = new MutationObserver(function (entries) {
-          var needsScan = false;
-          for (var i = 0; i < entries.length; i++) {
-            if (entries[i].type === 'childList') needsScan = true;
-          }
-          if (needsScan) register(document);
-          schedule();
-        });
-        changes.observe(main, {
-          subtree: true,
-          childList: true,
-          attributes: true,
-          attributeFilter: ['hidden']
-        });
-        window.addEventListener('scroll', schedule, { passive: true });
-        window.addEventListener('resize', schedule, { passive: true });
-        window.addEventListener('load', schedule);
-        document.addEventListener('click', function (event) {
-          if (event.target.closest('.tasks-tab, .tasks-accordion-trigger, .requirement-tab, .exposition-tab, .expo-region-tab, .history-toggle')) {
-            // Run after tab/accordion handlers update the DOM.
-            schedule();
-            window.requestAnimationFrame(schedule);
-          }
-        });
-        if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', schedule);
-        schedule();
-      })();
-    </script>
-
   </body>
 </html>
