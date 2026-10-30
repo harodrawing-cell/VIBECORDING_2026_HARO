@@ -3111,7 +3111,7 @@
         position: absolute;
         top: 20px;
         left: max(20px, calc((100vw - 1320px) / 2 - 120px));
-        width: 320px;
+        width: 300px;
         height: auto;
       }
 
@@ -3862,24 +3862,21 @@
           padding: 6px 16px;
         }
 
-        .footer-logo {
-          width: 70px;
-        }
+        .footer-logo { width: 70px; }
 
+        /* con8 모바일: 카드 1열, 캐릭터/손그림 비노출, 사진 하단 2줄 카피 */
         .con8 {
-          padding: 30px 20px 46px;
+          padding: 20px 18px 34px;
         }
 
         .con8-character {
-          top: -22px;
-          right: 0;
-          width: 56px;
+          display: none;
         }
 
         .con8-links {
           grid-template-columns: minmax(0, 1fr);
-          gap: 16px;
-          padding: 18px 0 0;
+          gap: 20px;
+          padding: 0;
         }
 
         .con8-card,
@@ -3889,51 +3886,94 @@
         }
 
         .con8-card-image {
-          aspect-ratio: 1.65;
+          aspect-ratio: 1.56;
         }
 
-        /* 모바일에서는 빨간 손그림 장식 6종 모두 숨김 (태블릿까지 노출) */
+        .con8-photo-frame { border-radius: 9px; }
+
+        /* 사진 하단 글자의 명암 확보; 데스크톱/태블릿 호버는 유지 */
+        .con8-photo-frame::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          background: linear-gradient(180deg,
+            rgba(0, 0, 0, 0.04) 0%,
+            rgba(0, 0, 0, 0.06) 42%,
+            rgba(0, 0, 0, 0.28) 64%,
+            rgba(0, 0, 0, 0.85) 100%);
+          pointer-events: none;
+        }
+
         .con8-card-image .con8-mark,
         .con8-marked-word > .con8-mark--underline,
         .con8-marked-word > .con8-mark--circle,
-        .con8-marked-word > .con8-mark--wave {
+        .con8-marked-word > .con8-mark--wave,
+        .con8-card-hover {
           display: none;
         }
 
-        /* 모바일은 기존 흰색 문구/액션을 사진 하단에 유지 */
-        .con8-card-hover {
-          display: none;
+        /* 사진을 누를 때 블러 호버가 남지 않도록 모바일에서는 비활성화 */
+        .con8-card:hover .con8-photo,
+        .con8-card:focus-visible .con8-photo {
+          filter: none;
+          transform: none;
+        }
+
+        .con8-card-copy {
+          position: absolute;
+          z-index: 3;
+          right: 10px;
+          bottom: 24px;
+          left: 10px;
+          display: grid;
+          justify-items: center;
+          gap: 7px;
+          margin: 0;
+          color: #fff;
+          text-align: center;
+          pointer-events: none;
+        }
+
+        .con8-question {
+          color: #fff;
+          font-size: clamp(11px, 3.05vw, 13px);
+          font-weight: 700;
+          line-height: 1.45;
+          letter-spacing: -0.055em;
+          white-space: normal;
         }
 
         .con8-card-copy > .con8-card-action {
           display: inline-flex;
         }
 
-        .con8-card-copy {
-          position: absolute;
-          right: 10px;
-          bottom: 10px;
-          left: 10px;
-          gap: 5px;
-          margin: 0;
-          color: #fff;
-        }
-
-        .con8-question {
-          font-size: 11px;
-          white-space: normal;
-        }
-
         .con8-card-action {
+          align-items: center;
+          justify-content: center;
+          gap: 7px;
           color: #fff;
-          font-size: 11px;
+          font-size: clamp(13px, 3.65vw, 16px);
+          font-weight: 800;
+          line-height: 1.3;
+          letter-spacing: -0.04em;
         }
 
         .con8-card-arrow {
-          width: 18px;
-          height: 18px;
-          background: rgba(255, 255, 255, 0.85);
-          color: var(--orange);
+          display: inline-flex;
+          width: 25px;
+          height: 25px;
+          flex: none;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(255, 255, 255, .7);
+          border-radius: 50%;
+          background: linear-gradient(135deg, #ff7544, #ffb19f);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, .16);
+          color: #fff;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 1;
         }
 
         .con9 {
@@ -4953,6 +4993,49 @@
 
       @media (prefers-reduced-motion: reduce) {
         #expo-campus-panel .expo-detail { transition: none; }
+      }
+
+      /* ============================================================
+         메인 콘텐츠 Scroll Reveal · 2026-10-31
+         첫 배너(.main-visual)와 외부 푸터(.site-footer)는 적용 제외.
+         클래스는 JS가 개별 하위 요소에만 부여하여 부모 레이아웃은 보존.
+         transform 대신 독립 CSS translate 사용 (기존 배치 transform 보호).
+         ============================================================ */
+      html.has-scroll-reveal main .scroll-reveal {
+        opacity: 1;
+        translate: 0 0;
+        transition:
+          opacity 0.72s cubic-bezier(0.2, 0.7, 0.2, 1),
+          translate 0.72s cubic-bezier(0.2, 0.7, 0.2, 1),
+          transform 0.22s ease,
+          color 0.22s ease,
+          background-color 0.22s ease,
+          box-shadow 0.22s ease,
+          border-color 0.22s ease;
+        transition-delay: var(--scroll-reveal-delay, 0ms),
+                          var(--scroll-reveal-delay, 0ms),
+                          0ms, 0ms, 0ms, 0ms, 0ms;
+      }
+
+      html.has-scroll-reveal main .scroll-reveal:not(.is-inview) {
+        opacity: 0;
+        translate: 0 20%;
+        pointer-events: none;
+      }
+
+      html.has-scroll-reveal main .scroll-reveal.is-inview {
+        opacity: 1;
+        translate: 0 0;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html.has-scroll-reveal main .scroll-reveal,
+        html.has-scroll-reveal main .scroll-reveal:not(.is-inview) {
+          opacity: 1;
+          translate: 0 0;
+          transition: none;
+          pointer-events: auto;
+        }
       }
     </style>
   </head>
@@ -7402,6 +7485,153 @@
         updateHeader();
         window.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('resize', onScroll, { passive: true });
+      })();
+    </script>
+
+    <script>
+      /* ============================================================
+         하위 박스별 반복 Scroll Reveal
+         - 화면 중앙(55%) 근처에서 등장; 화면 밖으로 완전히 나가면 리셋
+         - 스크롤 위/아래 양방향 재진입 지원
+         - 탭/아코디언/JSON으로 생성된 항목도 MutationObserver로 감지
+         - fixed 헤더, 메인 비주얼, site-footer 및 모달은 제외
+         ============================================================ */
+      (function () {
+        var main = document.querySelector('main');
+        if (!main) return;
+
+        // 애니메이션을 개별로 적용할 시각적인 단위만 지정한다.
+        // 카드 전체와 자식을 동시에 움직여 중첩 애니메이션이 생기지 않게 구성.
+        var targets = [
+          '.mirae-title', '.mirae-character-stage',
+          '.history-title', '.history-head > .history-count',
+          '.history-period', '.history-lead', '.history-list > li',
+          '.history-figure', '.history-end > .history-count',
+          '.history-end-sub', '.history-end-main', '.history-toggle',
+          '.jobs-logo', '.jobs-title', '.jobs-subtitle',
+          '.jobs-photo', '.jobs-description', '.jobs-card-bottom', '.jobs-cta',
+          '.innovation-header > h2', '.innovation-header > p',
+          '.innovation-bubble', '.innovation-hint',
+          '.welfare-title', '.welfare-subtitle', '.welfare-lead', '.welfare-card',
+          '.tasks-heading > h2', '.tasks-heading > p',
+          '.tasks-tab', '.tasks-accordion-trigger', '.tasks-job',
+          '.requirement-title', '.requirement-tab', '.eligibility-item',
+          '.requirement-notes > li', '.requirement-notice',
+          '.process-group > h3', '.process-step',
+          '.exposition-title', '.exposition-intro', '.exposition-hint',
+          '.exposition-tab', '.expo-region-tab',
+          '.expo-date', '.expo-venue-item', '.expo-empty',
+          '.con8-card',
+          '.con9-title', '.con9-countdown-part', '.con9-visual', '.con9-status'
+        ].join(', ');
+
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
+
+        var registered = new WeakSet();
+        var revealObserver;
+        var resetObserver;
+        var pendingScan = false;
+        var started = false;
+        var initialFrame = null;
+
+        // 등장 지점: 뷰포트의 대략 55% 높이. 진입하면 visible.
+        // 모바일은 화면 아래에서 20% 안쪽으로 들어오면 등장시킨다.
+        // 기존 55% 절단선에서는 페이지 마지막 con9가 최대 스크롤 시에도
+        // 해당 선에 도달하지 못해 영구히 투명한 문제가 있었다.
+        var mobileReveal = window.matchMedia('(max-width: 568px)');
+        revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting || !entry.target.isConnected) return;
+            if (entry.target.closest('[hidden]')) return;
+            entry.target.classList.add('is-inview');
+          });
+        }, { root: null,
+             rootMargin: mobileReveal.matches ? '0px 0px -20% 0px' : '0px 0px -45% 0px',
+             threshold: 0 });
+
+        // 완전히 화면을 벗어났을 때만 리셋해 가시 영역 중간에서 깜빡이지 않도록 함.
+        resetObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting || !entry.target.isConnected) return;
+            // 포커스 중인 버튼/링크는 숨기지 않음 (키보드 접근성).
+            if (entry.target.contains(document.activeElement)) return;
+            entry.target.classList.remove('is-inview');
+          });
+        }, { root: null, threshold: 0 });
+
+        function register(element, index) {
+          if (registered.has(element)) return;
+          if (element.closest('.main-visual, .site-footer, .tasks-modal')) return;
+          // 이미 숨겨진 탭도 등록: 탭 전환 후 실제 표시 시 관찰자가 등장시킴.
+          registered.add(element);
+          element.classList.add('scroll-reveal');
+          element.style.setProperty('--scroll-reveal-delay', ((index % 3) * 55) + 'ms');
+          revealObserver.observe(element);
+          resetObserver.observe(element);
+        }
+
+        // 스크롤 최대 하단에서는 마지막 콘텐츠를 반드시 표시:
+        // 짧은 마지막 섹션/긴 모바일 뷰포트에서도 보이지 않는 오류 방지.
+        var endCheckPending = false;
+        function checkPageEnd() {
+          endCheckPending = false;
+          var endGap = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
+          if (endGap > 36) return;
+          main.querySelectorAll('.scroll-reveal:not(.is-inview)').forEach(function (el) {
+            if (el.closest('[hidden]')) return;
+            var box = el.getBoundingClientRect();
+            if (box.bottom > 0 && box.top < window.innerHeight - 10) {
+              el.classList.add('is-inview');
+            }
+          });
+        }
+        function scheduleEndCheck() {
+          if (endCheckPending) return;
+          endCheckPending = true;
+          window.requestAnimationFrame(checkPageEnd);
+        }
+
+        function scan() {
+          pendingScan = false;
+          var newCount = 0;
+          main.querySelectorAll(targets).forEach(function (element) {
+            if (!registered.has(element)) {
+              register(element, newCount);
+              newCount++;
+            }
+          });
+        }
+
+        // 동적으로 생기는 복지 카드/직무 버튼/캠퍼스 일정 등 자동 등록.
+        function scheduleScan() {
+          if (pendingScan) return;
+          pendingScan = true;
+          window.requestAnimationFrame(scan);
+        }
+
+        function start() {
+          if (started) return;
+          started = true;
+          // 초기 FOUC 방지를 위해 동일한 프레임에서 대상과 루트 클래스 준비.
+          scan();
+          document.documentElement.classList.add('has-scroll-reveal');
+          var changes = new MutationObserver(function (records) {
+            for (var i = 0; i < records.length; i++) {
+              if (records[i].addedNodes.length) {
+                scheduleScan();
+                break;
+              }
+            }
+          });
+          changes.observe(main, { subtree: true, childList: true });
+          window.addEventListener('scroll', scheduleEndCheck, { passive: true });
+          window.addEventListener('resize', scheduleEndCheck, { passive: true });
+          // 복구된 스크롤 위치로 페이지가 열릴 때도 마지막 섹션 보이기.
+          scheduleEndCheck();
+        }
+
+        start();
       })();
     </script>
   </body>
