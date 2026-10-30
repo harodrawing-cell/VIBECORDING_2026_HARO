@@ -2971,6 +2971,9 @@
         max-width: 100%;
         margin: 0 auto;
         padding: 34px 0;
+      }
+
+      .requirement-notes-divider {
         border-bottom: 1px solid #e8e8e8;
       }
 
@@ -3078,6 +3081,299 @@
         color: #444;
       }
 
+      #process-panel::after {
+        display: block;
+        width: 100%;
+        height: 1px;
+        margin-top: 36px;
+        background: #e8e8e8;
+        content: "";
+      }
+
+      .exposition {
+        position: relative;
+        padding: 40px 48px 88px;
+        background: #fff;
+      }
+
+      .exposition-inner {
+        width: min(100%, 1320px);
+        margin: 0 auto;
+      }
+
+      .exposition-header {
+        min-height: 395px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .exposition-character {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: max(20px, calc((100vw - 1320px) / 2 - 120px));
+        width: 320px;
+        height: auto;
+      }
+
+      .exposition-copy {
+        min-width: 0;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding-top: 116px;
+        text-align: center;
+      }
+
+      .exposition-title {
+        margin: 0;
+        font-size: 42px;
+        font-weight: 800;
+        line-height: 1.35;
+      }
+
+      .exposition-intro {
+        margin: 14px 0 0;
+        color: #333;
+        font-size: 18px;
+        line-height: 1.65;
+      }
+
+      .exposition-hint {
+        display: table;
+        position: relative;
+        margin: 16px auto 0;
+        padding-left: 14px;
+        color: #555;
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .exposition-hint::before {
+        position: absolute;
+        top: 0.62em;
+        left: 0;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--orange);
+        content: "";
+      }
+
+      .exposition-tabs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        padding: 0 4px 20px;
+        border-bottom: 1px solid #e8e8e8;
+      }
+
+      .exposition-tab {
+        min-height: 56px;
+        border-radius: 14px;
+        color: #777;
+        background: transparent;
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .exposition-tab[aria-selected="true"] {
+        color: var(--orange);
+        background: #fff8f5;
+        box-shadow: 0 5px 13px rgba(145, 88, 66, 0.14);
+      }
+
+      .exposition-tab:focus-visible,
+      .expo-region-tab:focus-visible,
+      .expo-venue:focus-visible {
+        outline: 3px solid rgba(255, 93, 50, 0.4);
+        outline-offset: 3px;
+      }
+
+      .exposition-panel[hidden] {
+        display: none;
+      }
+
+      .expo-region-tabs {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 8px;
+        margin: 24px 0 30px;
+        padding: 8px;
+        border-radius: 14px;
+        background: #fff8f5;
+      }
+
+      .expo-region-tab {
+        min-height: 46px;
+        border-radius: 11px;
+        color: #777;
+        background: transparent;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .expo-region-tab[aria-selected="true"] {
+        color: var(--orange);
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(145, 88, 66, 0.13);
+      }
+
+      .expo-schedule {
+        min-height: 180px;
+      }
+
+      .expo-period {
+        display: grid;
+        grid-template-columns: repeat(var(--expo-day-count), minmax(0, 1fr));
+        margin-bottom: 30px;
+        border-bottom: 1px solid #e3e3e3;
+      }
+
+      .expo-day {
+        min-width: 0;
+        text-align: center;
+      }
+
+      .expo-date {
+        display: flex;
+        min-height: 38px;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 4px;
+        border-top: 1px solid #e3e3e3;
+        border-bottom: 1px solid #e3e3e3;
+        color: #222;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      .expo-day + .expo-day .expo-date {
+        position: relative;
+      }
+
+      .expo-day + .expo-day .expo-date::before {
+        position: absolute;
+        top: 25%;
+        bottom: 25%;
+        left: 0;
+        width: 1px;
+        background: #e8e8e8;
+        content: "";
+      }
+
+      .expo-venues {
+        display: flex;
+        min-height: 180px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        padding: 20px 7px;
+      }
+
+      .expo-venue-item {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .expo-venue-item + .expo-venue-item {
+        position: relative;
+        margin-top: 10px;
+        padding-top: 10px;
+      }
+
+      .expo-venue-item + .expo-venue-item::before {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 60px;
+        height: 1px;
+        background: #ffd5c8;
+        content: "";
+        transform: translateX(-50%);
+      }
+
+      .expo-venue {
+        position: relative;
+        max-width: 100%;
+        padding: 4px 2px;
+        color: var(--orange);
+        background: transparent;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+      }
+
+      .expo-venue:hover,
+      .expo-venue[aria-expanded="true"] {
+        color: #d94d2b;
+      }
+
+      .expo-venue--plain {
+        cursor: default;
+      }
+
+      .expo-detail {
+        display: grid;
+        align-content: center;
+        gap: 0;
+        width: 100%;
+        min-height: 236px;
+        margin-top: 4px;
+        padding: 24px 12px;
+        border-radius: 12px;
+        background: #fff7f4;
+        color: #222;
+        text-align: center;
+      }
+
+      .expo-detail[hidden] {
+        display: none;
+      }
+
+      .expo-detail-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 5px;
+        color: var(--orange);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .expo-detail-label-icon {
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .expo-detail-value {
+        margin-bottom: 18px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+      }
+
+      .expo-detail-value:last-child {
+        margin-bottom: 0;
+      }
+
+      .expo-empty {
+        display: flex;
+        min-height: 220px;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #e3e3e3;
+        color: #888;
+        font-size: 14px;
+        text-align: center;
+      }
+
       @media (max-width: 1024px) {
         .requirement {
           padding: 72px 40px 68px;
@@ -3091,6 +3387,42 @@
 
         .process-step-icon {
           font-size: 25px;
+        }
+
+        .exposition {
+          padding: 68px 40px 76px;
+        }
+
+        .exposition-header {
+          display: block;
+          min-height: 0;
+          margin-bottom: 30px;
+          text-align: center;
+        }
+
+        .exposition-character {
+          display: none;
+        }
+
+        .exposition-copy {
+          padding-top: 0;
+        }
+
+        .exposition-title {
+          font-size: 30px;
+        }
+
+        .exposition-intro {
+          font-size: 14px;
+        }
+
+        .exposition-hint {
+          display: inline-block;
+          text-align: left;
+        }
+
+        .expo-venues {
+          min-height: 164px;
         }
       }
 
@@ -3220,6 +3552,98 @@
 
         .process-notes {
           padding-top: 22px;
+        }
+
+        #process-panel::after {
+          margin-top: 24px;
+        }
+
+        .exposition {
+          padding: 54px 20px 62px;
+        }
+
+        .exposition-title {
+          font-size: 23px;
+          line-height: 1.4;
+        }
+
+        .exposition-intro {
+          margin-top: 10px;
+          font-size: 12px;
+        }
+
+        .exposition-hint {
+          margin-top: 10px;
+          font-size: 10px;
+        }
+
+        .exposition-tabs {
+          gap: 8px;
+          padding: 0 0 14px;
+        }
+
+        .exposition-tab {
+          min-height: 48px;
+          padding: 0 4px;
+          border-radius: 12px;
+          font-size: 12px;
+        }
+
+        .expo-region-tabs {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 5px;
+          margin: 18px 0 20px;
+          padding: 6px;
+        }
+
+        .expo-region-tab {
+          min-height: 40px;
+          font-size: 12px;
+        }
+
+        .expo-period {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          margin-bottom: 16px;
+        }
+
+        .expo-date {
+          min-height: 34px;
+          font-size: 11px;
+        }
+
+        .expo-venues {
+          min-height: 120px;
+          padding: 12px 5px;
+        }
+
+        .expo-detail {
+          min-height: 210px;
+          padding: 20px 8px;
+        }
+
+        .expo-detail-value {
+          font-size: 14px;
+        }
+
+        .expo-venue-item + .expo-venue-item {
+          margin-top: 8px;
+          padding-top: 8px;
+        }
+
+        .expo-venue-item + .expo-venue-item::before {
+          width: 42px;
+        }
+
+        .expo-venue {
+          font-size: 11px;
+        }
+
+        .expo-detail {
+          padding: 12px 8px;
+        }
+
+        .expo-detail-value {
+          font-size: 12px;
         }
       }
 
@@ -4844,11 +5268,13 @@
                 <h3>기졸업자 또는 27년 2월 졸업 예정자</h3>
               </article>
             </div>
-            <ul class="requirement-notes">
-              <li>남성의 경우 병역을 마쳤거나 면제인 분</li>
-              <li>해외여행 (또는 해외 출장)에 결격사유가 없는 분</li>
-              <li>취업보호대상자는 관련 법령에 의거하여 우대</li>
-            </ul>
+            <div class="requirement-notes-divider">
+              <ul class="requirement-notes">
+                <li>남성의 경우 병역을 마쳤거나 면제인 분</li>
+                <li>해외여행 (또는 해외 출장)에 결격사유가 없는 분</li>
+                <li>취업보호대상자는 관련 법령에 의거하여 우대</li>
+              </ul>
+            </div>
             <p class="requirement-notice">
               모집 직무별로 지원자격이 상이하오니 반드시
               <strong>&nbsp;채용 공고</strong>를 확인해 주시기 바랍니다.
@@ -4894,6 +5320,81 @@
               <li>지원서 제출 후에는 수정이 절대 불가하오니, 주의하시기 바랍니다.</li>
               <li class="requirement-notes-secondary">전형단계별 결과는 E-Mail 및 SMS를 통하여 안내하오니 E-Mail 주소 및 휴대전화 번호를 정확히 기재해주시기 바랍니다.</li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="exposition"
+        id="exposition"
+        aria-labelledby="exposition-title"
+      >
+        <div class="exposition-inner">
+          <header class="exposition-header">
+            <img
+              class="exposition-character"
+              src="./images/expo_char.png"
+              alt="박람회와 캠퍼스를 찾아가는 한미 캐릭터"
+            />
+            <div class="exposition-copy">
+              <h2 class="exposition-title" id="exposition-title">
+                Hanmi 박람회/캠퍼스로 출발!
+              </h2>
+              <p class="exposition-intro">
+                한미그룹이 여러분을 만나러 박람회와 캠퍼스로 찾아갑니다.<br />
+                우리가 어디서 만날지 궁금하다면 아래 지역에서 찾아보세요!
+              </p>
+              <p class="exposition-hint">
+                학교명/장소를 클릭하거나 터치하면 세부장소를 확인하실 수 있습니다.
+              </p>
+            </div>
+          </header>
+
+          <div class="exposition-tabs" role="tablist" aria-label="방문 일정 종류">
+            <button
+              class="exposition-tab"
+              type="button"
+              role="tab"
+              id="exposition-tab-fair"
+              aria-selected="true"
+              aria-controls="expo-fair-panel"
+              tabindex="0"
+            >
+              박람회
+            </button>
+            <button
+              class="exposition-tab"
+              type="button"
+              role="tab"
+              id="exposition-tab-campus"
+              aria-selected="false"
+              aria-controls="expo-campus-panel"
+              tabindex="-1"
+            >
+              캠퍼스
+            </button>
+          </div>
+
+          <div
+            class="exposition-panel"
+            id="expo-fair-panel"
+            role="tabpanel"
+            aria-labelledby="exposition-tab-fair"
+            tabindex="0"
+          >
+            <div class="expo-schedule" id="expo-fair-schedule" aria-live="polite" aria-busy="true"></div>
+          </div>
+
+          <div
+            class="exposition-panel"
+            id="expo-campus-panel"
+            role="tabpanel"
+            aria-labelledby="exposition-tab-campus"
+            tabindex="0"
+            hidden
+          >
+            <div class="expo-region-tabs" id="expo-region-tabs" role="tablist" aria-label="캠퍼스 방문 지역"></div>
+            <div class="expo-schedule" id="expo-campus-schedule" aria-live="polite" aria-busy="true"></div>
           </div>
         </div>
       </section>
@@ -5543,6 +6044,225 @@
             activateTab(tabs[nextIndex], true);
           });
         });
+      })();
+    </script>
+    <script>
+      (function () {
+        var root = document.getElementById("exposition");
+        if (!root) return;
+
+        var tabs = Array.prototype.slice.call(
+          root.querySelectorAll(".exposition-tab"),
+        );
+        var fairSchedule = root.querySelector("#expo-fair-schedule");
+        var campusSchedule = root.querySelector("#expo-campus-schedule");
+        var regionTabs = root.querySelector("#expo-region-tabs");
+        var regions = [];
+
+        function createDetail(eventData) {
+          var detail = document.createElement("div");
+          detail.className = "expo-detail";
+          detail.hidden = true;
+
+          function createDetailLabel(iconText, labelText) {
+            var label = document.createElement("span");
+            label.className = "expo-detail-label";
+            var icon = document.createElement("span");
+            icon.className = "expo-detail-label-icon";
+            icon.setAttribute("aria-hidden", "true");
+            icon.textContent = iconText;
+            var text = document.createElement("span");
+            text.textContent = labelText;
+            label.append(icon, text);
+            return label;
+          }
+
+          var place = document.createElement("strong");
+          place.className = "expo-detail-value";
+          place.textContent = eventData.place || "세부 장소는 별도 안내 예정입니다.";
+          detail.append(createDetailLabel("⚑", "장소"), place);
+
+          if (eventData.time) {
+            var time = document.createElement("strong");
+            time.className = "expo-detail-value";
+            time.textContent = eventData.time;
+            detail.append(createDetailLabel("◷", "시간"), time);
+          }
+
+          return detail;
+        }
+
+        function renderPeriods(container, periods, allowDetails) {
+          container.replaceChildren();
+          if (!periods.length) {
+            var empty = document.createElement("p");
+            empty.className = "expo-empty";
+            empty.textContent = "현재 등록된 캠퍼스 방문 일정이 없습니다.";
+            container.append(empty);
+            container.setAttribute("aria-busy", "false");
+            return;
+          }
+
+          var fragment = document.createDocumentFragment();
+          periods.forEach(function (period) {
+            var section = document.createElement("section");
+            section.className = "expo-period";
+            section.style.setProperty("--expo-day-count", period.dates.length);
+
+            period.dates.forEach(function (date, index) {
+              var day = document.createElement("div");
+              day.className = "expo-day";
+              var dateLabel = document.createElement("h3");
+              dateLabel.className = "expo-date";
+              dateLabel.textContent = date;
+              var venues = document.createElement("div");
+              venues.className = "expo-venues";
+
+              (period.events[index] || []).forEach(function (eventData) {
+                var venueItem = document.createElement("div");
+                venueItem.className = "expo-venue-item";
+                var venue = document.createElement(
+                  allowDetails ? "button" : "span",
+                );
+                venue.className = allowDetails
+                  ? "expo-venue"
+                  : "expo-venue expo-venue--plain";
+                venue.textContent = eventData.name;
+
+                if (allowDetails) {
+                  venue.type = "button";
+                  venue.setAttribute("aria-expanded", "false");
+                  var detail = createDetail(eventData);
+                  venue.addEventListener("click", function () {
+                    detail.hidden = !detail.hidden;
+                    venue.setAttribute("aria-expanded", String(!detail.hidden));
+                  });
+                  venue.addEventListener("blur", function () {
+                    detail.hidden = true;
+                    venue.setAttribute("aria-expanded", "false");
+                  });
+                  venueItem.append(venue, detail);
+                } else {
+                  venueItem.append(venue);
+                }
+                venues.append(venueItem);
+              });
+
+              day.append(dateLabel, venues);
+              section.append(day);
+            });
+
+            fragment.append(section);
+          });
+
+          container.replaceChildren(fragment);
+          container.setAttribute("aria-busy", "false");
+        }
+
+        function setActiveExpositionTab(tab, moveFocus) {
+          tabs.forEach(function (item) {
+            var active = item === tab;
+            item.setAttribute("aria-selected", String(active));
+            item.tabIndex = active ? 0 : -1;
+            root.querySelector("#" + item.getAttribute("aria-controls")).hidden =
+              !active;
+          });
+          if (moveFocus) tab.focus();
+        }
+
+        function setActiveRegion(tab, moveFocus) {
+          Array.prototype.forEach.call(
+            regionTabs.querySelectorAll(".expo-region-tab"),
+            function (item) {
+              var active = item === tab;
+              item.setAttribute("aria-selected", String(active));
+              item.tabIndex = active ? 0 : -1;
+            },
+          );
+          var region = regions.find(function (item) {
+            return item.region === tab.dataset.region;
+          });
+          renderPeriods(campusSchedule, region ? region.periods : [], true);
+          if (moveFocus) tab.focus();
+        }
+
+        function addTabKeyboardSupport(tabList, selector, activate) {
+          tabList.addEventListener("keydown", function (event) {
+            var tab = event.target.closest(selector);
+            if (!tab) return;
+            var tabItems = Array.prototype.slice.call(
+              tabList.querySelectorAll(selector),
+            );
+            var index = tabItems.indexOf(tab);
+            var nextIndex = index;
+            if (event.key === "ArrowRight")
+              nextIndex = (index + 1) % tabItems.length;
+            else if (event.key === "ArrowLeft")
+              nextIndex = (index - 1 + tabItems.length) % tabItems.length;
+            else if (event.key === "Home") nextIndex = 0;
+            else if (event.key === "End") nextIndex = tabItems.length - 1;
+            else return;
+            event.preventDefault();
+            activate(tabItems[nextIndex], true);
+          });
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            setActiveExpositionTab(tab, false);
+          });
+        });
+        addTabKeyboardSupport(
+          root.querySelector(".exposition-tabs"),
+          ".exposition-tab",
+          setActiveExpositionTab,
+        );
+
+        fetch("./data/exposition.json")
+          .then(function (response) {
+            if (!response.ok) throw new Error("방문 일정을 불러오지 못했습니다.");
+            return response.json();
+          })
+          .then(function (data) {
+            if (!Array.isArray(data.fair) || !Array.isArray(data.campus))
+              throw new Error("방문 일정 데이터 형식이 올바르지 않습니다.");
+
+            regions = data.campus;
+            renderPeriods(fairSchedule, data.fair, false);
+            regionTabs.replaceChildren();
+
+            regions.forEach(function (region, index) {
+              var tab = document.createElement("button");
+              tab.className = "expo-region-tab";
+              tab.type = "button";
+              tab.role = "tab";
+              tab.id = "expo-region-tab-" + index;
+              tab.dataset.region = region.region;
+              tab.setAttribute("aria-selected", String(index === 0));
+              tab.setAttribute("aria-controls", "expo-campus-schedule");
+              tab.tabIndex = index === 0 ? 0 : -1;
+              tab.textContent = region.region;
+              tab.addEventListener("click", function () {
+                setActiveRegion(tab, false);
+              });
+              regionTabs.append(tab);
+            });
+
+            regionTabs.setAttribute("aria-busy", "false");
+            if (regions.length)
+              renderPeriods(campusSchedule, regions[0].periods, true);
+            addTabKeyboardSupport(
+              regionTabs,
+              ".expo-region-tab",
+              setActiveRegion,
+            );
+          })
+          .catch(function () {
+            [fairSchedule, campusSchedule].forEach(function (container) {
+              container.textContent = "방문 일정을 불러오지 못했습니다.";
+              container.setAttribute("aria-busy", "false");
+            });
+          });
       })();
     </script>
   </body>
