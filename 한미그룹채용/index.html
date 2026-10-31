@@ -3111,7 +3111,7 @@
         position: absolute;
         top: 20px;
         left: max(20px, calc((100vw - 1320px) / 2 - 120px));
-        width: 300px;
+        width: 320px;
         height: auto;
       }
 
@@ -4842,10 +4842,12 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        background: #fff;
+        /* 메인 최상단에서는 배너 배경이 헤더 뒤로 보이도록 투명하게 표시 */
+        background-color: transparent;
         transform: translate3d(0, 0, 0);
         transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
-                    box-shadow 0.25s ease;
+                    background-color 0.28s ease,
+                    box-shadow 0.28s ease;
         will-change: transform;
       }
 
@@ -4859,7 +4861,10 @@
         pointer-events: none;
       }
 
+      /* 최상단을 벗어난 뒤 위쪽 스크롤로 나타날 때 흰색 배경 적용.
+         최상단(y <= 8px) 복귀 시 JS가 .is-scrolled를 제거해 다시 투명해짐 */
       .site-header.is-scrolled {
+        background-color: #fff;
         box-shadow: 0 3px 15px rgba(0, 0, 0, 0.065);
       }
 
@@ -4939,6 +4944,8 @@
 
       /* 메뉴를 열었을 때는 스크롤 여부와 무관하게 헤더 표시 */
       html.is-menu-open .site-header {
+        /* 모바일 메뉴가 열린 동안은 화면 최상단이어도 메뉴의 흰 배경 유지 */
+        background-color: #fff;
         transform: translate3d(0, 0, 0);
         pointer-events: auto;
       }
