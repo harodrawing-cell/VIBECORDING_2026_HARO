@@ -1044,7 +1044,7 @@
 
       .mirae-walking canvas {
         display: block;
-        width: 100%;
+        width: 105%;
         height: auto;
         aspect-ratio: 16 / 9;
         pointer-events: auto;
@@ -4440,13 +4440,14 @@
         transform: translateX(-50%);
       }
 
-      .tasks-character {
+      .tasks-character-frame {
         position: relative;
         z-index: 1;
-        width: min(520px, 60vw);
-        height: 340px;
-        object-fit: contain;
-        object-position: center bottom;
+        display: block;
+        width: 50vw;
+        max-width: none;
+        aspect-ratio: 16 / 9;
+        border: 0;
       }
 
       .tasks-content {
@@ -4825,11 +4826,6 @@
         .tasks-hero-title-art {
           height: 160px;
           object-fit: cover;
-        }
-
-        .tasks-character {
-          width: min(440px, 100vw);
-          height: 285px;
         }
 
         .tasks-content {
@@ -6065,11 +6061,12 @@
             src="./images/tasks_bg_title.png"
             alt=""
           />
-          <img
-            class="tasks-character"
-            src="./images/tasks_character.png"
-            alt=""
-          />
+          <iframe
+            class="tasks-character-frame"
+            src="./hanmi-reading-eye-tracking/embed.html"
+            title="돋보기를 들고 걷는 한미 캐릭터 애니메이션"
+            loading="lazy"
+          ></iframe>
         </div>
         <div class="tasks-content">
           <header class="tasks-heading">
