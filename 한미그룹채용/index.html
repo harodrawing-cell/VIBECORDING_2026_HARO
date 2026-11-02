@@ -11,6 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+KR:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="./hanmi-eye-tracking/hanmi-eye-tracking/player.css"
+    />
     <style>
       /* CSS변수구역 */
       /* :root{변수코드} 
@@ -439,6 +443,7 @@
         width: 44.06637%;
       }
 
+      /* 메인 비주얼 이미지 5개가 서로 다른 리듬으로 위아래 움직이도록 재생 시간과 시작 시점을 분산 */
       .mv-stage .mv-micro.updown {
         animation-duration: 3.2s;
         animation-delay: -0.3s;
@@ -1009,14 +1014,14 @@
         top: 63%;
       }
 
-      /* 수정: 캐릭터+별은 동일한 이미지 좌표계. 이미지 투명 여백까지 고려해 배치 */
+      /* 캔버스 프레임(16:9)과 별이 같은 좌표계를 사용하도록 스테이지 비율을 맞춤 */
       .mirae-character-stage {
         position: absolute;
         z-index: 2;
         left: 50%;
         bottom: 0;
         width: min(76%, 1100px);
-        aspect-ratio: 2048 / 1258;
+        aspect-ratio: 16 / 9;
         transform: translateX(-50%);
         pointer-events: none;
       }
@@ -1029,9 +1034,20 @@
       }
 
       .mirae-walking {
+        position: absolute;
         left: 0;
-        top: 0;
+        bottom: 0;
         width: 100%;
+        max-width: none;
+        margin: 0;
+      }
+
+      .mirae-walking canvas {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        pointer-events: auto;
       }
 
       .mirae-star {
@@ -5363,11 +5379,15 @@
             alt="오른쪽 아래 멀리 흐릿하게 떠 있는 작은 구름"
           />
           <div class="mirae-character-stage">
-            <img
-              class="mirae-walking"
-              src="images/mirae_walking.png"
-              alt="초록 행성 위에서 미래를 향해 걸어가는 파란색 캐릭터"
-            />
+            <div class="mirae-walking hanmi-walker" data-hanmi-walker>
+              <canvas
+                width="1920"
+                height="1080"
+                role="img"
+                aria-label="초록 행성 위에서 걸으며 마우스를 바라보는 파란색 캐릭터"
+              ></canvas>
+              <span data-status role="status">이미지 준비 중</span>
+            </div>
             <img
               class="mirae-star mirae-star-top"
               src="images/mirae_star1.png"
@@ -8147,5 +8167,7 @@
         start();
       })();
     </script>
+    <script src="./hanmi-eye-tracking/hanmi-eye-tracking/metadata.js"></script>
+    <script src="./hanmi-eye-tracking/hanmi-eye-tracking/player.js"></script>
   </body>
 </html>
