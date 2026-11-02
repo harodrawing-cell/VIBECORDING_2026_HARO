@@ -348,6 +348,67 @@
         height: auto;
       }
 
+      .updown {
+        animation: icon-updown 2.8s ease-in-out infinite;
+      }
+
+      .leftright {
+        animation: icon-leftright 2.8s ease-in-out infinite;
+      }
+
+      .bigsmall {
+        animation: icon-bigsmall 2.8s ease-in-out infinite;
+      }
+
+      @keyframes icon-updown {
+        0%,
+        50%,
+        100% {
+          transform: translateY(0);
+        }
+        25% {
+          transform: translateY(-10%);
+        }
+        75% {
+          transform: translateY(10%);
+        }
+      }
+
+      @keyframes icon-leftright {
+        0%,
+        50%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-10%);
+        }
+        75% {
+          transform: translateX(10%);
+        }
+      }
+
+      @keyframes icon-bigsmall {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        25% {
+          transform: scale(0.9);
+        }
+        75% {
+          transform: scale(1.1);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .updown,
+        .leftright,
+        .bigsmall {
+          animation: none;
+        }
+      }
+
       .mv-micro {
         left: 9.92459%;
         top: 5.08296%;
@@ -376,6 +437,31 @@
         left: 59.69834%;
         top: 56.18401%;
         width: 44.06637%;
+      }
+
+      .mv-stage .mv-micro.updown {
+        animation-duration: 3.2s;
+        animation-delay: -0.3s;
+      }
+
+      .mv-stage .mv-char1.updown {
+        animation-duration: 3.7s;
+        animation-delay: -1s;
+      }
+
+      .mv-stage .mv-char2.updown {
+        animation-duration: 4.1s;
+        animation-delay: -1.8s;
+      }
+
+      .mv-stage .mv-char3.updown {
+        animation-duration: 3.5s;
+        animation-delay: -2.4s;
+      }
+
+      .mv-stage .mv-char4.updown {
+        animation-duration: 4.4s;
+        animation-delay: -3.2s;
       }
 
       .mv-star1 {
@@ -3195,7 +3281,10 @@
       .expo-region-tabs {
         display: grid;
         /* 실제 지역 개수에 맞춰 탭 폭을 균등하게 배분한다. */
-        grid-template-columns: repeat(var(--expo-region-columns, 4), minmax(0, 1fr));
+        grid-template-columns: repeat(
+          var(--expo-region-columns, 4),
+          minmax(0, 1fr)
+        );
         gap: 8px;
         margin: 24px 0 30px;
         padding: 8px;
@@ -3457,7 +3546,9 @@
         height: 100%;
         max-width: none;
         object-fit: cover;
-        transition: transform .35s ease, filter .35s ease;
+        transition:
+          transform 0.35s ease,
+          filter 0.35s ease;
       }
 
       /* 빨간 원본 PNG: 사진의 테두리를 기준으로 배치, hover에서도 고정 */
@@ -3502,16 +3593,20 @@
         justify-content: center;
         padding: 24px 12px;
         border-radius: 8px;
-        background: linear-gradient(180deg,
-          rgba(190, 124, 112, .67) 0%,
-          rgba(164, 87, 67, .67) 48%,
-          rgba(78, 29, 20, .86) 100%);
+        background: linear-gradient(
+          180deg,
+          rgba(190, 124, 112, 0.67) 0%,
+          rgba(164, 87, 67, 0.67) 48%,
+          rgba(78, 29, 20, 0.86) 100%
+        );
         -webkit-backdrop-filter: blur(5px);
         backdrop-filter: blur(5px);
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        transition: opacity .25s ease, visibility 0s linear .25s;
+        transition:
+          opacity 0.25s ease,
+          visibility 0s linear 0.25s;
         color: #fff;
       }
 
@@ -3529,10 +3624,10 @@
         align-items: center;
         justify-content: center;
         margin-top: 23px;
-        border: 1px solid rgba(255, 255, 255, .75);
+        border: 1px solid rgba(255, 255, 255, 0.75);
         border-radius: 50%;
         background: linear-gradient(140deg, #ff763f, #ffb2a5);
-        box-shadow: inset 1px 1px 4px rgba(255, 255, 255, .25);
+        box-shadow: inset 1px 1px 4px rgba(255, 255, 255, 0.25);
         font-family: Arial, sans-serif;
         font-size: 24px;
         font-weight: 400;
@@ -3550,7 +3645,7 @@
       .con8-card:focus-visible .con8-card-hover {
         opacity: 1;
         visibility: visible;
-        transition: opacity .25s ease;
+        transition: opacity 0.25s ease;
       }
 
       .con8-card-copy {
@@ -3646,8 +3741,7 @@
         overflow: hidden;
         padding: 86px 24px 73px;
         isolation: isolate;
-        background: #dff9f8 url("./images/con9_bg.png") center / cover
-          no-repeat;
+        background: #dff9f8 url("./images/con9_bg.png") center / cover no-repeat;
         text-align: center;
       }
 
@@ -3862,7 +3956,9 @@
           padding: 6px 16px;
         }
 
-        .footer-logo { width: 70px; }
+        .footer-logo {
+          width: 70px;
+        }
 
         /* con8 모바일: 카드 1열, 캐릭터/손그림 비노출, 사진 하단 2줄 카피 */
         .con8 {
@@ -3889,7 +3985,9 @@
           aspect-ratio: 1.56;
         }
 
-        .con8-photo-frame { border-radius: 9px; }
+        .con8-photo-frame {
+          border-radius: 9px;
+        }
 
         /* 사진 하단 글자의 명암 확보; 데스크톱/태블릿 호버는 유지 */
         .con8-photo-frame::after {
@@ -3897,11 +3995,13 @@
           position: absolute;
           inset: 0;
           border-radius: inherit;
-          background: linear-gradient(180deg,
+          background: linear-gradient(
+            180deg,
             rgba(0, 0, 0, 0.04) 0%,
             rgba(0, 0, 0, 0.06) 42%,
             rgba(0, 0, 0, 0.28) 64%,
-            rgba(0, 0, 0, 0.85) 100%);
+            rgba(0, 0, 0, 0.85) 100%
+          );
           pointer-events: none;
         }
 
@@ -3966,10 +4066,10 @@
           flex: none;
           align-items: center;
           justify-content: center;
-          border: 1px solid rgba(255, 255, 255, .7);
+          border: 1px solid rgba(255, 255, 255, 0.7);
           border-radius: 50%;
           background: linear-gradient(135deg, #ff7544, #ffb19f);
-          box-shadow: 0 2px 6px rgba(0, 0, 0, .16);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
           color: #fff;
           font-size: 16px;
           font-weight: 400;
@@ -4820,7 +4920,6 @@
         }
       }
 
-    
       /* ==========================================================
          Header: 스크롤 방향별 상태 (클래스 토글 방식)
          기본 / .is-visible : 화면 상단에 표시
@@ -4845,9 +4944,10 @@
         /* 메인 최상단에서는 배너 배경이 헤더 뒤로 보이도록 투명하게 표시 */
         background-color: transparent;
         transform: translate3d(0, 0, 0);
-        transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
-                    background-color 0.28s ease,
-                    box-shadow 0.28s ease;
+        transition:
+          transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+          background-color 0.28s ease,
+          box-shadow 0.28s ease;
         will-change: transform;
       }
 
@@ -4871,74 +4971,143 @@
       /* html의 scroll-padding-top으로 앵커 목적지의 헤더 겹침 방지 */
 
       @media (min-width: 1025px) {
-        :root { --sticky-header-offset: 80px; }
+        :root {
+          --sticky-header-offset: 80px;
+        }
       }
 
       @media (max-width: 600px) {
-        :root { --sticky-header-offset: 68px; }
+        :root {
+          --sticky-header-offset: 68px;
+        }
       }
 
       /* 기존 391~600px에서 GNB 텍스트는 숨기면서
          모바일 메뉴 버튼은 숨겨 놓은 불일치를 보완 */
       @media (min-width: 391px) and (max-width: 600px) {
         html.is-menu-open,
-        html.is-menu-open body { overflow: hidden; }
-        .site-header { height: 68px; }
-        .brand { width: 130px; }
-        .brand, .header-m { position: relative; z-index: 2; }
-        .header-m { display: flex; align-items: center; gap: 12px; }
-        .header-m .btn-sm {
-          width: 63px; height: 28px; padding: 0;
-          font-size: 13px; line-height: 18px;
+        html.is-menu-open body {
+          overflow: hidden;
         }
-        html.is-menu-open .header-m .btn-sm { visibility: hidden; }
+        .site-header {
+          height: 68px;
+        }
+        .brand {
+          width: 130px;
+        }
+        .brand,
+        .header-m {
+          position: relative;
+          z-index: 2;
+        }
+        .header-m {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .header-m .btn-sm {
+          width: 63px;
+          height: 28px;
+          padding: 0;
+          font-size: 13px;
+          line-height: 18px;
+        }
+        html.is-menu-open .header-m .btn-sm {
+          visibility: hidden;
+        }
         .btn-menu {
-          display: flex; flex-direction: column;
-          align-items: center; justify-content: center;
-          gap: 5px; width: 44px; height: 44px;
-          margin-right: -11px; background: none;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          width: 44px;
+          height: 44px;
+          margin-right: -11px;
+          background: none;
         }
         .btn-menu span {
-          display: block; width: 22px; height: 2px;
+          display: block;
+          width: 22px;
+          height: 2px;
           background: var(--black);
-          transition: transform 0.3s ease, opacity 0.2s ease;
+          transition:
+            transform 0.3s ease,
+            opacity 0.2s ease;
         }
-        html.is-menu-open .btn-menu span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        html.is-menu-open .btn-menu span:nth-child(2) { opacity: 0; }
-        html.is-menu-open .btn-menu span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        html.is-menu-open .btn-menu span:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+        html.is-menu-open .btn-menu span:nth-child(2) {
+          opacity: 0;
+        }
+        html.is-menu-open .btn-menu span:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
         .gnb {
-          position: fixed; top: 0; right: 0; z-index: 1;
-          width: 100%; height: 100vh; height: 100dvh;
-          flex-direction: column; align-items: stretch;
+          position: fixed;
+          top: 0;
+          right: 0;
+          z-index: 1;
+          width: 100%;
+          height: 100vh;
+          height: 100dvh;
+          flex-direction: column;
+          align-items: stretch;
           justify-content: flex-start;
           padding: 100px 20px 0;
-          background: var(--white); overflow-y: auto;
-          transform: translateX(100%); visibility: hidden;
-          transition: transform 0.3s ease, visibility 0s linear 0.3s;
+          background: var(--white);
+          overflow-y: auto;
+          transform: translateX(100%);
+          visibility: hidden;
+          transition:
+            transform 0.3s ease,
+            visibility 0s linear 0.3s;
         }
         .gnb.is-open {
-          transform: translateX(0); visibility: visible;
-          transition: transform 0.3s ease, visibility 0s;
+          transform: translateX(0);
+          visibility: visible;
+          transition:
+            transform 0.3s ease,
+            visibility 0s;
         }
         .gnb::after {
-          content: ""; position: absolute;
-          right: 16px; bottom: 40px; width: 130px;
+          content: "";
+          position: absolute;
+          right: 16px;
+          bottom: 40px;
+          width: 130px;
           aspect-ratio: 413 / 420;
-          background: url("./images/imgi_76_con5_char.png") center / contain no-repeat;
+          background: url("./images/imgi_76_con5_char.png") center / contain
+            no-repeat;
           pointer-events: none;
         }
         .gnb-list {
-          display: flex; flex-direction: column;
-          align-items: stretch; gap: 0; height: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+          height: auto;
         }
-        .gnb-list li { border-bottom: 1px solid #e5e5e5; }
-        .gnb-list a, .gnb-list li:first-child a {
-          height: 56px; font-size: 18px; line-height: 24px;
+        .gnb-list li {
+          border-bottom: 1px solid #e5e5e5;
         }
-        .gnb-cta { margin-top: 40px; padding-left: 0; }
+        .gnb-list a,
+        .gnb-list li:first-child a {
+          height: 56px;
+          font-size: 18px;
+          line-height: 24px;
+        }
+        .gnb-cta {
+          margin-top: 40px;
+          padding-left: 0;
+        }
         .gnb-cta .btn-sm {
-          width: 100%; height: 48px; padding: 0 20px;
-          font-size: 16px; line-height: 24px;
+          width: 100%;
+          height: 48px;
+          padding: 0 20px;
+          font-size: 16px;
+          line-height: 24px;
         }
       }
 
@@ -4951,9 +5120,11 @@
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .site-header { transition: none; will-change: auto; }
+        .site-header {
+          transition: none;
+          will-change: auto;
+        }
       }
-
 
       /* ===== 전형절차 하단 안내: 해당 탭에서만 노출, 미디어쿼리는 글자 크기만 조정 ===== */
       #process-panel .process-notes li {
@@ -4961,10 +5132,14 @@
       }
 
       @media (max-width: 1024px) {
-        #process-panel .process-notes li { font-size: 12px; }
+        #process-panel .process-notes li {
+          font-size: 12px;
+        }
       }
       @media (max-width: 568px) {
-        #process-panel .process-notes li { font-size: 11px; }
+        #process-panel .process-notes li {
+          font-size: 11px;
+        }
       }
 
       /* ===== 캠퍼스 세부 일정: 학교 버튼과 상세 카드를 상호 교체 ===== */
@@ -4972,7 +5147,9 @@
         border: 0;
         font-family: inherit;
         cursor: pointer;
-        transition: background-color 180ms ease, box-shadow 180ms ease;
+        transition:
+          background-color 180ms ease,
+          box-shadow 180ms ease;
       }
 
       #expo-campus-panel .expo-detail:hover {
@@ -4999,7 +5176,9 @@
       }
 
       @media (prefers-reduced-motion: reduce) {
-        #expo-campus-panel .expo-detail { transition: none; }
+        #expo-campus-panel .expo-detail {
+          transition: none;
+        }
       }
 
       /* ============================================================
@@ -5019,9 +5198,9 @@
           background-color 0.22s ease,
           box-shadow 0.22s ease,
           border-color 0.22s ease;
-        transition-delay: var(--scroll-reveal-delay, 0ms),
-                          var(--scroll-reveal-delay, 0ms),
-                          0ms, 0ms, 0ms, 0ms, 0ms;
+        transition-delay:
+          var(--scroll-reveal-delay, 0ms), var(--scroll-reveal-delay, 0ms), 0ms,
+          0ms, 0ms, 0ms, 0ms;
       }
 
       html.has-scroll-reveal main .scroll-reveal:not(.is-inview) {
@@ -5123,11 +5302,11 @@
           <div class="mv-stage" aria-hidden="true">
             <div class="ring-glow"></div>
             <div class="ring-line"></div>
-            <img class="mv-micro" src="./images/mv_micro.png" alt="" />
-            <img class="mv-char1" src="./images/mv_char1.png" alt="" />
-            <img class="mv-char2" src="./images/mv_char2.png" alt="" />
-            <img class="mv-char3" src="./images/mv_char3.png" alt="" />
-            <img class="mv-char4" src="./images/mv_char4.png" alt="" />
+            <img class="mv-micro updown" src="./images/mv_micro.png" alt="" />
+            <img class="mv-char1 updown" src="./images/mv_char1.png" alt="" />
+            <img class="mv-char2 updown" src="./images/mv_char2.png" alt="" />
+            <img class="mv-char3 updown" src="./images/mv_char3.png" alt="" />
+            <img class="mv-char4 updown" src="./images/mv_char4.png" alt="" />
             <img class="mv-star1" src="./images/mv_star1.svg" alt="" />
             <img class="mv-star2" src="./images/mv_star2.svg" alt="" />
             <img class="mv-star3" src="./images/mv_star3.svg" alt="" />
@@ -5220,7 +5399,7 @@
                 ><span class="history-count-unit">th</span>
               </p>
               <img
-                class="history-deco history-deco--star"
+                class="history-deco history-deco--star updown"
                 src="./images/obj_star_big.png"
                 alt="반짝이는 노란 별 세 개"
               />
@@ -5260,7 +5439,7 @@
                   />
                 </figure>
                 <img
-                  class="history-deco history-deco--beaker"
+                  class="history-deco history-deco--beaker updown"
                   src="./images/obj_beaker.png"
                   alt="분홍색 액체가 담긴 실험용 비커"
                 />
@@ -5308,7 +5487,7 @@
                   alt="흐릿하게 번진 푸른 분자 구조"
                 />
                 <img
-                  class="history-deco history-deco--microscope"
+                  class="history-deco history-deco--microscope updown"
                   src="./images/obj_microscope.png"
                   alt="파란색 현미경"
                 />
@@ -5491,7 +5670,7 @@
                 alt="캐릭터 아래에 깔린 흐릿한 구름 그림자"
               />
               <img
-                class="history-deco history-deco--char"
+                class="history-deco history-deco--char leftright"
                 src="./images/con2_char.png"
                 alt="사원증을 목에 걸고 달려가는 파란색 알약 캐릭터"
               />
@@ -5538,7 +5717,7 @@
             </p>
           </header>
           <img
-            class="jobs-character"
+            class="jobs-character leftright"
             src="./images/con3_char.png"
             alt=""
             aria-hidden="true"
@@ -5610,7 +5789,7 @@
             </li>
           </ul>
           <img
-            class="jobs-bottle"
+            class="jobs-bottle updown"
             src="./images/con3_bottle.png"
             alt=""
             aria-hidden="true"
@@ -5644,7 +5823,7 @@
               aria-hidden="true"
             />
             <img
-              class="innovation-atom"
+              class="innovation-atom bigsmall"
               src="./images/inno_molecule1.png"
               alt=""
               aria-hidden="true"
@@ -5820,7 +5999,7 @@
             </p>
           </div>
           <img
-            class="innovation-molecule"
+            class="innovation-molecule updown"
             src="./images/inno_molecule2.png"
             alt=""
             aria-hidden="true"
@@ -5839,13 +6018,17 @@
               건강부터 성장, 휴식까지 알차게 준비한 복지를 소개할게요.
             </p>
             <img
-              class="welfare-character"
+              class="welfare-character updown"
               src="./images/imgi_76_con5_char.png"
               alt="거울을 보며 건강을 챙기는 한미 캐릭터"
             />
           </header>
 
-          <div class="welfare-scroll" id="welfare-content" aria-busy="true"></div>
+          <div
+            class="welfare-scroll"
+            id="welfare-content"
+            aria-busy="true"
+          ></div>
 
           <img
             class="welfare-character-bottom"
@@ -5870,7 +6053,9 @@
         </div>
         <div class="tasks-content">
           <header class="tasks-heading">
-            <h2 id="tasks-title">알약이를 따라<br />나에게 맞는 직무를 찾아봐요!</h2>
+            <h2 id="tasks-title">
+              알약이를 따라<br />나에게 맞는 직무를 찾아봐요!
+            </h2>
             <p>
               연구부터 생산, 영업, 경영지원까지 당신의 가능성이 빛날 자리를
               안내해 드릴게요.
@@ -5957,7 +6142,12 @@
             </button>
           </div>
 
-          <div class="tasks-accordion" id="tasks-panel" role="tabpanel" aria-labelledby="tasks-tab-rnd">
+          <div
+            class="tasks-accordion"
+            id="tasks-panel"
+            role="tabpanel"
+            aria-labelledby="tasks-tab-rnd"
+          >
             <section class="tasks-group is-open">
               <h3>
                 <button
@@ -5993,7 +6183,10 @@
                     <span class="tasks-job-arrow" aria-hidden="true">→</span>
                   </button>
                   <button class="tasks-job" type="button" data-job="bss">
-                    <span>BSS (Biological &amp; Structural Evaluation Science)</span>
+                    <span
+                      >BSS (Biological &amp; Structural Evaluation
+                      Science)</span
+                    >
                     <span class="tasks-job-arrow" aria-hidden="true">→</span>
                   </button>
                 </div>
@@ -6013,7 +6206,11 @@
               </h3>
               <div class="tasks-group-panel" id="tasks-rnd-formulation" hidden>
                 <div class="tasks-job-grid">
-                  <button class="tasks-job" type="button" data-job="formulation">
+                  <button
+                    class="tasks-job"
+                    type="button"
+                    data-job="formulation"
+                  >
                     <span>제제연구 직무 상세</span>
                     <span class="tasks-job-arrow" aria-hidden="true">→</span>
                   </button>
@@ -6049,8 +6246,14 @@
                 <div class="tasks-modal-header">
                   <div class="tasks-modal-title-row">
                     <h3 class="tasks-modal-title" id="tasks-modal-title"></h3>
-                    <span class="tasks-modal-category" id="tasks-modal-category"></span>
-                    <span class="tasks-modal-location" id="tasks-modal-location"></span>
+                    <span
+                      class="tasks-modal-category"
+                      id="tasks-modal-category"
+                    ></span>
+                    <span
+                      class="tasks-modal-location"
+                      id="tasks-modal-location"
+                    ></span>
                   </div>
                   <p class="tasks-modal-career" id="tasks-modal-career"></p>
                 </div>
@@ -6063,7 +6266,10 @@
                     <h4>자격요건</h4>
                     <ul id="tasks-modal-qualifications"></ul>
                   </section>
-                  <section class="tasks-modal-section" id="tasks-modal-preferred-section">
+                  <section
+                    class="tasks-modal-section"
+                    id="tasks-modal-preferred-section"
+                  >
                     <h4>우대사항</h4>
                     <ul id="tasks-modal-preferred"></ul>
                   </section>
@@ -6085,7 +6291,7 @@
               한미그룹과 함께하는 문은<br />활짝 열려 있습니다
             </h2>
             <img
-              class="requirement-bulb"
+              class="requirement-bulb updown"
               src="./images/require_bulb.png"
               alt=""
               aria-hidden="true"
@@ -6163,36 +6369,97 @@
             tabindex="0"
             hidden
           >
-            <section class="process-group" aria-labelledby="process-sales-title">
+            <section
+              class="process-group"
+              aria-labelledby="process-sales-title"
+            >
               <h3 id="process-sales-title">영업직군</h3>
               <div class="process-steps">
-                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🗓️</span><strong>지원접수</strong><span>9.28~10.18</span></div>
-                <div class="process-step"><span class="process-step-icon" aria-hidden="true">📑</span><strong>서류전형</strong><span>10.19~10.20</span></div>
-                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🔎</span><strong>AI역량검사</strong><span>10.21~10.25</span></div>
-                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🪪</span><strong>1차면접</strong><span>11월 중</span></div>
-                <div class="process-step"><span class="process-step-icon" aria-hidden="true">📍</span><strong>현장체험</strong><span>12월 초</span></div>
-                <div class="process-step"><span class="process-step-icon" aria-hidden="true">💬</span><strong>2차면접</strong><span>12월 중</span></div>
-                <div class="process-step"><span class="process-step-icon" aria-hidden="true">📚</span><strong>교육전형</strong><span>27.1.4~</span></div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🗓️</span
+                  ><strong>지원접수</strong><span>9.28~10.18</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">📑</span
+                  ><strong>서류전형</strong><span>10.19~10.20</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🔎</span
+                  ><strong>AI역량검사</strong><span>10.21~10.25</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🪪</span
+                  ><strong>1차면접</strong><span>11월 중</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">📍</span
+                  ><strong>현장체험</strong><span>12월 초</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">💬</span
+                  ><strong>2차면접</strong><span>12월 중</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">📚</span
+                  ><strong>교육전형</strong><span>27.1.4~</span>
+                </div>
               </div>
             </section>
 
-            <section class="process-group" aria-labelledby="process-other-title">
+            <section
+              class="process-group"
+              aria-labelledby="process-other-title"
+            >
               <h3 id="process-other-title">영업 외 전직군</h3>
               <div class="process-steps process-steps--six">
-                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🗓️</span><strong>지원접수</strong><span>9.28~10.18</span></div>
-                <div class="process-step"><span class="process-step-icon" aria-hidden="true">📑</span><strong>서류전형</strong><span>10.19~10.20</span></div>
-                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🔎</span><strong>AI역량검사</strong><span>10.21~10.25</span></div>
-                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🪪</span><strong>1차면접</strong><span>11월 중</span></div>
-                <div class="process-step"><span class="process-step-icon" aria-hidden="true">💬</span><strong>2차면접</strong><span>12월 중</span></div>
-                <div class="process-step"><span class="process-step-icon" aria-hidden="true">🏢</span><strong>입사</strong><span>27.1.4~<br />(경력직 협의 가능)</span></div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🗓️</span
+                  ><strong>지원접수</strong><span>9.28~10.18</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">📑</span
+                  ><strong>서류전형</strong><span>10.19~10.20</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🔎</span
+                  ><strong>AI역량검사</strong><span>10.21~10.25</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🪪</span
+                  ><strong>1차면접</strong><span>11월 중</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">💬</span
+                  ><strong>2차면접</strong><span>12월 중</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🏢</span
+                  ><strong>입사</strong
+                  ><span>27.1.4~<br />(경력직 협의 가능)</span>
+                </div>
               </div>
             </section>
 
-            <ul class="requirement-notes process-notes" aria-label="전형절차 안내사항">
-              <li>상기 일정은 상황에 따라 변경될 수 있으며 각 전형별 상세 일정은 대상자에 한해 개별 안내 예정입니다.</li>
-              <li>입사지원서에 허위 기재가 있거나 제출서류가 허위로 판명되는 경우, 또는 입사 이후 자격 미달이나 중대한 결격사유가 있는 경우는 입사가 취소될 수 있습니다.</li>
-              <li>지원서 제출 후에는 수정이 절대 불가하오니, 주의하시기 바랍니다.</li>
-              <li class="requirement-notes-secondary">전형단계별 결과는 E-Mail 및 SMS를 통하여 안내하오니 E-Mail 주소 및 휴대전화 번호를 정확히 기재해주시기 바랍니다.</li>
+            <ul
+              class="requirement-notes process-notes"
+              aria-label="전형절차 안내사항"
+            >
+              <li>
+                상기 일정은 상황에 따라 변경될 수 있으며 각 전형별 상세 일정은
+                대상자에 한해 개별 안내 예정입니다.
+              </li>
+              <li>
+                입사지원서에 허위 기재가 있거나 제출서류가 허위로 판명되는 경우,
+                또는 입사 이후 자격 미달이나 중대한 결격사유가 있는 경우는
+                입사가 취소될 수 있습니다.
+              </li>
+              <li>
+                지원서 제출 후에는 수정이 절대 불가하오니, 주의하시기 바랍니다.
+              </li>
+              <li class="requirement-notes-secondary">
+                전형단계별 결과는 E-Mail 및 SMS를 통하여 안내하오니 E-Mail 주소
+                및 휴대전화 번호를 정확히 기재해주시기 바랍니다.
+              </li>
             </ul>
           </div>
         </div>
@@ -6206,7 +6473,7 @@
         <div class="exposition-inner">
           <header class="exposition-header">
             <img
-              class="exposition-character"
+              class="exposition-character updown"
               src="./images/expo_char.png"
               alt="박람회와 캠퍼스를 찾아가는 한미 캐릭터"
             />
@@ -6219,12 +6486,17 @@
                 우리가 어디서 만날지 궁금하다면 아래 지역에서 찾아보세요!
               </p>
               <p class="exposition-hint">
-                학교명/장소를 클릭하거나 터치하면 세부장소를 확인하실 수 있습니다.
+                학교명/장소를 클릭하거나 터치하면 세부장소를 확인하실 수
+                있습니다.
               </p>
             </div>
           </header>
 
-          <div class="exposition-tabs" role="tablist" aria-label="방문 일정 종류">
+          <div
+            class="exposition-tabs"
+            role="tablist"
+            aria-label="방문 일정 종류"
+          >
             <button
               class="exposition-tab"
               type="button"
@@ -6256,7 +6528,12 @@
             aria-labelledby="exposition-tab-fair"
             tabindex="0"
           >
-            <div class="expo-schedule" id="expo-fair-schedule" aria-live="polite" aria-busy="true"></div>
+            <div
+              class="expo-schedule"
+              id="expo-fair-schedule"
+              aria-live="polite"
+              aria-busy="true"
+            ></div>
           </div>
 
           <div
@@ -6267,8 +6544,18 @@
             tabindex="0"
             hidden
           >
-            <div class="expo-region-tabs" id="expo-region-tabs" role="tablist" aria-label="캠퍼스 방문 지역"></div>
-            <div class="expo-schedule" id="expo-campus-schedule" aria-live="polite" aria-busy="true"></div>
+            <div
+              class="expo-region-tabs"
+              id="expo-region-tabs"
+              role="tablist"
+              aria-label="캠퍼스 방문 지역"
+            ></div>
+            <div
+              class="expo-schedule"
+              id="expo-campus-schedule"
+              aria-live="polite"
+              aria-busy="true"
+            ></div>
           </div>
         </div>
       </section>
@@ -6276,7 +6563,7 @@
       <section class="con8" id="con8" aria-label="한미그룹 바로가기">
         <div class="con8-inner">
           <img
-            class="con8-character"
+            class="con8-character updown"
             src="./images/con8_char.png.png"
             alt="책을 읽는 한미 캐릭터"
           />
@@ -6284,17 +6571,40 @@
             <a class="con8-card" href="#welfare">
               <span class="con8-card-image">
                 <span class="con8-photo-frame">
-                  <img class="con8-photo" src="./images/con8_img1.jpg" alt="함께 손을 모은 사람들" />
+                  <img
+                    class="con8-photo"
+                    src="./images/con8_img1.jpg"
+                    alt="함께 손을 모은 사람들"
+                  />
                 </span>
                 <span class="con8-card-hover" aria-hidden="true">
                   <span class="con8-hover-title">한미그룹 YouTube</span>
                   <span class="con8-hover-arrow">→</span>
                 </span>
-                <img class="con8-mark con8-mark--arrow-left" src="./images/con8_Image.png" alt="" aria-hidden="true" />
-                <img class="con8-mark con8-mark--star" src="./images/con8_Image-2.png" alt="" aria-hidden="true" />
+                <img
+                  class="con8-mark con8-mark--arrow-left"
+                  src="./images/con8_Image.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <img
+                  class="con8-mark con8-mark--star"
+                  src="./images/con8_Image-2.png"
+                  alt=""
+                  aria-hidden="true"
+                />
               </span>
               <span class="con8-card-copy">
-                <span class="con8-question">한미그룹의 <span class="con8-marked-word">문화와 복지<img class="con8-mark--underline" src="./images/con8_Image-1.png" alt="" aria-hidden="true" /></span>가 궁금하다면?</span>
+                <span class="con8-question"
+                  >한미그룹의
+                  <span class="con8-marked-word"
+                    >문화와 복지<img
+                      class="con8-mark--underline"
+                      src="./images/con8_Image-1.png"
+                      alt=""
+                      aria-hidden="true" /></span
+                  >가 궁금하다면?</span
+                >
                 <span class="con8-card-action">
                   한미그룹 YouTube
                   <span class="con8-card-arrow" aria-hidden="true">→</span>
@@ -6304,16 +6614,36 @@
             <a class="con8-card" href="#tasks">
               <span class="con8-card-image">
                 <span class="con8-photo-frame">
-                  <img class="con8-photo" src="./images/con8_img2.jpg" alt="촬영 카메라" />
+                  <img
+                    class="con8-photo"
+                    src="./images/con8_img2.jpg"
+                    alt="촬영 카메라"
+                  />
                 </span>
                 <span class="con8-card-hover" aria-hidden="true">
-                  <span class="con8-hover-title">한미그룹 직무 소개 페이지</span>
+                  <span class="con8-hover-title"
+                    >한미그룹 직무 소개 페이지</span
+                  >
                   <span class="con8-hover-arrow">→</span>
                 </span>
-                <img class="con8-mark con8-mark--arrow-right" src="./images/con8_Image-4.png" alt="" aria-hidden="true" />
+                <img
+                  class="con8-mark con8-mark--arrow-right"
+                  src="./images/con8_Image-4.png"
+                  alt=""
+                  aria-hidden="true"
+                />
               </span>
               <span class="con8-card-copy">
-                <span class="con8-question">한미그룹의 <span class="con8-marked-word">직무<img class="con8-mark--circle" src="./images/con8_Image-3.png" alt="" aria-hidden="true" /></span>가 궁금하다면?</span>
+                <span class="con8-question"
+                  >한미그룹의
+                  <span class="con8-marked-word"
+                    >직무<img
+                      class="con8-mark--circle"
+                      src="./images/con8_Image-3.png"
+                      alt=""
+                      aria-hidden="true" /></span
+                  >가 궁금하다면?</span
+                >
                 <span class="con8-card-action">
                   한미그룹 직무 소개 페이지
                   <span class="con8-card-arrow" aria-hidden="true">→</span>
@@ -6323,7 +6653,11 @@
             <a class="con8-card" href="#qualification">
               <span class="con8-card-image">
                 <span class="con8-photo-frame">
-                  <img class="con8-photo" src="./images/con8_img3.jpg" alt="한미약품 연구센터" />
+                  <img
+                    class="con8-photo"
+                    src="./images/con8_img3.jpg"
+                    alt="한미약품 연구센터"
+                  />
                 </span>
                 <span class="con8-card-hover" aria-hidden="true">
                   <span class="con8-hover-title">한미그룹 채용 홈페이지</span>
@@ -6331,7 +6665,17 @@
                 </span>
               </span>
               <span class="con8-card-copy">
-                <span class="con8-question">한미그룹의 <span class="con8-marked-word">채용소식을<img class="con8-mark--wave" src="./images/con8_Image-5.png" alt="" aria-hidden="true" /></span> 빠르게 받고 싶다면?</span>
+                <span class="con8-question"
+                  >한미그룹의
+                  <span class="con8-marked-word"
+                    >채용소식을<img
+                      class="con8-mark--wave"
+                      src="./images/con8_Image-5.png"
+                      alt=""
+                      aria-hidden="true"
+                  /></span>
+                  빠르게 받고 싶다면?</span
+                >
                 <span class="con8-card-action">
                   한미그룹 채용 홈페이지
                   <span class="con8-card-arrow" aria-hidden="true">→</span>
@@ -6348,24 +6692,75 @@
         aria-labelledby="con9-title"
         data-deadline="2026-10-18T23:59:00+09:00"
       >
-        <img class="con9-cloud con9-cloud--left" src="./images/con9_cloud_l.png" alt="" aria-hidden="true" />
-        <img class="con9-cloud con9-cloud--right" src="./images/con9_cloud_r.png" alt="" aria-hidden="true" />
-        <img class="con9-glow" src="./images/con9_Background+Blur.png" alt="" aria-hidden="true" />
-        <h2 class="con9-title" id="con9-title">당신에게 딱 맞는 자리를 찾으러 출발!</h2>
-        <div class="con9-countdown" role="timer" aria-label="지원 마감까지 남은 시간">
-          <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-days>00</strong> 일</span>
-          <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-hours>00</strong> 시간</span>
-          <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-minutes>00</strong> 분</span>
-          <span class="con9-countdown-part"><strong class="con9-countdown-number" data-countdown-seconds>00</strong> 초 남았어요</span>
+        <img
+          class="con9-cloud con9-cloud--left"
+          src="./images/con9_cloud_l.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="con9-cloud con9-cloud--right"
+          src="./images/con9_cloud_r.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="con9-glow"
+          src="./images/con9_Background+Blur.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <h2 class="con9-title" id="con9-title">
+          당신에게 딱 맞는 자리를 찾으러 출발!
+        </h2>
+        <div
+          class="con9-countdown"
+          role="timer"
+          aria-label="지원 마감까지 남은 시간"
+        >
+          <span class="con9-countdown-part"
+            ><strong class="con9-countdown-number" data-countdown-days
+              >00</strong
+            >
+            일</span
+          >
+          <span class="con9-countdown-part"
+            ><strong class="con9-countdown-number" data-countdown-hours
+              >00</strong
+            >
+            시간</span
+          >
+          <span class="con9-countdown-part"
+            ><strong class="con9-countdown-number" data-countdown-minutes
+              >00</strong
+            >
+            분</span
+          >
+          <span class="con9-countdown-part"
+            ><strong class="con9-countdown-number" data-countdown-seconds
+              >00</strong
+            >
+            초 남았어요</span
+          >
         </div>
         <div class="con9-visual">
-          <img class="con9-globe" src="./images/con9_apply.png" alt="지구본과 종이비행기 오브제" />
-          <a class="con9-apply" href="#qualification" aria-label="지원하기 — 지원 일정 확인하기">
+          <img
+            class="con9-globe"
+            src="./images/con9_apply.png"
+            alt="지구본과 종이비행기 오브제"
+          />
+          <a
+            class="con9-apply"
+            href="#qualification"
+            aria-label="지원하기 — 지원 일정 확인하기"
+          >
             <span class="con9-apply-text">지원하기</span>
             <span class="con9-apply-arrow" aria-hidden="true">→</span>
           </a>
         </div>
-        <p class="con9-status" id="con9-status">아이콘을 클릭해서 지원해주세요!</p>
+        <p class="con9-status" id="con9-status">
+          아이콘을 클릭해서 지원해주세요!
+        </p>
       </section>
     </main>
 
@@ -6560,7 +6955,8 @@
 
         fetch("./data/benefits.json")
           .then(function (response) {
-            if (!response.ok) throw new Error("복지 데이터를 불러오지 못했습니다.");
+            if (!response.ok)
+              throw new Error("복지 데이터를 불러오지 못했습니다.");
             return response.json();
           })
           .then(function (data) {
@@ -6669,7 +7065,9 @@
                 !Array.isArray(job.qualifications) ||
                 !Array.isArray(job.preferred)
               )
-                throw new Error("팝업 직무 데이터의 필수 항목이 누락되었습니다.");
+                throw new Error(
+                  "팝업 직무 데이터의 필수 항목이 누락되었습니다.",
+                );
               popupJobs.set(job.title.trim(), job);
             });
             fallbackData.jobs.forEach(function (job) {
@@ -6682,20 +7080,29 @@
                 (job.details["우대사항"] != null &&
                   !Array.isArray(job.details["우대사항"]))
               )
-                throw new Error("기존 직무 데이터의 필수 항목이 누락되었습니다.");
+                throw new Error(
+                  "기존 직무 데이터의 필수 항목이 누락되었습니다.",
+                );
               fallbackJobs.set(job.title.trim(), job);
             });
             var groupedTitles = new Set();
             groupedData.forEach(function (categoryData) {
-              if (!categoryData.category || !Array.isArray(categoryData.centers))
-                throw new Error("직무 분야 그룹 데이터 형식이 올바르지 않습니다.");
+              if (
+                !categoryData.category ||
+                !Array.isArray(categoryData.centers)
+              )
+                throw new Error(
+                  "직무 분야 그룹 데이터 형식이 올바르지 않습니다.",
+                );
               categoryData.centers.forEach(function (center) {
                 if (
                   !center.center ||
                   !Array.isArray(center.jobs) ||
                   center.count !== center.jobs.length
                 )
-                  throw new Error("직무 센터 그룹 데이터 형식이 올바르지 않습니다.");
+                  throw new Error(
+                    "직무 센터 그룹 데이터 형식이 올바르지 않습니다.",
+                  );
                 center.jobs.forEach(function (title) {
                   var job = fallbackJobs.get(title.trim());
                   if (
@@ -6703,7 +7110,9 @@
                     job.category !== categoryData.category ||
                     groupedTitles.has(title.trim())
                   )
-                    throw new Error("직무 카드와 상세 데이터가 일치하지 않습니다.");
+                    throw new Error(
+                      "직무 카드와 상세 데이터가 일치하지 않습니다.",
+                    );
                   groupedTitles.add(title.trim());
                 });
               });
@@ -6853,8 +7262,7 @@
               return;
             }
             var title = trigger.querySelector("span").textContent.trim();
-            if (jobId === "formulation")
-              title = "신제형연구 (전문연구요원)";
+            if (jobId === "formulation") title = "신제형연구 (전문연구요원)";
             var details = popupJobs.get(title);
             var fromPopupData = Boolean(details);
             if (!details) {
@@ -6873,7 +7281,10 @@
             var imagePath = popupJobs.get(title).image;
             if (!imagePath || !imagePath.startsWith("./images/")) {
               modalBanner.hidden = true;
-              console.error("직무 팝업 로컬 이미지 경로가 올바르지 않습니다.", title);
+              console.error(
+                "직무 팝업 로컬 이미지 경로가 올바르지 않습니다.",
+                title,
+              );
             } else {
               modalBanner.src = imagePath;
             }
@@ -6902,7 +7313,10 @@
               section.querySelector("#tasks-modal-qualifications"),
               qualifications,
             );
-            fillList(section.querySelector("#tasks-modal-preferred"), preferred);
+            fillList(
+              section.querySelector("#tasks-modal-preferred"),
+              preferred,
+            );
             section.querySelector("#tasks-modal-preferred-section").hidden =
               preferred.length === 0;
           });
@@ -6910,7 +7324,10 @@
 
         modalBanner.addEventListener("error", function () {
           modalBanner.hidden = true;
-          console.error("직무 팝업 배너 이미지를 불러오지 못했습니다.", modalBanner.src);
+          console.error(
+            "직무 팝업 배너 이미지를 불러오지 못했습니다.",
+            modalBanner.src,
+          );
         });
 
         function closeModal() {
@@ -6927,7 +7344,8 @@
           });
           tab.addEventListener("keydown", function (event) {
             var nextIndex = index;
-            if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+            if (event.key === "ArrowRight")
+              nextIndex = (index + 1) % tabs.length;
             else if (event.key === "ArrowLeft")
               nextIndex = (index - 1 + tabs.length) % tabs.length;
             else if (event.key === "Home") nextIndex = 0;
@@ -6946,16 +7364,18 @@
               "#" + trigger.getAttribute("aria-controls"),
             );
             var willOpen = trigger.getAttribute("aria-expanded") !== "true";
-            panel.querySelectorAll(".tasks-accordion-trigger").forEach(
-              function (otherTrigger) {
+            panel
+              .querySelectorAll(".tasks-accordion-trigger")
+              .forEach(function (otherTrigger) {
                 var otherPanel = section.querySelector(
                   "#" + otherTrigger.getAttribute("aria-controls"),
                 );
                 otherTrigger.setAttribute("aria-expanded", "false");
-                otherTrigger.closest(".tasks-group").classList.remove("is-open");
+                otherTrigger
+                  .closest(".tasks-group")
+                  .classList.remove("is-open");
                 otherPanel.hidden = true;
-              },
-            );
+              });
             trigger.setAttribute("aria-expanded", String(willOpen));
             group.classList.toggle("is-open", willOpen);
             groupPanel.hidden = !willOpen;
@@ -7003,7 +7423,8 @@
           });
           tab.addEventListener("keydown", function (event) {
             var nextIndex = index;
-            if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+            if (event.key === "ArrowRight")
+              nextIndex = (index + 1) % tabs.length;
             else if (event.key === "ArrowLeft")
               nextIndex = (index - 1 + tabs.length) % tabs.length;
             else if (event.key === "Home") nextIndex = 0;
@@ -7038,7 +7459,9 @@
           previous.venue.hidden = false;
           previous.venue.setAttribute("aria-expanded", "false");
           previous.item.classList.remove("is-detail-open");
-          previous.item.closest(".expo-venues").classList.remove("has-open-detail");
+          previous.item
+            .closest(".expo-venues")
+            .classList.remove("has-open-detail");
           if (restoreFocus) previous.venue.focus({ preventScroll: true });
         }
 
@@ -7060,12 +7483,18 @@
 
         // 상세 카드 외부 클릭 또는 다른 요소로 포커스 이동 시 닫는다.
         document.addEventListener("click", function (event) {
-          if (activeCampusDetail && !activeCampusDetail.item.contains(event.target)) {
+          if (
+            activeCampusDetail &&
+            !activeCampusDetail.item.contains(event.target)
+          ) {
             closeCampusDetail(false);
           }
         });
         document.addEventListener("focusin", function (event) {
-          if (activeCampusDetail && !activeCampusDetail.item.contains(event.target)) {
+          if (
+            activeCampusDetail &&
+            !activeCampusDetail.item.contains(event.target)
+          ) {
             closeCampusDetail(false);
           }
         });
@@ -7080,7 +7509,7 @@
           var detail = document.createElement("button");
           detail.type = "button";
           detail.className = "expo-detail";
-          detail.id = "expo-campus-detail-" + (++campusDetailCounter);
+          detail.id = "expo-campus-detail-" + ++campusDetailCounter;
           detail.title = "세부일정을 닫으려면 다시 클릭하세요";
           detail.hidden = true;
 
@@ -7099,7 +7528,8 @@
 
           var place = document.createElement("strong");
           place.className = "expo-detail-value";
-          place.textContent = eventData.place || "세부 장소는 별도 안내 예정입니다.";
+          place.textContent =
+            eventData.place || "세부 장소는 별도 안내 예정입니다.";
           detail.append(createDetailLabel("⚑", "장소"), place);
 
           if (eventData.time) {
@@ -7109,9 +7539,14 @@
             detail.append(createDetailLabel("◷", "시간"), time);
           }
 
-          detail.setAttribute("aria-label", eventData.name + " 세부일정: " +
-            (eventData.place || "세부 장소 별도 안내") +
-            (eventData.time ? ", " + eventData.time : "") + ". 다시 클릭하면 닫힙니다.");
+          detail.setAttribute(
+            "aria-label",
+            eventData.name +
+              " 세부일정: " +
+              (eventData.place || "세부 장소 별도 안내") +
+              (eventData.time ? ", " + eventData.time : "") +
+              ". 다시 클릭하면 닫힙니다.",
+          );
           return detail;
         }
 
@@ -7125,13 +7560,14 @@
           });
 
           function getDateKey(date) {
-            return (date.getUTCMonth() + 1) + "/" + date.getUTCDate();
+            return date.getUTCMonth() + 1 + "/" + date.getUTCDate();
           }
 
           function formatDate(date) {
             var weekdays = ["일", "월", "화", "수", "목", "금", "토"];
             return (
-              (date.getUTCMonth() + 1) +
+              date.getUTCMonth() +
+              1 +
               "월 " +
               date.getUTCDate() +
               "일 (" +
@@ -7148,7 +7584,8 @@
               })
               .forEach(function (item) {
                 var match = /^(\d{1,2})월\s*(\d{1,2})일/.exec(item.date);
-                if (!match) throw new Error("캠퍼스 일정 날짜 형식이 올바르지 않습니다.");
+                if (!match)
+                  throw new Error("캠퍼스 일정 날짜 형식이 올바르지 않습니다.");
 
                 var date = new Date(
                   Date.UTC(2026, Number(match[1]) - 1, Number(match[2])),
@@ -7272,8 +7709,9 @@
             var active = item === tab;
             item.setAttribute("aria-selected", String(active));
             item.tabIndex = active ? 0 : -1;
-            root.querySelector("#" + item.getAttribute("aria-controls")).hidden =
-              !active;
+            root.querySelector(
+              "#" + item.getAttribute("aria-controls"),
+            ).hidden = !active;
           });
           if (moveFocus) tab.focus();
         }
@@ -7349,7 +7787,10 @@
 
             regions = buildCampusRegions(campusData);
             renderPeriods(fairSchedule, fairData.fair, false);
-            regionTabs.style.setProperty("--expo-region-columns", String(Math.max(1, regions.length)));
+            regionTabs.style.setProperty(
+              "--expo-region-columns",
+              String(Math.max(1, regions.length)),
+            );
             regionTabs.replaceChildren();
 
             regions.forEach(function (region, index) {
@@ -7412,9 +7853,15 @@
           }
 
           var totalSeconds = Math.floor(remaining / 1000);
-          daysNode.textContent = String(Math.floor(totalSeconds / 86400)).padStart(2, "0");
-          hoursNode.textContent = String(Math.floor((totalSeconds % 86400) / 3600)).padStart(2, "0");
-          minutesNode.textContent = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, "0");
+          daysNode.textContent = String(
+            Math.floor(totalSeconds / 86400),
+          ).padStart(2, "0");
+          hoursNode.textContent = String(
+            Math.floor((totalSeconds % 86400) / 3600),
+          ).padStart(2, "0");
+          minutesNode.textContent = String(
+            Math.floor((totalSeconds % 3600) / 60),
+          ).padStart(2, "0");
           secondsNode.textContent = String(totalSeconds % 60).padStart(2, "0");
         }
 
@@ -7422,13 +7869,13 @@
         timer = window.setInterval(updateCountdown, 1000);
       })();
     </script>
-  
+
     <script>
       // Header 스크롤 인터랙션: 기존 .site-header에 클래스만 추가/제거
       (function () {
-        var header = document.querySelector('.site-header');
+        var header = document.querySelector(".site-header");
         if (!header) return;
-        var menuButton = document.getElementById('menuToggle');
+        var menuButton = document.getElementById("menuToggle");
         var lastY = Math.max(0, window.scrollY);
         var ticking = false;
         var threshold = 10; // 미세 스크롤도 누적해 방향 전환 감지
@@ -7436,25 +7883,27 @@
         var navigationUntil = 0;
 
         function showHeader() {
-          header.classList.remove('is-hidden');
-          header.classList.add('is-visible');
+          header.classList.remove("is-hidden");
+          header.classList.add("is-visible");
         }
         function hideHeader() {
-          header.classList.remove('is-visible');
-          header.classList.add('is-hidden');
+          header.classList.remove("is-visible");
+          header.classList.add("is-hidden");
         }
         function updateHeader() {
           ticking = false;
           var y = Math.max(0, window.scrollY);
-          header.classList.toggle('is-scrolled', y > 8);
+          header.classList.toggle("is-scrolled", y > 8);
           var delta = y - lastY;
           if (delta !== 0) {
-            movement = (delta > 0) === (movement > 0) ? movement + delta : delta;
+            movement = delta > 0 === movement > 0 ? movement + delta : delta;
           }
 
-          if (document.documentElement.classList.contains('is-menu-open') ||
-              y <= header.offsetHeight + 12 ||
-              Date.now() < navigationUntil) {
+          if (
+            document.documentElement.classList.contains("is-menu-open") ||
+            y <= header.offsetHeight + 12 ||
+            Date.now() < navigationUntil
+          ) {
             showHeader();
           } else if (movement >= threshold) {
             hideHeader();
@@ -7474,24 +7923,24 @@
         // 동일한 문서 내 섹션 링크는 기존 부드러운 스크롤 동작을 사용
         // 링크 전환 중 헤더가 바로 숨겨지는 현상을 방지
         header.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-          anchor.addEventListener('click', function () {
+          anchor.addEventListener("click", function () {
             navigationUntil = Date.now() + 1200;
             showHeader();
           });
         });
         if (menuButton) {
-          menuButton.addEventListener('click', function () {
+          menuButton.addEventListener("click", function () {
             showHeader();
           });
         }
-        document.addEventListener('keydown', function (event) {
-          if (event.key === 'Escape') showHeader();
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") showHeader();
         });
 
-        header.classList.add('is-visible');
+        header.classList.add("is-visible");
         updateHeader();
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', onScroll, { passive: true });
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll, { passive: true });
       })();
     </script>
 
@@ -7504,36 +7953,71 @@
          - fixed 헤더, 메인 비주얼, site-footer 및 모달은 제외
          ============================================================ */
       (function () {
-        var main = document.querySelector('main');
+        var main = document.querySelector("main");
         if (!main) return;
 
         // 애니메이션을 개별로 적용할 시각적인 단위만 지정한다.
         // 카드 전체와 자식을 동시에 움직여 중첩 애니메이션이 생기지 않게 구성.
         var targets = [
-          '.mirae-title', '.mirae-character-stage',
-          '.history-title', '.history-head > .history-count',
-          '.history-period', '.history-lead', '.history-list > li',
-          '.history-figure', '.history-end > .history-count',
-          '.history-end-sub', '.history-end-main', '.history-toggle',
-          '.jobs-logo', '.jobs-title', '.jobs-subtitle',
-          '.jobs-photo', '.jobs-description', '.jobs-card-bottom', '.jobs-cta',
-          '.innovation-header > h2', '.innovation-header > p',
-          '.innovation-bubble', '.innovation-hint',
-          '.welfare-title', '.welfare-subtitle', '.welfare-lead', '.welfare-card',
-          '.tasks-heading > h2', '.tasks-heading > p',
-          '.tasks-tab', '.tasks-accordion-trigger', '.tasks-job',
-          '.requirement-title', '.requirement-tab', '.eligibility-item',
-          '.requirement-notes > li', '.requirement-notice',
-          '.process-group > h3', '.process-step',
-          '.exposition-title', '.exposition-intro', '.exposition-hint',
-          '.exposition-tab', '.expo-region-tab',
-          '.expo-date', '.expo-venue-item', '.expo-empty',
-          '.con8-card',
-          '.con9-title', '.con9-countdown-part', '.con9-visual', '.con9-status'
-        ].join(', ');
+          ".mirae-title",
+          ".mirae-character-stage",
+          ".history-title",
+          ".history-head > .history-count",
+          ".history-period",
+          ".history-lead",
+          ".history-list > li",
+          ".history-figure",
+          ".history-end > .history-count",
+          ".history-end-sub",
+          ".history-end-main",
+          ".history-toggle",
+          ".jobs-logo",
+          ".jobs-title",
+          ".jobs-subtitle",
+          ".jobs-photo",
+          ".jobs-description",
+          ".jobs-card-bottom",
+          ".jobs-cta",
+          ".innovation-header > h2",
+          ".innovation-header > p",
+          ".innovation-bubble",
+          ".innovation-hint",
+          ".welfare-title",
+          ".welfare-subtitle",
+          ".welfare-lead",
+          ".welfare-card",
+          ".tasks-heading > h2",
+          ".tasks-heading > p",
+          ".tasks-tab",
+          ".tasks-accordion-trigger",
+          ".tasks-job",
+          ".requirement-title",
+          ".requirement-tab",
+          ".eligibility-item",
+          ".requirement-notes > li",
+          ".requirement-notice",
+          ".process-group > h3",
+          ".process-step",
+          ".exposition-title",
+          ".exposition-intro",
+          ".exposition-hint",
+          ".exposition-tab",
+          ".expo-region-tab",
+          ".expo-date",
+          ".expo-venue-item",
+          ".expo-empty",
+          ".con8-card",
+          ".con9-title",
+          ".con9-countdown-part",
+          ".con9-visual",
+          ".con9-status",
+        ].join(", ");
 
-        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
+        var reducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        );
+        if (reducedMotion.matches || !("IntersectionObserver" in window))
+          return;
 
         var registered = new WeakSet();
         var revealObserver;
@@ -7546,34 +8030,48 @@
         // 모바일은 화면 아래에서 20% 안쪽으로 들어오면 등장시킨다.
         // 기존 55% 절단선에서는 페이지 마지막 con9가 최대 스크롤 시에도
         // 해당 선에 도달하지 못해 영구히 투명한 문제가 있었다.
-        var mobileReveal = window.matchMedia('(max-width: 568px)');
-        revealObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (!entry.isIntersecting || !entry.target.isConnected) return;
-            if (entry.target.closest('[hidden]')) return;
-            entry.target.classList.add('is-inview');
-          });
-        }, { root: null,
-             rootMargin: mobileReveal.matches ? '0px 0px -20% 0px' : '0px 0px -45% 0px',
-             threshold: 0 });
+        var mobileReveal = window.matchMedia("(max-width: 568px)");
+        revealObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting || !entry.target.isConnected) return;
+              if (entry.target.closest("[hidden]")) return;
+              entry.target.classList.add("is-inview");
+            });
+          },
+          {
+            root: null,
+            rootMargin: mobileReveal.matches
+              ? "0px 0px -20% 0px"
+              : "0px 0px -45% 0px",
+            threshold: 0,
+          },
+        );
 
         // 완전히 화면을 벗어났을 때만 리셋해 가시 영역 중간에서 깜빡이지 않도록 함.
-        resetObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting || !entry.target.isConnected) return;
-            // 포커스 중인 버튼/링크는 숨기지 않음 (키보드 접근성).
-            if (entry.target.contains(document.activeElement)) return;
-            entry.target.classList.remove('is-inview');
-          });
-        }, { root: null, threshold: 0 });
+        resetObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting || !entry.target.isConnected) return;
+              // 포커스 중인 버튼/링크는 숨기지 않음 (키보드 접근성).
+              if (entry.target.contains(document.activeElement)) return;
+              entry.target.classList.remove("is-inview");
+            });
+          },
+          { root: null, threshold: 0 },
+        );
 
         function register(element, index) {
           if (registered.has(element)) return;
-          if (element.closest('.main-visual, .site-footer, .tasks-modal')) return;
+          if (element.closest(".main-visual, .site-footer, .tasks-modal"))
+            return;
           // 이미 숨겨진 탭도 등록: 탭 전환 후 실제 표시 시 관찰자가 등장시킴.
           registered.add(element);
-          element.classList.add('scroll-reveal');
-          element.style.setProperty('--scroll-reveal-delay', ((index % 3) * 55) + 'ms');
+          element.classList.add("scroll-reveal");
+          element.style.setProperty(
+            "--scroll-reveal-delay",
+            (index % 3) * 55 + "ms",
+          );
           revealObserver.observe(element);
           resetObserver.observe(element);
         }
@@ -7583,15 +8081,19 @@
         var endCheckPending = false;
         function checkPageEnd() {
           endCheckPending = false;
-          var endGap = document.documentElement.scrollHeight - (window.scrollY + window.innerHeight);
+          var endGap =
+            document.documentElement.scrollHeight -
+            (window.scrollY + window.innerHeight);
           if (endGap > 36) return;
-          main.querySelectorAll('.scroll-reveal:not(.is-inview)').forEach(function (el) {
-            if (el.closest('[hidden]')) return;
-            var box = el.getBoundingClientRect();
-            if (box.bottom > 0 && box.top < window.innerHeight - 10) {
-              el.classList.add('is-inview');
-            }
-          });
+          main
+            .querySelectorAll(".scroll-reveal:not(.is-inview)")
+            .forEach(function (el) {
+              if (el.closest("[hidden]")) return;
+              var box = el.getBoundingClientRect();
+              if (box.bottom > 0 && box.top < window.innerHeight - 10) {
+                el.classList.add("is-inview");
+              }
+            });
         }
         function scheduleEndCheck() {
           if (endCheckPending) return;
@@ -7622,7 +8124,7 @@
           started = true;
           // 초기 FOUC 방지를 위해 동일한 프레임에서 대상과 루트 클래스 준비.
           scan();
-          document.documentElement.classList.add('has-scroll-reveal');
+          document.documentElement.classList.add("has-scroll-reveal");
           var changes = new MutationObserver(function (records) {
             for (var i = 0; i < records.length; i++) {
               if (records[i].addedNodes.length) {
@@ -7632,8 +8134,12 @@
             }
           });
           changes.observe(main, { subtree: true, childList: true });
-          window.addEventListener('scroll', scheduleEndCheck, { passive: true });
-          window.addEventListener('resize', scheduleEndCheck, { passive: true });
+          window.addEventListener("scroll", scheduleEndCheck, {
+            passive: true,
+          });
+          window.addEventListener("resize", scheduleEndCheck, {
+            passive: true,
+          });
           // 복구된 스크롤 위치로 페이지가 열릴 때도 마지막 섹션 보이기.
           scheduleEndCheck();
         }
