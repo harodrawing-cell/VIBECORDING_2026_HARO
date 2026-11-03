@@ -1,0 +1,1581 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>한미그룹 2026년 하반기 공개채용</title>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="./css/main.css" />
+    <script defer src="./js/common.js"></script>
+    <script defer src="./js/main.js"></script>
+
+    <script defer src="./hanmi-eye-tracking/hanmi-eye-tracking/metadata.js"></script>
+    <script defer src="./hanmi-eye-tracking/hanmi-eye-tracking/player.js"></script>
+    <!-- defer는 javascript 파일을 비동기적으로 로드하기 위해 사용됩니다 (html태그 로딩을 기다림!) -->
+  </head>
+
+  <body>
+    <label
+      class="smooth-scroll-toggle"
+      title="체크하면 부드러운 스크롤이 꺼집니다"
+    >
+      <input
+        id="smoothScrollToggle"
+        type="checkbox"
+        aria-label="부드러운 스크롤 끄기"
+      />
+    </label>
+
+    <!-- 1. 상단 메뉴 영역 -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#main-visual" aria-label="한미그룹 홈">
+          <img src="./images/logo.svg" alt="Hanmi 한미그룹" />
+        </a>
+        <nav class="gnb" id="gnb" aria-label="주요 메뉴">
+          <ul class="gnb-list">
+            <li><a href="#jobs">직무소개</a></li>
+            <li><a href="#qualification">지원자격 및 접수방법</a></li>
+            <li><a href="#exposition">채용설명회 일정</a></li>
+          </ul>
+          <div class="gnb-cta">
+            <a class="btn btn-sm" href="#con9">
+              <span>지원하기</span>
+              <svg
+                class="ico-chevron"
+                width="7"
+                height="12"
+                viewBox="0 0 7 12"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M1.2 1.2L5.8 6l-4.6 4.8"
+                  stroke="#fff"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </nav>
+        <!-- 모바일 전용: 지원하기 + 햄버거(열기/닫기 토글) -->
+        <div class="header-m">
+          <a class="btn btn-sm" href="#con9"><span>지원하기</span></a>
+          <button
+            class="btn-menu"
+            type="button"
+            id="menuToggle"
+            aria-label="전체 메뉴 열기"
+            aria-expanded="false"
+            aria-controls="gnb"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. 메인 컨텐츠 영역 -->
+    <main>
+      <!-- 2-1. 메인 비주얼 section -->
+      <section class="main-visual" id="main-visual" aria-label="메인 비주얼">
+        <div class="mv-inner">
+          <div class="mv-text">
+            <div class="mv-copy">
+              <p class="mv-sub">2026년 하반기</p>
+              <h1 class="mv-title">
+                <strong>한미그룹</strong>
+                <span>공개채용</span>
+              </h1>
+              <p class="mv-period">
+                모집기간 : 2026.9.28(월) ~ 2026.10.18(일) 23:59까지
+              </p>
+            </div>
+            <div>
+              <a class="btn btn-lg" href="#tasks">모집직무 바로가기!</a>
+            </div>
+          </div>
+
+          <div class="mv-stage" aria-hidden="true">
+            <div class="ring-glow"></div>
+            <div class="ring-line"></div>
+            <img class="mv-micro updown" src="./images/mv_micro.png" alt="" />
+            <img class="mv-char1 updown" src="./images/mv_char1.png" alt="" />
+            <img class="mv-char2 updown" src="./images/mv_char2.png" alt="" />
+            <img class="mv-char3 updown" src="./images/mv_char3.png" alt="" />
+            <img class="mv-char4 updown" src="./images/mv_char4.png" alt="" />
+            <img class="mv-star1" src="./images/mv_star1.svg" alt="" />
+            <img class="mv-star2" src="./images/mv_star2.svg" alt="" />
+            <img class="mv-star3" src="./images/mv_star3.svg" alt="" />
+            <img class="mv-star4" src="./images/mv_star4.svg" alt="" />
+            <img class="mv-star5" src="./images/mv_star3.svg" alt="" />
+          </div>
+        </div>
+
+        <div class="scroll-wrap">
+          <button
+            class="btn-scroll"
+            type="button"
+            id="scrollDown"
+            aria-label="아래로 스크롤"
+          >
+            <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <path
+                d="M11 16l9 9 9-9"
+                stroke="#fff"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- 2-2. 새로운 미래 소개 section : 신규 추가 -->
+      <section class="mirae" id="mirae" aria-labelledby="mirae-title">
+        <div class="mirae-inner">
+          <h2 class="mirae-title" id="mirae-title">
+            <span class="mirae-title-red">새로운 미래</span
+            ><span class="mirae-title-black">를 향해 나아갑니다</span>
+          </h2>
+          <img
+            class="mirae-cloud mirae-cloud-left"
+            src="images/mirae_cloud3.png"
+            alt="왼쪽 아래에 떠 있는 하얀 입체 구름"
+          />
+          <img
+            class="mirae-cloud mirae-cloud-right"
+            src="images/mirae_cloud4.png"
+            alt="오른쪽에 떠 있는 커다란 하얀 입체 구름"
+          />
+          <img
+            class="mirae-cloud mirae-cloud-blur-left"
+            src="images/mirae_cloud1.png"
+            alt="왼쪽 멀리 흐릿하게 떠 있는 구름"
+          />
+          <img
+            class="mirae-cloud mirae-cloud-blur-right"
+            src="images/mirae_cloud2.png"
+            alt="오른쪽 아래 멀리 흐릿하게 떠 있는 작은 구름"
+          />
+          <div class="mirae-character-stage">
+            <div class="mirae-walking hanmi-walker" data-hanmi-walker>
+              <canvas
+                width="1920"
+                height="1080"
+                role="img"
+                aria-label="초록 행성 위에서 걸으며 마우스를 바라보는 파란색 캐릭터"
+              ></canvas>
+              <span data-status role="status">이미지 준비 중</span>
+            </div>
+            <img
+              class="mirae-star mirae-star-top"
+              src="images/mirae_star1.png"
+              alt="캐릭터 머리 오른쪽 위에 반짝이는 노란 별"
+            />
+            <img
+              class="mirae-star mirae-star-bottom"
+              src="images/mirae_star2.png"
+              alt="캐릭터 몸통 왼쪽 아래에 반짝이는 노란 별"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- 2-3. 한미그룹 연혁 section -->
+      <section
+        class="history is-expanded"
+        id="history"
+        aria-labelledby="history-title"
+      >
+        <div class="history-body" id="history-body">
+          <div class="history-flow">
+            <header class="history-head">
+              <h2 class="history-title" id="history-title">
+                한미의 도전은 작은 가능성에서<br />시작되었습니다.
+              </h2>
+              <p class="history-count" role="img" aria-label="한미 창립 53주년">
+                <span class="history-count-num">53</span
+                ><span class="history-count-unit">th</span>
+              </p>
+              <img
+                class="history-deco history-deco--star updown"
+                src="./images/obj_star_big.png"
+                alt="반짝이는 노란 별 세 개"
+              />
+            </header>
+
+            <div class="history-timeline">
+              <!-- 1973~2001 -->
+              <div class="history-block history-block--text-left">
+                <h3 class="history-period">1973~2001</h3>
+                <p class="history-lead">한계를 하나씩 넘을 때마다,</p>
+                <ul class="history-list">
+                  <li>
+                    <span class="history-year">1973</span
+                    ><span class="history-text">한미약품공업주식회사 설립</span>
+                  </li>
+                  <li>
+                    <span class="history-year">1984</span
+                    ><span class="history-text">팔탄 GMP 공장 신축</span>
+                  </li>
+                  <li>
+                    <span class="history-year">1989</span
+                    ><span class="history-text"
+                      >세프트리악손 제조방법 Roche사 기술 수출</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">1997</span
+                    ><span class="history-text"
+                      >마이크로에멀전 제제기술 Novartis사 기술 수출</span
+                    >
+                  </li>
+                </ul>
+                <figure class="history-figure history-figure--1">
+                  <img
+                    src="./images/his1.png"
+                    alt="한미약품 초기 대표 제품 텐텐 어린이 영양제와 쎄쎄 비타민C 캐러멜"
+                  />
+                </figure>
+                <img
+                  class="history-deco history-deco--beaker updown"
+                  src="./images/obj_beaker.png"
+                  alt="분홍색 액체가 담긴 실험용 비커"
+                />
+              </div>
+
+              <!-- 2002~2010 -->
+              <div class="history-block history-block--text-right">
+                <h3 class="history-period">2002~2010</h3>
+                <ul class="history-list">
+                  <li>
+                    <span class="history-year">2004</span
+                    ><span class="history-text"
+                      >국내 최초 고혈압치료제 ‘아모디핀’ 미국특허 획득</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2006</span
+                    ><span class="history-text"
+                      >세계 최초 유소아 해열 시럽제 개량신약 ‘맥시부펜’ 개발
+                      성공</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2008</span
+                    ><span class="history-text"
+                      >국내 최초 주사용항생제 세프트리악손 美 FDA 승인</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2009</span
+                    ><span class="history-text"
+                      >세계최초 암로디핀+로살탄 복합제 ‘아모잘탄’ 발매</span
+                    >
+                  </li>
+                </ul>
+                <figure class="history-figure history-figure--2">
+                  <img
+                    src="./images/his2.png"
+                    alt="석양을 배경으로 손을 잡고 함께 뛰어오르는 다섯 사람의 실루엣"
+                  />
+                </figure>
+                <img
+                  class="history-deco history-deco--mol-blur1"
+                  src="./images/obj_mol_blur1.png"
+                  alt="흐릿하게 번진 푸른 분자 구조"
+                />
+                <img
+                  class="history-deco history-deco--microscope updown"
+                  src="./images/obj_microscope.png"
+                  alt="파란색 현미경"
+                />
+              </div>
+
+              <!-- 2011~2015 -->
+              <div class="history-block history-block--text-left">
+                <h3 class="history-period">2011~2015</h3>
+                <p class="history-lead">새로운 가능성이 현실이 되었어요.</p>
+                <ul class="history-list">
+                  <li>
+                    <span class="history-year">2011</span
+                    ><span class="history-text"
+                      >MSD와 ‘아모잘탄’ 50여개국 수출 계약 체결</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2012</span
+                    ><span class="history-text"
+                      >‘LAPS-GCSF’ 美 스펙트럼사와 공동개발 및 상업화 계약</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2013</span
+                    ><span class="history-text"
+                      >국내 개량신약 최초 미국 FDA 승인 및 미국 출시
+                      ‘에소메졸’</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2014</span
+                    ><span class="history-text"
+                      >‘트리악손’ 국내 최초 유럽 4개국 시판 허가</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2015</span
+                    ><span class="history-text"
+                      >한국 사상 최대규모 릴레이 기술수출</span
+                    >
+                  </li>
+                </ul>
+                <figure class="history-figure history-figure--3">
+                  <img
+                    src="./images/his3.png"
+                    alt="스펙트럼 파마슈티컬스 로고와 인체 모형, 에소메졸 제품 용기"
+                  />
+                </figure>
+              </div>
+
+              <!-- 2016~2020 -->
+              <div class="history-block history-block--text-right">
+                <h3 class="history-period">2016~2020</h3>
+                <ul class="history-list">
+                  <li>
+                    <span class="history-year">2016</span
+                    ><span class="history-text"
+                      >차세대 RAF 저해제, Roche 제넨텍 기술수출</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2017</span
+                    ><span class="history-text"
+                      >‘에소메졸’ 국내 제약회사 최초 미국약전(USP) 등재</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2018</span
+                    ><span class="history-text"
+                      >‘Glucagon Analog’, ‘오락솔’ 차세대 AML 치료제 美
+                      희귀의약품 지정</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2019</span
+                    ><span class="history-text"
+                      >최근 10년간 처방실적 최다 4조 4,176억원</span
+                    >
+                  </li>
+                </ul>
+                <figure class="history-figure history-figure--4">
+                  <img
+                    src="./images/his4.png"
+                    alt="미국임상종양학회 ASCO와 미국약전 USP 로고, 로수젯 제품 패키지"
+                  />
+                </figure>
+                <img
+                  class="history-deco history-deco--mol-blur2"
+                  src="./images/obj_mol_blur2.png"
+                  alt="흐릿하게 번진 분홍빛 분자 구조"
+                />
+              </div>
+
+              <!-- 2021~2026 -->
+              <div class="history-block history-block--text-left">
+                <h3 class="history-period">2021~2026</h3>
+                <p class="history-lead">
+                  하지만 아직, 가야 할 길이 더 남아 있습니다.
+                </p>
+                <ul class="history-list">
+                  <li>
+                    <span class="history-year">2021</span
+                    ><span class="history-text"
+                      >‘로수젯’, 국내사 개발 처방의약품 매출 1위 달성</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2022</span
+                    ><span class="history-text"
+                      >‘롤론티스’ 한국 최초 FDA 허가 받은 바이오신약 등재<br />‘로수젯
+                      RACING 연구’ 세계 최고 권위 의학저널 ‘LANCET’ 등재</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2023</span
+                    ><span class="history-text"
+                      >비만 프로젝트 ‘H.O.P’ 프로젝트 가동</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2024</span
+                    ><span class="history-text"
+                      >근손실 한계 뛰어넘은 신개념 비만 신약 ‘HM17321’
+                      발표</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2025</span
+                    ><span class="history-text"
+                      >‘로수젯’ 한국 전문의약품 시장 1위 품목 등록<br />한미약품
+                      8년 연속 원외처방 1위<br />미국암연구학회(AACR)서 국내
+                      최다 11개 연구 성과 발표<br />한미사이언스 약국화장품
+                      ‘EGF크림’ 27만개 완판</span
+                    >
+                  </li>
+                  <li>
+                    <span class="history-year">2026</span
+                    ><span class="history-text"
+                      >희귀질환치료제 ‘LAPS-GLP2’ 릴리 기술수출<br />한미
+                      ‘완전두유·케어미’ 국제 우수 미각상 수상</span
+                    >
+                  </li>
+                </ul>
+                <figure class="history-figure history-figure--5">
+                  <img
+                    src="./images/his5.png"
+                    alt="THE LANCET 창간 200주년 표지와 롤론티스 작용 원리, 롤론티스 제품 패키지"
+                  />
+                </figure>
+                <img
+                  class="history-deco history-deco--mol-big"
+                  src="./images/obj_mol_big.png"
+                  alt="유리 질감의 큰 분자 구조 모형"
+                />
+              </div>
+            </div>
+
+            <footer class="history-end">
+              <p
+                class="history-count history-count--end"
+                role="img"
+                aria-label="한미 창립 100주년"
+              >
+                <span class="history-count-num">100</span
+                ><span class="history-count-unit">th</span>
+              </p>
+              <div class="history-end-copy">
+                <p class="history-end-sub">
+                  한계를 넘을 때마다, 건강한 미래는 가까워졌습니다. 한계를 넘는
+                  일, 우리에게는 꽤 익숙하니까.
+                </p>
+                <p class="history-end-main">
+                  수많은 도전이 오늘의 한미를 만들었습니다.<br />이제 또 다른
+                  가능성을 향해 당신과 함께 나아갑니다.
+                </p>
+              </div>
+              <img
+                class="history-deco history-deco--cloud"
+                src="./images/cloud_blur_medium.png"
+                alt="캐릭터 아래에 깔린 흐릿한 구름 그림자"
+              />
+              <img
+                class="history-deco history-deco--char leftright"
+                src="./images/con2_char.png"
+                alt="사원증을 목에 걸고 달려가는 파란색 알약 캐릭터"
+              />
+            </footer>
+          </div>
+        </div>
+
+        <div class="history-foot">
+          <button
+            class="history-toggle"
+            type="button"
+            aria-expanded="true"
+            aria-controls="history-body"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M5 11l7-7 7 7M5 19l7-7 7 7"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="history-toggle-label">접기</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 4 : 한미 직원 직무소개 -->
+      <section class="jobs" id="jobs" aria-labelledby="jobs-title">
+        <div class="jobs-inner">
+          <header class="jobs-header">
+            <img
+              class="jobs-logo"
+              src="./images/con3_logo.png"
+              alt="Hanmi 로고"
+            />
+            <h2 class="jobs-title" id="jobs-title">
+              한미에서는 어떤 일을 할까요?
+            </h2>
+            <p class="jobs-subtitle">
+              일의 보람부터 성장의 순간까지, 먼저 경험한 현직자들이 솔직하게
+              들려드립니다.
+            </p>
+          </header>
+          <img
+            class="jobs-character leftright"
+            src="./images/con3_char.png"
+            alt=""
+            aria-hidden="true"
+          />
+          <ul class="jobs-list">
+            <li>
+              <article class="jobs-card">
+                <img
+                  class="jobs-photo"
+                  src="./images/con3_int1.jpg"
+                  alt="실험실에서 의약품 품질관리 업무를 소개하는 이건호 사원"
+                />
+                <p class="jobs-description">
+                  정밀한 시험과 분석으로 의약품의 품질을 확인해<br />안전하고
+                  신뢰할 수 있는 의약품을 만들어갑니다.
+                </p>
+                <div class="jobs-card-bottom">
+                  <p class="jobs-meta">
+                    한미약품 품질관리
+                    <span class="jobs-meta-divider">|</span> 이건호 사원
+                  </p>
+                  <a
+                    class="jobs-arrow"
+                    href="#jobs"
+                    aria-label="이건호 사원 직무소개 상세 보기"
+                    ><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M4 12h15m-6-6 6 6-6 6"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      /></svg
+                  ></a>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="jobs-card">
+                <img
+                  class="jobs-photo"
+                  src="./images/con3_int2.jpg"
+                  alt="사무실 소파에 앉아 있는 신약 연구원 박진하 연구원"
+                />
+                <p class="jobs-description">
+                  신약 후보물질의 가능성을 과학적으로 검증해<br />새로운
+                  치료제가 환자에게 향하는 첫걸음을 만듭니다.
+                </p>
+                <div class="jobs-card-bottom">
+                  <p class="jobs-meta">
+                    한미약품 전임상연구
+                    <span class="jobs-meta-divider">|</span> 박진하 연구원
+                  </p>
+                  <a
+                    class="jobs-arrow"
+                    href="#jobs"
+                    aria-label="박진하 연구원 직무소개 상세 보기"
+                    ><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M4 12h15m-6-6 6 6-6 6"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      /></svg
+                  ></a>
+                </div>
+              </article>
+            </li>
+          </ul>
+          <img
+            class="jobs-bottle updown"
+            src="./images/con3_bottle.png"
+            alt=""
+            aria-hidden="true"
+          />
+          <div class="jobs-cta-wrap">
+            <a class="jobs-cta" href="#jobs">모든 현직자 알아가기!</a>
+          </div>
+        </div>
+      </section>
+      <!-- Section 5: 성장 및 혁신 소식 -->
+      <section
+        class="innovation"
+        id="innovation"
+        aria-labelledby="innovation-title"
+      >
+        <div class="innovation-inner">
+          <header class="innovation-header">
+            <h2 id="innovation-title">
+              당신의 가능성,<br />한미그룹에서 더 크게 성장합니다
+            </h2>
+            <p>
+              연구와 혁신으로 성장하며 글로벌 제약/바이오 기업을 향해
+              나아갑니다.
+            </p>
+          </header>
+          <div class="innovation-stage">
+            <img
+              class="innovation-chemical"
+              src="./images/inno_chemical.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <img
+              class="innovation-atom bigsmall"
+              src="./images/inno_molecule1.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <ul class="innovation-news">
+              <li class="innovation-item innovation-item--left">
+                <a
+                  class="innovation-bubble"
+                  href="#innovation"
+                  aria-label="기사 확인: 한미약품, 상반기 누적 매출 8,602억원...2분기 영업이익 117% 증가"
+                >
+                  <svg
+                    class="innovation-tail"
+                    viewBox="0 0 18 13"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <span
+                    >한미약품, 상반기 누적 매출 8,602억원...2분기 영업이익 117%
+                    증가</span
+                  >
+                </a>
+              </li>
+              <li class="innovation-item innovation-item--right">
+                <a
+                  class="innovation-bubble"
+                  href="#innovation"
+                  aria-label="기사 확인: “사형형 지주사 경쟁력 입증”...한미사이언스, 2분기 영업이익 71%↑ 2분기 매출 3,679억원...상반기 누적 매출 7,216억원 돌파"
+                >
+                  <svg
+                    class="innovation-tail"
+                    viewBox="0 0 18 13"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <span
+                    >“사형형 지주사 경쟁력 입증”...한미사이언스, 2분기 영업이익
+                    71%↑ 2분기 매출 3,679억원...상반기 누적 매출 7,216억원
+                    돌파</span
+                  >
+                </a>
+              </li>
+              <li class="innovation-item innovation-item--left">
+                <a
+                  class="innovation-bubble"
+                  href="#innovation"
+                  aria-label="기사 확인: 한미약품, 로수 제네릭에 비만신약 기술수출...최대 3조 2,000억 규모"
+                >
+                  <svg
+                    class="innovation-tail"
+                    viewBox="0 0 18 13"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <span
+                    >한미약품, 로수 제네릭에 비만신약 기술수출...최대 3조
+                    2,000억 규모</span
+                  >
+                </a>
+              </li>
+              <li class="innovation-item innovation-item--right">
+                <a
+                  class="innovation-bubble"
+                  href="#innovation"
+                  aria-label="기사 확인: “UCN2 이어 또...” 한미약품, 두 번째 근육 증가 비만신약 공개"
+                >
+                  <svg
+                    class="innovation-tail"
+                    viewBox="0 0 18 13"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <span
+                    >“UCN2 이어 또...” 한미약품, 두 번째 근육 증가 비만신약
+                    공개</span
+                  >
+                </a>
+              </li>
+              <li class="innovation-item innovation-item--left">
+                <a
+                  class="innovation-bubble"
+                  href="#innovation"
+                  aria-label="기사 확인: 명품 반열 오른 한미 ‘로수젯’...압도적 데이터 경쟁력으로 시장 석권 2년 연속 국내사 개발 전문의약품 시장 ‘1위’...올해 상반기 누적 처방액도 선두"
+                >
+                  <svg
+                    class="innovation-tail"
+                    viewBox="0 0 18 13"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <span
+                    >명품 반열 오른 한미 ‘로수젯’...압도적 데이터 경쟁력으로
+                    시장 석권 2년 연속 국내사 개발 전문의약품 시장 ‘1위’...올해
+                    상반기 누적 처방액도 선두</span
+                  >
+                </a>
+              </li>
+              <li class="innovation-item innovation-item--right">
+                <a
+                  class="innovation-bubble"
+                  href="#innovation"
+                  aria-label="기사 확인: “비만 넘어 항암으로 혁신 확장”...한미, AACR서 차세대 신약 대거 공개"
+                >
+                  <svg
+                    class="innovation-tail"
+                    viewBox="0 0 18 13"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <span
+                    >“비만 넘어 항암으로 혁신 확장”...한미, AACR서 차세대 신약
+                    대거 공개</span
+                  >
+                </a>
+              </li>
+              <li class="innovation-item innovation-item--left">
+                <a
+                  class="innovation-bubble"
+                  href="#innovation"
+                  aria-label="기사 확인: 한미 완전두유·케어미, 영양에 ‘맛’까지 인정...국제 우수 미각상 수상"
+                >
+                  <svg
+                    class="innovation-tail"
+                    viewBox="0 0 18 13"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M18 0 H10 Q10 8 0 13 Q8 12 18 12 Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <span
+                    >한미 완전두유·케어미, 영양에 ‘맛’까지 인정...국제 우수
+                    미각상 수상</span
+                  >
+                </a>
+              </li>
+            </ul>
+            <p class="innovation-hint">
+              <span aria-hidden="true">•</span> 말풍선을 클릭해서 기사를 확인해
+              보세요.
+            </p>
+          </div>
+          <img
+            class="innovation-molecule updown"
+            src="./images/inno_molecule2.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+      </section>
+
+      <!-- Section 6: 회사 복지 -->
+      <section class="welfare" id="welfare" aria-labelledby="welfare-title">
+        <div class="welfare-inner">
+          <header class="welfare-header">
+            <h2 class="welfare-title" id="welfare-title">
+              한미 생활을<br class="welfare-title-break" />더 즐겁게 만드는 방법
+            </h2>
+            <p class="welfare-subtitle">
+              건강부터 성장, 휴식까지 알차게 준비한 복지를 소개할게요.
+            </p>
+            <img
+              class="welfare-character updown"
+              src="./images/imgi_76_con5_char.png"
+              alt="거울을 보며 건강을 챙기는 한미 캐릭터"
+            />
+          </header>
+
+          <div
+            class="welfare-scroll"
+            id="welfare-content"
+            aria-busy="true"
+          ></div>
+
+          <img
+            class="welfare-character-bottom"
+            src="./images/con5_cloud.png"
+            alt="한미그룹 복지 섹션의 구름 장식"
+          />
+        </div>
+      </section>
+
+      <section class="tasks" id="tasks" aria-labelledby="tasks-title">
+        <div class="tasks-hero" aria-hidden="true">
+          <img
+            class="tasks-hero-title-art"
+            src="./images/tasks_bg_title.png"
+            alt=""
+          />
+          <iframe
+            class="tasks-character-frame"
+            src="./hanmi-reading-eye-tracking/embed.html"
+            title="돋보기를 들고 걷는 한미 캐릭터 애니메이션"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="tasks-content">
+          <header class="tasks-heading">
+            <h2 id="tasks-title">
+              알약이를 따라<br />나에게 맞는 직무를 찾아봐요!
+            </h2>
+            <p>
+              연구부터 생산, 영업, 경영지원까지 당신의 가능성이 빛날 자리를
+              안내해 드릴게요.
+            </p>
+          </header>
+
+          <div class="tasks-tabs" role="tablist" aria-label="직무 분야">
+            <button
+              class="tasks-tab"
+              type="button"
+              role="tab"
+              id="tasks-tab-rnd"
+              aria-selected="true"
+              aria-controls="tasks-panel"
+              data-category="R&D"
+            >
+              R&amp;D
+            </button>
+            <button
+              class="tasks-tab"
+              type="button"
+              role="tab"
+              id="tasks-tab-production"
+              aria-selected="false"
+              aria-controls="tasks-panel"
+              data-category="생산/품질"
+            >
+              생산/품질
+            </button>
+            <button
+              class="tasks-tab"
+              type="button"
+              role="tab"
+              id="tasks-tab-sales"
+              aria-selected="false"
+              aria-controls="tasks-panel"
+              data-category="영업"
+            >
+              영업
+            </button>
+            <button
+              class="tasks-tab"
+              type="button"
+              role="tab"
+              id="tasks-tab-management"
+              aria-selected="false"
+              aria-controls="tasks-panel"
+              data-category="경영관리"
+            >
+              경영관리
+            </button>
+            <button
+              class="tasks-tab"
+              type="button"
+              role="tab"
+              id="tasks-tab-clinical"
+              aria-selected="false"
+              aria-controls="tasks-panel"
+              data-category="임상"
+            >
+              임상
+            </button>
+            <button
+              class="tasks-tab"
+              type="button"
+              role="tab"
+              id="tasks-tab-global"
+              aria-selected="false"
+              aria-controls="tasks-panel"
+              data-category="글로벌"
+            >
+              글로벌
+            </button>
+            <button
+              class="tasks-tab"
+              type="button"
+              role="tab"
+              id="tasks-tab-healthcare"
+              aria-selected="false"
+              aria-controls="tasks-panel"
+              data-category="헬스케어"
+            >
+              헬스케어
+            </button>
+          </div>
+
+          <div
+            class="tasks-accordion"
+            id="tasks-panel"
+            role="tabpanel"
+            aria-labelledby="tasks-tab-rnd"
+          >
+            <section class="tasks-group is-open">
+              <h3>
+                <button
+                  class="tasks-accordion-trigger"
+                  type="button"
+                  aria-expanded="true"
+                  aria-controls="tasks-rnd-center"
+                >
+                  <span>연구센터 (경기도 동탄)</span>
+                  <span class="tasks-count">6</span>
+                </button>
+              </h3>
+              <div class="tasks-group-panel" id="tasks-rnd-center">
+                <div class="tasks-job-grid">
+                  <button class="tasks-job" type="button" data-job="nce">
+                    <span>NCE (New Chemical Entity)</span>
+                    <span class="tasks-job-arrow" aria-hidden="true">→</span>
+                  </button>
+                  <button class="tasks-job" type="button" data-job="qsf">
+                    <span>QS&amp;F (Quality Science &amp; Formulation)</span>
+                    <span class="tasks-job-arrow" aria-hidden="true">→</span>
+                  </button>
+                  <button class="tasks-job" type="button" data-job="mst">
+                    <span>MST (Manufacturing Science Technology)</span>
+                    <span class="tasks-job-arrow" aria-hidden="true">→</span>
+                  </button>
+                  <button class="tasks-job" type="button" data-job="te">
+                    <span>TE (Toxicology Evaluation)</span>
+                    <span class="tasks-job-arrow" aria-hidden="true">→</span>
+                  </button>
+                  <button class="tasks-job" type="button" data-job="dst">
+                    <span>DST (Drug Science &amp; Technology)</span>
+                    <span class="tasks-job-arrow" aria-hidden="true">→</span>
+                  </button>
+                  <button class="tasks-job" type="button" data-job="bss">
+                    <span
+                      >BSS (Biological &amp; Structural Evaluation
+                      Science)</span
+                    >
+                    <span class="tasks-job-arrow" aria-hidden="true">→</span>
+                  </button>
+                </div>
+              </div>
+            </section>
+            <section class="tasks-group">
+              <h3>
+                <button
+                  class="tasks-accordion-trigger"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="tasks-rnd-formulation"
+                >
+                  <span>제제연구소 [의약혁신센터] (경기도 광교)</span>
+                  <span class="tasks-count">1</span>
+                </button>
+              </h3>
+              <div class="tasks-group-panel" id="tasks-rnd-formulation" hidden>
+                <div class="tasks-job-grid">
+                  <button
+                    class="tasks-job"
+                    type="button"
+                    data-job="formulation"
+                  >
+                    <span>제제연구 직무 상세</span>
+                    <span class="tasks-job-arrow" aria-hidden="true">→</span>
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="tasks-modal" id="tasks-modal" hidden>
+          <div
+            class="tasks-modal-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="tasks-modal-title"
+            tabindex="-1"
+          >
+            <img
+              class="tasks-modal-banner"
+              src="./images/tasks_rnd_bg.jpg"
+              alt=""
+            />
+            <button
+              class="tasks-modal-close"
+              type="button"
+              aria-label="상세 정보 닫기"
+            >
+              ×
+            </button>
+            <div class="tasks-modal-content">
+              <p class="tasks-modal-error" role="alert" hidden></p>
+              <div class="tasks-modal-data">
+                <div class="tasks-modal-header">
+                  <div class="tasks-modal-title-row">
+                    <h3 class="tasks-modal-title" id="tasks-modal-title"></h3>
+                    <span
+                      class="tasks-modal-category"
+                      id="tasks-modal-category"
+                    ></span>
+                    <span
+                      class="tasks-modal-location"
+                      id="tasks-modal-location"
+                    ></span>
+                  </div>
+                  <p class="tasks-modal-career" id="tasks-modal-career"></p>
+                </div>
+                <div class="tasks-modal-body">
+                  <section class="tasks-modal-section">
+                    <h4>직무 내용</h4>
+                    <ul id="tasks-modal-duties"></ul>
+                  </section>
+                  <section class="tasks-modal-section">
+                    <h4>자격요건</h4>
+                    <ul id="tasks-modal-qualifications"></ul>
+                  </section>
+                  <section
+                    class="tasks-modal-section"
+                    id="tasks-modal-preferred-section"
+                  >
+                    <h4>우대사항</h4>
+                    <ul id="tasks-modal-preferred"></ul>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="requirement"
+        id="qualification"
+        aria-labelledby="requirement-title"
+      >
+        <div class="requirement-inner">
+          <header class="requirement-header">
+            <h2 class="requirement-title" id="requirement-title">
+              한미그룹과 함께하는 문은<br />활짝 열려 있습니다
+            </h2>
+            <img
+              class="requirement-bulb updown"
+              src="./images/require_bulb.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </header>
+
+          <div class="requirement-tabs" role="tablist" aria-label="채용 안내">
+            <button
+              class="requirement-tab"
+              type="button"
+              role="tab"
+              id="requirement-tab-eligibility"
+              aria-selected="true"
+              aria-controls="eligibility-panel"
+              tabindex="0"
+            >
+              지원자격
+            </button>
+            <button
+              class="requirement-tab"
+              type="button"
+              role="tab"
+              id="requirement-tab-process"
+              aria-selected="false"
+              aria-controls="process-panel"
+              tabindex="-1"
+            >
+              전형절차 및 접수방법
+            </button>
+          </div>
+
+          <div
+            class="requirement-panel"
+            id="eligibility-panel"
+            role="tabpanel"
+            aria-labelledby="requirement-tab-eligibility"
+            tabindex="0"
+          >
+            <div class="eligibility-grid">
+              <article class="eligibility-item">
+                <img
+                  src="./images/require_calendar_3d.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <h3>27년 1월 입사가 가능한 자</h3>
+              </article>
+              <article class="eligibility-item">
+                <img
+                  src="./images/require_gradcap_3d.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <h3>기졸업자 또는 27년 2월 졸업 예정자</h3>
+              </article>
+            </div>
+            <div class="requirement-notes-divider">
+              <ul class="requirement-notes">
+                <li>남성의 경우 병역을 마쳤거나 면제인 분</li>
+                <li>해외여행 (또는 해외 출장)에 결격사유가 없는 분</li>
+                <li>취업보호대상자는 관련 법령에 의거하여 우대</li>
+              </ul>
+            </div>
+            <p class="requirement-notice">
+              모집 직무별로 지원자격이 상이하오니 반드시
+              <strong>&nbsp;채용 공고</strong>를 확인해 주시기 바랍니다.
+            </p>
+          </div>
+
+          <div
+            class="requirement-panel"
+            id="process-panel"
+            role="tabpanel"
+            aria-labelledby="requirement-tab-process"
+            tabindex="0"
+            hidden
+          >
+            <section
+              class="process-group"
+              aria-labelledby="process-sales-title"
+            >
+              <h3 id="process-sales-title">영업직군</h3>
+              <div class="process-steps">
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🗓️</span
+                  ><strong>지원접수</strong><span>9.28~10.18</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">📑</span
+                  ><strong>서류전형</strong><span>10.19~10.20</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🔎</span
+                  ><strong>AI역량검사</strong><span>10.21~10.25</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🪪</span
+                  ><strong>1차면접</strong><span>11월 중</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">📍</span
+                  ><strong>현장체험</strong><span>12월 초</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">💬</span
+                  ><strong>2차면접</strong><span>12월 중</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">📚</span
+                  ><strong>교육전형</strong><span>27.1.4~</span>
+                </div>
+              </div>
+            </section>
+
+            <section
+              class="process-group"
+              aria-labelledby="process-other-title"
+            >
+              <h3 id="process-other-title">영업 외 전직군</h3>
+              <div class="process-steps process-steps--six">
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🗓️</span
+                  ><strong>지원접수</strong><span>9.28~10.18</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">📑</span
+                  ><strong>서류전형</strong><span>10.19~10.20</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🔎</span
+                  ><strong>AI역량검사</strong><span>10.21~10.25</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🪪</span
+                  ><strong>1차면접</strong><span>11월 중</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">💬</span
+                  ><strong>2차면접</strong><span>12월 중</span>
+                </div>
+                <div class="process-step">
+                  <span class="process-step-icon" aria-hidden="true">🏢</span
+                  ><strong>입사</strong
+                  ><span>27.1.4~<br />(경력직 협의 가능)</span>
+                </div>
+              </div>
+            </section>
+
+            <ul
+              class="requirement-notes process-notes"
+              aria-label="전형절차 안내사항"
+            >
+              <li>
+                상기 일정은 상황에 따라 변경될 수 있으며 각 전형별 상세 일정은
+                대상자에 한해 개별 안내 예정입니다.
+              </li>
+              <li>
+                입사지원서에 허위 기재가 있거나 제출서류가 허위로 판명되는 경우,
+                또는 입사 이후 자격 미달이나 중대한 결격사유가 있는 경우는
+                입사가 취소될 수 있습니다.
+              </li>
+              <li>
+                지원서 제출 후에는 수정이 절대 불가하오니, 주의하시기 바랍니다.
+              </li>
+              <li class="requirement-notes-secondary">
+                전형단계별 결과는 E-Mail 및 SMS를 통하여 안내하오니 E-Mail 주소
+                및 휴대전화 번호를 정확히 기재해주시기 바랍니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="exposition"
+        id="exposition"
+        aria-labelledby="exposition-title"
+      >
+        <div class="exposition-inner">
+          <header class="exposition-header">
+            <img
+              class="exposition-character updown"
+              src="./images/expo_char.png"
+              alt="박람회와 캠퍼스를 찾아가는 한미 캐릭터"
+            />
+            <div class="exposition-copy">
+              <h2 class="exposition-title" id="exposition-title">
+                Hanmi 박람회/캠퍼스로 출발!
+              </h2>
+              <p class="exposition-intro">
+                한미그룹이 여러분을 만나러 박람회와 캠퍼스로 찾아갑니다.<br />
+                우리가 어디서 만날지 궁금하다면 아래 지역에서 찾아보세요!
+              </p>
+              <p class="exposition-hint">
+                학교명/장소를 클릭하거나 터치하면 세부장소를 확인하실 수
+                있습니다.
+              </p>
+            </div>
+          </header>
+
+          <div
+            class="exposition-tabs"
+            role="tablist"
+            aria-label="방문 일정 종류"
+          >
+            <button
+              class="exposition-tab"
+              type="button"
+              role="tab"
+              id="exposition-tab-fair"
+              aria-selected="true"
+              aria-controls="expo-fair-panel"
+              tabindex="0"
+            >
+              박람회
+            </button>
+            <button
+              class="exposition-tab"
+              type="button"
+              role="tab"
+              id="exposition-tab-campus"
+              aria-selected="false"
+              aria-controls="expo-campus-panel"
+              tabindex="-1"
+            >
+              캠퍼스
+            </button>
+          </div>
+
+          <div
+            class="exposition-panel"
+            id="expo-fair-panel"
+            role="tabpanel"
+            aria-labelledby="exposition-tab-fair"
+            tabindex="0"
+          >
+            <div
+              class="expo-schedule"
+              id="expo-fair-schedule"
+              aria-live="polite"
+              aria-busy="true"
+            ></div>
+          </div>
+
+          <div
+            class="exposition-panel"
+            id="expo-campus-panel"
+            role="tabpanel"
+            aria-labelledby="exposition-tab-campus"
+            tabindex="0"
+            hidden
+          >
+            <div
+              class="expo-region-tabs"
+              id="expo-region-tabs"
+              role="tablist"
+              aria-label="캠퍼스 방문 지역"
+            ></div>
+            <div
+              class="expo-schedule"
+              id="expo-campus-schedule"
+              aria-live="polite"
+              aria-busy="true"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="con8" id="con8" aria-label="한미그룹 바로가기">
+        <div class="con8-inner">
+          <img
+            class="con8-character updown"
+            src="./images/con8_char.png.png"
+            alt="책을 읽는 한미 캐릭터"
+          />
+          <div class="con8-links">
+            <a class="con8-card" href="#welfare">
+              <span class="con8-card-image">
+                <span class="con8-photo-frame">
+                  <img
+                    class="con8-photo"
+                    src="./images/con8_img1.jpg"
+                    alt="함께 손을 모은 사람들"
+                  />
+                </span>
+                <span class="con8-card-hover" aria-hidden="true">
+                  <span class="con8-hover-title">한미그룹 YouTube</span>
+                  <span class="con8-hover-arrow">→</span>
+                </span>
+                <img
+                  class="con8-mark con8-mark--arrow-left"
+                  src="./images/con8_Image.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <img
+                  class="con8-mark con8-mark--star"
+                  src="./images/con8_Image-2.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </span>
+              <span class="con8-card-copy">
+                <span class="con8-question"
+                  >한미그룹의
+                  <span class="con8-marked-word"
+                    >문화와 복지<img
+                      class="con8-mark--underline"
+                      src="./images/con8_Image-1.png"
+                      alt=""
+                      aria-hidden="true" /></span
+                  >가 궁금하다면?</span
+                >
+                <span class="con8-card-action">
+                  한미그룹 YouTube
+                  <span class="con8-card-arrow" aria-hidden="true">→</span>
+                </span>
+              </span>
+            </a>
+            <a class="con8-card" href="#tasks">
+              <span class="con8-card-image">
+                <span class="con8-photo-frame">
+                  <img
+                    class="con8-photo"
+                    src="./images/con8_img2.jpg"
+                    alt="촬영 카메라"
+                  />
+                </span>
+                <span class="con8-card-hover" aria-hidden="true">
+                  <span class="con8-hover-title"
+                    >한미그룹 직무 소개 페이지</span
+                  >
+                  <span class="con8-hover-arrow">→</span>
+                </span>
+                <img
+                  class="con8-mark con8-mark--arrow-right"
+                  src="./images/con8_Image-4.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </span>
+              <span class="con8-card-copy">
+                <span class="con8-question"
+                  >한미그룹의
+                  <span class="con8-marked-word"
+                    >직무<img
+                      class="con8-mark--circle"
+                      src="./images/con8_Image-3.png"
+                      alt=""
+                      aria-hidden="true" /></span
+                  >가 궁금하다면?</span
+                >
+                <span class="con8-card-action">
+                  한미그룹 직무 소개 페이지
+                  <span class="con8-card-arrow" aria-hidden="true">→</span>
+                </span>
+              </span>
+            </a>
+            <a class="con8-card" href="#qualification">
+              <span class="con8-card-image">
+                <span class="con8-photo-frame">
+                  <img
+                    class="con8-photo"
+                    src="./images/con8_img3.jpg"
+                    alt="한미약품 연구센터"
+                  />
+                </span>
+                <span class="con8-card-hover" aria-hidden="true">
+                  <span class="con8-hover-title">한미그룹 채용 홈페이지</span>
+                  <span class="con8-hover-arrow">→</span>
+                </span>
+              </span>
+              <span class="con8-card-copy">
+                <span class="con8-question"
+                  >한미그룹의
+                  <span class="con8-marked-word"
+                    >채용소식을<img
+                      class="con8-mark--wave"
+                      src="./images/con8_Image-5.png"
+                      alt=""
+                      aria-hidden="true"
+                  /></span>
+                  빠르게 받고 싶다면?</span
+                >
+                <span class="con8-card-action">
+                  한미그룹 채용 홈페이지
+                  <span class="con8-card-arrow" aria-hidden="true">→</span>
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="con9"
+        id="con9"
+        aria-labelledby="con9-title"
+        data-deadline="2026-10-18T23:59:00+09:00"
+      >
+        <img
+          class="con9-cloud con9-cloud--left"
+          src="./images/con9_cloud_l.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="con9-cloud con9-cloud--right"
+          src="./images/con9_cloud_r.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="con9-glow"
+          src="./images/con9_Background+Blur.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <h2 class="con9-title" id="con9-title">
+          당신에게 딱 맞는 자리를 찾으러 출발!
+        </h2>
+        <div
+          class="con9-countdown"
+          role="timer"
+          aria-label="지원 마감까지 남은 시간"
+        >
+          <span class="con9-countdown-part"
+            ><strong class="con9-countdown-number" data-countdown-days
+              >00</strong
+            >
+            일</span
+          >
+          <span class="con9-countdown-part"
+            ><strong class="con9-countdown-number" data-countdown-hours
+              >00</strong
+            >
+            시간</span
+          >
+          <span class="con9-countdown-part"
+            ><strong class="con9-countdown-number" data-countdown-minutes
+              >00</strong
+            >
+            분</span
+          >
+          <span class="con9-countdown-part"
+            ><strong class="con9-countdown-number" data-countdown-seconds
+              >00</strong
+            >
+            초 남았어요</span
+          >
+        </div>
+        <div class="con9-visual">
+          <img
+            class="con9-globe"
+            src="./images/con9_apply.png"
+            alt="지구본과 종이비행기 오브제"
+          />
+          <a
+            class="con9-apply"
+            href="#qualification"
+            aria-label="지원하기 — 지원 일정 확인하기"
+          >
+            <span class="con9-apply-text">지원하기</span>
+            <span class="con9-apply-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+        <p class="con9-status" id="con9-status">
+          아이콘을 클릭해서 지원해주세요!
+        </p>
+      </section>
+    </main>
+
+    <!-- 하단 푸터 영역 -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <img class="footer-logo" src="./images/logo.svg" alt="Hanmi 한미그룹" />
+      </div>
+    </footer>
+  </body>
+</html>
