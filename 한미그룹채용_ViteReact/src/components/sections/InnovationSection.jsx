@@ -1,3 +1,4 @@
+import { publicAssetUrl } from "../../utils/publicAssetUrl.js";
 export default function InnovationSection() {
   return (
     <section
@@ -18,13 +19,13 @@ export default function InnovationSection() {
               <div className="innovation-stage">
                 <img
                   className="innovation-chemical"
-                  src="/images/inno_chemical.png"
+                  src={publicAssetUrl("images/inno_chemical.png")}
                   alt=""
                   aria-hidden="true"
                 />
                 <img
                   className="innovation-atom bigsmall"
-                  src="/images/inno_molecule1.png"
+                  src={publicAssetUrl("images/inno_molecule1.png")}
                   alt=""
                   aria-hidden="true"
                 />
@@ -200,7 +201,7 @@ export default function InnovationSection() {
               </div>
               <img
                 className="innovation-molecule updown"
-                src="/images/inno_molecule2.png"
+                src={publicAssetUrl("images/inno_molecule2.png")}
                 alt=""
                 aria-hidden="true"
               />

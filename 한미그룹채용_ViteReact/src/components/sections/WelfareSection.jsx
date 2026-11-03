@@ -1,3 +1,4 @@
+import { publicAssetUrl } from "../../utils/publicAssetUrl.js";
 export default function WelfareSection() {
   return (
     <section className="welfare" id="welfare" aria-labelledby="welfare-title">
@@ -11,7 +12,7 @@ export default function WelfareSection() {
                 </p>
                 <img
                   className="welfare-character updown"
-                  src="/images/imgi_76_con5_char.png"
+                  src={publicAssetUrl("images/imgi_76_con5_char.png")}
                   alt="거울을 보며 건강을 챙기는 한미 캐릭터"
                 />
               </header>
@@ -24,7 +25,7 @@ export default function WelfareSection() {
     
               <img
                 className="welfare-character-bottom"
-                src="/images/con5_cloud.png"
+                src={publicAssetUrl("images/con5_cloud.png")}
                 alt="한미그룹 복지 섹션의 구름 장식"
               />
             </div>

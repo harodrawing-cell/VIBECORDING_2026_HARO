@@ -1,10 +1,11 @@
+import { publicAssetUrl } from "../../utils/publicAssetUrl.js";
 export default function LinksSection() {
   return (
     <section className="con8" id="con8" aria-label="한미그룹 바로가기">
             <div className="con8-inner">
               <img
                 className="con8-character updown"
-                src="/images/con8_char.png.png"
+                src={publicAssetUrl("images/con8_char.png.png")}
                 alt="책을 읽는 한미 캐릭터"
               />
               <div className="con8-links">
@@ -13,7 +14,7 @@ export default function LinksSection() {
                     <span className="con8-photo-frame">
                       <img
                         className="con8-photo"
-                        src="/images/con8_img1.jpg"
+                        src={publicAssetUrl("images/con8_img1.jpg")}
                         alt="함께 손을 모은 사람들"
                       />
                     </span>
@@ -23,13 +24,13 @@ export default function LinksSection() {
                     </span>
                     <img
                       className="con8-mark con8-mark--arrow-left"
-                      src="/images/con8_Image.png"
+                      src={publicAssetUrl("images/con8_Image.png")}
                       alt=""
                       aria-hidden="true"
                     />
                     <img
                       className="con8-mark con8-mark--star"
-                      src="/images/con8_Image-2.png"
+                      src={publicAssetUrl("images/con8_Image-2.png")}
                       alt=""
                       aria-hidden="true"
                     />
@@ -40,7 +41,7 @@ export default function LinksSection() {
                       <span className="con8-marked-word"
                         >문화와 복지<img
                           className="con8-mark--underline"
-                          src="/images/con8_Image-1.png"
+                          src={publicAssetUrl("images/con8_Image-1.png")}
                           alt=""
                           aria-hidden="true" /></span
                       >가 궁금하다면?</span
@@ -56,7 +57,7 @@ export default function LinksSection() {
                     <span className="con8-photo-frame">
                       <img
                         className="con8-photo"
-                        src="/images/con8_img2.jpg"
+                        src={publicAssetUrl("images/con8_img2.jpg")}
                         alt="촬영 카메라"
                       />
                     </span>
@@ -68,7 +69,7 @@ export default function LinksSection() {
                     </span>
                     <img
                       className="con8-mark con8-mark--arrow-right"
-                      src="/images/con8_Image-4.png"
+                      src={publicAssetUrl("images/con8_Image-4.png")}
                       alt=""
                       aria-hidden="true"
                     />
@@ -79,7 +80,7 @@ export default function LinksSection() {
                       <span className="con8-marked-word"
                         >직무<img
                           className="con8-mark--circle"
-                          src="/images/con8_Image-3.png"
+                          src={publicAssetUrl("images/con8_Image-3.png")}
                           alt=""
                           aria-hidden="true" /></span
                       >가 궁금하다면?</span
@@ -95,7 +96,7 @@ export default function LinksSection() {
                     <span className="con8-photo-frame">
                       <img
                         className="con8-photo"
-                        src="/images/con8_img3.jpg"
+                        src={publicAssetUrl("images/con8_img3.jpg")}
                         alt="한미약품 연구센터"
                       />
                     </span>
@@ -110,7 +111,7 @@ export default function LinksSection() {
                       <span className="con8-marked-word"
                         >채용소식을<img
                           className="con8-mark--wave"
-                          src="/images/con8_Image-5.png"
+                          src={publicAssetUrl("images/con8_Image-5.png")}
                           alt=""
                           aria-hidden="true"
                       /></span>

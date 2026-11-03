@@ -1,3 +1,4 @@
+import { publicAssetUrl } from "../../utils/publicAssetUrl.js";
 export default function HistorySection() {
   return (
     <section
@@ -17,7 +18,7 @@ export default function HistorySection() {
                   </p>
                   <img
                     className="history-deco history-deco--star updown"
-                    src="/images/obj_star_big.png"
+                    src={publicAssetUrl("images/obj_star_big.png")}
                     alt="반짝이는 노란 별 세 개"
                   />
                 </header>
@@ -51,13 +52,13 @@ export default function HistorySection() {
                     </ul>
                     <figure className="history-figure history-figure--1">
                       <img
-                        src="/images/his1.png"
+                        src={publicAssetUrl("images/his1.png")}
                         alt="한미약품 초기 대표 제품 텐텐 어린이 영양제와 쎄쎄 비타민C 캐러멜"
                       />
                     </figure>
                     <img
                       className="history-deco history-deco--beaker updown"
-                      src="/images/obj_beaker.png"
+                      src={publicAssetUrl("images/obj_beaker.png")}
                       alt="분홍색 액체가 담긴 실험용 비커"
                     />
                   </div>
@@ -94,18 +95,18 @@ export default function HistorySection() {
                     </ul>
                     <figure className="history-figure history-figure--2">
                       <img
-                        src="/images/his2.png"
+                        src={publicAssetUrl("images/his2.png")}
                         alt="석양을 배경으로 손을 잡고 함께 뛰어오르는 다섯 사람의 실루엣"
                       />
                     </figure>
                     <img
                       className="history-deco history-deco--mol-blur1"
-                      src="/images/obj_mol_blur1.png"
+                      src={publicAssetUrl("images/obj_mol_blur1.png")}
                       alt="흐릿하게 번진 푸른 분자 구조"
                     />
                     <img
                       className="history-deco history-deco--microscope updown"
-                      src="/images/obj_microscope.png"
+                      src={publicAssetUrl("images/obj_microscope.png")}
                       alt="파란색 현미경"
                     />
                   </div>
@@ -149,7 +150,7 @@ export default function HistorySection() {
                     </ul>
                     <figure className="history-figure history-figure--3">
                       <img
-                        src="/images/his3.png"
+                        src={publicAssetUrl("images/his3.png")}
                         alt="스펙트럼 파마슈티컬스 로고와 인체 모형, 에소메졸 제품 용기"
                       />
                     </figure>
@@ -187,13 +188,13 @@ export default function HistorySection() {
                     </ul>
                     <figure className="history-figure history-figure--4">
                       <img
-                        src="/images/his4.png"
+                        src={publicAssetUrl("images/his4.png")}
                         alt="미국임상종양학회 ASCO와 미국약전 USP 로고, 로수젯 제품 패키지"
                       />
                     </figure>
                     <img
                       className="history-deco history-deco--mol-blur2"
-                      src="/images/obj_mol_blur2.png"
+                      src={publicAssetUrl("images/obj_mol_blur2.png")}
                       alt="흐릿하게 번진 분홍빛 분자 구조"
                     />
                   </div>
@@ -250,13 +251,13 @@ export default function HistorySection() {
                     </ul>
                     <figure className="history-figure history-figure--5">
                       <img
-                        src="/images/his5.png"
+                        src={publicAssetUrl("images/his5.png")}
                         alt="THE LANCET 창간 200주년 표지와 롤론티스 작용 원리, 롤론티스 제품 패키지"
                       />
                     </figure>
                     <img
                       className="history-deco history-deco--mol-big"
-                      src="/images/obj_mol_big.png"
+                      src={publicAssetUrl("images/obj_mol_big.png")}
                       alt="유리 질감의 큰 분자 구조 모형"
                     />
                   </div>
@@ -283,12 +284,12 @@ export default function HistorySection() {
                   </div>
                   <img
                     className="history-deco history-deco--cloud"
-                    src="/images/cloud_blur_medium.png"
+                    src={publicAssetUrl("images/cloud_blur_medium.png")}
                     alt="캐릭터 아래에 깔린 흐릿한 구름 그림자"
                   />
                   <img
                     className="history-deco history-deco--char leftright"
-                    src="/images/con2_char.png"
+                    src={publicAssetUrl("images/con2_char.png")}
                     alt="사원증을 목에 걸고 달려가는 파란색 알약 캐릭터"
                   />
                 </footer>

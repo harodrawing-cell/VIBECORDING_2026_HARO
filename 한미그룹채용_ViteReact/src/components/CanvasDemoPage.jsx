@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import CanvasPlayer from "./CanvasPlayer.jsx";
+import { publicAssetUrl } from "../utils/publicAssetUrl.js";
 
 const pages = {
   walker: {
@@ -32,7 +33,7 @@ export default function CanvasDemoPage({ variant }) {
       </main>
       <footer>
         <p>원본 PNG 시퀀스 + Canvas 눈동자 합성</p>
-        <a href="/">한미그룹 채용 페이지로 돌아가기</a>
+        <a href={publicAssetUrl("")}>한미그룹 채용 페이지로 돌아가기</a>
       </footer>
     </div>
   );

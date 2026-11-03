@@ -1,3 +1,4 @@
+import { publicAssetUrl } from "../../utils/publicAssetUrl.js";
 export default function ExpositionSection() {
   return (
     <section
@@ -9,7 +10,7 @@ export default function ExpositionSection() {
               <header className="exposition-header">
                 <img
                   className="exposition-character updown"
-                  src="/images/expo_char.png"
+                  src={publicAssetUrl("images/expo_char.png")}
                   alt="박람회와 캠퍼스를 찾아가는 한미 캐릭터"
                 />
                 <div className="exposition-copy">

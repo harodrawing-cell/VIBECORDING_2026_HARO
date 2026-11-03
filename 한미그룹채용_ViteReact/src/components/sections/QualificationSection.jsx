@@ -1,3 +1,4 @@
+import { publicAssetUrl } from "../../utils/publicAssetUrl.js";
 export default function QualificationSection() {
   return (
     <section
@@ -12,7 +13,7 @@ export default function QualificationSection() {
                 </h2>
                 <img
                   className="requirement-bulb updown"
-                  src="/images/require_bulb.png"
+                  src={publicAssetUrl("images/require_bulb.png")}
                   alt=""
                   aria-hidden="true"
                 />
@@ -53,7 +54,7 @@ export default function QualificationSection() {
                 <div className="eligibility-grid">
                   <article className="eligibility-item">
                     <img
-                      src="/images/require_calendar_3d.png"
+                      src={publicAssetUrl("images/require_calendar_3d.png")}
                       alt=""
                       aria-hidden="true"
                     />
@@ -61,7 +62,7 @@ export default function QualificationSection() {
                   </article>
                   <article className="eligibility-item">
                     <img
-                      src="/images/require_gradcap_3d.png"
+                      src={publicAssetUrl("images/require_gradcap_3d.png")}
                       alt=""
                       aria-hidden="true"
                     />

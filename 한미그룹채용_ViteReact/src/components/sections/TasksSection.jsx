@@ -1,3 +1,4 @@
+import { publicAssetUrl } from "../../utils/publicAssetUrl.js";
 import CanvasPlayer from "../CanvasPlayer.jsx";
 
 export default function TasksSection() {
@@ -6,7 +7,7 @@ export default function TasksSection() {
             <div className="tasks-hero" aria-hidden="true">
               <img
                 className="tasks-hero-title-art"
-                src="/images/tasks_bg_title.png"
+                src={publicAssetUrl("images/tasks_bg_title.png")}
                 alt=""
               />
               <CanvasPlayer className="tasks-character-frame" variant="reading" />
@@ -190,7 +191,7 @@ export default function TasksSection() {
               >
                 <img
                   className="tasks-modal-banner"
-                  src="/images/tasks_rnd_bg.jpg"
+                  src={publicAssetUrl("images/tasks_rnd_bg.jpg")}
                   alt=""
                 />
                 <button

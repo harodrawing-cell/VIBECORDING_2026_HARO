@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from "react";
+import { publicAssetUrl } from "../utils/publicAssetUrl.js";
 
 const canvasVariants = {
   walker: {
-    metadataUrl: "/hanmi-eye-tracking/hanmi-eye-tracking/metadata.json",
-    assetBase: "/hanmi-eye-tracking/hanmi-eye-tracking/assets/",
+    metadataUrl: publicAssetUrl("hanmi-eye-tracking/hanmi-eye-tracking/metadata.json"),
+    assetBase: publicAssetUrl("hanmi-eye-tracking/hanmi-eye-tracking/assets/"),
     title: "초록 행성 위를 걸으며 마우스를 바라보는 파란색 캐릭터",
   },
   reading: {
-    metadataUrl: "/hanmi-reading-eye-tracking/metadata.json",
-    assetBase: "/hanmi-reading-eye-tracking/assets/",
+    metadataUrl: publicAssetUrl("hanmi-reading-eye-tracking/metadata.json"),
+    assetBase: publicAssetUrl("hanmi-reading-eye-tracking/assets/"),
     title: "마우스를 바라보며 돋보기를 든 캐릭터",
   },
 };
@@ -306,7 +307,7 @@ export default function CanvasPlayer({
             await new Promise((resolve, reject) => {
               image.onload = resolve;
               image.onerror = () => reject(new Error(filename));
-              image.src = `${config.assetBase}${filename}`;
+              image.src = new URL(filename, config.assetBase).href;
             });
             if (image.decode) await image.decode();
             if (!active) return;

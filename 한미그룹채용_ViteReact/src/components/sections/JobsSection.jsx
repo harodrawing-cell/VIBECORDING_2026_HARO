@@ -1,3 +1,4 @@
+import { publicAssetUrl } from "../../utils/publicAssetUrl.js";
 export default function JobsSection() {
   return (
     <section className="jobs" id="jobs" aria-labelledby="jobs-title">
@@ -5,7 +6,7 @@ export default function JobsSection() {
               <header className="jobs-header">
                 <img
                   className="jobs-logo"
-                  src="/images/con3_logo.png"
+                  src={publicAssetUrl("images/con3_logo.png")}
                   alt="Hanmi 로고"
                 />
                 <h2 className="jobs-title" id="jobs-title">
@@ -18,7 +19,7 @@ export default function JobsSection() {
               </header>
               <img
                 className="jobs-character leftright"
-                src="/images/con3_char.png"
+                src={publicAssetUrl("images/con3_char.png")}
                 alt=""
                 aria-hidden="true"
               />
@@ -27,7 +28,7 @@ export default function JobsSection() {
                   <article className="jobs-card">
                     <img
                       className="jobs-photo"
-                      src="/images/con3_int1.jpg"
+                      src={publicAssetUrl("images/con3_int1.jpg")}
                       alt="실험실에서 의약품 품질관리 업무를 소개하는 이건호 사원"
                     />
                     <p className="jobs-description">
@@ -59,7 +60,7 @@ export default function JobsSection() {
                   <article className="jobs-card">
                     <img
                       className="jobs-photo"
-                      src="/images/con3_int2.jpg"
+                      src={publicAssetUrl("images/con3_int2.jpg")}
                       alt="사무실 소파에 앉아 있는 신약 연구원 박진하 연구원"
                     />
                     <p className="jobs-description">
@@ -90,7 +91,7 @@ export default function JobsSection() {
               </ul>
               <img
                 className="jobs-bottle updown"
-                src="/images/con3_bottle.png"
+                src={publicAssetUrl("images/con3_bottle.png")}
                 alt=""
                 aria-hidden="true"
               />

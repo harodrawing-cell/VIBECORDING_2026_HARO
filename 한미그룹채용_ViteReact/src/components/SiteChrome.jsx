@@ -1,3 +1,4 @@
+import { publicAssetUrl } from "../utils/publicAssetUrl.js";
 export function SmoothScrollToggle() {
   return (
     <label
@@ -18,7 +19,7 @@ export function SiteHeader() {
     <header className="site-header">
           <div className="header-inner">
             <a className="brand" href="#main-visual" aria-label="한미그룹 홈">
-              <img src="/images/logo.svg" alt="Hanmi 한미그룹" />
+              <img src={publicAssetUrl("images/logo.svg")} alt="Hanmi 한미그룹" />
             </a>
             <nav className="gnb" id="gnb" aria-label="주요 메뉴">
               <ul className="gnb-list">
@@ -71,7 +72,7 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
           <div className="footer-inner">
-            <img className="footer-logo" src="/images/logo.svg" alt="Hanmi 한미그룹" />
+            <img className="footer-logo" src={publicAssetUrl("images/logo.svg")} alt="Hanmi 한미그룹" />
           </div>
         </footer>
   );

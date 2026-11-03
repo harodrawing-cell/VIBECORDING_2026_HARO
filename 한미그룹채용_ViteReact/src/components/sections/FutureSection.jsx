@@ -1,3 +1,4 @@
+import { publicAssetUrl } from "../../utils/publicAssetUrl.js";
 import CanvasPlayer from "../CanvasPlayer.jsx";
 
 export default function FutureSection() {
@@ -10,34 +11,34 @@ export default function FutureSection() {
               </h2>
               <img
                 className="mirae-cloud mirae-cloud-left"
-                src="/images/mirae_cloud3.png"
+                src={publicAssetUrl("images/mirae_cloud3.png")}
                 alt="왼쪽 아래에 떠 있는 하얀 입체 구름"
               />
               <img
                 className="mirae-cloud mirae-cloud-right"
-                src="/images/mirae_cloud4.png"
+                src={publicAssetUrl("images/mirae_cloud4.png")}
                 alt="오른쪽에 떠 있는 커다란 하얀 입체 구름"
               />
               <img
                 className="mirae-cloud mirae-cloud-blur-left"
-                src="/images/mirae_cloud1.png"
+                src={publicAssetUrl("images/mirae_cloud1.png")}
                 alt="왼쪽 멀리 흐릿하게 떠 있는 구름"
               />
               <img
                 className="mirae-cloud mirae-cloud-blur-right"
-                src="/images/mirae_cloud2.png"
+                src={publicAssetUrl("images/mirae_cloud2.png")}
                 alt="오른쪽 아래 멀리 흐릿하게 떠 있는 작은 구름"
               />
               <div className="mirae-character-stage">
                 <CanvasPlayer className="mirae-walking" variant="walker" />
                 <img
                   className="mirae-star mirae-star-top"
-                  src="/images/mirae_star1.png"
+                  src={publicAssetUrl("images/mirae_star1.png")}
                   alt="캐릭터 머리 오른쪽 위에 반짝이는 노란 별"
                 />
                 <img
                   className="mirae-star mirae-star-bottom"
-                  src="/images/mirae_star2.png"
+                  src={publicAssetUrl("images/mirae_star2.png")}
                   alt="캐릭터 몸통 왼쪽 아래에 반짝이는 노란 별"
                 />
               </div>

@@ -1,3 +1,4 @@
+import { publicAssetUrl } from "../../utils/publicAssetUrl.js";
 export default function MainVisual() {
   return (
     <section className="main-visual" id="main-visual" aria-label="메인 비주얼">
@@ -21,16 +22,16 @@ export default function MainVisual() {
               <div className="mv-stage" aria-hidden="true">
                 <div className="ring-glow"></div>
                 <div className="ring-line"></div>
-                <img className="mv-micro updown" src="/images/mv_micro.png" alt="" />
-                <img className="mv-char1 updown" src="/images/mv_char1.png" alt="" />
-                <img className="mv-char2 updown" src="/images/mv_char2.png" alt="" />
-                <img className="mv-char3 updown" src="/images/mv_char3.png" alt="" />
-                <img className="mv-char4 updown" src="/images/mv_char4.png" alt="" />
-                <img className="mv-star1" src="/images/mv_star1.svg" alt="" />
-                <img className="mv-star2" src="/images/mv_star2.svg" alt="" />
-                <img className="mv-star3" src="/images/mv_star3.svg" alt="" />
-                <img className="mv-star4" src="/images/mv_star4.svg" alt="" />
-                <img className="mv-star5" src="/images/mv_star3.svg" alt="" />
+                <img className="mv-micro updown" src={publicAssetUrl("images/mv_micro.png")} alt="" />
+                <img className="mv-char1 updown" src={publicAssetUrl("images/mv_char1.png")} alt="" />
+                <img className="mv-char2 updown" src={publicAssetUrl("images/mv_char2.png")} alt="" />
+                <img className="mv-char3 updown" src={publicAssetUrl("images/mv_char3.png")} alt="" />
+                <img className="mv-char4 updown" src={publicAssetUrl("images/mv_char4.png")} alt="" />
+                <img className="mv-star1" src={publicAssetUrl("images/mv_star1.svg")} alt="" />
+                <img className="mv-star2" src={publicAssetUrl("images/mv_star2.svg")} alt="" />
+                <img className="mv-star3" src={publicAssetUrl("images/mv_star3.svg")} alt="" />
+                <img className="mv-star4" src={publicAssetUrl("images/mv_star4.svg")} alt="" />
+                <img className="mv-star5" src={publicAssetUrl("images/mv_star3.svg")} alt="" />
               </div>
             </div>
     

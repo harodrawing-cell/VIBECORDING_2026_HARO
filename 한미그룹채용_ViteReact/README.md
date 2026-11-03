@@ -28,4 +28,4 @@ npm run build
 npm run preview
 ```
 
-정적 배포 산출물은 `dist/`에 생성됩니다. 이미지·데이터·Canvas 프레임도 함께 포함되므로 `dist/` 전체를 웹 서버에 배포해야 합니다. 배포 서버는 Canvas 데모 경로를 `index.html`로 되돌리는 SPA fallback을 지원해야 합니다.
+정적 배포 산출물은 `dist/`에 생성되며 HTML, CSS, JS, 이미지, JSON, Canvas 에셋 경로를 상대 경로로 사용합니다. 이미지·데이터·Canvas 프레임도 함께 포함되므로 `dist/` 전체를 웹 서버에 배포해야 합니다. 배포 서버는 Canvas 데모 경로를 `index.html`로 되돌리는 SPA fallback을 지원해야 합니다.

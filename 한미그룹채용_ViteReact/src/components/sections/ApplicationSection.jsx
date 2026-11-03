@@ -1,3 +1,4 @@
+import { publicAssetUrl } from "../../utils/publicAssetUrl.js";
 export default function ApplicationSection() {
   return (
     <section
@@ -8,19 +9,19 @@ export default function ApplicationSection() {
           >
             <img
               className="con9-cloud con9-cloud--left"
-              src="/images/con9_cloud_l.png"
+              src={publicAssetUrl("images/con9_cloud_l.png")}
               alt=""
               aria-hidden="true"
             />
             <img
               className="con9-cloud con9-cloud--right"
-              src="/images/con9_cloud_r.png"
+              src={publicAssetUrl("images/con9_cloud_r.png")}
               alt=""
               aria-hidden="true"
             />
             <img
               className="con9-glow"
-              src="/images/con9_Background+Blur.png"
+              src={publicAssetUrl("images/con9_Background+Blur.png")}
               alt=""
               aria-hidden="true"
             />
@@ -60,7 +61,7 @@ export default function ApplicationSection() {
             <div className="con9-visual">
               <img
                 className="con9-globe"
-                src="/images/con9_apply.png"
+                src={publicAssetUrl("images/con9_apply.png")}
                 alt="지구본과 종이비행기 오브제"
               />
               <a
